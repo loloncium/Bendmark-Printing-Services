@@ -1,0 +1,23 @@
+site: https://bendmark.com
+
+# Homepage
+https://bendmark.com/
+https://bendmark.com/index.html
+
+# Services
+https://bendmark.com/pages/3d-signs.html
+https://bendmark.com/pages/road-signs.html
+https://bendmark.com/pages/construction-signs.html
+https://bendmark.com/pages/posters.html
+https://bendmark.com/pages/fliers.html
+https://bendmark.com/pages/documents.html
+https://bendmark.com/pages/business-cards.html
+https://bendmark.com/pages/custom-printing.html
+https://bendmark.com/pages/banners.html
+
+# Change frequency and priority
+# Homepage - daily updates
+https://bendmark.com/ weekly 1.0
+
+# Service pages - monthly updates
+https://bendmark.com/pages/ monthly 0.9

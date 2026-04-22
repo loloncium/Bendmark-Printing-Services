@@ -1,0 +1,287 @@
+<!-- 
+   BendMark Website - Setup Checklist & Configuration
+   
+   This file lists all the customization points you need to configure
+   before launching the website. Complete each item as you set them up.
+-->
+
+# BENDMARK WEBSITE - CONFIGURATION CHECKLIST
+
+## 1. CONTACT INFORMATION
+- [ ] Company Name: BendMark
+- [ ] Phone Number: (123) 456-7890
+  - Update in: index.html (line ~280), footer section, and all service pages
+- [ ] Email: info@bendmark.com
+  - Update in: index.html, all service pages
+- [ ] Business Address: 123 Print Street, City, State 12345
+  - Update in: index.html location section
+- [ ] Business Hours: 
+  - Monday-Friday: 9:00 AM - 6:00 PM
+  - Saturday: 10:00 AM - 4:00 PM
+  - Sunday: Closed
+
+## 2. IMAGE ASSETS
+- [ ] Carousel Images (9 images needed)
+  - Dimensions: Recommended 1920x500px or 1600x400px
+  - Format: JPG or WebP for better compression
+  - Save to: /images/ folder
+  - Update carousel slides in index.html to reference actual images
+  
+- [ ] Company Logo
+  - Size: 200-300px wide
+  - Format: PNG or SVG
+  - Update logo in header
+
+- [ ] Social Media Profile Images
+  - Use actual social media platform icons or your branded versions
+
+## 3. GOOGLE SERVICES
+### Google AdSense (REQUIRED for monetization)
+- [ ] Sign up at https://www.google.com/adsense/
+- [ ] Get your Publisher ID (format: ca-pub-xxxxxxxxxxxxxxxx)
+- [ ] Add to index.html line 25: 
+  ```html
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"></script>
+  ```
+- [ ] Uncomment ad code blocks in each HTML file
+- [ ] Customize ad placements as needed
+
+### Google Analytics (OPTIONAL but recommended)
+- [ ] Create account at https://analytics.google.com/
+- [ ] Get your Measurement ID (format: G-XXXXXXXXXX)
+- [ ] Replace GA_MEASUREMENT_ID in index.html line ~32
+
+### Google Search Console (FREE - highly recommended)
+- [ ] Sign up at https://search.google.com/search-console/
+- [ ] Verify domain ownership
+- [ ] Submit sitemap.xml
+- [ ] Monitor search performance
+
+### Google Maps (EMBEDDED MAP)
+- [ ] Go to https://www.google.com/maps/
+- [ ] Search for your business location
+- [ ] Click "Share" > "Embed a map"
+- [ ] Copy the iframe code
+- [ ] Update in index.html around line ~355
+
+## 4. SOCIAL MEDIA INTEGRATION
+- [ ] Facebook Business Page URL: 
+  - Update: index.html line ~435
+  - Format: https://facebook.com/bendmark
+  
+- [ ] Twitter/X Page URL:
+  - Update: index.html line ~436
+  - Format: https://twitter.com/bendmark
+  
+- [ ] Instagram Profile URL:
+  - Update: index.html line ~437
+  - Format: https://instagram.com/bendmark
+  
+- [ ] LinkedIn Company Page URL:
+  - Update: index.html line ~438
+  - Format: https://linkedin.com/company/bendmark
+  
+- [ ] YouTube Channel URL:
+  - Update: index.html line ~439
+  - Format: https://youtube.com/@bendmark
+
+## 5. DOMAIN & HOSTING
+- [ ] Purchase domain name (bendmark.com or custom)
+- [ ] Set up hosting account (Bluehost, Namecheap, AWS, etc.)
+- [ ] Update all canonical URLs:
+  - In index.html meta tag: https://your-domain.com
+  - In sitemap.xml: Replace all instances of bendmark.com
+- [ ] Configure DNS records
+- [ ] Set up SSL/HTTPS certificate (Let's Encrypt is free)
+- [ ] Upload all files via FTP/SFTP
+
+## 6. EMAIL & FORMS
+- [ ] Set up business email address (info@bendmark.com)
+- [ ] Configure email server / SMTP settings
+- [ ] Test contact form submissions
+- [ ] Implement backend form handler (PHP, Node.js, Formspree, etc.)
+- [ ] Set up email notifications for quote requests
+
+## 7. SEO OPTIMIZATION
+- [ ] Update Meta Descriptions (currently placeholders)
+  - Edit in: index.html, all service pages
+  
+- [ ] Add Organization Schema (Local Business)
+  - Add to header of index.html
+  
+- [ ] Verify robots.txt is correct
+  - File location: /robots.txt
+  
+- [ ] Verify sitemap.xml contains all pages
+  - File location: /sitemap.xml
+  
+- [ ] Update Open Graph images
+  - og-image.jpg (1200x630px)
+  - twitter-image.jpg (1024x512px)
+  - Save to /images/ folder
+
+## 8. CONTENT CUSTOMIZATION
+### Pricing Tables
+- [ ] Update 3D Signs pricing (pages/3d-signs.html)
+- [ ] Update Road Signs pricing (pages/road-signs.html)
+- [ ] Update Construction Signs pricing (pages/construction-signs.html)
+- [ ] Update Posters pricing (pages/posters.html)
+- [ ] Update Fliers pricing (pages/fliers.html)
+- [ ] Update Documents pricing (pages/documents.html)
+- [ ] Update Business Cards pricing (pages/business-cards.html)
+- [ ] Update Custom Printing pricing (pages/custom-printing.html)
+- [ ] Update Banners pricing (pages/banners.html)
+
+### Timeline Information
+- [ ] Update production timelines for each service
+- [ ] Ensure timelines match your actual production capacity
+
+### Service Descriptions
+- [ ] Review and customize all service descriptions
+- [ ] Add specific capabilities unique to your company
+- [ ] Update benefits lists to match your offerings
+
+## 9. VISUAL CUSTOMIZATION
+### Colors (Already set to theme colors)
+- [ ] Primary: #7CDCD4 (Cyan) - in use throughout
+- [ ] Secondary: #0415DC (Dark Blue) - in use throughout
+- [ ] To change: Edit /css/styles.css root CSS variables
+
+### Typography
+- [ ] Current font: Segoe UI, Tahoma, Geneva, Verdana
+- [ ] To change fonts: Edit body font-family in styles.css
+
+### Images & Icons
+- [ ] Replace placeholder emojis with actual images
+- [ ] Update service card images
+- [ ] Add hero carousel images
+
+## 10. SECURITY & LEGAL
+- [ ] Create Privacy Policy page
+  - Add link in footer
+  
+- [ ] Create Terms of Service page
+  - Add link in footer
+  
+- [ ] Implement HTTPS/SSL certificate
+  
+- [ ] Set up security headers (already in .htaccess)
+  
+- [ ] Enable HTTPS redirect
+
+## 11. PERFORMANCE OPTIMIZATION
+- [ ] Optimize all images for web
+  - Use tools: TinyPNG, ImageOptim, or similar
+  - Target: < 100KB per image
+  
+- [ ] Enable GZIP compression
+  - Already configured in .htaccess
+  
+- [ ] Set up browser caching
+  - Already configured in .htaccess
+  
+- [ ] Consider CDN for image delivery
+  - Services: Cloudflare, AWS CloudFront, etc.
+  
+- [ ] Test Page Speed
+  - Tools: Google PageSpeed Insights, GTmetrix
+
+## 12. TESTING & LAUNCH
+- [ ] Test all links (internal and external)
+- [ ] Test form submissions
+- [ ] Test on mobile devices (iOS, Android)
+- [ ] Test in different browsers:
+  - [ ] Chrome
+  - [ ] Firefox
+  - [ ] Safari
+  - [ ] Edge
+- [ ] Test page load speed
+- [ ] Verify Google Analytics tracking
+- [ ] Verify Google AdSense code is working
+- [ ] Submit to Google Search Console
+- [ ] Set up monitoring & uptime alerts
+- [ ] Create backup system
+
+## 13. ONGOING MAINTENANCE
+- [ ] Monthly: Update content and prices
+- [ ] Monthly: Check Google Search Console for errors
+- [ ] Monthly: Review analytics and traffic patterns
+- [ ] Quarterly: Update portfolio/carousel images
+- [ ] Quarterly: Optimize underperforming pages
+- [ ] Annually: Update copyright year in footer
+- [ ] As needed: Update business hours and contact info
+
+## HELPFUL RESOURCES
+
+### SEO & Marketing
+- https://search.google.com/search-console/
+- https://analytics.google.com/
+- https://www.google.com/adsense/
+- https://www.google.com/webmasters/
+
+### Performance Testing
+- https://pagespeed.web.dev/
+- https://gtmetrix.com/
+- https://www.webpagetest.org/
+
+### Email & Forms
+- https://formspree.io/ (free form backend)
+- https://getform.io/ (form submissions)
+- https://mailchimp.com/ (email marketing)
+
+### Image Optimization
+- https://tinypng.com/
+- https://imageoptim.com/
+- https://squoosh.app/
+
+### Hosting & Domains
+- https://www.bluehost.com/
+- https://www.namecheap.com/
+- https://www.hostgator.com/
+- https://pages.github.com/ (free static hosting)
+
+---
+
+## CUSTOM IMPLEMENTATION NOTES
+
+### Contact Form Integration
+Currently, the quote buttons show an alert. To implement actual form handling:
+
+Option 1: Formspree (Easiest)
+- Sign up at https://formspree.io/
+- Create new form
+- Update button onclick in HTML files
+- Add form action to point to Formspree endpoint
+
+Option 2: Backend Script (PHP)
+- Create contact.php file in root
+- Process POST requests
+- Send email to info@bendmark.com
+- Update form action to contact.php
+
+Option 3: Netlify Forms (if hosted on Netlify)
+- Deploy site to Netlify
+- Add name="contact" to forms
+- Enable form notifications
+- Submissions captured automatically
+
+### Newsletter Subscription
+To add email list building:
+- Use Mailchimp or Brevo
+- Add signup form to footer
+- Track subscriber growth
+
+### Blog Section
+To add blog/news:
+- Create /blog/ directory
+- Add blog index page
+- Create individual blog post pages
+- Add blog link to navigation
+
+---
+
+**Last Updated**: April 2024
+**Estimated Setup Time**: 4-6 hours
+**Estimated Time to Full Optimization**: 1-2 weeks
+
+For support, contact: info@bendmark.com
