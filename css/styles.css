@@ -129,7 +129,7 @@ nav a:hover::after {
   position: relative;
   overflow: hidden;
   border-radius: 15px;
-  ##background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  
   box-shadow: var(--shadow-lg);
   height: 500px;
 }
