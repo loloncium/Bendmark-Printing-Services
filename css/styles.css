@@ -510,7 +510,7 @@ nav a:hover::after {
    ============================================ */
 
 footer {
-  ackground-color: var(--dark-bg);
+  background-color: var(--light-bg);
   color: #fceded;
   padding: 3rem 2rem 1rem;
   text-align: center;
@@ -534,7 +534,7 @@ footer {
 
 .footer-section p,
 .footer-section a {
-  color: #0c0b0b;
+  color: #f7ebeb;
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 0.95rem;
@@ -545,10 +545,10 @@ footer {
 }
 
 .footer-bottom {
-  border-top: 1px solid #444444;
+  border-top: 1px solid #f7c7c7;
   padding-top: 2rem;
   text-align: center;
-  color: #f1b2b2;
+  color: #f7f2f2;
 }
 
 /* ============================================
