@@ -797,6 +797,9 @@ footer {
     height: 50px;
     font-size: 1.2rem;
   }
+  .social-links {
+    background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+}
 
   .pricing-table {
     font-size: 0.85rem;
