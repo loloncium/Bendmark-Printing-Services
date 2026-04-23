@@ -511,7 +511,7 @@ nav a:hover::after {
 
 footer {
   background-color: var(--dark-bg);
-  color: #fceded;
+  color: #f78686;
   padding: 3rem 2rem 1rem;
   text-align: center;
 }
@@ -534,7 +534,7 @@ footer {
 
 .footer-section p,
 .footer-section a {
-  color: #241717;
+  color: #a971f1;
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 0.95rem;
