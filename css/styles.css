@@ -129,7 +129,7 @@ nav a:hover::after {
   position: relative;
   overflow: hidden;
   border-radius: 15px;
-  
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   box-shadow: var(--shadow-lg);
   height: 500px;
 }
@@ -168,7 +168,7 @@ nav a:hover::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
   font-size: 5rem;
   font-weight: bold;
