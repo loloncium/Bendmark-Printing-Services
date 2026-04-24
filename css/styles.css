@@ -29,7 +29,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
-  background-color: #bee4d6;
+  background-color: var(--primary-color);
 }
 
 /* ============================================
