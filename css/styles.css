@@ -13,7 +13,7 @@
   --primary-color: #7CDCD4;
   --secondary-color: #5844b4;
   --dark-bg: #495669;
-  --light-bg: #576a7c;
+  --light-bg: #f2f5f8;
   --text-dark: #333333;
   --text-light: #666666;
   --border-color: #e0e0e0;
@@ -510,7 +510,7 @@ nav a:hover::after {
    ============================================ */
 
 footer {
-  background-color: var(--primary-color);
+  background-color: var(--light-bg);
   padding: 3rem 2rem 1rem;
   text-align: center;
 }
