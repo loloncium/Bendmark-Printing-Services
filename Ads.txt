@@ -1,0 +1,9 @@
+# Bendmark ads.txt
+# Authorized digital sellers for this domain.
+# Replace the placeholder publisher IDs with your actual account IDs.
+
+google.com, pub-5130587355236315, DIRECT, f08c47fec0942fa0
+appnexus.com, 000000, DIRECT
+openx.com, 000000, DIRECT
+rubiconproject.com, 000000, DIRECT
+# Add additional authorized sellers below as needed.
