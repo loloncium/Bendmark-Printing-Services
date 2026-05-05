@@ -66,7 +66,37 @@
                     <li>Excellent for storefronts & corporate offices</li>
                 </ul>
             </div>
+<!-- The trigger button -->
+<div class="expand-section" id="flyer-tips">
+  <button class="expand-trigger" onclick="toggle('flyer-tips')"
+          aria-expanded="false" aria-controls="flyer-tips-body">
+    <div>
+      <div class="trigger-label">How to design a great flyer</div>
+      <div class="trigger-sub">Tips for print-ready artwork</div>
+    </div>
+    <!-- chevron SVG here -->
+  </button>
 
+  <!-- Hidden body -->
+  <div class="expand-body" id="flyer-tips-body">
+    <p>A great flyer grabs attention in under three seconds. Start with a single bold headline that answers what's in it for the reader — leave the fine print for later. Keep your layout clean: one dominant image, one clear call-to-action, and no more than three typefaces.
+
+For print, always work in CMYK at 300 DPI and include a 3 mm bleed on all sides. Dark colours look richer on our 350 gsm silk stock — avoid very light greys, which can disappear in the finished print.</p>
+  </div>
+</div>
+
+<script>
+function toggle(id) {
+  const section = document.getElementById(id);
+  const body    = document.getElementById(id + '-body');
+  const btn     = section.querySelector('.expand-trigger');
+  const isOpen  = section.classList.contains('open');
+
+  section.classList.toggle('open', !isOpen);
+  body.classList.toggle('open', !isOpen);
+  btn.setAttribute('aria-expanded', String(!isOpen));
+}
+</script>
             <div class="detail-box">
                 <h3>Production Timeline</h3>
                 <ul>
