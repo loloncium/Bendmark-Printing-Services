@@ -130,7 +130,7 @@ nav a:hover::after {
 }
 
 .nav-dropdown:hover > a::after {
-  transform: rotate(90deg);
+  transform: rotate(270deg);
 }
 
 .dropdown-menu {
