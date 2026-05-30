@@ -149,8 +149,12 @@ nav a:hover::after {
   overflow: hidden;
 }
 
-.nav-dropdown:hover .dropdown-menu {
+.dropdown-menu.active {
   display: flex;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: none;
 }
 
 .dropdown-menu a {

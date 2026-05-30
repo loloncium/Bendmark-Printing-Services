@@ -378,5 +378,32 @@
 
     <!-- JavaScript -->
     <script src="js/carousel.js"></script>
+    
+    <script>
+        // Services dropdown toggle on click
+        const navDropdown = document.querySelector('.nav-dropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        const servicesLink = document.querySelector('.nav-dropdown > a');
+        
+        servicesLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdownMenu.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking on a menu item
+        const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                dropdownMenu.classList.remove('active');
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navDropdown.contains(e.target)) {
+                dropdownMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
