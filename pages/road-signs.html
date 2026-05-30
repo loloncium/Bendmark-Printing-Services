@@ -31,7 +31,20 @@
             <button class="nav-toggle">☰</button>
             <nav>
                 <a href="../index.html">Home</a>
-                <a href="../index.html#services">Services</a>
+                <div class="nav-dropdown">
+                    <a href="../index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="3d-signs.html">3D Signs</a>
+                        <a href="road-signs.html">Road Signs</a>
+                        <a href="construction-signs.html">Construction Signs</a>
+                        <a href="business-cards.html">Business Cards</a>
+                        <a href="documents.html">Documents</a>
+                        <a href="fliers.html">Fliers</a>
+                        <a href="posters.html">Posters</a>
+                        <a href="banners.html">Banners & Signage</a>
+                        <a href="custom-printing.html">Custom Printing</a>
+                    </div>
+                </div>
                 <a href="../index.html#location">Location</a>
                 <a href="../index.html#contact">Contact</a>
             </nav>
@@ -200,5 +213,32 @@
     </footer>
 
     <script src="../js/carousel.js"></script>
+    
+    <script>
+        // Services dropdown toggle on click
+        const navDropdown = document.querySelector('.nav-dropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        const servicesLink = document.querySelector('.nav-dropdown > a');
+        
+        servicesLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdownMenu.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking on a menu item
+        const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                dropdownMenu.classList.remove('active');
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navDropdown.contains(e.target)) {
+                dropdownMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
