@@ -51,7 +51,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
 }
 
 .logo {
@@ -76,7 +76,7 @@ header {
 
 nav {
   display: flex;
-  gap: 2rem;
+  gap: 1.2rem;
   align-items: center;
 }
 
@@ -192,7 +192,7 @@ nav a:hover::after {
 .hero {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .carousel {
@@ -313,30 +313,30 @@ nav a:hover::after {
 
 .services {
   max-width: 1400px;
-  margin: 4rem auto;
-  padding: 2rem;
+  margin: 2.5rem auto;
+  padding: 1.5rem;
 }
 
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   color: var(--secondary-color);
 }
 
 .section-subtitle {
   text-align: center;
   color: var(--text-light);
-  margin-bottom: 3rem;
-  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .service-card {
@@ -439,11 +439,11 @@ nav a:hover::after {
 .cta-section {
   background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
   color: white;
-  padding: 3rem 2rem;
+  padding: 2.5rem 2rem;
   text-align: center;
   border-radius: 12px;
   max-width: 1400px;
-  margin: 3rem auto;
+  margin: 2rem auto;
 }
 
 .cta-section h2 {
@@ -482,11 +482,11 @@ nav a:hover::after {
 
 .location-section {
   max-width: 1400px;
-  margin: 4rem auto;
-  padding: 2rem;
+  margin: 2.5rem auto;
+  padding: 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -539,7 +539,7 @@ nav a:hover::after {
 
 .social-section {
   background-color: var(--light-bg);
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
 }
 
@@ -551,8 +551,8 @@ nav a:hover::after {
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -581,7 +581,7 @@ nav a:hover::after {
 
 footer {
   background-color: var(--light-bg);
-  padding: 3rem 2rem 1rem;
+  padding: 2rem 1.5rem 0.75rem;
   text-align: center;
 }
 
@@ -589,16 +589,16 @@ footer {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 1.25rem;
   text-align: left;
 }
 
 .footer-section h3 {
   color: var(--primary-color);
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  margin-bottom: 0.85rem;
+  font-size: 1.05rem;
 }
 
 .footer-section p,
@@ -626,16 +626,16 @@ footer {
 
 .service-detail {
   max-width: 1000px;
-  margin: 2rem auto;
-  padding: 2rem;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
 }
 
 .service-hero {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
-  padding: 3rem;
+  padding: 2.5rem;
   border-radius: 12px;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .service-hero h1 {
@@ -651,13 +651,13 @@ footer {
 .service-details-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .detail-box {
   background-color: var(--light-bg);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
   border-left: 1px solid var(--primary-color);
 }
@@ -735,7 +735,7 @@ footer {
   cursor: pointer;
   width: 100%;
   transition: all 0.3s ease;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .quote-btn:hover {
@@ -749,9 +749,9 @@ footer {
 
 .ad-container {
   background-color: var(--light-bg);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   text-align: center;
   border: 2px dashed var(--border-color);
 }
@@ -1016,11 +1016,11 @@ footer {
 .product-showcase {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 1.5rem;
   align-items: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   background-color: white;
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 12px;
   box-shadow: var(--shadow);
 }
@@ -1040,22 +1040,22 @@ footer {
 }
 
 .product-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #e91e63;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .product-text {
   color: var(--text-light);
-  font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: 2rem;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
 }
 
 .product-highlights {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
