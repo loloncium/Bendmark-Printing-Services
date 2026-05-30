@@ -26,7 +26,7 @@ class Carousel {
       dot.addEventListener('click', () => this.goToSlide(index));
     });
 
-    // Auto-advance slides every 6 seconds
+    // Auto-advance slides every 3.5 seconds
     this.startAutoSlide();
 
     // Stop auto-slide on hover, resume on leave
@@ -41,10 +41,6 @@ class Carousel {
   }
 
   showSlide(index) {
-    // Remove active class from all slides and dots
-    this.slides.forEach(slide => slide.classList.remove('active'));
-    this.dots.forEach(dot => dot.classList.remove('active'));
-
     // Ensure index is within bounds
     if (index >= this.slides.length) {
       this.currentSlide = 0;
@@ -54,13 +50,26 @@ class Carousel {
       this.currentSlide = index;
     }
 
-    // Add active class to current slide and dot
-    if (this.slides[this.currentSlide]) {
-      this.slides[this.currentSlide].classList.add('active');
-    }
-    if (this.dots[this.currentSlide]) {
-      this.dots[this.currentSlide].classList.add('active');
-    }
+    const prevIndex = this.currentSlide === 0 ? this.slides.length - 1 : this.currentSlide - 1;
+    const nextIndex = this.currentSlide === this.slides.length - 1 ? 0 : this.currentSlide + 1;
+
+    // Reset all slides and dots
+    this.slides.forEach((slide, slideIndex) => {
+      slide.classList.remove('active', 'prev', 'next', 'hidden');
+      if (slideIndex === this.currentSlide) {
+        slide.classList.add('active');
+      } else if (slideIndex === prevIndex) {
+        slide.classList.add('prev');
+      } else if (slideIndex === nextIndex) {
+        slide.classList.add('next');
+      } else {
+        slide.classList.add('hidden');
+      }
+    });
+
+    this.dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle('active', dotIndex === this.currentSlide);
+    });
   }
 
   nextSlide() {
@@ -82,9 +91,10 @@ class Carousel {
   }
 
   startAutoSlide() {
+    clearInterval(this.slideInterval);
     this.slideInterval = setInterval(() => {
       this.showSlide(this.currentSlide + 1);
-    }, 6000);
+    }, 3500);
   }
 
   stopAutoSlide() {
