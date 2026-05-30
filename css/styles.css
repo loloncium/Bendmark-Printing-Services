@@ -197,7 +197,7 @@ nav a:hover::after {
 
 .carousel {
   position: relative;
-  overflow: visible;
+  overflow: -moz-hidden-unscrollable;
   border-radius: 20px;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   box-shadow: var(--shadow-lg);
@@ -210,7 +210,7 @@ nav a:hover::after {
   justify-content: center;
   align-items: center;
   gap: -4rem;
-  position: absolute;
+  position: relative;
   width: 100%;
   min-height: 360px;
 }
