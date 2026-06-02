@@ -53,7 +53,7 @@ class Carousel {
     const prevIndex = this.currentSlide === 0 ? this.slides.length - 1 : this.currentSlide - 1;
     const nextIndex = this.currentSlide === this.slides.length - 1 ? 0 : this.currentSlide + 1;
 
-    // Reset all slides and dots
+    // Update slide visibility classes
     this.slides.forEach((slide, slideIndex) => {
       slide.classList.remove('active', 'prev', 'next', 'hidden');
       if (slideIndex === this.currentSlide) {
@@ -67,6 +67,7 @@ class Carousel {
       }
     });
 
+    // Update active dot
     this.dots.forEach((dot, dotIndex) => {
       dot.classList.toggle('active', dotIndex === this.currentSlide);
     });
