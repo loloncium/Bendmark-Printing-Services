@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 :root {
@@ -200,9 +201,9 @@ nav a:hover::after {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(35deg, var(--primary-color), var(--secondary-color));
   box-shadow: var(--shadow-lg);
-  height: 450px;
+  height: 550px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -216,7 +217,7 @@ nav a:hover::after {
   height: 360px;
   overflow: hidden;
   transform-style: preserve-3d;
-  transition: transform 0.7s ease;
+  transition: transform 0.4s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -232,7 +233,7 @@ nav a:hover::after {
   border-radius: 20px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.7s ease, visibility 0.7s ease;
+  transition: opacity 0.3s ease, visibility 0.4s ease;
   z-index: 1;
 }
 
@@ -250,7 +251,7 @@ nav a:hover::after {
   visibility: visible;
   left: -100px;
   z-index: 5;
-  transform: translateX(0) scale(0.85);
+  transform: translateX(0) scale(0.25);
 }
 
 .carousel-slide.next {
@@ -258,7 +259,7 @@ nav a:hover::after {
   visibility: visible;
   right: -100px;
   z-index: 5;
-  transform: translateX(0) scale(0.85);
+  transform: translateX(0) scale(0.25);
 }
 
 .carousel-slide.hidden {
@@ -679,7 +680,7 @@ nav a:hover::after {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient((39deg, var(--primary-color), var(--secondary-color));
   display: flex;
   align-items: center;
   justify-content: center;
