@@ -1192,3 +1192,130 @@ footer {
     font-size: 0.95rem;
   }
 }
+/* Dimension Signage & Printing - Premium Custom Stylesheet */
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1.02);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s infinite linear;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0F1115;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A1D23;
+  border-radius: 4px;
+  border: 2px solid #0F1115;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2D3139;
+}
+
+/* Blueprint Grid Background Pattern */
+.bg-blueprint-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 204, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 204, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Ambient structural grid */
+.bg-ambient-grid {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-ambient-grid-light {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.012) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Base transitions */
+.transition-all-300 {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Masonry grid balance formatting */
+.columns-custom {
+  column-gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .columns-custom {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .columns-custom {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1280px) {
+  .columns-custom {
+    column-count: 4;
+  }
+}
+
+.break-inside-avoid {
+  break-inside: avoid;
+}
+
+/* Custom Drop-shadow Filters for Neon casting */
+.filter-neon-pink {
+  filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.6)) saturate(1.15) contrast(1.1);
+}
+.filter-neon-amber {
+  filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.6)) saturate(1.15) contrast(1.1);
+}
+.filter-neon-blue {
+  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.6)) saturate(1.15) contrast(1.1);
+}
+.filter-neon-orange {
+  filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.6)) saturate(1.15) contrast(1.1);
+}
+.filter-neon-violet {
+  filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.6)) saturate(1.15) contrast(1.1);
+}
+.filter-neon-emerald {
+  filter: drop-shadow(0 0 15px rgba(5, 150, 105, 0.6)) saturate(1.15) contrast(1.1);
+}
+.filter-neon-teal {
+  filter: drop-shadow(0 0 15px rgba(20, 184, 166, 0.6)) saturate(1.15) contrast(1.1);
+}
+.filter-neon-magenta {
+  filter: drop-shadow(0 0 15px rgba(217, 70, 239, 0.6)) saturate(1.15) contrast(1.1);
+}

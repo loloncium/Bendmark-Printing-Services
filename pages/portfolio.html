@@ -1,0 +1,1328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Dimension Signage & Printing Portfolio</title>
+    <!-- Beautiful Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Tailwind CSS Script CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <!-- Custom Accompanying Stylesheet link -->
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="bg-[#0F1115] text-white min-h-screen transition-colors duration-500 overflow-x-hidden">
+    <!-- Structural Ambient Grid lines and Color Spots (Luxury visual theme) -->
+    <div id="grid-overlay" class="absolute inset-0 bg-ambient-grid pointer-events-none z-0"></div>
+    <div id="ambient-glows" class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      <div class="absolute top-[-25%] left-[-15%] w-[700px] h-[700px] rounded-full bg-pink-500/5 blur-[160px] animate-pulse-glow"></div>
+      <div class="absolute bottom-[-15%] right-[-5%] w-[600px] h-[600px] rounded-full bg-cyan-500/5 blur-[140px]"></div>
+    </div>
+
+    <!-- Main Layout Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 pb-16">
+      
+      <!-- Navigation / Header Box -->
+      <header id="app-header-container" class="bg-[#1A1D23] border border-white/10 shadow-2xl rounded-lg p-6 mb-10 transition-all duration-300">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          
+          <!-- Branding Logo & Specialty Labels -->
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-[#FACC15] flex items-center justify-center rounded-sm font-black text-black text-xl shadow-lg">
+                3D
+              </div>
+              <div>
+                <h1 class="text-2xl sm:text-3xl font-sans font-black tracking-tight uppercase text-white" id="main-brand-title">
+                  DIMENSION <span class="text-[#FACC15]">SIGNAGE & PRINTING</span>
+                </h1>
+                <span class="block font-mono text-[9px] uppercase font-bold tracking-widest mt-0.5 text-[#22D3EE]" id="specialist-label">
+                  PREMIUM ARCHITECTURAL FABRICATION & PORTFOLIO
+                </span>
+              </div>
+            </div>
+            <p class="font-sans text-xs max-w-2xl leading-relaxed text-gray-400" id="brand-tagline">
+              Discover our curated magazine portfolio demonstrating at least 15 high-spec actual design signages, latex vehicle canvas wraps, internal backlit LED frames, and CNC installations.
+            </p>
+          </div>
+
+          <!-- Premium Theme Switcher -->
+          <div class="flex flex-col items-start md:items-end gap-2.5 shrink-0">
+            <span class="font-mono text-[9px] font-bold uppercase tracking-wider text-gray-400">
+              Explore Modes:
+            </span>
+            <div class="flex bg-neutral-900 border border-white/10 p-1 rounded-md shadow-lg">
+              <button
+                id="toggle-day-ui-btn"
+                class="flex items-center gap-1.5 px-3 py-1.5 font-mono text-[10px] font-bold uppercase cursor-pointer transition-all rounded-sm text-gray-400 hover:text-white"
+              >
+                <i data-lucide="sun" class="w-3.5 h-3.5"></i> Day View
+              </button>
+              <button
+                id="toggle-night-ui-btn"
+                class="flex items-center gap-1.5 px-3 py-1.5 font-mono text-[10px] font-bold uppercase cursor-pointer transition-all rounded-sm bg-[#EAB308] text-black font-black"
+              >
+                <i data-lucide="moon" class="w-3.5 h-3.5"></i> Night Neon Glow
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Specialties Bar -->
+        <div class="mt-6 border-t border-white/10 pt-4 flex flex-wrap items-center gap-2" id="header-skills-bar">
+          <span class="font-mono text-[9px] font-bold uppercase mr-1.5 text-gray-500">Featured Skills:</span>
+          <span class="px-2.5 py-0.5 bg-neutral-900/60 border border-white/10 rounded-full text-white font-mono text-[9px] font-bold uppercase tracking-wider flex items-center gap-1">
+            <i data-lucide="zap" class="w-2.5 h-2.5 text-[#FACC15]"></i> dimensional steel returns
+          </span>
+          <span class="px-2.5 py-0.5 bg-neutral-900/60 border border-white/10 rounded-full text-white font-mono text-[9px] font-bold uppercase tracking-wider flex items-center gap-1">
+            <i data-lucide="printer" class="w-2.5 h-2.5 text-cyan-400"></i> latex architectural vinyl
+          </span>
+          <span class="px-2.5 py-0.5 bg-neutral-900/60 border border-white/10 rounded-full text-white font-mono text-[9px] font-bold uppercase tracking-wider flex items-center gap-1">
+            <i data-lucide="sparkles" class="w-2.5 h-2.5 text-pink-500"></i> interactive rgb led matrix
+          </span>
+        </div>
+      </header>
+
+      <!-- Live Metrics Showcase -->
+      <section id="telemetry-section" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-10">
+        <!-- Stat Card 1 -->
+        <div class="p-6 border border-white/10 bg-[#1A1D23] rounded-lg shadow-xl cursor-default transition-all duration-300 relative group overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:-translate-y-0.5">
+          <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full blur-xl pointer-events-none opacity-40 transition-opacity duration-300 group-hover:opacity-80 bg-yellow-400/10"></div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-[9px] font-bold tracking-widest uppercase text-gray-400">Live Metric</span>
+            <div class="p-2 rounded-md bg-white/5 text-white group-hover:bg-[#FACC15] group-hover:text-black transition-colors duration-300">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-sans text-4xl font-extrabold tracking-tight uppercase text-white">420+</h3>
+            <p class="font-mono text-[10px] font-semibold tracking-wider uppercase text-gray-400">3D Signs Crafted</p>
+          </div>
+        </div>
+
+        <!-- Stat Card 2 -->
+        <div class="p-6 border border-white/10 bg-[#1A1D23] rounded-lg shadow-xl cursor-default transition-all duration-300 relative group overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:-translate-y-0.5">
+          <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full blur-xl pointer-events-none opacity-40 transition-opacity duration-300 group-hover:opacity-80 bg-cyan-400/10"></div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-[9px] font-bold tracking-widest uppercase text-gray-400">Live Metric</span>
+            <div class="p-2 rounded-md bg-white/5 text-white group-hover:bg-[#22D3EE] group-hover:text-black transition-colors duration-300">
+              <i data-lucide="paintbrush" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-sans text-4xl font-extrabold tracking-tight uppercase text-white">28,500</h3>
+            <p class="font-mono text-[10px] font-semibold tracking-wider uppercase text-gray-400">Sqm Printed & Installed</p>
+          </div>
+        </div>
+
+        <!-- Stat Card 3 -->
+        <div class="p-6 border border-white/10 bg-[#1A1D23] rounded-lg shadow-xl cursor-default transition-all duration-300 relative group overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:-translate-y-0.5">
+          <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full blur-xl pointer-events-none opacity-40 transition-opacity duration-300 group-hover:opacity-80 bg-pink-500/10"></div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-[9px] font-bold tracking-widest uppercase text-gray-400">Live Metric</span>
+            <div class="p-2 rounded-md bg-white/5 text-white group-hover:bg-pink-500 group-hover:text-black transition-colors duration-300">
+              <i data-lucide="zap" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-sans text-4xl font-extrabold tracking-tight uppercase text-white">1,840+</h3>
+            <p class="font-mono text-[10px] font-semibold tracking-wider uppercase text-gray-400">Neon Nodes Programmed</p>
+          </div>
+        </div>
+
+        <!-- Stat Card 4 -->
+        <div class="p-6 border border-white/10 bg-[#1A1D23] rounded-lg shadow-xl cursor-default transition-all duration-300 relative group overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:-translate-y-0.5">
+          <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full blur-xl pointer-events-none opacity-40 transition-opacity duration-300 group-hover:opacity-80 bg-emerald-500/10"></div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-[9px] font-bold tracking-widest uppercase text-gray-400">Live Metric</span>
+            <div class="p-2 rounded-md bg-white/5 text-white group-hover:bg-emerald-500 group-hover:text-black transition-colors duration-300">
+              <i data-lucide="globe" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-sans text-4xl font-extrabold tracking-tight uppercase text-white">32</h3>
+            <p class="font-mono text-[10px] font-semibold tracking-wider uppercase text-gray-400">Cities Illuminated</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Filter Panel -->
+      <section id="filtering-section" class="bg-[#1A1D23] border border-white/10 text-white shadow-2xl rounded-lg p-6 mb-8 transition-colors duration-300">
+        <div class="flex flex-col gap-6">
+          <!-- Top bar details & Reset controls -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-5">
+            <div class="flex items-center gap-3">
+              <div class="p-2 rounded bg-[#FACC15] text-black">
+                <i data-lucide="sliders-horizontal" class="w-5 h-5 stroke-[2.5]"></i>
+              </div>
+              <div>
+                <h2 class="text-lg font-extrabold tracking-tight uppercase font-sans">
+                  Interactive Spec Filters
+                </h2>
+                <p class="text-[10px] font-mono uppercase text-gray-400">
+                  Filter company masterpieces by dimensions, materials, & install points
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span class="font-mono text-[10px] font-bold uppercase py-1 px-2.5 rounded-md border bg-neutral-900/40 border-white/10 text-gray-300">
+                Filtered Result: <span id="filtered-count" class="text-[#FACC15] font-extrabold">15</span> / 15
+              </span>
+              <button
+                id="reset-filters-btn"
+                class="hidden flex items-center gap-1.5 px-3 py-1.5 font-mono text-xs uppercase font-extrabold transition-all cursor-pointer rounded-md bg-white text-black hover:bg-neutral-200"
+              >
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset
+              </button>
+            </div>
+          </div>
+
+          <!-- Category Division buttons -->
+          <div class="space-y-3">
+            <label class="block text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest">
+              1. Select Signage Specialty Division:
+            </label>
+            <div class="flex flex-wrap gap-2" id="category-filter-container">
+              <button onclick="setCategoryFilter('All')" id="btn-cat-All" class="px-3.5 py-2 font-sans font-bold text-[11px] uppercase tracking-wider rounded-md transition-all duration-200 cursor-pointer border bg-[#FACC15] text-black border-[#FACC15] shadow-lg font-black">
+                All
+              </button>
+              <button onclick="setCategoryFilter('3D Signage')" id="btn-cat-3D-Signage" class="px-3.5 py-2 font-sans font-bold text-[11px] uppercase tracking-wider rounded-md transition-all duration-200 cursor-pointer border bg-neutral-900 text-gray-300 border-white/5 hover:border-white/20 hover:text-white">
+                3D Signage
+              </button>
+              <button onclick="setCategoryFilter('Large Format Printing')" id="btn-cat-Large-Format-Printing" class="px-3.5 py-2 font-sans font-bold text-[11px] uppercase tracking-wider rounded-md transition-all duration-200 cursor-pointer border bg-neutral-900 text-gray-300 border-white/5 hover:border-white/20 hover:text-white">
+                Large Format Printing
+              </button>
+              <button onclick="setCategoryFilter('LED & Neon Signs')" id="btn-cat-LED-Neon-Signs" class="px-3.5 py-2 font-sans font-bold text-[11px] uppercase tracking-wider rounded-md transition-all duration-200 cursor-pointer border bg-neutral-900 text-gray-300 border-white/5 hover:border-white/20 hover:text-white">
+                LED & Neon Signs
+              </button>
+              <button onclick="setCategoryFilter('Exhibition & Displays')" id="btn-cat-Exhibition-Displays" class="px-3.5 py-2 font-sans font-bold text-[11px] uppercase tracking-wider rounded-md transition-all duration-200 cursor-pointer border bg-neutral-900 text-gray-300 border-white/5 hover:border-white/20 hover:text-white">
+                Exhibition & Displays
+              </button>
+            </div>
+          </div>
+
+          <!-- Text Inputs Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+            <!-- Search by Material -->
+            <div class="space-y-1.5">
+              <label class="block text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest">
+                2. Search by Fabrication Material or Keyword:
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400">
+                  <i data-lucide="search" class="w-4 h-4 stroke-[2.5]"></i>
+                </span>
+                <input
+                  id="product-search-input"
+                  type="text"
+                  placeholder="TRY SEARCHING FOR 'NEON FLEX', 'ACRYLIC', 'METAL', 'LED'..."
+                  class="w-full bg-neutral-900/60 text-white placeholder:text-neutral-500 font-mono text-xs border border-white/10 pl-10 pr-4 py-2.5 rounded-md outline-none focus:bg-neutral-900 focus:border-[#FACC15]/60 transition-all uppercase"
+                />
+              </div>
+            </div>
+
+            <!-- Search by Location/Client -->
+            <div class="space-y-1.5">
+              <label class="block text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest">
+                3. Search by Client or Location City:
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400">
+                  <i data-lucide="map-pin" class="w-4 h-4 stroke-[2.5]"></i>
+                </span>
+                <input
+                  id="location-search-input"
+                  type="text"
+                  placeholder="TRY 'BROOKLYN', 'SILICON VALLEY', 'NEXUS', 'BOSTON'..."
+                  class="w-full bg-neutral-900/60 text-white placeholder:text-neutral-500 font-mono text-xs border border-white/10 pl-10 pr-4 py-2.5 rounded-md outline-none focus:bg-neutral-900 focus:border-[#FACC15]/60 transition-all uppercase"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio Masonry Columns Area -->
+      <main class="relative mt-8" id="portfolio-masonry-container">
+        <!-- Grid list of projects -->
+        <div class="columns-custom gap-6" id="masonry-columns-wrapper">
+          <!-- Rendered dynamically by JavaScript -->
+        </div>
+
+        <!-- Immersive Empty Search State -->
+        <div id="empty-search-state" class="hidden text-center py-24 p-8 rounded-lg border border-white/10 bg-[#1A1D23] text-white shadow-2xl">
+          <div class="p-3 bg-neutral-900 border border-white/10 inline-block rounded-full mb-4">
+            <i data-lucide="settings" class="w-7 h-7 animate-spin-slow text-[#FACC15]"></i>
+          </div>
+          <h3 class="font-sans text-xl font-extrabold uppercase tracking-tight mb-2">No Matching Structures Found</h3>
+          <p class="font-mono text-xs uppercase max-w-md mx-auto text-gray-400">
+            Adjust category toggles or keywords in the query engine to explore our structural copper overlays, glow acrylic scripts, or lightbox signs.
+          </p>
+          <button
+            onclick="resetAllFilters()"
+            class="mt-6 px-5 py-2.5 bg-[#FACC15] text-black font-mono text-xs font-black uppercase hover:bg-yellow-400 rounded-md shadow-lg cursor-pointer"
+          >
+            Reset Search Filters
+          </button>
+        </div>
+      </main>
+
+      <!-- Status Footer -->
+      <footer id="studio-status-footer" class="mt-16 px-6 py-4 border border-white/10 bg-[#1A1D23] rounded-lg flex flex-col sm:flex-row items-center justify-between text-[10px] uppercase tracking-widest text-gray-500 transition-colors duration-300">
+        <div class="flex gap-6 mb-3 sm:mb-0 font-mono font-semibold">
+          <span>SHOWING: <span id="footer-filtered-count">15</span> / 15 MASTERWORKS</span>
+          <span>SORT: BY ACCREDITED MERIT</span>
+        </div>
+        <div class="flex gap-4 items-center">
+          <span class="flex items-center gap-2 font-mono font-semibold">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span> COMMISSION AVAILABILITY: LIVE
+          </span>
+          <span class="text-gray-700 hidden sm:inline">|</span>
+          <span class="hover:text-white cursor-pointer select-none transition-colors font-mono font-semibold">
+            Contact Fabrication Studio
+          </span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Project High-Detail Modal (Console Overlay) -->
+    <div id="project-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 md:p-10">
+      <div class="bg-[#1A1D23] border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.8)] max-w-5xl w-full rounded-lg overflow-hidden flex flex-col z-50 relative my-auto text-white font-sans scale-95 opacity-0 transition-all duration-300" id="modal-card">
+        
+        <!-- Top Board Info -->
+        <div class="bg-[#0F1115] p-4 sm:px-6 flex items-center justify-between border-b border-white/10">
+          <div class="flex items-center gap-3">
+            <span class="font-mono text-[10px] bg-[#FACC15] text-black px-2.5 py-1 uppercase tracking-widest font-black rounded-sm">
+              INSPECTION CONSOLE
+            </span>
+            <span class="font-mono text-[10px] text-gray-400 font-bold uppercase hidden sm:inline" id="modal-header-id">
+              PROJECT METRICS: PROJ-01
+            </span>
+          </div>
+          <button
+            onclick="closeProjectModal()"
+            class="p-1 px-2.5 bg-neutral-800 text-gray-400 hover:text-white border border-white/10 hover:border-white/20 transition-all cursor-pointer rounded-sm font-mono text-xs uppercase"
+          >
+            Close ✕
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12">
+          <!-- Left side visual layout (7 Cols) -->
+          <div class="md:col-span-7 bg-[#0F1115] border-b md:border-b-0 md:border-r border-white/10 p-6 flex flex-col justify-between relative min-h-[350px]">
+            <!-- Tab switches -->
+            <div class="flex gap-2 mb-4 z-10">
+              <button onclick="setModalTab('visual')" id="modal-tab-visual" class="px-3 py-1.5 font-mono text-[10px] font-bold uppercase border rounded cursor-pointer transition-all bg-[#FACC15] text-black border-[#FACC15]">
+                <i data-lucide="monitor-play" class="w-3.5 h-3.5 inline mr-1"></i> Active Media
+              </button>
+              <button onclick="setModalTab('blueprint')" id="modal-tab-blueprint" class="px-3 py-1.5 font-mono text-[10px] font-bold uppercase border rounded cursor-pointer transition-all bg-[#1A1D23] text-gray-400 border-white/10 hover:text-white">
+                <i data-lucide="compass" class="w-3.5 h-3.5 inline mr-1"></i> Vector Blueprints
+              </button>
+            </div>
+
+            <!-- Daytime/Light state filter controls -->
+            <div class="absolute top-6 right-6 z-20 flex items-center gap-2" id="modal-power-control-wrapper">
+              <span class="font-mono text-[9px] text-gray-400 font-bold uppercase">LED FEEDBACK:</span>
+              <button id="modal-power-toggle-btn" onclick="toggleModalLuminance()" class="px-2.5 py-1 rounded font-mono text-[10px] font-black uppercase transition-all bg-[#FACC15] text-black shadow-lg animate-pulse">
+                ⚡ LUMINANT ON
+              </button>
+            </div>
+
+            <!-- Interactive Media Visualizer Spot -->
+            <div class="flex-1 flex items-center justify-center my-4 overflow-hidden rounded-md border border-white/5 bg-neutral-950 p-3 min-h-[280px] relative">
+              
+              <!-- Visual Content (Img or Video Container) -->
+              <div id="modal-visual-container" class="w-full h-full flex items-center justify-center">
+                <!-- Injected dynamically -->
+              </div>
+
+              <!-- Vector Blueprints Content (Schematic Matrix) -->
+              <div id="modal-blueprint-container" class="hidden w-full h-full p-4 text-[#00ffcc] font-mono text-xs flex flex-col justify-between space-y-4">
+                <div class="border-b border-cyan-500/20 pb-2 flex justify-between items-center text-[9px] text-cyan-400">
+                  <span id="blueprint-proj-no">PROJECT NO: #PROJ-01</span>
+                  <span>FABRICATION SCHEMATICS // DIRECT SCALE GRID</span>
+                </div>
+
+                <div class="flex-1 border border-dashed border-cyan-500/20 relative flex flex-col items-center justify-center py-6 min-h-[200px]">
+                  <!-- Grid Line Visuals -->
+                  <div class="absolute inset-0 bg-blueprint-grid pointer-events-none"></div>
+                  
+                  <!-- Main box model projection -->
+                  <div class="border border-[#00ffcc]/60 p-6 max-w-[85%] relative z-10 text-center bg-black/60 shadow-[0_0_20px_rgba(0,255,204,0.08)] rounded-sm">
+                    <!-- Dimensional markers -->
+                    <div class="absolute -top-5 left-0 right-0 border-t border-b border-[#00ffcc]/30 text-[8px] text-[#00ffcc] flex justify-between px-1">
+                      <span>&larr;</span>
+                      <span class="bg-[#0F1115] px-1 font-bold" id="blueprint-dim-width">4.5FT</span>
+                      <span>&larr; SPAN WIDTH LIMITS &rarr;</span>
+                      <span class="bg-[#0F1115] px-1 font-bold" id="blueprint-dim-width-2">4.5FT</span>
+                      <span>&rarr;</span>
+                    </div>
+                    <div class="absolute -left-5 top-0 bottom-0 border-l border-r border-[#00ffcc]/30 text-[8px] text-[#00ffcc] flex flex-col justify-between py-1 px-1">
+                      <span>&uarr;</span>
+                      <span class="bg-[#0F1115] py-0.5 font-bold" style="writing-mode: vertical-rl;">DEPTH</span>
+                      <span>&darr;</span>
+                    </div>
+
+                    <span class="font-sans text-[10px] font-black text-white px-2 py-0.5 bg-neutral-800 tracking-wider uppercase rounded-sm" id="blueprint-title">
+                      VIVID GLOW NEON LOUNGE
+                    </span>
+                    
+                    <div class="mt-4 text-[9px] space-y-1 text-[#00ffcc]/80 text-left">
+                      <div id="blueprint-matrix-core">• CORE MATRIX: 10MM FROSTED LUCITE</div>
+                      <div id="blueprint-depth-constant">• DEPTH CONSTANT: 1.5 INCHES PROJ</div>
+                      <div>• FIXTURE PATTERN: STUD BOLT WALL ANCHORING</div>
+                    </div>
+                  </div>
+
+                  <!-- Compass marker -->
+                  <div class="absolute bottom-2 right-2 flex items-center gap-1.5 opacity-55 text-[8px]">
+                    <i data-lucide="compass" class="w-3 h-3 animate-spin-slow text-[#00ffcc]"></i> ACCURATE ORIENTATION
+                  </div>
+                </div>
+
+                <div class="border-t border-cyan-500/20 pt-2 flex justify-between text-[8px] text-cyan-400">
+                  <span>STATUS: SPECIFICATION VERIFIED & APPROVED</span>
+                  <span>LASER CUTS: CONGRUENT</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Material Badges -->
+            <div class="z-10 bg-[#1A1D23]/60 p-4 border border-white/5 rounded-md">
+              <h4 class="font-mono text-[9px] text-gray-400 uppercase tracking-widest mb-2.5 flex items-center gap-1.5 font-bold">
+                <i data-lucide="hammer" class="w-3 h-3 text-[#FACC15]"></i> High-Spec Materials Inventory:
+              </h4>
+              <div class="flex flex-wrap gap-1.5" id="modal-materials-badges">
+                <!-- Injected dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side specifications (5 Cols) -->
+          <div class="md:col-span-5 p-6 flex flex-col justify-between bg-[#1A1D23]">
+            <div class="space-y-6">
+              
+              <!-- Category and Title -->
+              <div class="space-y-1">
+                <span class="font-mono text-[9px] font-black text-white bg-pink-500 px-2.5 py-0.5 rounded-full uppercase tracking-wider" id="modal-project-category">
+                  LED & NEON SIGNS
+                </span>
+                <h3 class="font-sans text-xl font-extrabold text-white leading-tight uppercase tracking-tight pt-1" id="modal-project-title">
+                  Vivid Glow Neon Lounge Sign
+                </h3>
+              </div>
+
+              <!-- Metadata List -->
+              <div class="grid grid-cols-2 gap-3 bg-[#0F1115] p-4 border border-white/10 rounded-lg font-mono text-[11px]">
+                <div>
+                  <span class="text-gray-500 block text-[8px] uppercase font-bold mb-0.5">CLIENT PARTNER:</span>
+                  <span class="font-bold text-gray-200 uppercase" id="modal-client">NEON OASIS GROUP LLC</span>
+                </div>
+                <div>
+                  <span class="text-gray-500 block text-[8px] uppercase font-bold mb-0.5">INSTALL DATE:</span>
+                  <span class="font-bold text-gray-200 uppercase" id="modal-year">2025</span>
+                </div>
+                <div class="col-span-2 border-t border-white/10 pt-2.5 mt-1">
+                  <span class="text-gray-500 block text-[8px] uppercase font-bold mb-0.5">INSTALL LOCATION:</span>
+                  <span class="font-bold text-white uppercase flex items-center gap-1" id="modal-location">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#FACC15]"></i> Neon Oasis Cocktail Bar • Manhattan, NY
+                  </span>
+                </div>
+              </div>
+
+              <!-- Narrative description -->
+              <div class="space-y-2">
+                <h4 class="font-sans text-xs font-black text-white uppercase tracking-wider border-b border-white/10 pb-1.5 flex items-center gap-1.5">
+                  <i data-lucide="shield" class="w-4 h-4 text-emerald-400"></i> Professional Overview
+                </h4>
+                <p class="font-sans text-xs text-gray-400 leading-relaxed" id="modal-description">
+                  Custom dual-pass Neon LED lettering with deep laser-cut frosted acrylic backboards. Features 12V high-brightness neon tubing with smart multi-zone remote control fading.
+                </p>
+              </div>
+
+              <!-- Embedded Engineering Specs list -->
+              <div class="space-y-2.5">
+                <h4 class="font-sans text-xs font-black text-white uppercase tracking-wider border-b border-white/10 pb-1.5 flex items-center gap-1.5">
+                  <i data-lucide="maximize" class="w-4 h-4 text-pink-400"></i> Engineering Specifications
+                </h4>
+                <ul class="space-y-1.5 font-mono text-[10px] text-gray-300" id="modal-features-list">
+                  <!-- Injected dynamically -->
+                </ul>
+              </div>
+            </div>
+
+            <!-- Install verification badge -->
+            <div class="mt-8 border border-dashed border-emerald-500/40 bg-emerald-500/5 p-3 rounded-lg flex items-start gap-2">
+              <i data-lucide="alert-circle" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+              <div class="font-mono text-[9px] text-emerald-300 leading-relaxed uppercase">
+                <strong>Installation Signature Guarantee:</strong> Certified professional installation by fully bonded crews. Meets UL and local electrical safety certificates.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Lucide Icon System Engine -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Main Dynamic Application Engine -->
+    <script>
+      // The 15 masterwork items database exactly matching data.ts
+      const PROJECTS_DATA = [
+        {
+          id: 'proj-01',
+          title: 'Vivid Glow Neon Lounge Sign',
+          category: 'LED & Neon Signs',
+          description: 'Custom dual-pass Neon LED lettering with deep laser-cut frosted acrylic backboards. Features 12V high-brightness neon tubing with smart multi-zone remote control fading.',
+          location: 'Neon Oasis Cocktail Bar • Manhattan, NY',
+          imageUrl: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=1200&sat=120&contrast=120',
+          videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-neon-sign-on-a-brick-wall-14282-large.mp4',
+          materials: ['10mm Frosted Lucite Acrylic', 'Premium 12V Silicone Neon Flex', 'Vented Anodized Aluminium Backing', 'Solid Brass Stand-offs'],
+          dimensions: '4.5ft x 2.2ft x 1.5in',
+          features: ['Remote Controlled Dimmer', 'IP65 Water Resistance', 'Multi-zone RGB Pattern Memory', 'Double-layer 3D Accent Depth'],
+          clientName: 'Neon Oasis Group LLC',
+          year: '2025',
+          aspectRatio: '4:3',
+          glowColor: '#ec4899',
+          isLit: true
+        },
+        {
+          id: 'proj-02',
+          title: 'Tech-Forge Reception Halo Letters',
+          category: '3D Signage',
+          description: 'Premium brushed marine-grade stainless steel letters with soft warm-white LED halo illumination. Hand-wound internal channel routing and micro-soldered return brackets.',
+          location: 'Synthetix AI Lobby • Silicon Valley, CA',
+          imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200&sat=130&hue=15',
+          videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-craftsman-assembling-machinery-41804-large.mp4',
+          materials: ['316 Marine Grade Brushed Stainless Steel', '3000K Diffused Samsung LED Bars', 'Optical Grade Polycarbonate Back Diffuser', 'Chemical-anchor Stud Anchors'],
+          dimensions: '8.5ft x 3.6ft x 3.0in',
+          features: ['Warm Halo Reflection', 'True 3-Dimensional Depth Extrusion (3 inches)', 'Integrated Automatic Sunrise/Sunset Scheduler', 'Sub-inch Creep Protection'],
+          clientName: 'Synthetix AI Systems',
+          year: '2025',
+          aspectRatio: '16:9',
+          glowColor: '#f59e0b',
+          isLit: true
+        },
+        {
+          id: 'proj-03',
+          title: 'Prism Wave Creative Wall Mural',
+          category: 'Large Format Printing',
+          description: 'Ultra-resolution textured vinyl wall envelope displaying custom colorful generative art. Printed using anti-scratch latex ink with deep matte protective finish.',
+          location: 'The Creative Hub Coworking • Portland, OR',
+          imageUrl: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=1200&sat=140',
+          materials: ['3M IJ180Cv3 Cast Architectural Vinyl', '3M DOL 1360 Matte Protective Overlaminate', 'Water-based Zero-VOC Latex Ink formulation'],
+          dimensions: '34.0ft x 12.8ft',
+          features: ['Air-Release Bubble-Free Channels', 'Custom Paneling Seamless Alignment', 'Zero Solvent Odor', 'UV-Block Barrier For 10-Year Anti-Fade'],
+          clientName: 'InnovateSpace Properties',
+          year: '2024',
+          aspectRatio: '3:4',
+          glowColor: '#3b82f6',
+          isLit: true
+        },
+        {
+          id: 'proj-04',
+          title: 'Brushed Copper Corporate Plaque',
+          category: '3D Signage',
+          description: 'Deep oxidized 1/4 inch raw-cut pure copper corporate layout, stud-mounted using custom hidden thread brackets for high contrast drop-shadow.',
+          location: 'Vanguard Asset Management Office • Boston, MA',
+          imageUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1200&sat=110&contrast=110',
+          materials: ['1/4" Solid Oxygen-Free Brushed Copper Plate', 'UV-Stabilized Polyurethane Satin Shield Coat', 'Blind-Stud Threaded Inserts'],
+          dimensions: '3.5ft x 3.5ft x 0.25in',
+          features: ['Satin Hand-Brushed Directional Grain', 'Deep Rust/Oxidization Resistance Seal', 'Hidden Spacer Blind Stud Assembly', 'High Mechanical-strength Waterjet Finish'],
+          clientName: 'Vanguard Capital Partners',
+          year: '2025',
+          aspectRatio: '1:1',
+          glowColor: '#a16207',
+          isLit: true
+        },
+        {
+          id: 'proj-05',
+          title: 'Quantum Dynamic Exhibition Stand',
+          category: 'Exhibition & Displays',
+          description: 'Heavy duty modular aluminium extrusion frame supporting dye-sublimated Tension Fabric Graphics (SEG) with fully integrated high-power interior LED backlight units.',
+          location: 'Tech-Con 2025 Exhibition Space • Las Vegas, NV',
+          imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200&sat=140&brightness=90',
+          videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-bright-neon-signs-flashing-on-a-city-street-43285-large.mp4',
+          materials: ['Custom Extruded Profile Anodized Aluminium', '220g Anti-Crease Elastic Polyester Fabric', 'Dye-Sub Direct Heat-Transfer Poly Inks', 'Snoop High Output LED bars'],
+          dimensions: '20.0ft x 10.0ft x 8.0ft',
+          features: ['Silicon Edge Graphic (SEG) Fast Installation', 'Tool-less Heavy-duty Interlock Framing', 'Dynamic Integrated High Intensity Backlight', 'Completely Packable Design and Flight-case Ready'],
+          clientName: 'Quantum Dynamics Corp',
+          year: '2025',
+          aspectRatio: '16:9',
+          glowColor: '#2563eb',
+          isLit: true
+        },
+        {
+          id: 'proj-06',
+          title: 'Sunset Boulevard Translucent Sign',
+          category: '3D Signage',
+          description: 'Neon styled bold storefront illuminated letters. Fabricated with acrylic faces showing specialized vibrant translucent orange sheets, powered with internally fitted Samsung LED modules.',
+          location: 'District 9 Shopping Plaza • Miami, FL',
+          imageUrl: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1200&sat=150&contrast=120',
+          materials: ['Translucent Red-Orange Cast Plexiglas Sheets', 'Sealed Rust-Proof Extruded Aluminium Returns', 'IP67 Weather-sealed Connectors', 'High-Output Red-Wavelength LED Chips'],
+          dimensions: '14.5ft x 2.8ft x 4.0in',
+          features: ['High-Contrast Colored Facings', 'Internal Dust & Water Protection Grid', 'Dusk-to-Dawn Ambient Light Receptor Control', 'True Day-Lit Readable Facet Contrast'],
+          clientName: 'Sunset Retail Developers',
+          year: '2024',
+          aspectRatio: '4:3',
+          glowColor: '#ef4444',
+          isLit: true
+        },
+        {
+          id: 'proj-07',
+          title: 'Cyber Esports Portal Archway',
+          category: 'LED & Neon Signs',
+          description: 'A breathtaking entry archway showing multi-layered addressable RGB digital flow neon tubes. Configured with a cloud-connected dynamic processor programmed with chasing visual pattern loops.',
+          location: 'Nexus Arcade & Arena Headquarters • Austin, TX',
+          imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200&sat=160',
+          materials: ['Smart Addressable IC Pixel Neon Tubing', 'CNC Router-carved Dibond Compound Backplane', 'Heavy structural Steel Ground Support Core', '50A Quiet Fanless Power Grid Modules'],
+          dimensions: '12.0ft x 11.5ft x 1.2ft',
+          features: ['Dynamic Chasing Light Patterns', 'Reactive Sound-Activated Sensor Module', 'Smartphone Bluetooth Control Interface', 'Bracing For Safe High-Traffic Anchoring'],
+          clientName: 'Nexus Esports Gaming Inc',
+          year: '2025',
+          aspectRatio: '3:4',
+          glowColor: '#8b5cf6',
+          isLit: true
+        },
+        {
+          id: 'proj-08',
+          title: 'Reclaimed Cedar Engraved Sign',
+          category: '3D Signage',
+          description: 'Eco-conscious storefront layout featuring deep CNC routed lettering in thick solid cedar wood. Lettering fills are crafted from custom jet-black high-gloss resin casting.',
+          location: 'The Green Pantry Organic Bistro • Seattle, WA',
+          imageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200&contrast=120&brightness=85',
+          materials: ['3" Thick Reclaimed Western Red Cedar Plank', 'Industrial Deep-Pour Casting Epoxy Resin', 'Marine Tung-Oil Environmental Protection Coat', 'Aged Iron Overhead Gooseneck Lamps'],
+          dimensions: '6.2ft x 2.2ft x 3.0in',
+          features: ['Hand-finished Rough Hewn Edge Elements', 'Mirror Gloss Letter Channel Infills', 'Marine-grade Weathering Protection System', 'Overhead Soft Warm Accent Illumination Frame'],
+          clientName: 'The Green Pantry Hospitality',
+          year: '2023',
+          aspectRatio: '1:1',
+          glowColor: '#059669',
+          isLit: true
+        },
+        {
+          id: 'proj-09',
+          title: 'Rapid Fleet Cast Vehicle Wraps',
+          category: 'Large Format Printing',
+          description: 'Bold colorful vehicle rebranding project executed on premium custom cast wrap sheets. Hand-wrapped with precision seamless graphic alignment along panel curves.',
+          location: 'Rapid Logistics Distribution Yard • Denver, CO',
+          imageUrl: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1200&sat=130',
+          materials: ['Avery Dennison MPI 1105 Wrapping Cast Vinyl', 'Dol 1360 High Gloss Protective Overlaminate', 'Ultra-Durable Pigment Eco-Solvent Inks'],
+          dimensions: 'Fits 16.0ft Box Delivery Trucks',
+          features: ['Custom Vinyl Air-Egress Layouts', 'Curvature Elastic Conformability Technology', 'Premium Gloss Protectant Shield System', 'Precision Multiplied Panels Panel-Index Mapping'],
+          clientName: 'RapidLogistics Group',
+          year: '2024',
+          aspectRatio: '16:9',
+          glowColor: '#f97316',
+          isLit: true
+        },
+        {
+          id: 'proj-10',
+          title: 'Infinity Face SEG LED Lightbox',
+          category: 'Exhibition & Displays',
+          description: 'Double-sided ultra-slim structural lightbox showcasing continuous high tension fabric display layers. Embedded with internal heavy-power LED perimeter panels for balanced glow layout.',
+          location: 'Symphony Concert Hall Grand Atrium • Chicago, IL',
+          imageUrl: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&q=80&w=1200&sat=135',
+          materials: ['Anodized Seamless Extruded Aluminium Profiles', 'Special Backlit Woven Polyester Grid Media', 'CRI 92+ Edge-Lit LED Module Strings', 'Tempered Heavy Steel Base Board Plate'],
+          dimensions: '7.5ft x 5.0ft x 4.5in',
+          features: ['Seamless Edge-to-Edge Tension Borders', 'Shadowless Uniform Light Distribution Matrix', 'Double-sided Display Multiplier', 'Quick Elastic Press Fitting Assembly Style'],
+          clientName: 'Chicago Orchestral Union',
+          year: '2024',
+          aspectRatio: '4:3',
+          glowColor: '#ec4899',
+          isLit: true
+        },
+        {
+          id: 'proj-11',
+          title: 'Frosted Office Directory Signs',
+          category: 'Large Format Printing',
+          description: 'Polished glass-mimic office interior directories. Produced via direct multi-pass flatbed printing onto thick frosted sheets, secured with neat edge-clamp steel pins.',
+          location: 'Metropolis Premium Corporate Tower • San Diego, CA',
+          imageUrl: 'https://images.unsplash.com/photo-1541746972996-4e0b0f43e01a?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1541746972996-4e0b0f43e01a?auto=format&fit=crop&q=80&w=1200&contrast=115',
+          materials: ['8mm Glass-look Acrylic Sheets with Chamfered Edges', 'Scratch-Proof Matte Cured UV Colors', 'Black Anodized Heavy Duty Steel Edge Clamps'],
+          dimensions: '3.0ft x 4.5ft x 0.3in',
+          features: ['Direct-to-Media Cured Ink Pass', 'Polished Glass-grade Perimeter Beveling', 'Tactile ADA Raised Braille Inclusion', 'Surface Micro-Frosted Anti-Glare Treatment'],
+          clientName: 'Metropolis Real Estate Partners',
+          year: '2025',
+          aspectRatio: '1:1',
+          glowColor: '#14b8a6',
+          isLit: true
+        },
+        {
+          id: 'proj-12',
+          title: 'Argon Violet Script Neon',
+          category: 'LED & Neon Signs',
+          description: 'Custom authentic classic script text neon. Hand-blown in premium lead-lead glass tubes filled with high pure argon gas to cast an organic deep violet neon aura.',
+          location: 'Harlow Retro & Vintage Boutique • Brooklyn, NY',
+          imageUrl: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&q=80&w=1200&sat=150&contrast=120',
+          videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-closed-neon-sign-on-a-shop-door-40011-large.mp4',
+          materials: ['Hand-Blown 12mm Crystal Lead Glass Tubing', 'High Purity Argon Gas + mercury vapor blend', 'Heavy Duty Glass-Shield Transformer Core', 'Acrylic Grid Core Backplates'],
+          dimensions: '5.2ft x 1.8ft x 2.5in',
+          features: ['Authentic Gas Neon Glow', 'Vintage Porcelain Electrosocket Caps', 'Classic Hum-Filter Grid Resistor', 'Custom Neon Glass Tube Bending Script Craft'],
+          clientName: 'Harlow Apparel Boutique',
+          year: '2024',
+          aspectRatio: '3:4',
+          glowColor: '#d946ef',
+          isLit: true
+        },
+        {
+          id: 'proj-13',
+          title: 'Oxidized Weathered Steel Banner',
+          category: '3D Signage',
+          description: 'Bold industrial architectural logo font panels. Constructed using thick hot-rolled steel and chemically accelerated for weeks to produce a distinct deep rust color layer.',
+          location: 'Broadside Architect Office Entry • Philadelphia, PA',
+          imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200&sat=140&brightness=80',
+          materials: ['10-Gauge Heavy Structural Hot-Rolled Steel Plate', 'Accelerated Salt-Acid Etching Oxidant Compound', 'Anti-clog Premium Matte Clear Sealer Coating'],
+          dimensions: '13.0ft x 3.2ft x 1.5in',
+          features: ['Chemically Treated Natural Wood Frame Styling', 'Deep Scratch-Resistant Clear Coat Protection', 'Stud Back-Weld Solid Anchoring', 'Bottom Concealed Led Lighting Trough Integration'],
+          clientName: 'Broadspace Planning Group',
+          year: '2024',
+          aspectRatio: '16:9',
+          glowColor: '#ea580c',
+          isLit: true
+        },
+        {
+          id: 'proj-14',
+          title: 'Triple-Layer Optical Stained Clerestory',
+          category: 'Large Format Printing',
+          description: 'Stenciled stained-glass style high transparency printing on large storefront window displays. Uses advanced layer printing with high-durability UV flatbed inks.',
+          location: 'St. Jude Sacred Art Center • Minneapolis, MN',
+          imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200&sat=140',
+          materials: ['Optically-Clear Highly Adhesive Polyester Cast Cling', 'High pigment CMYK + Pure White High Opacity UV Ink', 'Anti-Abrasion Washable Scratch-protect Overlayer'],
+          dimensions: '16.5ft Height x 8.0ft Width Pane',
+          features: ['High Solar Heat Deflecting Capability', 'Double-Sided Image Legibility Alignment', '99.2% UV Shielding Protection Factor', 'Ultra Clear Non-Glue Surface Cling Film'],
+          clientName: 'The Parish Gallery Foundation',
+          year: '2024',
+          aspectRatio: '3:4',
+          glowColor: '#0ea5e9',
+          isLit: true
+        },
+        {
+          id: 'proj-15',
+          title: 'Apex Business Center Pylon',
+          category: '3D Signage',
+          description: 'Dynamic outdoor pylon tower with horizontal custom CNC acrylic fins, integrated addressable digital temperature clock display panel and high power spotlights.',
+          location: 'Apex Industrial Business Center • Houston, TX',
+          imageUrl: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1200',
+          nightImageUrl: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1200&sat=125&contrast=110',
+          materials: ['Structural Heavy-Duty Steel Internal Frame', 'Aircraft Grade Powder Coated Alucobond Paneling', 'Dual-Layer Opal Acrylic Illuminated Fins', 'EP67 Smart Matrix Text Panels'],
+          dimensions: '22.0ft Tall x 6.5ft Wide x 2.2ft Deep',
+          features: ['Wind-load Structural Safety Rating (140mph)', 'Interactive Embedded LED Digital Panel Hub', 'Symmetric Internal Air Cooling System', 'Overheat Protected High-voltage Surge Failsafes'],
+          clientName: 'Apex Commercial Land REIT',
+          year: '2025',
+          aspectRatio: '16:9',
+          glowColor: '#3b82f6',
+          isLit: true
+        }
+      ];
+
+      // Local State Management
+      let currentFilterCategory = 'All';
+      let searchQuery = '';
+      let locationQuery = '';
+      let isGlobalNightMode = true;
+      let activeSelectedProject = null;
+      let activeModalTab = 'visual'; // 'visual' | 'blueprint'
+      let isModalLit = true;
+
+      // DOM Elements Selectors
+      const productSearchInput = document.getElementById('product-search-input');
+      const locationSearchInput = document.getElementById('location-search-input');
+      const resetFiltersBtn = document.getElementById('reset-filters-btn');
+      const filteredCountBadge = document.getElementById('filtered-count');
+      const footerFilteredCount = document.getElementById('footer-filtered-count');
+      const emptySearchState = document.getElementById('empty-search-state');
+      const masonryColumnsWrapper = document.getElementById('masonry-columns-wrapper');
+      const appHeaderContainer = document.getElementById('app-header-container');
+      const gridOverlay = document.getElementById('grid-overlay');
+      const ambientGlows = document.getElementById('ambient-glows');
+      
+      const toggleDayUiBtn = document.getElementById('toggle-day-ui-btn');
+      const toggleNightUiBtn = document.getElementById('toggle-night-ui-btn');
+
+      // Modal Selector Elements
+      const projectModal = document.getElementById('project-modal');
+      const modalCard = document.getElementById('modal-card');
+      const modalHeaderId = document.getElementById('modal-header-id');
+      const modalVisualContainer = document.getElementById('modal-visual-container');
+      const modalBlueprintContainer = document.getElementById('modal-blueprint-container');
+      const modalMaterialsBadges = document.getElementById('modal-materials-badges');
+      const modalProjectCategory = document.getElementById('modal-project-category');
+      const modalProjectTitle = document.getElementById('modal-project-title');
+      const modalClient = document.getElementById('modal-client');
+      const modalYear = document.getElementById('modal-year');
+      const modalLocation = document.getElementById('modal-location');
+      const modalDescription = document.getElementById('modal-description');
+      const modalFeaturesList = document.getElementById('modal-features-list');
+      const modalPowerToggleBtn = document.getElementById('modal-power-toggle-btn');
+      const modalPowerControlWrapper = document.getElementById('modal-power-control-wrapper');
+
+      // Initialize Application
+      window.addEventListener('DOMContentLoaded', () => {
+        setupEventListeners();
+        renderProjects();
+        lucide.createIcons();
+      });
+
+      // Event Listeners Setup
+      function setupEventListeners() {
+        productSearchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value;
+          renderProjects();
+        });
+
+        locationSearchInput.addEventListener('input', (e) => {
+          locationQuery = e.target.value;
+          renderProjects();
+        });
+
+        resetFiltersBtn.addEventListener('click', resetAllFilters);
+
+        toggleDayUiBtn.addEventListener('click', () => setGlobalMode(false));
+         toggleNightUiBtn.addEventListener('click', () => setGlobalMode(true));
+
+        // Click on background of modal closes it
+        projectModal.addEventListener('click', (e) => {
+          if (e.target === projectModal) {
+            closeProjectModal();
+          }
+        });
+
+        // ESC key closes modal
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            closeProjectModal();
+          }
+        });
+      }
+
+      // Day / Night Theme Toggle Event Handler
+      function setGlobalMode(nightMode) {
+        isGlobalNightMode = nightMode;
+
+        if (isGlobalNightMode) {
+          document.body.className = "bg-[#0F1115] text-white min-h-screen transition-colors duration-500 overflow-x-hidden";
+          appHeaderContainer.className = "bg-[#1A1D23] border border-white/10 shadow-2xl rounded-lg p-6 mb-10 transition-all duration-300";
+          gridOverlay.className = "absolute inset-0 bg-ambient-grid pointer-events-none z-0";
+          ambientGlows.classList.remove('hidden');
+          
+          toggleNightUiBtn.className = "flex items-center gap-1.5 px-3 py-1.5 font-mono text-[10px] font-bold uppercase cursor-pointer transition-all rounded-sm bg-[#EAB308] text-black font-black";
+          toggleDayUiBtn.className = "flex items-center gap-1.5 px-3 py-1.5 font-mono text-[10px] font-bold uppercase cursor-pointer transition-all rounded-sm text-gray-400 hover:text-white";
+          
+          document.querySelectorAll('.stat-card').forEach(card => {
+            card.classList.add('bg-[#1A1D23]', 'border-white/10', 'text-white');
+            card.classList.remove('bg-white', 'border-neutral-200', 'text-neutral-900');
+          });
+          document.getElementById('filtering-section').className = "bg-[#1A1D23] border border-white/10 text-white shadow-2xl rounded-lg p-6 mb-8 transition-colors duration-300";
+          document.getElementById('studio-status-footer').className = "mt-16 px-6 py-4 border border-white/10 bg-[#1A1D23] rounded-lg flex flex-col sm:flex-row items-center justify-between text-[10px] uppercase tracking-widest text-[#6B7280] transition-colors duration-300";
+          
+          // Re-style filter labels and inputs
+          updateFilterBarStyles(true);
+        } else {
+          document.body.className = "bg-[#F5F6F8] text-neutral-900 min-h-screen transition-colors duration-500 overflow-x-hidden";
+          appHeaderContainer.className = "bg-white border border-neutral-200 shadow-xl rounded-lg p-6 mb-10 transition-all duration-300";
+          gridOverlay.className = "absolute inset-0 bg-ambient-grid-light pointer-events-none z-0";
+          ambientGlows.classList.add('hidden');
+          
+          toggleNightUiBtn.className = "flex items-center gap-1.5 px-3 py-1.5 font-mono text-[10px] font-bold uppercase cursor-pointer transition-all rounded-sm text-gray-500 hover:text-neutral-900";
+          toggleDayUiBtn.className = "flex items-center gap-1.5 px-3 py-1.5 font-mono text-[10px] font-bold uppercase cursor-pointer transition-all rounded-sm bg-neutral-900 text-white font-black";
+          
+          document.querySelectorAll('.stat-card').forEach(card => {
+            card.classList.remove('bg-[#1A1D23]', 'border-white/10', 'text-white');
+            card.classList.add('bg-white', 'border-neutral-200', 'text-neutral-900');
+          });
+          document.getElementById('filtering-section').className = "bg-white border border-neutral-200 text-neutral-900 shadow-xl rounded-lg p-6 mb-8 transition-colors duration-300";
+          document.getElementById('studio-status-footer').className = "mt-16 px-6 py-4 border border-neutral-200 bg-white rounded-lg flex flex-col sm:flex-row items-center justify-between text-[10px] uppercase tracking-widest text-neutral-500 transition-colors duration-300";
+          
+          updateFilterBarStyles(false);
+        }
+
+        renderProjects();
+      }
+
+      function updateFilterBarStyles(isNight) {
+        const inp1 = document.getElementById('product-search-input');
+        const inp2 = document.getElementById('location-search-input');
+        
+        if (isNight) {
+          inp1.className = "w-full bg-neutral-900/60 text-white placeholder:text-neutral-500 font-mono text-xs border border-white/10 pl-10 pr-4 py-2.5 rounded-md outline-none focus:bg-neutral-900 focus:border-[#FACC15]/60 transition-all uppercase";
+          inp2.className = "w-full bg-neutral-900/60 text-white placeholder:text-neutral-500 font-mono text-xs border border-white/10 pl-10 pr-4 py-2.5 rounded-md outline-none focus:bg-neutral-900 focus:border-[#FACC15]/60 transition-all uppercase";
+        } else {
+          inp1.className = "w-full bg-neutral-50 text-neutral-900 placeholder:text-neutral-400 font-mono text-xs border border-neutral-200 pl-10 pr-4 py-2.5 rounded-md outline-none focus:bg-white focus:border-neutral-900 transition-all uppercase";
+          inp2.className = "w-full bg-neutral-50 text-neutral-900 placeholder:text-neutral-400 font-mono text-xs border border-neutral-200 pl-10 pr-4 py-2.5 rounded-md outline-none focus:bg-white focus:border-neutral-900 transition-all uppercase";
+        }
+      }
+
+      // Specialty Tab Selection
+      function setCategoryFilter(category) {
+        currentFilterCategory = category;
+        
+        // Update styling of active division tab buttons
+        const buttonIds = ['All', '3D Signage', 'Large Format Printing', 'LED & Neon Signs', 'Exhibition & Displays'];
+        buttonIds.forEach(cat => {
+          const btn = document.getElementById(`btn-cat-${cat.replace(/\s+/g, '-').replace('&', 'Neon')}`);
+          if (!btn) return;
+          if (cat === category) {
+            btn.className = getCategoryBadgeColorClass(cat) + " px-3.5 py-2 font-sans font-bold text-[11px] uppercase tracking-wider rounded-md transition-all duration-200 cursor-pointer border shadow-lg font-black";
+          } else {
+            if (isGlobalNightMode) {
+              btn.className = "px-3.5 py-2 font-sans font-bold text-[11px] uppercase tracking-wider rounded-md transition-all duration-200 cursor-pointer border bg-neutral-900 text-gray-300 border-white/5 hover:border-white/20 hover:text-white";
+            } else {
+              btn.className = "px-3.5 py-2 font-sans font-bold text-[11px] uppercase tracking-wider rounded-md transition-all duration-200 cursor-pointer border bg-neutral-100 text-neutral-700 border-neutral-200 hover:bg-neutral-200";
+            }
+          }
+        });
+
+        renderProjects();
+      }
+
+      function getCategoryBadgeColorClass(cat) {
+        switch (cat) {
+          case 'All': return 'bg-[#FACC15] text-black border-[#FACC15]';
+          case '3D Signage': return 'bg-orange-500 text-white border-orange-500';
+          case 'Large Format Printing': return 'bg-emerald-500 text-white border-emerald-500';
+          case 'LED & Neon Signs': return 'bg-pink-500 text-white border-pink-500';
+          case 'Exhibition & Displays': return 'bg-cyan-500 text-black border-cyan-500';
+          default: return 'bg-neutral-800 text-white';
+        }
+      }
+
+      function resetAllFilters() {
+        currentFilterCategory = 'All';
+        searchQuery = '';
+        locationQuery = '';
+        productSearchInput.value = '';
+        locationSearchInput.value = '';
+
+        // Reset the specialty division buttons
+        setCategoryFilter('All');
+        renderProjects();
+      }
+
+      // Dynamic Card Generator
+      function renderProjects() {
+        // Filter elements
+        const filtered = PROJECTS_DATA.filter(proj => {
+          const matchesCategory = currentFilterCategory === 'All' || proj.category === currentFilterCategory;
+          
+          const textMatches = searchQuery === '' || 
+            proj.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            proj.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            proj.materials.some(m => m.toLowerCase().includes(searchQuery.toLowerCase())) ||
+            proj.features.some(f => f.toLowerCase().includes(searchQuery.toLowerCase()));
+
+          const locationMatches = locationQuery === '' || 
+            proj.location.toLowerCase().includes(locationQuery.toLowerCase()) ||
+            proj.clientName.toLowerCase().includes(locationQuery.toLowerCase());
+
+          return matchesCategory && textMatches && locationMatches;
+        });
+
+        // Update counts
+        filteredCountBadge.textContent = filtered.length;
+        footerFilteredCount.textContent = filtered.length;
+
+        // Show/hide reset button
+        if (searchQuery || locationQuery || currentFilterCategory !== 'All') {
+          resetFiltersBtn.classList.remove('hidden');
+        } else {
+          resetFiltersBtn.classList.add('hidden');
+        }
+
+        // Handle Empty state
+        if (filtered.length === 0) {
+          masonryColumnsWrapper.classList.add('hidden');
+          emptySearchState.classList.remove('hidden');
+          return;
+        } else {
+          masonryColumnsWrapper.classList.remove('hidden');
+          emptySearchState.classList.add('hidden');
+        }
+
+        // Build grid HTML
+        masonryColumnsWrapper.innerHTML = '';
+        filtered.forEach(project => {
+          const card = createProjectCardElement(project);
+          masonryColumnsWrapper.appendChild(card);
+        });
+
+        // Bootstrap freshly created vector icons
+        lucide.createIcons();
+      }
+
+      // Build single card markup element
+      function createProjectCardElement(project) {
+        const div = document.createElement('div');
+        div.className = `break-inside-avoid mb-6 p-4 rounded-lg relative flex flex-col transition-all duration-300 ${
+          isGlobalNightMode
+            ? 'bg-[#1A1D23] border border-white/10 text-white hover:shadow-[0_20px_45px_rgba(0,0,0,0.6)] hover:border-white/20'
+            : 'bg-white border border-neutral-200 text-neutral-900 hover:shadow-[0_20px_45px_rgba(0,0,0,0.08)] hover:border-neutral-300'
+        } hover:-translate-y-1 relative group`;
+        div.id = `portfolio-card-${project.id}`;
+
+        // Aspect ratio mapping
+        let aspectClass = 'aspect-[4/3]';
+        if (project.aspectRatio === '1:1') aspectClass = 'aspect-square';
+        else if (project.aspectRatio === '3:4') aspectClass = 'aspect-[3/4]';
+        else if (project.aspectRatio === '4:3') aspectClass = 'aspect-[4/3]';
+        else if (project.aspectRatio === '16:9') aspectClass = 'aspect-[16/9]';
+
+        // Neon category badge coloring
+        let badgeColor = 'bg-neutral-800 text-white';
+        if (project.category === '3D Signage') badgeColor = 'bg-orange-500/90 text-white';
+        else if (project.category === 'Large Format Printing') badgeColor = 'bg-emerald-500/90 text-white';
+        else if (project.category === 'LED & Neon Signs') badgeColor = 'bg-pink-500/90 text-white';
+        else if (project.category === 'Exhibition & Displays') badgeColor = 'bg-cyan-500/90 text-black';
+
+        const isGlowing = project.isLit && (isGlobalNightMode || project.category === 'LED & Neon Signs');
+
+        // Embedded media layout: support autoPlay loops for projects that feature videos
+        let mediaHtml = '';
+        if (project.videoUrl && project.isLit) {
+          mediaHtml = `
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              referrerpolicy="no-referrer"
+              class="w-full h-full object-cover transition-transform duration-700 select-none group-hover:scale-105"
+              style="filter: ${isGlowing ? `drop-shadow(0 0 15px ${project.glowColor})` : 'none'};"
+            >
+              <source src="${project.videoUrl}" type="video/mp4" />
+            </video>
+          `;
+        } else {
+          const imageSrc = isGlowing ? project.nightImageUrl : project.imageUrl;
+          mediaHtml = `
+            <img
+              src="${imageSrc}"
+              alt="${project.title}"
+              referrerpolicy="no-referrer"
+              class="w-full h-full object-cover transition-transform duration-700 select-none group-hover:scale-105"
+              style="filter: ${isGlowing ? `drop-shadow(0 0 18px ${project.glowColor}) saturate(1.1) contrast(1.15)` : 'none'};"
+            />
+          `;
+        }
+
+        // Inline custom glow back-aura bubble
+        const glowBubbleHtml = isGlowing ? `
+          <div class="absolute inset-0 z-0 pointer-events-none blur-2xl scale-105 transition-opacity duration-500" style="background-color: ${project.glowColor}; opacity: 0.25;"></div>
+        ` : '';
+
+        div.innerHTML = `
+          ${glowBubbleHtml}
+
+          <!-- Media container Frame -->
+          <div class="relative overflow-hidden rounded-md z-10 ${aspectClass} bg-neutral-950 group border ${
+            isGlobalNightMode ? 'border-white/5' : 'border-neutral-200'
+          }">
+            
+            <!-- Category and Tag labels -->
+            <div class="absolute top-2.5 left-2.5 z-20 flex flex-col gap-1.5 items-start">
+              <span class="px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold tracking-wider uppercase backdrop-blur-md shadow-lg ${badgeColor}">
+                ${project.category}
+              </span>
+              ${project.videoUrl ? `
+                <span class="bg-[#FACC15] text-black px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold tracking-wider uppercase shadow-lg flex items-center gap-1">
+                  <i data-lucide="video" class="w-2.5 h-2.5 stroke-[2.5]"></i> LIVE PREVIEW
+                </span>
+              ` : ''}
+            </div>
+
+            <!-- Single Individual Neon Switch -->
+            <div class="absolute top-2.5 right-2.5 z-20">
+              <button
+                onclick="toggleLuminance('${project.id}', event)"
+                title="${project.isLit ? 'Turn off LEDs' : 'Turn on LED simulation'}"
+                class="p-1.5 rounded-full transition-all cursor-pointer backdrop-blur-md border ${
+                  project.isLit
+                    ? 'bg-[#FACC15] text-black border-[#FACC15]'
+                    : 'bg-black/60 text-gray-400 border-white/10 hover:text-white'
+                }"
+              >
+                <i data-lucide="zap" class="w-3.5 h-3.5 stroke-[2.5]"></i>
+              </button>
+            </div>
+
+            <!-- Media visual body -->
+            <div class="w-full h-full">
+              ${mediaHtml}
+            </div>
+
+            <!-- Overlay inspect screen on hover -->
+            <div class="absolute inset-0 bg-neutral-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center z-10 gap-2 pr-1 select-none backdrop-blur-sm">
+              <button
+                onclick="openProjectDetails('${project.id}')"
+                class="px-4 py-2 bg-[#FACC15] text-black font-sans font-bold hover:bg-[#EAB308] uppercase text-xs tracking-wider rounded-md cursor-pointer transition-all flex items-center gap-1.5 shadow-lg"
+              >
+                <i data-lucide="expand" class="w-3.5 h-3.5 stroke-[2.5]"></i> Inspect Details
+              </button>
+              <span class="font-mono text-[9px] text-[#22D3EE] uppercase tracking-wider font-semibold">
+                ${project.dimensions}
+              </span>
+            </div>
+
+          </div>
+
+          <!-- Description content block -->
+          <div class="mt-4 flex-1 flex flex-col justify-between z-10">
+            <div>
+              <h3 class="font-sans text-base font-extrabold leading-tight mb-2 tracking-tight transition-colors duration-200 uppercase ${
+                isGlobalNightMode ? 'text-white hover:text-[#FACC15]' : 'text-neutral-900 hover:text-pink-650'
+              }">
+                ${project.title}
+              </h3>
+
+              <div class="flex items-start gap-1.5 text-xs mb-3">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0 mt-0.5 ${
+                  isGlobalNightMode ? 'text-gray-400' : 'text-neutral-500'
+                }"></i>
+                <span class="font-mono font-bold uppercase text-[10px] ${
+                  isGlobalNightMode ? 'text-gray-400' : 'text-neutral-600'
+                }">
+                  ${project.location}
+                </span>
+              </div>
+
+              <p class="font-sans text-xs leading-relaxed mb-4 line-clamp-3 ${
+                isGlobalNightMode ? 'text-gray-400' : 'text-neutral-500'
+              }">
+                ${project.description}
+              </p>
+            </div>
+
+            <!-- Specifications footer -->
+            <div class="border-t border-dashed ${
+              isGlobalNightMode ? 'border-white/10 text-gray-400' : 'border-neutral-200 text-neutral-500'
+            } pt-3 flex items-center justify-between text-[10px] font-mono mt-auto">
+              <div class="flex items-center gap-1">
+                <i data-lucide="tag" class="w-3.5 h-3.5 text-neutral-400"></i>
+                <span class="font-bold">${project.year}</span>
+              </div>
+              <button
+                onclick="openProjectDetails('${project.id}')"
+                class="text-[#FACC15] hover:text-[#EAB308] font-bold flex items-center gap-1 cursor-pointer hover:underline uppercase"
+              >
+                <i data-lucide="hammer" class="w-3.5 h-3.5 stroke-[2.5]"></i> Specifications &rarr;
+              </button>
+            </div>
+          </div>
+        `;
+
+        return div;
+      }
+
+      // Individual light switch toggle action
+      function toggleLuminance(id, event) {
+        event.stopPropagation();
+        const project = PROJECTS_DATA.find(p => p.id === id);
+        if (project) {
+          project.isLit = !project.isLit;
+          renderProjects();
+        }
+      }
+
+      // Modal detailed inspection trigger
+      function openProjectDetails(id) {
+        const project = PROJECTS_DATA.find(p => p.id === id);
+        if (!project) return;
+
+        activeSelectedProject = project;
+        isModalLit = project.isLit;
+        activeModalTab = 'visual';
+
+        // Load content to fields
+        modalHeaderId.textContent = `PROJECT METRICS: ${project.id.toUpperCase()}`;
+        modalProjectCategory.textContent = project.category;
+        
+        // Dynamic category coloring in modal
+        let catColorClass = "bg-pink-500";
+        if (project.category === "3D Signage") catColorClass = "bg-orange-500";
+        if (project.category === "Large Format Printing") catColorClass = "bg-emerald-500";
+        if (project.category === "Exhibition & Displays") catColorClass = "bg-cyan-500 text-black";
+        modalProjectCategory.className = `${catColorClass} font-mono text-[9px] font-black text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider`;
+
+        modalProjectTitle.textContent = project.title;
+        modalClient.textContent = project.clientName;
+        modalYear.textContent = project.year;
+        modalLocation.innerHTML = `<i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#FACC15]"></i> ${project.location}`;
+        modalDescription.textContent = project.description;
+
+        // Render materials badges
+        modalMaterialsBadges.innerHTML = '';
+        project.materials.forEach(mat => {
+          const mBadge = document.createElement('span');
+          mBadge.className = "font-mono text-[9px] bg-neutral-900 border border-white/10 text-[#FACC15] px-2.5 py-0.5 rounded-sm uppercase font-semibold";
+          mBadge.textContent = mat;
+          modalMaterialsBadges.appendChild(mBadge);
+        });
+
+        // Render specifications bullet lines
+        modalFeaturesList.innerHTML = `
+          <li class="flex items-start gap-1.5">
+            <span class="text-[#FACC15] font-bold select-none">•</span>
+            <span><strong class="text-white uppercase font-bold">Volume Limits:</strong> ${project.dimensions}</span>
+          </li>
+        `;
+        project.features.forEach(feat => {
+          const li = document.createElement('li');
+          li.className = "flex items-start gap-1.5";
+          li.innerHTML = `
+            <span class="text-[#FACC15] font-bold select-none">•</span>
+            <span>${feat}</span>
+          `;
+          modalFeaturesList.appendChild(li);
+        });
+
+        // Render blueprint vector fields
+        document.getElementById('blueprint-proj-no').textContent = `PROJECT NO: #${project.id.toUpperCase()}`;
+        document.getElementById('blueprint-title').textContent = project.title.toUpperCase();
+        document.getElementById('blueprint-dim-width').textContent = project.dimensions.split('x')[0] || project.dimensions;
+        document.getElementById('blueprint-dim-width-2').textContent = project.dimensions.split('x')[0] || project.dimensions;
+        document.getElementById('blueprint-matrix-core').textContent = `• CORE MATRIX: ${project.materials[0] ? project.materials[0].toUpperCase() : 'HEAVY SPEC'}`;
+        document.getElementById('blueprint-depth-constant').textContent = `• DEPTH CONSTANT: ${project.dimensions.split('x')[2] || '3.5 INCHES'} PROJ`;
+
+        // Load media content frame
+        updateModalVisualContent();
+        updateModalPowerButtonVisuals();
+
+        // Reveal background layers with responsive bounce
+        projectModal.classList.remove('hidden');
+        setTimeout(() => {
+          modalCard.className = "bg-[#1A1D23] border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.8)] max-w-5xl w-full rounded-lg overflow-hidden flex flex-col z-50 relative my-auto text-white font-sans scale-100 opacity-100 transition-all duration-300";
+        }, 15);
+
+        // Bootstrap freshly rendered modal components
+        lucide.createIcons();
+      }
+
+      function closeProjectModal() {
+        modalCard.className = "bg-[#1A1D23] border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.8)] max-w-5xl w-full rounded-lg overflow-hidden flex flex-col z-50 relative my-auto text-white font-sans scale-95 opacity-0 transition-all duration-300";
+        setTimeout(() => {
+          projectModal.classList.add('hidden');
+          activeSelectedProject = null;
+        }, 220);
+      }
+
+      // Switch modal view tabs
+      function setModalTab(tab) {
+        activeModalTab = tab;
+        const vBtn = document.getElementById('modal-tab-visual');
+        const bBtn = document.getElementById('modal-tab-blueprint');
+
+        if (tab === 'visual') {
+          vBtn.className = "px-3 py-1.5 font-mono text-[10px] font-bold uppercase border rounded cursor-pointer transition-all bg-[#FACC15] text-black border-[#FACC15]";
+          bBtn.className = "px-3 py-1.5 font-mono text-[10px] font-bold uppercase border rounded cursor-pointer transition-all bg-[#1A1D23] text-gray-400 border-white/10 hover:text-white";
+          
+          modalVisualContainer.classList.remove('hidden');
+          modalBlueprintContainer.classList.add('hidden');
+          modalPowerControlWrapper.classList.remove('hidden');
+        } else {
+          vBtn.className = "px-3 py-1.5 font-mono text-[10px] font-bold uppercase border rounded cursor-pointer transition-all bg-[#1A1D23] text-gray-400 border-white/10 hover:text-white";
+          bBtn.className = "px-3 py-1.5 font-mono text-[10px] font-bold uppercase border rounded cursor-pointer transition-all bg-cyan-400 text-black border-cyan-400";
+          
+          modalVisualContainer.classList.add('hidden');
+          modalBlueprintContainer.classList.remove('hidden');
+          modalPowerControlWrapper.classList.add('hidden');
+        }
+
+        lucide.createIcons();
+      }
+
+      // Live luminance feed inside modal console
+      function toggleModalLuminance() {
+        isModalLit = !isModalLit;
+        
+        // Sync back to the main data store
+        if (activeSelectedProject) {
+          activeSelectedProject.isLit = isModalLit;
+          renderProjects();
+        }
+
+        updateModalVisualContent();
+        updateModalPowerButtonVisuals();
+      }
+
+      function updateModalPowerButtonVisuals() {
+        if (isModalLit) {
+          modalPowerToggleBtn.className = "px-2.5 py-1 rounded font-mono text-[10px] font-black uppercase transition-all bg-[#FACC15] text-black shadow-lg animate-pulse";
+          modalPowerToggleBtn.textContent = '⚡ LUMINANT ON';
+        } else {
+          modalPowerToggleBtn.className = "px-2.5 py-1 rounded font-mono text-[10px] font-black uppercase transition-all bg-neutral-800 text-gray-500 border border-white/10";
+          modalPowerToggleBtn.textContent = '🔴 LUMINANT OFF';
+        }
+      }
+
+      function updateModalVisualContent() {
+        if (!activeSelectedProject) return;
+        
+        const isGlowing = isModalLit;
+        const glowFilterStr = isGlowing ? `drop-shadow(0 0 25px ${activeSelectedProject.glowColor}) contrast(1.1) saturate(1.15)` : 'none';
+        
+        modalVisualContainer.innerHTML = '';
+        if (activeSelectedProject.videoUrl && isModalLit) {
+          modalVisualContainer.innerHTML = `
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              referrerpolicy="no-referrer"
+              class="max-h-[380px] w-full object-contain rounded-sm"
+              style="filter: ${glowFilterStr};"
+            >
+              <source src="${activeSelectedProject.videoUrl}" type="video/mp4" />
+            </video>
+          `;
+        } else {
+          const imageSrc = isGlowing ? activeSelectedProject.nightImageUrl : activeSelectedProject.imageUrl;
+          modalVisualContainer.innerHTML = `
+            <img
+              src="${imageSrc}"
+              alt="${activeSelectedProject.title}"
+              referrerpolicy="no-referrer"
+              class="max-h-[380px] w-full object-contain rounded-sm transition-all duration-300"
+              style="filter: ${glowFilterStr};"
+            />
+          `;
+        }
+      }
+
+    </script>
+  </body>
+</html>
