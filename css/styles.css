@@ -680,7 +680,7 @@ nav a:hover::after {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient((39deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   display: flex;
   align-items: center;
   justify-content: center;
