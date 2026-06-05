@@ -200,7 +200,9 @@ nav a:hover::after {
   perspective: 1200px;
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 12px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
   background: linear-gradient(35deg, var(--primary-color), var(--secondary-color));
   box-shadow: var(--shadow-lg);
   height: 550px;
