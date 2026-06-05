@@ -50,6 +50,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
       html { font-size: 115%; }
+
+      /* Placeholder shown when a local image file is missing */
+      .missing-img {
+        background: repeating-linear-gradient(
+          45deg,
+          #1a1d23,
+          #1a1d23 10px,
+          #22262e 10px,
+          #22262e 20px
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .missing-img::after {
+        content: '📁 Image not found';
+        color: #6b7280;
+        font-size: 0.7rem;
+        font-family: monospace;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
     </style>
     
     <!-- Google AdSense -->
@@ -1078,9 +1101,9 @@
             <img
               src="${imageSrc}"
               alt="${project.title}"
-              referrerpolicy="no-referrer"
               class="w-full h-full object-cover transition-transform duration-700 select-none group-hover:scale-105"
               style="filter: ${isGlowing ? `drop-shadow(0 0 18px ${project.glowColor}) saturate(1.1) contrast(1.15)` : 'none'};"
+              onerror="this.style.display='none'; this.parentElement.classList.add('missing-img');"
             />
           `;
         }
