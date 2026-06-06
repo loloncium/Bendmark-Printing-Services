@@ -33,6 +33,11 @@ body {
   color: var(--text-dark);
   background-color: var(--third-color);
 }
+@font-face {
+  font-family: 'Altron';
+  src: url('fonts/altron.woff2') format('woff2'),
+       url('fonts/altron.woff') format('woff');
+}
 
 /* ============================================
    HEADER & NAVIGATION
