@@ -41,90 +41,6 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5130587355236315"
      crossorigin="anonymous"></script>
    
-
-  <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;800&family=Cormorant+Garamond:ital,wght@1,300&display=swap');
-
-  #tw-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 2.5rem 2rem;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
-  }
-  #tw-panel::before {
-    content: '';
-    position: absolute;
-    top: 10px; left: 10px;
-    width: 28px; height: 28px;
-    border-top: 1px solid rgba(124,220,212,0.35);
-    border-left: 1px solid rgba(124,220,212,0.35);
-    border-radius: 3px 0 0 0;
-  }
-  #tw-panel::after {
-    content: '';
-    position: absolute;
-    bottom: 10px; right: 10px;
-    width: 28px; height: 28px;
-    border-bottom: 1px solid rgba(124,220,212,0.35);
-    border-right: 1px solid rgba(124,220,212,0.35);
-    border-radius: 0 0 3px 0;
-  }
-  #tw-lines {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-    align-items: center;
-    text-align: center;
-  }
-    #tw-panel {
-   min-height: 550px; /* same value */
-  width: 100%;
-  box-sizing: border-box;
-  }
-
-    .tw-line {
-    min-height: 1.1em;
-    line-height: 1.15;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  .tw-cursor {
-    display: inline-block;
-    width: 2px;
-    height: 1em;
-    vertical-align: middle;
-    background: #7CDCD4;
-    margin-left: 2px;
-    animation: blink 0.7s steps(1) infinite;
-  }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-  .hero-table {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-  }
-  .hero-col {
-    display: table-cell;
-    vertical-align: middle;
-  }
-  .hero-col-carousel { width: 58%; }
-  .hero-col-wave {
-    width: 42%;
-    background: #5844b4;
-    height: 550px;
-  }
-  @media (max-width: 768px) {
-    .hero-table, .hero-col { display: block; width: 100%; }
-    .hero-col-wave { min-height: 300px; }
-  }
-</style>
 </head>
 
 <body>
@@ -215,37 +131,76 @@
             </div>
 
            <!-- RIGHT COLUMN: Typewriter Welcome -->
-<div class="wave-panel" id="tw-panel">
-
-  <!-- ADD THIS: Logo above the welcome text -->
-  <img{ 
-    src="images/logo.png" 
-    alt="Bendmark Logo" 
-    style="width: 150px; 
-    height: auto; 
-    margin-bottom: 1.2rem; 
-    object-fit: contain; 
-    filter: brightness(0) invert(1);"
-    /* Make logo span the full panel width */
-  width: 80%;       /* stretch across instead of fixed 120px */
-  max-width: 280px; /* but don't go too wide on large screens */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-  />
-  <div id="tw-lines"></div>
-</div>
 <div class="hero-col hero-col-wave">
   <div class="wave-panel" id="tw-panel">
     <div id="tw-lines"></div>
   </div>
 
 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;800&family=Cormorant+Garamond:ital,wght@1,300&display=swap');
+
+  #tw-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+  #tw-panel::before {
+    content: '';
+    position: absolute;
+    top: 10px; left: 10px;
+    width: 28px; height: 28px;
+    border-top: 1px solid rgba(124,220,212,0.35);
+    border-left: 1px solid rgba(124,220,212,0.35);
+    border-radius: 3px 0 0 0;
+  }
+  #tw-panel::after {
+    content: '';
+    position: absolute;
+    bottom: 10px; right: 10px;
+    width: 28px; height: 28px;
+    border-bottom: 1px solid rgba(124,220,212,0.35);
+    border-right: 1px solid rgba(124,220,212,0.35);
+    border-radius: 0 0 3px 0;
+  }
+  #tw-lines {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    align-items: center;
+    text-align: center;
+  }
+  .tw-line {
+    min-height: 1.1em;
+    line-height: 1.15;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .tw-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    vertical-align: middle;
+    background: #7CDCD4;
+    margin-left: 2px;
+    animation: blink 0.7s steps(1) infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  @media (max-width: 768px) {
+  </style>
+
 <script>
 (function(){
   var lines = [
-    { text: "Welcome to", font: "'yasmin'", size: "clamp(22px,3.5vw,38px)", weight: "300", style:"i", color: "rgba(255,255,255,0.65)" },
+    { text: "Welcome to", font: "'Cormorant Garamond', serif", size: "clamp(22px,3.5vw,38px)", weight: "300", style:"italic", color: "rgba(255,255,255,0.65)" },
     { text: "BENDMARK", font: "'Bebas Neue', sans-serif", size: "clamp(42px,7vw,82px)", weight: "400", style:"normal", color: "#7CDCD4" },
     { text: "Printing Services", font: "'Playfair Display', serif", size: "clamp(18px,2.8vw,32px)", weight: "700", style:"normal", color: "#ffffff" },
     { text: "where every print tells your story.", font: "'Montserrat', sans-serif", size: "clamp(11px,1.6vw,15px)", weight: "300", style:"normal", color: "rgba(255,255,255,0.5)", spacing:"0.12em" },
@@ -322,7 +277,7 @@
         </div>
     <!-- SERVICES SECTION -->
     <section class="services" id="services">
-        <h2 class="section-title" style="color: #4437fc;">Our Services</h2>
+        <h2 class="section-title" style="color: #FFD700;">Our Services</h2>
         <p class="section-subtitle" style="color: #038086;">Professional printing solutions tailored to your needs</p>
 
         <div class="services-grid">
@@ -333,7 +288,7 @@
                     <div class="service-image-overlay"></div>
                 </div>
                 <div class="service-content">
-                    <h3 class="service-name" style="color: #4425f3;">3D Signs</h3>
+                    <h3 class="service-name" style="color: #FFD700;">3D Signs</h3>
                     <p class="service-description">Eye-catching three-dimensional signs that bring your brand to life with depth and dimension.</p>
                     <button class="service-btn">Explore</button>
                 </div>
@@ -346,7 +301,7 @@
                     <div class="service-image-overlay"></div>
                 </div>
                 <div class="service-content">
-                    <h3 class="service-name" style="color: #4400ff;">Road Signs</h3>
+                    <h3 class="service-name" style="color: #FFD700;">Road Signs</h3>
                     <p class="service-description">Durable and compliant road safety signs designed to meet all regulatory standards.</p>
                     <button class="service-btn">Explore</button>
                 </div>
@@ -359,7 +314,7 @@
                     <div class="service-image-overlay"></div>
                 </div>
                 <div class="service-content">
-                    <h3 class="service-name" style="color: #4400ff;">Construction Signs</h3>
+                    <h3 class="service-name" style="color: #FFD700;">Construction Signs</h3>
                     <p class="service-description">High-visibility construction signage for job sites and project management communication.</p>
                     <button class="service-btn">Explore</button>
                 </div>
@@ -372,7 +327,7 @@
                     <div class="service-image-overlay"></div>
                 </div>
                 <div class="service-content">
-                    <h3 class="service-name" style="color: #4400ff;">Posters</h3>
+                    <h3 class="service-name" style="color: #FFD700;">Posters</h3>
                     <p class="service-description">Vibrant posters perfect for promotions, events, and advertising campaigns.</p>
                     <button class="service-btn">Explore</button>
                 </div>
@@ -385,7 +340,7 @@
                     <div class="service-image-overlay"></div>
                 </div>
                 <div class="service-content">
-                    <h3 class="service-name" style="color: #1900ff;">Fliers</h3>
+                    <h3 class="service-name" style="color: #FFD700;">Fliers</h3>
                     <p class="service-description">Professional fliers to distribute your message and engage your target audience effectively.</p>
                     <button class="service-btn">Explore</button>
                 </div>
@@ -398,7 +353,7 @@
                     <div class="service-image-overlay"></div>
                 </div>
                 <div class="service-content">
-                    <h3 class="service-name" style="color: #4400ff;">Documents</h3>
+                    <h3 class="service-name" style="color: #FFD700;">Documents</h3>
                     <p class="service-description">Professional document printing for reports, manuals, brochures, and more.</p>
                     <button class="service-btn">Explore</button>
                 </div>
@@ -411,7 +366,7 @@
                     <div class="service-image-overlay"></div>
                 </div>
                 <div class="service-content">
-                    <h3 class="service-name" style="color: #4400ff;">Business Cards</h3>
+                    <h3 class="service-name" style="color: #FFD700;">Business Cards</h3>
                     <p class="service-description">Premium business cards that leave a lasting impression on your clients and contacts.</p>
                     <button class="service-btn">Explore</button>
                 </div>
@@ -424,7 +379,7 @@
                     <div class="service-image-overlay"></div>
                 </div>
                 <div class="service-content">
-                    <h3 class="service-name" style="color: #4400ff;">Custom Printing</h3>
+                    <h3 class="service-name" style="color: #FFD700;">Custom Printing</h3>
                     <p class="service-description">Bespoke printing solutions tailored to your unique requirements and specifications.</p>
                     <button class="service-btn">Explore</button>
                 </div>
@@ -437,7 +392,7 @@
                     <div class="service-image-overlay"></div>
                 </div>
                 <div class="service-content">
-                    <h3 class="service-name" style="color: #4400ff;">Banners & Signage</h3>
+                    <h3 class="service-name" style="color: #FFD700;">Banners & Signage</h3>
                     <p class="service-description">Custom banners and signage solutions to showcase your brand message prominently.</p>
                     <button class="service-btn">Explore</button>
                 </div>
