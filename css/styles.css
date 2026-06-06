@@ -57,6 +57,8 @@ header {
 
 .logo {
   display: flex;
+  max-height: 25px;
+  width:auto;
   align-items: center;
   font-size: 1.8rem;
   font-weight: bold;
