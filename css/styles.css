@@ -358,12 +358,6 @@ nav a:hover::after {
 .carousel-btn.next {
   right: 20px;
 }
-#tw-panel {
-  height: 100%;
-  min-height: 550px; /* same value */
-  width: 100%;
-  box-sizing: border-box;
-}
 
 /* ============================================
    SERVICES SECTION
@@ -1327,4 +1321,66 @@ footer {
 }
 .filter-neon-magenta {
   filter: drop-shadow(0 0 15px rgba(217, 70, 239, 0.6)) saturate(1.15) contrast(1.1);
+}
+/* ============================================
+   HERO SECTION - TWO COLUMN LAYOUT
+   ============================================ */
+
+.hero-table {
+  display: flex;
+  width: 100%;
+  height: 550px; /* matches .carousel height */
+  gap: 0;
+}
+
+.hero-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-col-carousel {
+  width: 58%;
+  flex-shrink: 0;
+}
+
+.hero-col-carousel .carousel {
+  height: 100%; /* fill the full 550px */
+  border-radius: 9px 0 0 9px; /* rounded only on left side */
+}
+
+.hero-col-wave {
+  width: 42%;
+  flex-shrink: 0;
+  background: #5844b4;
+  border-radius: 0 9px 9px 0; /* rounded only on right side */
+}
+
+#tw-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .hero-table {
+    flex-direction: column;
+    height: auto;
+  }
+  .hero-col-carousel,
+  .hero-col-wave {
+    width: 100%;
+  }
+  .hero-col-carousel .carousel {
+    height: 300px;
+    border-radius: 9px 9px 0 0;
+  }
+  .hero-col-wave {
+    min-height: 320px;
+    border-radius: 0 0 9px 9px;
+  }
 }
