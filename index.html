@@ -130,281 +130,151 @@
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: Wave Ripple Text -->
-            <div class="hero-col hero-col-wave">
-                <div class="wave-panel">
-                    <div class="wave-stage">
-                        <div class="wave-text-display" id="waveText"></div>
-                    </div>
-                    <div class="wave-controls">
-                        <div class="wctrl">
-                            <label>Text</label>
-                            <input type="text" id="waveTextInput" value="Bendmark Printing Services" maxlength="25" class="wave-input" />
-                        </div>
-                        <div class="wctrl">
-                            <label>Speed</label>
-                            <div class="wctrl-row">
-                                <input type="range" id="waveSpeed" min="400" max="3000" step="100" value="1400" />
-                                <span class="wval" id="waveSpeedOut">1.4s</span>
-                            </div>
-                        </div>
-                        <div class="wctrl">
-                            <label>Height</label>
-                            <div class="wctrl-row">
-                                <input type="range" id="waveHeight" min="6" max="50" step="1" value="22" />
-                                <span class="wval" id="waveHeightOut">22px</span>
-                            </div>
-                        </div>
-                        <div class="wctrl">
-                            <label>Color</label>
-                            <div class="wave-swatches" id="waveSwatches">
-                                <div class="wswatch active" data-color="#7CDCD4" style="background:#7CDCD4;"></div>
-                                <div class="wswatch" data-color="#0415DC" style="background:#0415DC;"></div>
-                                <div class="wswatch" data-color="#FFD700" style="background:#FFD700;"></div>
-                                <div class="wswatch" data-color="#ffffff" style="background:#ffffff; border:1px solid rgba(255,255,255,0.3);"></div>
-                                <div class="wswatch" data-color="#D85A30" style="background:#D85A30;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           <!-- RIGHT COLUMN: Typewriter Welcome -->
+<div class="hero-col hero-col-wave">
+  <div class="wave-panel" id="tw-panel">
+    <div id="tw-lines"></div>
+  </div>
+</div>
 
-        </div>
-    </section>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;800&family=Cormorant+Garamond:ital,wght@1,300&display=swap');
 
-    <!-- WAVE RIPPLE STYLES (hero panel) -->
-    <style>
-        .hero-table {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-        }
-        .hero-col {
-            display: table-cell;
-            vertical-align: middle;
-        }
-        .hero-col-carousel {
-            width: 58%;
-        }
-        .hero-col-wave {
-            width: 42%;
-            background: #5844b4;
-        }
-        .wave-panel {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            padding: 1.5rem 1rem;
-            box-sizing: border-box;
-        }
-        .wave-stage {
-            width: 100%;
-            flex: 1;
-            min-height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(42, 241, 225, 0.2);
-            border-radius: 12px;
-            background: rgb(130, 250, 240);
-            margin-bottom: 1rem;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-        .wave-stage::before, .wave-stage::after {
-            content: '';
-            position: absolute;
-            width: 28px; height: 28px;
-            border-color: #7CDCD4;
-            border-style: solid;
-            opacity: 0.4;
-        }
-        .wave-stage::before { top: 8px; left: 8px; border-width: 1px 0 0 1px; border-radius: 3px 0 0 0; }
-        .wave-stage::after  { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; border-radius: 0 0 3px 0; }
-        .wave-text-display {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            font-family: 'Segoe UI', 'Tahoma', 'sans-serif';
-            font-size: clamp(28px, 4vw, 56px);
-            letter-spacing: 6px;
-            user-select: none;
-            line-height: 1;
-        }
-        .wave-char {
-            display: inline-block;
-            will-change: transform, color, opacity;
-        }
-        .wave-controls {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.6rem 1rem;
-        }
-        .wctrl { display: flex; flex-direction: column; gap: 5px; }
-        .wctrl label {
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
-            font-family: monospace;
-        }
-        .wctrl-row { display: flex; align-items: center; gap: 8px; }
-        .wave-input {
-            width: 100%;
-            background: rgba(86, 243, 235, 0.06);
-            border: 1px solid rgba(124,220,212,0.25);
-            border-radius: 6px;
-            color: #e8e8f0;
-            font-family: monospace;
-            font-size: 13px;
-            padding: 5px 9px;
-            outline: none;
-            box-sizing: border-box;
-        }
-        .wave-input:focus { border-color: rgba(124,220,212,0.6); }
-        .wave-controls input[type="range"] {
-            flex: 1;
-            -webkit-appearance: none;
-            appearance: none;
-            height: 3px;
-            background: rgba(255,255,255,0.12);
-            border-radius: 2px;
-            outline: none;
-            cursor: pointer;
-        }
-        .wave-controls input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 12px; height: 12px;
-            border-radius: 50%;
-            background: #7CDCD4;
-            cursor: pointer;
-        }
-        .wave-controls input[type="range"]::-moz-range-thumb {
-            width: 12px; height: 12px;
-            border-radius: 50%;
-            background: #7CDCD4;
-            border: none;
-        }
-        .wval {
-            font-size: 11px;
-            color: #7CDCD4;
-            min-width: 30px;
-            text-align: right;
-            font-family: monospace;
-        }
-        .wave-swatches { display: flex; gap: 7px; flex-wrap: wrap; }
-        .wswatch {
-            width: 20px; height: 20px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: border-color 0.15s, transform 0.15s;
-            box-sizing: border-box;
-        }
-        .wswatch:hover { transform: scale(1.25); }
-        .wswatch.active { border-color: #fff; }
+  #tw-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+  #tw-panel::before {
+    content: '';
+    position: absolute;
+    top: 10px; left: 10px;
+    width: 28px; height: 28px;
+    border-top: 1px solid rgba(124,220,212,0.35);
+    border-left: 1px solid rgba(124,220,212,0.35);
+    border-radius: 3px 0 0 0;
+  }
+  #tw-panel::after {
+    content: '';
+    position: absolute;
+    bottom: 10px; right: 10px;
+    width: 28px; height: 28px;
+    border-bottom: 1px solid rgba(124,220,212,0.35);
+    border-right: 1px solid rgba(124,220,212,0.35);
+    border-radius: 0 0 3px 0;
+  }
+  #tw-lines {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    align-items: center;
+    text-align: center;
+  }
+  .tw-line {
+    min-height: 1.1em;
+    line-height: 1.15;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .tw-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    vertical-align: middle;
+    background: #7CDCD4;
+    margin-left: 2px;
+    animation: blink 0.7s steps(1) infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-        /* Responsive: stack on mobile */
-        @media (max-width: 768px) {
-            .hero-table, .hero-col { display: block; width: 100%; }
-            .hero-col-wave { min-height: 300px; }
-            .wave-panel { padding: 1.5rem; }
-        }
-    </style>
+  @media (max-width: 768px) {
+    .hero-table, .hero-col { display: block; width: 100%; }
+    .hero-col-wave { min-height: 300px; }
+  }
+</style>
 
-    <!-- WAVE RIPPLE SCRIPT -->
-    <script>
-    (function() {
-        var waveEl      = document.getElementById('waveText');
-        var textInput   = document.getElementById('waveTextInput');
-        var speedSlider = document.getElementById('waveSpeed');
-        var speedOut    = document.getElementById('waveSpeedOut');
-        var heightSlider= document.getElementById('waveHeight');
-        var heightOut   = document.getElementById('waveHeightOut');
+<script>
+(function(){
+  var lines = [
+    { text: "Welcome to", font: "'Cormorant Garamond', serif", size: "clamp(22px,3.5vw,38px)", weight: "300", style:"italic", color: "rgba(255,255,255,0.65)" },
+    { text: "BENDMARK", font: "'Bebas Neue', sans-serif", size: "clamp(42px,7vw,82px)", weight: "400", style:"normal", color: "#7CDCD4" },
+    { text: "Printing Services", font: "'Playfair Display', serif", size: "clamp(18px,2.8vw,32px)", weight: "700", style:"normal", color: "#ffffff" },
+    { text: "where every print tells your story.", font: "'Montserrat', sans-serif", size: "clamp(11px,1.6vw,15px)", weight: "300", style:"normal", color: "rgba(255,255,255,0.5)", spacing:"0.12em" },
+    { text: "EST. 2020  ·  NAIROBI", font: "'Space Mono', monospace", size: "clamp(10px,1.4vw,13px)", weight: "700", style:"normal", color: "rgba(124,220,212,0.7)", spacing:"0.3em" }
+  ];
 
-        var animColor = '#7CDCD4';
-        var animId    = null;
-        var startTime = null;
-        var chars     = [];
-        var period    = 1400;
-        var maxLift   = 22;
+  var container = document.getElementById('tw-lines');
+  var lineEls = [];
+  var cursorEl = null;
 
-        function hexToRgb(hex) {
-            return [parseInt(hex.slice(1,3),16), parseInt(hex.slice(3,5),16), parseInt(hex.slice(5,7),16)];
-        }
-        function easeInOutSine(t) { return -(Math.cos(Math.PI * t) - 1) / 2; }
+  lines.forEach(function(l){
+    var d = document.createElement('div');
+    d.className = 'tw-line';
+    d.style.fontFamily = l.font;
+    d.style.fontSize = l.size;
+    d.style.fontWeight = l.weight;
+    d.style.fontStyle = l.style;
+    d.style.color = l.color;
+    if(l.spacing) d.style.letterSpacing = l.spacing;
+    container.appendChild(d);
+    lineEls.push(d);
+  });
 
-        function buildChars(text) {
-            waveEl.innerHTML = '';
-            chars = [];
-            [].slice.call(text).forEach(function(ch) {
-                var s = document.createElement('span');
-                s.className = 'wave-char';
-                s.textContent = ch === ' ' ? '\u00A0' : ch;
-                waveEl.appendChild(s);
-                chars.push(s);
-            });
-        }
+  cursorEl = document.createElement('span');
+  cursorEl.className = 'tw-cursor';
 
-        function animate(ts) {
-            if (!startTime) startTime = ts;
-            var elapsed = ts - startTime;
-            var n = chars.length;
-            if (n === 0) { animId = requestAnimationFrame(animate); return; }
-            var center   = (n - 1) / 2;
-            var maxDist  = Math.max(center, 1);
-            var rgb      = hexToRgb(animColor);
-            for (var i = 0; i < n; i++) {
-                var dist  = Math.abs(i - center) / maxDist;
-                var delay = dist * (period * 0.45);
-                var phase = ((elapsed - delay) % period + period) % period;
-                var t     = phase / period;
-                var lift, sc, alpha;
-                if (t < 0.5) {
-                    var p = easeInOutSine(t * 2);
-                    lift = p * maxLift; sc = 1 + p * 0.28; alpha = 0.3 + p * 0.7;
-                } else {
-                    var p = easeInOutSine((t - 0.5) * 2);
-                    lift = maxLift * (1 - p); sc = 1.28 - p * 0.28; alpha = 1 - p * 0.7;
-                }
-                chars[i].style.transform = 'translateY(' + (-lift).toFixed(2) + 'px) scale(' + sc.toFixed(4) + ')';
-                chars[i].style.color = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',' + alpha.toFixed(3) + ')';
-            }
-            animId = requestAnimationFrame(animate);
-        }
+  var CHAR_DELAY = 55, LINE_PAUSE = 320, FULL_PAUSE = 2200, ERASE_DELAY = 28;
 
-        function restart() {
-            if (animId) cancelAnimationFrame(animId);
-            startTime = null;
-            animId = requestAnimationFrame(animate);
-        }
+  function sleep(ms){ return new Promise(function(r){ setTimeout(r,ms); }); }
 
-        buildChars(textInput.value);
-        restart();
+  function typeInto(el, text){
+    return new Promise(function(resolve){
+      var i = 0;
+      el.textContent = '';
+      el.appendChild(cursorEl);
+      function tick(){
+        if(i < text.length){ el.insertBefore(document.createTextNode(text[i]), cursorEl); i++; setTimeout(tick, CHAR_DELAY); }
+        else { resolve(); }
+      }
+      tick();
+    });
+  }
 
-        textInput.addEventListener('input', function() { buildChars(textInput.value || ' '); startTime = null; });
-        speedSlider.addEventListener('input', function() {
-            period = parseInt(speedSlider.value);
-            speedOut.textContent = (period / 1000).toFixed(1) + 's';
-            startTime = null;
-        });
-        heightSlider.addEventListener('input', function() {
-            maxLift = parseInt(heightSlider.value);
-            heightOut.textContent = maxLift + 'px';
-        });
-        document.getElementById('waveSwatches').addEventListener('click', function(e) {
-            var sw = e.target.closest('.wswatch');
-            if (!sw) return;
-            [].forEach.call(document.querySelectorAll('.wswatch'), function(s) { s.classList.remove('active'); });
-            sw.classList.add('active');
-            animColor = sw.dataset.color;
-        });
-    })();
-    </script>
+  function eraseAll(){
+    return new Promise(function(resolve){
+      var maxLen = Math.max.apply(null, lineEls.map(function(el){ return el.textContent.length; }));
+      var step = 0;
+      function tick(){
+        if(step >= maxLen){ resolve(); return; }
+        lineEls.forEach(function(el){ if(el.textContent.length > 0) el.textContent = el.textContent.slice(0,-1); });
+        step++; setTimeout(tick, ERASE_DELAY);
+      }
+      tick();
+    });
+  }
+
+  async function run(){
+    while(true){
+      lineEls.forEach(function(el){ el.textContent = ''; });
+      for(var i = 0; i < lines.length; i++){
+        await typeInto(lineEls[i], lines[i].text);
+        if(i < lines.length-1) await sleep(LINE_PAUSE);
+      }
+      await sleep(FULL_PAUSE);
+      await eraseAll();
+      await sleep(400);
+    }
+  }
+  run();
+})();
+</script>
 
     <!-- SERVICES SECTION -->
     <section class="services" id="services">
