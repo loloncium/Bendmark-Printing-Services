@@ -62,13 +62,13 @@ header {
 
 .logo {
   display: flex;
-  max-height: 48px;
+  max-height: 58px;
   width:auto;
   align-items: center;
   font-size: 1.8rem;
   font-weight: bold;
   border-left: 20px;
-  padding-left: 30px;
+  padding-left: 70px;
   color: var(--secondary-color);
   text-decoration: none;
   transition: all 0.3s ease;
