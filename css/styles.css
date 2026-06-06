@@ -219,7 +219,7 @@ nav a:hover::after {
   height: 500px;
   overflow: hidden;
   transform-style: preserve-3d;
-  transition: transform 0.4s ease;
+  transition: transform 0.2s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,8 +227,8 @@ nav a:hover::after {
 
 .carousel-slide {
   position: absolute;
-  width: 320px;
-  height: 360px;
+  width: 92%;
+  height: 92%;
   display: flex;
   align-items: center;
   justify-content: center;
