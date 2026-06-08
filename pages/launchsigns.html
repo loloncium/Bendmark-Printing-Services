@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Launch Signs by BendMark - Custom signage, banners, and branded materials for product launches, grand openings, and business events.">
+    <meta name="keywords" content="launch signs, grand opening signs, product launch banners, event signage, opening banners, launch printing">
+    <meta name="robots" content="index, follow">
+    <title>Launch Signs - Event & Opening Signage | BendMark</title>
+    <style>
+        /* ── ROOT VARIABLES (mirrors BendMark palette) ── */
+        :root {
+            --purple:   #8286af;
+            --teal:     #7CDCD4;
+            --dark-teal:#026c72;
+            --white:    #ffffff;
+            --light-bg: #f5f9f9;
+            --card-bg:  #ffffff;
+            --text:     #333333;
+            --text-light:#666666;
+            --border:   #e0e0e0;
+            --shadow:   0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: var(--white);
+            border-bottom: 2px solid var(--teal);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        .logo .bend { color: var(--purple); }
+        .logo .mark { color: var(--teal); }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--dark-teal); }
+
+        .nav-dropdown { position: relative; }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            z-index: 200;
+            padding: 0.5rem 0;
+        }
+        .dropdown-menu.active { display: block; }
+        .dropdown-menu a {
+            display: block;
+            padding: 0.55rem 1.2rem;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+        .dropdown-menu a:hover { background: var(--light-bg); color: var(--dark-teal); }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        /* ── SERVICE DETAIL SECTION ── */
+        .service-detail {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--dark-teal);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--purple); }
+
+        /* ── HERO ── */
+        .service-hero {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #e8f7f7 100%);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .service-hero h1 {
+            font-size: 2.8rem;
+            color: var(--dark-teal);
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        .service-hero p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ── QUOTE BUTTON ── */
+        .quote-btn {
+            display: block;
+            margin: 1.5rem auto;
+            padding: 1rem 2.5rem;
+            background: var(--dark-teal);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: background 0.2s, transform 0.15s;
+            text-decoration: none;
+            max-width: 340px;
+        }
+        .quote-btn:hover {
+            background: var(--purple);
+            transform: translateY(-2px);
+        }
+
+        /* ── PRODUCT SHOWCASE ── */
+        .product-showcase {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .product-image {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+            background: linear-gradient(135deg, var(--teal) 0%, var(--dark-teal) 100%);
+            min-height: 260px;
+        }
+        /* Placeholder when no image */
+        .product-image-placeholder {
+            width: 100%;
+            max-width: 420px;
+            min-height: 260px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--dark-teal) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            box-shadow: var(--shadow);
+            gap: 1rem;
+        }
+        .product-image-placeholder .big-icon { font-size: 4rem; }
+
+        .product-description { flex: 1; min-width: 260px; }
+        .product-title {
+            font-size: 2rem;
+            color: var(--dark-teal);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        .product-text {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        /* ── DETAILS GRID ── */
+        .service-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .detail-box {
+            background: var(--light-bg);
+            border-left: 4px solid var(--teal);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .detail-box h3 {
+            color: var(--dark-teal);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .detail-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .detail-box ul li {
+            padding: 0.4rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+        .detail-box ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 700;
+        }
+        .detail-box p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ── SECTION HEADING ── */
+        .section-heading {
+            color: var(--dark-teal);
+            margin: 2rem 0;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        /* ── PRODUCTS GRID ── */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+            border-top: 3px solid var(--teal);
+        }
+        .product-card:hover {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+        }
+        .product-card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .product-card h3 {
+            color: var(--dark-teal);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+        .product-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ── URGENCY BANNER ── */
+        .urgency-banner {
+            background: linear-gradient(135deg, var(--dark-teal), var(--purple));
+            color: var(--white);
+            border-radius: 10px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .urgency-banner h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .urgency-banner p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #1a1a2e;
+            color: #ccc;
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-section h3 {
+            color: var(--teal);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+        .footer-section p, .footer-section a {
+            font-size: 0.9rem;
+            color: #aaa;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+        .footer-section a:hover { color: var(--teal); }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 1.2rem;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* ── WHATSAPP WIDGET ── */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            text-decoration: none;
+        }
+        .whatsapp-button {
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 4px 14px rgba(37,211,102,0.4);
+            transition: transform 0.2s;
+        }
+        .whatsapp-button:hover { transform: scale(1.1); }
+        .whatsapp-tooltip {
+            background: #333;
+            color: #fff;
+            font-size: 0.78rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 6px;
+            white-space: nowrap;
+            margin-bottom: 0.4rem;
+            text-align: center;
+            display: none;
+        }
+        .whatsapp-widget:hover .whatsapp-tooltip { display: block; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .service-hero h1 { font-size: 2rem; }
+            .service-details-grid { grid-template-columns: 1fr; }
+            .product-showcase { flex-direction: column; }
+            .product-image-placeholder { max-width: 100%; }
+            nav { display: none; }
+            nav.open { display: flex; flex-direction: column; width: 100%; }
+            .nav-toggle { display: block; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <span class="bend">BEND</span><span class="mark">MARK</span>
+            </a>
+            <button class="nav-toggle" id="navToggle">☰</button>
+            <nav id="mainNav">
+                <a href="../index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="../index.html#services" id="servicesLink">Services</a>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="3d-signs.html">3D Signs</a>
+                        <a href="road-signs.html">Road Signs</a>
+                        <a href="construction-signs.html">Construction Signs</a>
+                        <a href="business-cards.html">Business Cards</a>
+                        <a href="documents.html">Documents</a>
+                        <a href="fliers.html">Fliers</a>
+                        <a href="posters.html">Posters</a>
+                        <a href="banners.html">Banners & Signage</a>
+                        <a href="election-materials.html">Election Materials</a>
+                        <a href="launchsigns.html">Launch Signs</a>
+                        <a href="custom-printing.html">Custom Printing</a>
+                    </div>
+                </div>
+                <a href="../index.html#location">Location</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SERVICE DETAIL SECTION -->
+    <section class="service-detail">
+        <a href="../index.html#services" class="back-link">← Back to Services</a>
+
+        <div class="service-hero">
+            <h1>Launch Signs</h1>
+            <p>Make your grand opening, product launch, or business event impossible to miss — bold, professional signage and branded materials that build buzz and drive footfall from day one.</p>
+        </div>
+
+        <button class="quote-btn" onclick="window.location.href='tel:+254702444491'">Call or Text to get your Quote</button>
+
+        <!-- PRODUCT SHOWCASE -->
+        <div class="product-showcase">
+            <div class="product-image-placeholder">
+                <span class="big-icon">🚀</span>
+                <span>LAUNCH SIGNS</span>
+            </div>
+            <div class="product-description">
+                <h1 class="product-title">GRAND OPENING SIGNAGE</h1>
+                <p class="product-text">First impressions define your brand. Whether you're opening a new shop, launching a product, or unveiling a service, BendMark delivers striking signage and printed materials that create real excitement — on the street, online, and in the room.</p>
+                <p class="product-text">We combine bold design, premium materials, and fast turnaround so your launch looks polished and professional from the moment doors open. From teaser banners weeks before to branded merchandise on the day, we handle every visual touchpoint.</p>
+            </div>
+        </div>
+
+        <!-- URGENCY BANNER -->
+        <div class="urgency-banner">
+            <h3>🚀 Launch Date Locked In? Let's Get Your Signage Ready.</h3>
+            <p>Rush production available. Bundle discounts on full launch packages. Contact us today so everything is in place before opening day.</p>
+        </div>
+
+        <!-- FEATURES & TIMELINE GRID -->
+        <div class="service-details-grid">
+            <div class="detail-box">
+                <h3>Features & Benefits</h3>
+                <ul>
+                    <li>Eye-catching designs tailored to your brand identity</li>
+                    <li>Full-colour printing on premium, durable substrates</li>
+                    <li>Indoor and outdoor weather-resistant materials</li>
+                    <li>Bundle pricing for complete launch packages</li>
+                    <li>Fast rush-order turnaround available</li>
+                    <li>Consistent branding across all materials</li>
+                    <li>Design support from concept to final print</li>
+                </ul>
+            </div>
+            <div class="detail-box">
+                <h3>Production Timeline</h3>
+                <ul>
+                    <li><strong>Design Phase:</strong> 1–2 business days</li>
+                    <li><strong>Approval:</strong> Same day review</li>
+                    <li><strong>Standard Production:</strong> 3–5 business days</li>
+                    <li><strong>Rush Orders:</strong> 24–48 hours (fees apply)</li>
+                    <li><strong>Delivery / Collection:</strong> Same or next day</li>
+                    <li><strong>Full Launch Bundles:</strong> Timeline quoted on scope</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-heading">Our Launch Sign Products</h2>
+
+        <div class="products-grid">
+
+            <!-- Grand Opening Banners -->
+            <div class="product-card">
+                <div class="product-card-icon">🎉</div>
+                <h3>Grand Opening Banners</h3>
+                <p>Large-format vinyl banners announcing your opening in bold style. Reinforced hems, grommets, and vibrant full-bleed printing — perfect for storefronts, fences, and venue entrances to stop foot traffic in its tracks.</p>
+            </div>
+
+            <!-- Teaser & Countdown Signs -->
+            <div class="product-card">
+                <div class="product-card-icon">⏳</div>
+                <h3>Teaser & Countdown Signs</h3>
+                <p>Build anticipation before launch day with "Coming Soon" and countdown signage displayed in windows, on hoardings, or around your site. Create buzz in the neighbourhood weeks before you open.</p>
+            </div>
+
+            <!-- Outdoor A-Frame & Pavement Signs -->
+            <div class="product-card">
+                <div class="product-card-icon">🪧</div>
+                <h3>A-Frame & Pavement Signs</h3>
+                <p>Double-sided A-frame boards placed on the pavement to pull foot traffic through your door. Durable, reusable frames with interchangeable printed panels — ideal for launch-day promotions and ongoing offers.</p>
+            </div>
+
+            <!-- Pull-Up / Roll-Up Banners -->
+            <div class="product-card">
+                <div class="product-card-icon">🎯</div>
+                <h3>Pull-Up / Roll-Up Banners</h3>
+                <p>Portable retractable banners for launch events, trade stands, press days, and showrooms. Crisp, professional presentation with an easy carry bag — set up in seconds, looks impressive all day.</p>
+            </div>
+
+            <!-- Window Graphics & Decals -->
+            <div class="product-card">
+                <div class="product-card-icon">🪟</div>
+                <h3>Window Graphics & Decals</h3>
+                <p>Transform shopfront glass into a high-impact display. Custom-cut vinyl graphics, frosted film, and full-window wraps that announce your brand, showcase your offer, and attract attention from the street.</p>
+            </div>
+
+            <!-- Branded Merchandise & Giveaways -->
+            <div class="product-card">
+                <div class="product-card-icon">🎁</div>
+                <h3>Branded Launch Merchandise</h3>
+                <p>Pens, tote bags, branded T-shirts, caps, and notepads carrying your logo. Hand them out on launch day to turn attendees into walking brand ambassadors long after the event wraps up.</p>
+            </div>
+
+            <!-- Fliers & Leaflets -->
+            <div class="product-card">
+                <div class="product-card-icon">📄</div>
+                <h3>Launch Fliers & Leaflets</h3>
+                <p>A5 and A4 single or double-sided fliers for distribution in the surrounding area, at partner businesses, and during the event itself. High-gloss or matte finish on quality paper stock that feels premium.</p>
+            </div>
+
+            <!-- Event Backdrop Banners -->
+            <div class="product-card">
+                <div class="product-card-icon">🖼️</div>
+                <h3>Event Backdrop Banners</h3>
+                <p>Step-and-repeat or branded photo-wall backdrops for launch events, press days, and VIP receptions. Full-colour printing on tension fabric or vinyl — a polished backdrop for every photo and video.</p>
+            </div>
+
+            <!-- Vehicle & Motorcade Branding -->
+            <div class="product-card">
+                <div class="product-card-icon">🚐</div>
+                <h3>Vehicle & Delivery Branding</h3>
+                <p>Full or partial vehicle wraps, magnetic door signs, and window decals for your launch fleet or delivery vehicles. Turn every journey to and from your venue into a moving advertisement on launch day.</p>
+            </div>
+
+            <!-- Directional & Wayfinding Signs -->
+            <div class="product-card">
+                <div class="product-card-icon">🗺️</div>
+                <h3>Directional & Wayfinding Signs</h3>
+                <p>Guide customers to your door with custom arrow signs, sandwich boards, and roadside directional displays. Essential for launches in malls, business parks, or events in large venues where footfall needs directing.</p>
+            </div>
+
+            <!-- Stickers & Branded Packaging -->
+            <div class="product-card">
+                <div class="product-card-icon">⭐</div>
+                <h3>Stickers & Branded Packaging</h3>
+                <p>Die-cut stickers, product labels, and branded packaging tape in your launch colours. Waterproof vinyl ensures longevity — perfect for packaging, bags, merchandise, and first-impression takeaway items.</p>
+            </div>
+
+            <!-- Complete Launch Package -->
+            <div class="product-card">
+                <div class="product-card-icon">🏆</div>
+                <h3>Complete Launch Package</h3>
+                <p>One bundled solution covering banners, fliers, pull-ups, window graphics, branded merchandise, and signage. Consistent branding, single point of contact, and package pricing — everything managed from design to delivery day.</p>
+            </div>
+
+        </div>
+
+        <!-- DESIGN PROCESS -->
+        <div class="detail-box" style="margin-top: 2rem;">
+            <h3>Our Launch Signage Design Process</h3>
+            <p>We move fast without cutting corners. Here's how we get your launch materials ready before opening day:</p>
+            <ul style="margin-top: 1rem;">
+                <li><strong>Brief & Consultation:</strong> Share your brand, launch date, and the look you're going for</li>
+                <li><strong>Concept Design:</strong> Our designers produce initial mockups within 24 hours</li>
+                <li><strong>Revisions:</strong> Quick turnaround on any changes — usually same day</li>
+                <li><strong>Final Approval:</strong> You sign off before we go to print</li>
+                <li><strong>Production:</strong> High-quality print run with QC checks throughout</li>
+                <li><strong>Collection / Delivery:</strong> Pick up or have materials delivered to your venue before launch day</li>
+            </ul>
+        </div>
+
+        <button class="quote-btn" onclick="window.location.href='tel:+254702444491'" style="margin-top: 2.5rem;">Call or Text to get your Quote</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About BendMark</h3>
+                <p>BendMark is a leading printing services company providing high-quality solutions for all your printing needs.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="../index.html">Home</a><br>
+                <a href="../index.html#services">Services</a><br>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="3d-signs.html">3D Signs</a><br>
+                <a href="road-signs.html">Road Signs</a><br>
+                <a href="election-materials.html">Election Materials</a><br>
+                <a href="launchsigns.html">Launch Signs</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Phone: +254 702 444 491<br>Email: info@bendmark.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 BendMark Printing Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP CHAT WIDGET -->
+    <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%20Launch%20Signs%20and%20Grand%20Opening%20Signage" target="_blank" rel="noopener noreferrer" class="whatsapp-widget">
+        <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
+        <div class="whatsapp-button">💬</div>
+    </a>
+
+    <script>
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', function () {
+            document.getElementById('mainNav').classList.toggle('open');
+        });
+
+        // Services dropdown toggle
+        document.getElementById('servicesLink').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.getElementById('dropdownMenu').classList.toggle('active');
+        });
+        document.querySelectorAll('.dropdown-menu a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                document.getElementById('dropdownMenu').classList.remove('active');
+            });
+        });
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.nav-dropdown')) {
+                document.getElementById('dropdownMenu').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

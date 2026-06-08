@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFTBG3Y1QD"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5130587355236315"
+         crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TFTBG3Y1QD');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Engraving Services by BendMark - Wood, metal, glass, acrylic, and leather engraving with custom designs and fast turnaround.">
+    <meta name="keywords" content="engraving, wood engraving, metal engraving, laser engraving, custom engraving, glass engraving, personalized gifts">
+    <meta name="robots" content="index, follow">
+    <title>Engraving Services - Custom Engraving | BendMark</title>
+
+    <style>
+        /* ── RESET & BASE ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --brand-purple: #8286af;
+            --brand-teal:   #7CDCD4;
+            --brand-dark:   #026c72;
+            --accent:       #7CDCD4;
+            --text-dark:    #1a1a2e;
+            --text-mid:     #444;
+            --text-light:   #666;
+            --bg-light:     #f8fffe;
+            --bg-card:      #ffffff;
+            --border:       #e0f5f4;
+            --radius:       12px;
+            --shadow:       0 4px 24px rgba(2,108,114,0.10);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: #fff;
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(130,134,175,0.08);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-decoration: none;
+            font-family: 'Arial Black', Arial, sans-serif;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--brand-purple);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: Arial, sans-serif;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--brand-dark); }
+
+        .nav-dropdown { position: relative; }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            min-width: 220px;
+            z-index: 200;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-menu.active { display: block; }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.55rem 1.2rem;
+            font-size: 0.9rem;
+            color: var(--text-mid);
+            border-radius: 0;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--bg-light);
+            color: var(--brand-dark);
+        }
+
+        /* ── SERVICE DETAIL WRAPPER ── */
+        .service-detail {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--brand-dark);
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--brand-purple); }
+
+        /* ── HERO ── */
+        .service-hero {
+            text-align: center;
+            padding: 3.5rem 1rem 2.5rem;
+            background: linear-gradient(135deg, #e8faf9 0%, #f0f1f8 100%);
+            border-radius: 18px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-hero::before {
+            content: '✦';
+            position: absolute;
+            font-size: 12rem;
+            color: rgba(124,220,212,0.12);
+            top: -2rem;
+            right: -1rem;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .service-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: var(--brand-dark);
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-hero p {
+            font-size: 1.1rem;
+            color: var(--text-mid);
+            max-width: 620px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ── QUOTE BUTTON ── */
+        .quote-btn {
+            display: block;
+            width: fit-content;
+            margin: 1.5rem auto;
+            background: linear-gradient(135deg, var(--brand-dark), var(--brand-teal));
+            color: #fff;
+            border: none;
+            padding: 1rem 2.4rem;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 18px rgba(2,108,114,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .quote-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(2,108,114,0.35);
+        }
+
+        /* ── PRODUCT SHOWCASE ── */
+        .product-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .product-image {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            min-height: 240px;
+            background: linear-gradient(135deg, var(--brand-teal), var(--brand-purple));
+        }
+
+        /* Placeholder when image missing */
+        .product-image-placeholder {
+            width: 100%;
+            min-height: 280px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #7CDCD4 0%, #8286af 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            color: var(--brand-dark);
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .product-text {
+            color: var(--text-mid);
+            font-size: 1rem;
+            margin-bottom: 0.9rem;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ── DETAILS GRID ── */
+        .service-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .detail-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+        }
+
+        .detail-box h3 {
+            color: var(--brand-dark);
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            font-family: Arial, sans-serif;
+            font-weight: 800;
+        }
+
+        .detail-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detail-box ul li {
+            padding: 0.35rem 0;
+            padding-left: 1.4rem;
+            position: relative;
+            color: var(--text-mid);
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .detail-box ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--brand-teal);
+            font-weight: 900;
+        }
+
+        .detail-box p {
+            color: var(--text-mid);
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+        }
+
+        /* ── SECTION HEADING ── */
+        .section-heading {
+            color: var(--brand-dark);
+            margin: 2.5rem 0 2rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        /* ── PRODUCTS GRID ── */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.4rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.6rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--brand-teal), var(--brand-purple));
+            border-radius: 4px 0 0 4px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(2,108,114,0.15);
+            border-color: var(--brand-teal);
+        }
+
+        .product-card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.7rem;
+            height: 2.5rem;
+        }
+
+        .product-card h3 {
+            color: var(--brand-dark);
+            font-size: 1.05rem;
+            font-family: Arial, sans-serif;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+        }
+
+        .product-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* ── AD CONTAINER ── */
+        .ad-container {
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 1rem;
+            color: var(--text-light);
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--text-dark);
+            color: #ccc;
+            padding: 3rem 1.5rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-section h3 {
+            color: var(--brand-teal);
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-family: Arial, sans-serif;
+            font-size: 0.88rem;
+            color: #aaa;
+            text-decoration: none;
+            line-height: 1.9;
+            display: inline-block;
+        }
+
+        .footer-section a:hover { color: var(--brand-teal); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 1.2rem auto 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            color: #666;
+        }
+
+        /* ── WHATSAPP WIDGET ── */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 1.8rem;
+            right: 1.8rem;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .whatsapp-button {
+            width: 58px;
+            height: 58px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-button:hover { transform: scale(1.1); }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            color: var(--text-dark);
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-family: Arial, sans-serif;
+            white-space: nowrap;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+
+        .whatsapp-widget:hover .whatsapp-tooltip { opacity: 1; }
+
+        /* ── MATERIALS STRIP ── */
+        .materials-strip {
+            background: linear-gradient(135deg, var(--brand-dark) 0%, #044d52 100%);
+            border-radius: 16px;
+            padding: 2rem 2.5rem;
+            margin: 2.5rem 0;
+            color: #fff;
+        }
+
+        .materials-strip h3 {
+            font-size: 1.2rem;
+            font-family: Arial, sans-serif;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            color: var(--brand-teal);
+        }
+
+        .materials-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            list-style: none;
+        }
+
+        .materials-list li {
+            background: rgba(124,220,212,0.18);
+            border: 1px solid rgba(124,220,212,0.4);
+            border-radius: 50px;
+            padding: 0.4rem 1.1rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.88rem;
+            color: #e0faf9;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 1.5rem;
+                border-top: 1px solid var(--border);
+                gap: 0.8rem;
+                box-shadow: var(--shadow);
+            }
+
+            nav.open { display: flex; }
+
+            .product-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .service-details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <span style="color: #8286af;">BEND</span><span style="color: #7CDCD4;">MARK</span>
+            </a>
+            <button class="nav-toggle" id="navToggle">☰</button>
+            <nav id="mainNav">
+                <a href="../index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="../index.html#services" id="servicesLink">Services</a>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="3d-signs.html">3D Signs</a>
+                        <a href="road-signs.html">Road Signs</a>
+                        <a href="construction-signs.html">Construction Signs</a>
+                        <a href="engraving.html">Engraving</a>
+                        <a href="business-cards.html">Business Cards</a>
+                        <a href="documents.html">Documents</a>
+                        <a href="fliers.html">Fliers</a>
+                        <a href="posters.html">Posters</a>
+                        <a href="banners.html">Banners & Signage</a>
+                        <a href="custom-printing.html">Custom Printing</a>
+                    </div>
+                </div>
+                <a href="../index.html#location">Location</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SERVICE DETAIL SECTION -->
+    <section class="service-detail">
+        <a href="../index.html#services" class="back-link">← Back to Services</a>
+
+        <div class="service-hero">
+            <h1>Engraving Services</h1>
+            <p>Precision craftsmanship on wood, metal, glass, acrylic, leather, and more — bringing your designs to life with lasting depth and detail.</p>
+        </div>
+
+        <button class="quote-btn" onclick="window.location.href='tel:+254702444491'">Call or Text to get your Quote</button>
+
+        <!-- PRODUCT SHOWCASE -->
+        <div class="product-showcase">
+            <div class="product-image-placeholder">🪵</div>
+            <div class="product-description">
+                <h1 class="product-title">ENGRAVING</h1>
+                <p class="product-text">From intricate wood carvings to precision laser-etched metal, our engraving services deliver exceptional quality across a vast range of materials. Whether you need personalised gifts, branded corporate awards, signage, or decorative pieces, we have the skill and technology to exceed your expectations.</p>
+                <p class="product-text">Using state-of-the-art laser engraving equipment alongside traditional hand and rotary techniques, we achieve crisp, permanent results on virtually any surface. Every piece is handled with care and crafted to stand the test of time.</p>
+            </div>
+        </div>
+
+        <!-- MATERIALS STRIP -->
+        <div class="materials-strip">
+            <h3>Materials We Engrave</h3>
+            <ul class="materials-list">
+                <li>🪵 Wood</li>
+                <li>🔩 Metal</li>
+                <li>🪟 Glass</li>
+                <li>🧊 Acrylic</li>
+                <li>👜 Leather</li>
+                <li>🪨 Stone & Slate</li>
+                <li>🏺 Ceramic & Tile</li>
+                <li>🧱 Anodised Aluminium</li>
+                <li>💎 Crystal & Trophy Blanks</li>
+                <li>📱 Plastics & PVC</li>
+                <li>🔖 MDF & Plywood</li>
+                <li>🎖 Brass & Copper</li>
+            </ul>
+        </div>
+
+        <div class="service-details-grid">
+            <div class="detail-box">
+                <h3>Features & Benefits</h3>
+                <ul>
+                    <li>Laser-precise engraving at any scale</li>
+                    <li>Permanent, fade-proof results</li>
+                    <li>Custom artwork, logos & text</li>
+                    <li>Personalised gifts & keepsakes</li>
+                    <li>Corporate branding & awards</li>
+                    <li>Both indoor and outdoor-grade finishes</li>
+                    <li>Bulk order discounts available</li>
+                    <li>Photographic-quality detail engraving</li>
+                </ul>
+            </div>
+
+            <div class="detail-box">
+                <h3>Production Timeline</h3>
+                <ul>
+                    <li><strong>Design Review:</strong> 1–2 business days</li>
+                    <li><strong>Sample / Proof:</strong> 1 business day</li>
+                    <li><strong>Production:</strong> 2–7 business days</li>
+                    <li><strong>Finishing & QC:</strong> 1 business day</li>
+                    <li><strong>Rush Orders:</strong> Available (fees apply)</li>
+                    <li><strong>Total Avg Time:</strong> 5–10 business days</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ADSENSE SLOT -->
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5130587355236315"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-5a+c5+48-6z-5k"
+                 data-ad-client="ca-pub-5130587355236315"
+                 data-ad-slot="1181891781"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <h2 class="section-heading">Our Engraving Products & Services</h2>
+
+        <div class="products-grid">
+
+            <!-- Wood Engraving -->
+            <div class="product-card">
+                <div class="product-card-icon">🪵</div>
+                <h3>Wood Engraving</h3>
+                <p>Rich, tactile engravings on hardwoods, softwoods, MDF, and plywood. Ideal for personalised frames, cutting boards, trophy plaques, wall art, and bespoke furniture detailing.</p>
+            </div>
+
+            <!-- Metal Engraving -->
+            <div class="product-card">
+                <div class="product-card-icon">🔩</div>
+                <h3>Metal Engraving</h3>
+                <p>Precision-etched stainless steel, aluminium, brass, and copper for nameplates, industrial tags, jewellery, tools, and corporate awards that demand lasting quality.</p>
+            </div>
+
+            <!-- Glass Engraving -->
+            <div class="product-card">
+                <div class="product-card-icon">🪟</div>
+                <h3>Glass Engraving</h3>
+                <p>Elegant frosted and deep-relief designs on glassware, mirrors, windows, and decorative panels. Perfect for weddings, anniversaries, and high-end corporate gifts.</p>
+            </div>
+
+            <!-- Acrylic Engraving -->
+            <div class="product-card">
+                <div class="product-card-icon">🧊</div>
+                <h3>Acrylic Engraving</h3>
+                <p>Crisp, clean engravings on clear and coloured acrylic for signage, awards, display stands, nameplates, and illuminated edge-lit panels with a modern look.</p>
+            </div>
+
+            <!-- Leather Engraving -->
+            <div class="product-card">
+                <div class="product-card-icon">👜</div>
+                <h3>Leather Engraving</h3>
+                <p>Custom branding and personalisation on wallets, belts, bags, journals, and accessories. Laser engraving delivers detailed logos and monograms that elevate any leather product.</p>
+            </div>
+
+            <!-- Trophy & Award Engraving -->
+            <div class="product-card">
+                <div class="product-card-icon">🏆</div>
+                <h3>Trophy & Award Engraving</h3>
+                <p>Commemorate achievements with personalised trophies, medals, plaques, and crystal awards. Bulk engraving for schools, sports clubs, and corporate recognition programmes.</p>
+            </div>
+
+            <!-- Stone & Slate Engraving -->
+            <div class="product-card">
+                <div class="product-card-icon">🪨</div>
+                <h3>Stone & Slate Engraving</h3>
+                <p>Durable outdoor engravings on slate, granite, and marble for garden markers, memorials, house signs, and architectural features that withstand the elements for decades.</p>
+            </div>
+
+            <!-- Personalised Gifts -->
+            <div class="product-card">
+                <div class="product-card-icon">🎁</div>
+                <h3>Personalised Gifts</h3>
+                <p>Turn any occasion into a treasured memory with custom-engraved gifts — photo frames, keyrings, wine glasses, pens, and keepsake boxes tailored to every recipient.</p>
+            </div>
+
+            <!-- Corporate Branding -->
+            <div class="product-card">
+                <div class="product-card-icon">🏢</div>
+                <h3>Corporate Branding</h3>
+                <p>Engrave your logo and brand identity onto promotional items, office signage, branded stationery, and executive gifts that leave a lasting professional impression.</p>
+            </div>
+
+            <!-- Signage & Plaques -->
+            <div class="product-card">
+                <div class="product-card-icon">🪧</div>
+                <h3>Signage & Plaques</h3>
+                <p>Professional door plates, directional signs, memorial plaques, and informational boards engraved in metal, acrylic, or wood to suit any commercial or institutional space.</p>
+            </div>
+
+            <!-- Photo Engraving -->
+            <div class="product-card">
+                <div class="product-card-icon">📸</div>
+                <h3>Photo Engraving</h3>
+                <p>Reproduce photographs with stunning detail on wood, metal, or acrylic using high-resolution laser engraving. A unique, timeless alternative to printed photos.</p>
+            </div>
+
+            <!-- Large Format Engraving -->
+            <div class="product-card">
+                <div class="product-card-icon">📐</div>
+                <h3>Large Format Engraving</h3>
+                <p>Oversized engravings for wall installations, architectural features, event backdrops, and large industrial components — no project is too big for our engraving capabilities.</p>
+            </div>
+
+        </div>
+
+        <div class="detail-box" style="margin-top: 2rem;">
+            <h3>Our Engraving Process</h3>
+            <p>From your first idea to the finished piece, we guide you every step of the way:</p>
+            <ul style="margin-top: 1rem;">
+                <li><strong>Consultation:</strong> Discuss your vision, material choice, and intended use</li>
+                <li><strong>Artwork Preparation:</strong> We optimise your design for the best engraving result</li>
+                <li><strong>Material Selection:</strong> We help you choose the right substrate for durability and aesthetics</li>
+                <li><strong>Sample / Test Run:</strong> A proof engraving to confirm quality before full production</li>
+                <li><strong>Production:</strong> Precision engraving using laser, rotary, or hand techniques</li>
+                <li><strong>Finishing:</strong> Colour filling, lacquering, or mounting as required</li>
+                <li><strong>Quality Control:</strong> Rigorous inspection before handover or delivery</li>
+                <li><strong>Delivery / Collection:</strong> Secure packaging and on-time fulfilment</li>
+            </ul>
+        </div>
+
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5130587355236315"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-5a+c5+48-6z-5k"
+                 data-ad-client="ca-pub-5130587355236315"
+                 data-ad-slot="1181891781"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <button class="quote-btn" onclick="window.location.href='tel:+254702444491'">Call or Text to get your Quote</button>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About BendMark</h3>
+                <p>BendMark is a leading printing and engraving services company providing high-quality solutions for all your branding and signage needs.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="../index.html">Home</a><br>
+                <a href="../index.html#services">Services</a><br>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="3d-signs.html">3D Signs</a><br>
+                <a href="engraving.html">Engraving</a><br>
+                <a href="road-signs.html">Road Signs</a><br>
+                <a href="construction-signs.html">Construction Signs</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Phone: (123) 456-7890<br>Email: info@bendmark.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 BendMark Printing Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP CHAT WIDGET -->
+    <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%20Engraving%20Services" target="_blank" rel="noopener noreferrer" class="whatsapp-widget">
+        <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
+        <div class="whatsapp-button">💬</div>
+    </a>
+
+    <script src="../js/carousel.js"></script>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const mainNav   = document.getElementById('mainNav');
+        navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
+
+        // Services dropdown toggle on click
+        const servicesLink  = document.getElementById('servicesLink');
+        const dropdownMenu  = document.getElementById('dropdownMenu');
+
+        servicesLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdownMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', () => dropdownMenu.classList.remove('active'));
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-dropdown')) {
+                dropdownMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
