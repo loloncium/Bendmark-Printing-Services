@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BendMark — Signage & Printing Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0c0d10;
+      --surface: #14161b;
+      --border: rgba(255,255,255,0.07);
+      --gold: #FACC15;
+      --cyan: #22D3EE;
+      --text: #e8e9ec;
+      --muted: #6b7280;
+    }
+
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── AMBIENT GLOWS ── */
+    .ambient {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    .ambient-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+    }
+    .blob-1 { width: 600px; height: 600px; top: -20%; left: -10%; background: rgba(250,204,21,0.04); }
+    .blob-2 { width: 500px; height: 500px; bottom: -10%; right: -5%; background: rgba(34,211,238,0.04); }
+
+    /* ── HEADER ── */
+    header {
+      position: relative; z-index: 10;
+      padding: 2rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .logo-mark {
+      display: flex; align-items: center; gap: 0.85rem;
+    }
+    .logo-badge {
+      width: 42px; height: 42px;
+      background: var(--gold);
+      color: #000;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.03em;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .brand-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.85rem;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      color: #fff;
+    }
+    .brand-name span { color: var(--gold); }
+    .brand-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-top: 0.2rem;
+    }
+    .header-stats {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+    }
+    .hstat {
+      text-align: right;
+    }
+    .hstat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.06em;
+      color: #fff;
+      line-height: 1;
+    }
+    .hstat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      position: relative; z-index: 10;
+      padding: 2.5rem 2.5rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .section-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .section-eyebrow strong {
+      color: var(--gold);
+    }
+
+    /* ── MASONRY GRID ── */
+    .masonry-wrap {
+      position: relative; z-index: 10;
+      padding: 0 2rem 4rem;
+      columns: 4 260px;
+      column-gap: 14px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      break-inside: avoid;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      display: block;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.16);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+    }
+
+    /* Varied heights via aspect-ratio classes */
+    .card .media { overflow: hidden; position: relative; }
+    .card.ar-tall  .media { aspect-ratio: 3/4; }
+    .card.ar-wide  .media { aspect-ratio: 16/9; }
+    .card.ar-sq    .media { aspect-ratio: 1/1; }
+    .card.ar-port  .media { aspect-ratio: 2/3; }
+    .card.ar-land  .media { aspect-ratio: 4/3; }
+    .card.ar-ultra .media { aspect-ratio: 21/9; }
+
+    .card .media img,
+    .card .media video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s ease, filter 0.55s ease;
+    }
+    .card:hover .media img,
+    .card:hover .media video {
+      transform: scale(1.06);
+    }
+
+    /* Glow overlay on hover */
+    .card .glow-overlay {
+      position: absolute; inset: 0;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      border-radius: 8px 8px 0 0;
+    }
+    .card:hover .glow-overlay { opacity: 1; }
+
+    /* Category pill */
+    .cat-pill {
+      position: absolute; top: 10px; left: 10px; z-index: 5;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+    }
+    .cat-3d    { background: rgba(249,115,22,0.85); color: #fff; }
+    .cat-lfp   { background: rgba(16,185,129,0.85); color: #fff; }
+    .cat-led   { background: rgba(236,72,153,0.85); color: #fff; }
+    .cat-exh   { background: rgba(34,211,238,0.85); color: #000; }
+
+    /* Card info strip */
+    .card-info {
+      padding: 0.75rem 0.9rem 0.85rem;
+    }
+    .card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.07em;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+    }
+    .card-location {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex; align-items: center; gap: 5px;
+    }
+    .card-location svg {
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+
+    /* ── MODAL ── */
+    .modal-bg {
+      display: none;
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(10px);
+      align-items: center; justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-bg.open { display: flex; }
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      max-width: 900px; width: 100%;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.7);
+      animation: modalIn 0.28s ease;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.95) translateY(12px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-top {
+      background: #0c0d10;
+      padding: 0.9rem 1.3rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .modal-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: #000;
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-weight: 700;
+    }
+    .modal-close {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .modal-close:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
+    .modal-body { display: grid; grid-template-columns: 1fr 1fr; }
+    @media (max-width: 640px) { .modal-body { grid-template-columns: 1fr; } }
+    .modal-media {
+      background: #080909;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 300px; max-height: 480px;
+      overflow: hidden;
+    }
+    .modal-media img, .modal-media video {
+      width: 100%; height: 100%; object-fit: contain; display: block;
+    }
+    .modal-info { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.1rem; }
+    .modal-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 2px 9px; border-radius: 999px; display: inline-block; font-weight: 700;
+    }
+    .modal-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem; letter-spacing: 0.07em; color: #fff; line-height: 1.05;
+    }
+    .modal-meta {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 0.9rem 1rem;
+    }
+    .meta-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 2px;
+    }
+    .meta-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; font-weight: 600; color: #fff; text-transform: uppercase;
+    }
+    .modal-dims {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; color: var(--cyan); letter-spacing: 0.1em;
+    }
+    .modal-materials { display: flex; flex-wrap: wrap; gap: 5px; }
+    .mat-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      padding: 3px 8px; border-radius: 3px;
+    }
+    .modal-features { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .modal-features li {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem; color: #9ca3af;
+      padding-left: 1rem; position: relative;
+    }
+    .modal-features li::before {
+      content: '•'; color: var(--gold); position: absolute; left: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 10;
+      padding: 1.2rem 2.5rem;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;
+    }
+    .footer-left {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+    }
+    .footer-right {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+    }
+    .pulse-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #10b981;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.85)} }
+
+    @media (max-width: 700px) {
+      .masonry-wrap { columns: 2 160px; padding: 0 1rem 3rem; }
+      header { padding: 1.5rem 1.2rem; }
+      .header-stats { display: none; }
+    }
+
+    /* ── EMPTY / LOADING STATES ── */
+    .no-media-card {
+      width: 100%; height: 100%;
+      min-height: 140px;
+      display: flex; align-items: center; justify-content: center;
+      background: #15171c;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .no-media-modal {
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2rem;
+    }
+    .grid-loading {
+      grid-column: 1 / -1;
+      column-span: all;
+      text-align: center;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3rem 1rem;
+    }
+    .modal-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient glows -->
+  <div class="ambient">
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="../index.html" class="logo">
+                 <img src="LOGO.jpeg" alt="BendMark Logo" style="max-height: 58px; width: auto;">
+            </a>
+    </div>
+    <div class="header-stats">
+      <div class="hstat">
+        <div class="hstat-num" id="stat-count">—</div>
+        <div class="hstat-label">Projects Showcased</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">30K+</div>
+        <div class="hstat-label">Sqm Installed</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">1,840+</div>
+        <div class="hstat-label">LED Lights</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">6</div>
+        <div class="hstat-label">Cities</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section label -->
+  <div class="section-label">
+    <span class="section-eyebrow">Portfolio &mdash; <strong>15 Masterworks</strong></span>
+  </div>
+
+  <!-- Masonry grid (rendered by JS) -->
+  <div class="masonry-wrap" id="grid"></div>
+
+  <!-- Modal -->
+  <div class="modal-bg" id="modal" onclick="handleModalBgClick(event)">
+    <div class="modal-box" id="modal-box">
+      <div class="modal-top">
+        <span class="modal-tag" id="m-tag">INSPECTION CONSOLE</span>
+        <button class="modal-close" onclick="closeModal()">Close ✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media" id="m-media"></div>
+        <div class="modal-info">
+          <div>
+            <span class="modal-cat" id="m-cat"></span>
+          </div>
+          <div class="modal-title" id="m-title"></div>
+          <p class="modal-desc" id="m-desc"></p>
+          <div class="modal-meta">
+            <div>
+              <div class="meta-label">Client</div>
+              <div class="meta-val" id="m-client"></div>
+            </div>
+            <div>
+              <div class="meta-label">Year</div>
+              <div class="meta-val" id="m-year"></div>
+            </div>
+            <div style="grid-column:1/-1">
+              <div class="meta-label">Location</div>
+              <div class="meta-val" id="m-loc"></div>
+            </div>
+            <div style="grid-column:1/-1">
+              <div class="meta-label">Dimensions</div>
+              <div class="modal-dims" id="m-dims"></div>
+            </div>
+          </div>
+          <div>
+            <div class="meta-label" style="margin-bottom:6px">Materials</div>
+            <div class="modal-materials" id="m-mats"></div>
+          </div>
+          <div>
+            <div class="meta-label" style="margin-bottom:6px">Features</div>
+            <ul class="modal-features" id="m-feats"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-left">BendMark Design and Suppliers &mdash; Nairobi, Kenya</div>
+    <div class="footer-right">
+      <div class="pulse-dot"></div>
+      <span>Commissions Open</span>
+    </div>
+  </footer>
+
+  <script>
+    const catClass = {
+      '3D Signage':'cat-3d',
+      'Large Format Printing':'cat-lfp',
+      'LED & Neon Signs':'cat-led',
+      'Exhibition & Displays':'cat-exh',
+      'Engraving':'cat-3d',
+      'Branding':'cat-lfp',
+      'CNC Cutting':'cat-exh'
+    };
+    const catBg = {
+      '3D Signage':'rgba(249,115,22,0.85)',
+      'Large Format Printing':'rgba(16,185,129,0.85)',
+      'LED & Neon Signs':'rgba(236,72,153,0.85)',
+      'Exhibition & Displays':'rgba(34,211,238,0.85)',
+      'Engraving':'rgba(249,115,22,0.85)',
+      'Branding':'rgba(16,185,129,0.85)',
+      'CNC Cutting':'rgba(34,211,238,0.85)'
+    };
+    const catFg = {
+      '3D Signage':'#fff',
+      'Large Format Printing':'#fff',
+      'LED & Neon Signs':'#fff',
+      'Exhibition & Displays':'#000',
+      'Engraving':'#fff',
+      'Branding':'#fff',
+      'CNC Cutting':'#000'
+    };
+
+    let PROJECTS = [];
+    const grid = document.getElementById('grid');
+
+    function mediaMarkup(p, forModal) {
+      const glowStyle = forModal ? ` style="filter:drop-shadow(0 0 22px ${p.glow || '#7CDCD4'})"` : '';
+      if (!p.image_url) {
+        return forModal
+          ? `<div class="no-media-modal">No photo uploaded yet</div>`
+          : `<div class="no-media-card">No photo yet</div>`;
+      }
+      return p.media_type === 'video'
+        ? `<video autoplay loop muted playsinline src="${p.image_url}"${glowStyle}></video>`
+        : `<img src="${p.image_url}" alt="${p.title}" loading="lazy"${glowStyle}>`;
+    }
+
+    async function loadProjects() {
+      grid.innerHTML = `<div class="grid-loading">Loading projects…</div>`;
+      try {
+        const res = await fetch('/api/projects');
+        if (!res.ok) throw new Error('Request failed');
+        PROJECTS = await res.json();
+      } catch (err) {
+        grid.innerHTML = `<div class="grid-loading">Couldn't load the portfolio right now. Please refresh.</div>`;
+        return;
+      }
+
+      grid.innerHTML = '';
+      PROJECTS.forEach(p => {
+        const card = document.createElement('div');
+        card.className = `card ${p.aspect_ratio || 'ar-sq'}`;
+        card.setAttribute('data-id', p.id);
+        card.innerHTML = `
+          <div class="media">
+            ${mediaMarkup(p, false)}
+            <div class="glow-overlay" style="background:radial-gradient(ellipse at center, ${p.glow || '#7CDCD4'}22 0%, transparent 75%)"></div>
+            <span class="cat-pill ${catClass[p.category] || 'cat-3d'}">${p.category}</span>
+          </div>
+          <div class="card-info">
+            <div class="card-title">${p.title}</div>
+            <div class="card-location">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ${p.location || 'Location not set'}
+            </div>
+          </div>
+        `;
+        card.addEventListener('click', () => openModal(p.id));
+        grid.appendChild(card);
+      });
+
+      document.getElementById('stat-count').textContent = `${PROJECTS.length}+`;
+    }
+
+    // Modal
+    function openModal(id) {
+      const p = PROJECTS.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('m-tag').textContent = `PROJ-${String(p.id).padStart(2,'0')} — INSPECT`;
+      document.getElementById('m-title').textContent = p.title;
+      const cat = document.getElementById('m-cat');
+      cat.textContent = p.category;
+      cat.style.background = catBg[p.category] || catBg['3D Signage'];
+      cat.style.color = catFg[p.category] || '#fff';
+      document.getElementById('m-client').textContent = p.client_name || '—';
+      document.getElementById('m-year').textContent = p.year || '—';
+      document.getElementById('m-loc').textContent = p.location || 'Not set';
+      document.getElementById('m-dims').textContent = p.dimensions || '—';
+
+      document.getElementById('m-desc').textContent = p.description || 'No description yet.';
+      document.getElementById('m-media').innerHTML = mediaMarkup(p, true);
+
+      const mats = document.getElementById('m-mats');
+      mats.innerHTML = (p.materials || []).map(m => `<span class="mat-tag">${m}</span>`).join('') || '<span class="mat-tag">—</span>';
+
+      const feats = document.getElementById('m-feats');
+      feats.innerHTML = (p.features || []).map(f => `<li>${f}</li>`).join('') || '<li>—</li>';
+
+      document.getElementById('modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleModalBgClick(e) {
+      if (e.target === document.getElementById('modal')) closeModal();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    loadProjects();
+  </script>
+</body>
+</html>

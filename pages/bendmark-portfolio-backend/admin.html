@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>BendMark — Portfolio Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0c0d10; --surface: #14161b; --border: rgba(255,255,255,0.08);
+    --gold: #FACC15; --cyan: #22D3EE; --text: #e8e9ec; --muted: #6b7280;
+    --danger: #ef4444;
+  }
+  body {
+    background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+  }
+  header {
+    padding: 1.5rem 2rem; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.06em; }
+  h1 span { color: var(--gold); }
+  #logout-btn {
+    background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--text);
+    padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem;
+  }
+  #logout-btn:hover { border-color: var(--gold); }
+
+  /* Login screen */
+  #login-screen {
+    max-width: 360px; margin: 12vh auto; padding: 2rem; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 10px;
+  }
+  #login-screen h2 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; margin-bottom: 1.25rem; font-size: 1.3rem; }
+  #login-screen input {
+    width: 100%; padding: 0.7rem 0.9rem; margin-bottom: 0.9rem;
+    background: #0c0d10; border: 1px solid var(--border); border-radius: 6px; color: var(--text);
+  }
+  #login-screen button {
+    width: 100%; padding: 0.75rem; background: var(--gold); color: #000; font-weight: 700;
+    border: none; border-radius: 6px; cursor: pointer;
+  }
+  #login-error { color: var(--danger); font-size: 0.8rem; margin-top: 0.6rem; min-height: 1.1em; }
+
+  main { padding: 2rem; max-width: 1100px; margin: 0 auto; }
+  .hidden { display: none !important; }
+
+  /* Form */
+  #project-form {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.5rem; margin-bottom: 2rem;
+  }
+  #project-form h2 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; margin-bottom: 1rem; font-size: 1.2rem; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+  .form-grid .full { grid-column: 1 / -1; }
+  @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+  label { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.3rem; }
+  input, select, textarea {
+    width: 100%; padding: 0.6rem 0.8rem; background: #0c0d10; border: 1px solid var(--border);
+    border-radius: 6px; color: var(--text); font-family: inherit; font-size: 0.85rem;
+  }
+  textarea { resize: vertical; min-height: 60px; }
+  .form-actions { display: flex; gap: 0.75rem; margin-top: 1.25rem; align-items: center; }
+  .btn-primary {
+    background: var(--gold); color: #000; font-weight: 700; border: none;
+    padding: 0.7rem 1.4rem; border-radius: 6px; cursor: pointer;
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border);
+    padding: 0.7rem 1.4rem; border-radius: 6px; cursor: pointer;
+  }
+  #form-status { font-size: 0.8rem; color: var(--muted); }
+  #form-status.error { color: var(--danger); }
+  #form-status.ok { color: #10b981; }
+
+  .upload-row { display: flex; align-items: center; gap: 1rem; }
+  .upload-row img, .upload-row video { width: 90px; height: 90px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border); }
+  .upload-row input[type="file"] { flex: 1; }
+
+  /* Project list */
+  #project-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .row {
+    display: grid; grid-template-columns: 56px 1fr auto; gap: 1rem; align-items: center;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem 0.9rem;
+  }
+  .row img, .row .no-media { width: 56px; height: 56px; object-fit: cover; border-radius: 6px; }
+  .row .no-media { background: #1a1d23; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: var(--muted); text-align: center; }
+  .row .info .title { font-weight: 700; font-size: 0.95rem; }
+  .row .info .meta { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+  .row .actions { display: flex; gap: 0.5rem; }
+  .row .actions button {
+    background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--text);
+    padding: 0.4rem 0.8rem; border-radius: 5px; cursor: pointer; font-size: 0.75rem;
+  }
+  .row .actions .delete-btn:hover { border-color: var(--danger); color: var(--danger); }
+  .row .actions .edit-btn:hover { border-color: var(--gold); color: var(--gold); }
+</style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div id="login-screen">
+    <h2>Admin Login</h2>
+    <input type="password" id="password-input" placeholder="Password" autocomplete="current-password" />
+    <button id="login-btn">Log in</button>
+    <div id="login-error"></div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="hidden">
+    <header>
+      <h1>BendMark <span>Portfolio Admin</span></h1>
+      <button id="logout-btn">Log out</button>
+    </header>
+
+    <main>
+      <form id="project-form">
+        <h2 id="form-title">Add a project</h2>
+        <input type="hidden" id="edit-id" value="" />
+        <div class="form-grid">
+          <div>
+            <label for="f-title">Title</label>
+            <input id="f-title" required />
+          </div>
+          <div>
+            <label for="f-category">Category</label>
+            <select id="f-category" required>
+              <option value="3D Signage">3D Signage</option>
+              <option value="Large Format Printing">Large Format Printing</option>
+              <option value="LED & Neon Signs">LED & Neon Signs</option>
+              <option value="Exhibition & Displays">Exhibition & Displays</option>
+              <option value="Engraving">Engraving</option>
+              <option value="Branding">Branding</option>
+              <option value="CNC Cutting">CNC Cutting</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label for="f-description">Description</label>
+            <textarea id="f-description" placeholder="What this project was, how it was made, what makes it stand out..."></textarea>
+          </div>
+
+          <div>
+            <label for="f-location">Installation location</label>
+            <input id="f-location" placeholder="e.g. Westlands, Nairobi" />
+          </div>
+          <div>
+            <label for="f-client">Client name</label>
+            <input id="f-client" />
+          </div>
+
+          <div>
+            <label for="f-year">Year</label>
+            <input id="f-year" placeholder="2026" />
+          </div>
+          <div>
+            <label for="f-dimensions">Dimensions</label>
+            <input id="f-dimensions" placeholder="e.g. 8.5ft × 3.6ft × 3.0in" />
+          </div>
+
+          <div class="full">
+            <label for="f-materials">Materials (comma-separated)</label>
+            <input id="f-materials" placeholder="Brushed Steel, LED Bars, ..." />
+          </div>
+          <div class="full">
+            <label for="f-features">Features (comma-separated)</label>
+            <input id="f-features" placeholder="Remote Dimmer, IP65 Rated, ..." />
+          </div>
+
+          <div class="full">
+            <label>Photo / video</label>
+            <div class="upload-row">
+              <div id="media-preview"></div>
+              <input type="file" id="f-media" accept="image/*,video/*" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="save-btn">Save project</button>
+          <button type="button" class="btn-secondary hidden" id="cancel-edit-btn">Cancel edit</button>
+          <span id="form-status"></span>
+        </div>
+      </form>
+
+      <div id="project-list"></div>
+    </main>
+  </div>
+
+<script>
+  const loginScreen = document.getElementById('login-screen');
+  const dashboard = document.getElementById('dashboard');
+  let pendingUpload = null; // { dataUrl, filename, type }
+
+  async function checkSession() {
+    const res = await fetch('/api/session');
+    const { loggedIn } = await res.json();
+    if (loggedIn) showDashboard(); else showLogin();
+  }
+
+  function showLogin() {
+    loginScreen.classList.remove('hidden');
+    dashboard.classList.add('hidden');
+  }
+
+  function showDashboard() {
+    loginScreen.classList.add('hidden');
+    dashboard.classList.remove('hidden');
+    loadProjects();
+  }
+
+  document.getElementById('login-btn').addEventListener('click', async () => {
+    const password = document.getElementById('password-input').value;
+    const errEl = document.getElementById('login-error');
+    errEl.textContent = '';
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password }),
+    });
+    if (res.ok) { showDashboard(); }
+    else { errEl.textContent = 'Incorrect password.'; }
+  });
+
+  document.getElementById('password-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') document.getElementById('login-btn').click();
+  });
+
+  document.getElementById('logout-btn').addEventListener('click', async () => {
+    await fetch('/api/logout', { method: 'POST' });
+    showLogin();
+  });
+
+  // ---- Media resize/select ----
+  function resizeImageFile(file, maxDim = 1600, quality = 0.85) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const reader = new FileReader();
+      reader.onload = e => { img.src = e.target.result; };
+      reader.onerror = reject;
+      img.onload = () => {
+        let { width, height } = img;
+        if (width > maxDim || height > maxDim) {
+          if (width > height) { height = Math.round(height * (maxDim / width)); width = maxDim; }
+          else { width = Math.round(width * (maxDim / height)); height = maxDim; }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width; canvas.height = height;
+        canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function readFileAsDataUrl(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = e => resolve(e.target.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  document.getElementById('f-media').addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const isVideo = file.type.startsWith('video/');
+    const dataUrl = isVideo ? await readFileAsDataUrl(file) : await resizeImageFile(file);
+    pendingUpload = { dataUrl, filename: file.name, type: isVideo ? 'video' : 'image' };
+    const preview = document.getElementById('media-preview');
+    preview.innerHTML = isVideo
+      ? `<video src="${dataUrl}" muted></video>`
+      : `<img src="${dataUrl}" alt="preview">`;
+  });
+
+  // ---- Project list ----
+  async function loadProjects() {
+    const res = await fetch('/api/projects');
+    const projects = await res.json();
+    const list = document.getElementById('project-list');
+    list.innerHTML = '';
+    projects.forEach(p => {
+      const row = document.createElement('div');
+      row.className = 'row';
+      row.innerHTML = `
+        ${p.image_url
+          ? (p.media_type === 'video'
+              ? `<video src="${p.image_url}" muted></video>`
+              : `<img src="${p.image_url}" alt="${p.title}">`)
+          : `<div class="no-media">No photo</div>`}
+        <div class="info">
+          <div class="title">${p.title}</div>
+          <div class="meta">${p.category} · ${p.location || 'no location set'} · ${p.year || ''}</div>
+        </div>
+        <div class="actions">
+          <button class="edit-btn" data-id="${p.id}">Edit</button>
+          <button class="delete-btn" data-id="${p.id}">Delete</button>
+        </div>
+      `;
+      list.appendChild(row);
+
+      row.querySelector('.edit-btn').addEventListener('click', () => fillForm(p));
+      row.querySelector('.delete-btn').addEventListener('click', () => deleteProject(p.id, p.title));
+    });
+  }
+
+  function fillForm(p) {
+    document.getElementById('form-title').textContent = `Editing: ${p.title}`;
+    document.getElementById('edit-id').value = p.id;
+    document.getElementById('f-title').value = p.title || '';
+    document.getElementById('f-category').value = p.category || '3D Signage';
+    document.getElementById('f-description').value = p.description || '';
+    document.getElementById('f-location').value = p.location || '';
+    document.getElementById('f-client').value = p.client_name || '';
+    document.getElementById('f-year').value = p.year || '';
+    document.getElementById('f-dimensions').value = p.dimensions || '';
+    document.getElementById('f-materials').value = (p.materials || []).join(', ');
+    document.getElementById('f-features').value = (p.features || []).join(', ');
+    document.getElementById('media-preview').innerHTML = p.image_url
+      ? (p.media_type === 'video' ? `<video src="${p.image_url}" muted></video>` : `<img src="${p.image_url}">`)
+      : '';
+    pendingUpload = null;
+    document.getElementById('cancel-edit-btn').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function resetForm() {
+    document.getElementById('form-title').textContent = 'Add a project';
+    document.getElementById('project-form').reset();
+    document.getElementById('edit-id').value = '';
+    document.getElementById('media-preview').innerHTML = '';
+    pendingUpload = null;
+    document.getElementById('cancel-edit-btn').classList.add('hidden');
+  }
+
+  document.getElementById('cancel-edit-btn').addEventListener('click', resetForm);
+
+  async function deleteProject(id, title) {
+    if (!confirm(`Delete "${title}"? This can't be undone.`)) return;
+    await fetch(`/api/projects/${id}`, { method: 'DELETE' });
+    loadProjects();
+  }
+
+  document.getElementById('project-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const status = document.getElementById('form-status');
+    status.textContent = 'Saving…';
+    status.className = '';
+
+    try {
+      let imageUrl, mediaType;
+
+      if (pendingUpload) {
+        status.textContent = 'Uploading photo…';
+        const uploadRes = await fetch('/api/upload', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename: pendingUpload.filename, dataUrl: pendingUpload.dataUrl }),
+        });
+        if (!uploadRes.ok) throw new Error('Photo upload failed');
+        const uploadJson = await uploadRes.json();
+        imageUrl = uploadJson.url;
+        mediaType = pendingUpload.type;
+      }
+
+      const payload = {
+        title: document.getElementById('f-title').value.trim(),
+        category: document.getElementById('f-category').value,
+        description: document.getElementById('f-description').value.trim(),
+        location: document.getElementById('f-location').value.trim(),
+        client_name: document.getElementById('f-client').value.trim(),
+        year: document.getElementById('f-year').value.trim(),
+        dimensions: document.getElementById('f-dimensions').value.trim(),
+        materials: document.getElementById('f-materials').value.split(',').map(s => s.trim()).filter(Boolean),
+        features: document.getElementById('f-features').value.split(',').map(s => s.trim()).filter(Boolean),
+      };
+      if (imageUrl) { payload.image_url = imageUrl; payload.media_type = mediaType; }
+
+      const editId = document.getElementById('edit-id').value;
+      const res = await fetch(editId ? `/api/projects/${editId}` : '/api/projects', {
+        method: editId ? 'PUT' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error('Save failed');
+
+      status.textContent = 'Saved.';
+      status.className = 'ok';
+      resetForm();
+      loadProjects();
+    } catch (err) {
+      status.textContent = err.message || 'Something went wrong.';
+      status.className = 'error';
+    }
+  });
+
+  checkSession();
+</script>
+</body>
+</html>
