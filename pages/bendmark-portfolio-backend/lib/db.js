@@ -1,3 +1,3 @@
-const { sql } = require('@vercel/postgres');
+const { sql } = require('@vercel/neon');
 
 module.exports = { sql };
