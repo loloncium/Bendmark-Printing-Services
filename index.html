@@ -48,7 +48,7 @@
     <header>
         <div class="header-container">
             <a href="index.html" class="logo">
-                <img src="newimages/LOGO.jpeg" alt="BendMark Logo" class="logo">
+                <img src="newimages/LOGO.jpeg" alt="BendMark Logo">
             </a>
             <button class="nav-toggle">☰</button>
             <nav>
@@ -290,159 +290,219 @@
         <h2 class="section-title" style="color: #FFD700;">Our Services</h2>
         <p class="section-subtitle" style="color: #050386;">Professional printing solutions tailored to your needs</p>
 
-        <div class="services-grid">
-            <!-- 3D Signs -->
-            <a href="pages/3d-signs.html" class="service-card">
-                <div class="service-image">
-                    <img src="images\3Dsign.png" alt="">
-                    <div class="service-image-overlay"></div>
-                </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #2600ff;">3D Signs</h3>
-                    <p class="service-description">Eye-catching three-dimensional signs that bring your brand to life with depth and dimension.</p>
-                    <button class="service-btn">Explore</button>
-                </div>
-            </a>
+        <div class="category-accordion" id="category-accordion">
 
-            <!-- Road Signs -->
-            <a href="pages/road-signs.html" class="service-card">
-                <div class="service-image">
-                <img src="images\roadsigns.gif" alt="Road Signs">
-                    <div class="service-image-overlay"></div>
-                </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #4400ff;">Road Signs</h3>
-                    <p class="service-description">Durable and compliant road safety signs designed to meet all regulatory standards.</p>
-                    <button class="service-btn">Explore</button>
-                </div>
-            </a>
+            <!-- ===================== 3D SIGNS ===================== -->
+            <div class="category-section active" data-category="3d-signs">
+                <button class="category-header" type="button" aria-expanded="true">
+                    <span>3D Signs</span>
+                    <span class="category-toggle-icon">+</span>
+                </button>
+                <div class="category-content">
+                    <div class="services-grid">
+                        <a href="pages/3d-signs.html" class="service-card">
+                            <div class="service-image">
+                                <img src="images\3Dsign.png" alt="3D Signs">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #2600ff;">3D Signs</h3>
+                                <p class="service-description">Eye-catching three-dimensional signs that bring your brand to life with depth and dimension.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
 
-            <!-- Construction Signs -->
-            <a href="pages/construction-signs.html" class="service-card">
-                <div class="service-image">
-                    <Img src="images\constructionsite.png" alt="Construction Signs" style="position: inline;"></Img>
-                    <div class="service-image-overlay"></div>
+                        <a href="pages/launchsigns.html" class="service-card">
+                            <div class="service-image">
+                                <img src="newimages/comisioningsign.jpeg" alt="Launch Signs">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #2600ff;">Launch Signs</h3>
+                                <p class="service-description">Custom launch sign solutions to showcase your projects prominently.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #1900ff;">Construction Signs</h3>
-                    <p class="service-description">High-visibility construction signage for job sites and project management communication.</p>
-                    <button class="service-btn">Explore</button>
-                </div>
-            </a>
+            </div>
 
-            <!-- Posters -->
-            <a href="pages/posters.html" class="service-card">
-                <div class="service-image">
-                    <img src="images\b2.gif" alt="Posters">
-                    <div class="service-image-overlay"></div>
-                </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #4400ff;">Posters</h3>
-                    <p class="service-description">Vibrant posters perfect for promotions, events, and advertising campaigns.</p>
-                    <button class="service-btn">Explore</button>
-                </div>
-            </a>
+            <!-- ===================== PRINTING ===================== -->
+            <div class="category-section" data-category="printing">
+                <button class="category-header" type="button" aria-expanded="false">
+                    <span>Printing</span>
+                    <span class="category-toggle-icon">+</span>
+                </button>
+                <div class="category-content">
+                    <div class="services-grid">
+                        <a href="pages/road-signs.html" class="service-card">
+                            <div class="service-image">
+                                <img src="images\roadsigns.gif" alt="Road Signs">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #4400ff;">Road Signs</h3>
+                                <p class="service-description">Durable and compliant road safety signs designed to meet all regulatory standards.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
 
-            <!-- Fliers -->
-            <a href="pages/fliers.html" class="service-card">
-                <div class="service-image">
-                    <img src="images\flyers.gif" alt="Fliers">
-                    <div class="service-image-overlay"></div>
-                </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #2f00ff;">Fliers</h3>
-                    <p class="service-description">Professional fliers to distribute your message and engage your target audience effectively.</p>
-                    <button class="service-btn">Explore</button>
-                </div>
-            </a>
+                        <a href="pages/construction-signs.html" class="service-card">
+                            <div class="service-image">
+                                <img src="images\constructionsite.png" alt="Construction Signs">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #1900ff;">Construction Signs</h3>
+                                <p class="service-description">High-visibility construction signage for job sites and project management communication.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
 
-            <!-- Documents -->
-            <a href="pages/documents.html" class="service-card">
-                <div class="service-image">
-                    <img src="images\bronchures.png" alt="">
-                    <div class="service-image-overlay"></div>
-                </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #2600ff;">Documents</h3>
-                    <p class="service-description">Professional document printing for reports, manuals, brochures, and more.</p>
-                    <button class="service-btn">Explore</button>
-                </div>
-            </a>
+                        <a href="pages/posters.html" class="service-card">
+                            <div class="service-image">
+                                <img src="images\b2.gif" alt="Posters">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #4400ff;">Posters</h3>
+                                <p class="service-description">Vibrant posters perfect for promotions, events, and advertising campaigns.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
 
-            <!-- Business Cards -->
-            <a href="pages/business-cards.html" class="service-card">
-                <div class="service-image">
-                    <img src="images\Businesscards.gif" alt="Business Cards">
-                    <div class="service-image-overlay"></div>
-                </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #2f00ff;">Business Cards</h3>
-                    <p class="service-description">Premium business cards that leave a lasting impression on your clients and contacts.</p>
-                    <button class="service-btn">Explore</button>
-                </div>
-            </a>
+                        <a href="pages/fliers.html" class="service-card">
+                            <div class="service-image">
+                                <img src="images\flyers.gif" alt="Fliers">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #2f00ff;">Fliers</h3>
+                                <p class="service-description">Professional fliers to distribute your message and engage your target audience effectively.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
 
-            <!-- Additional Service -->
-            <a href="pages/custom-printing.html" class="service-card">
-                <div class="service-image">
-                    <img src="images\customprinting.png" alt="Custom Printing">
-                    <div class="service-image-overlay"></div>
-                </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #001aff;">Custom Printing</h3>
-                    <p class="service-description">Bespoke printing solutions tailored to your unique requirements and specifications.</p>
-                    <button class="service-btn">Explore</button>
-                </div>
-            </a>
+                        <a href="pages/documents.html" class="service-card">
+                            <div class="service-image">
+                                <img src="images\bronchures.png" alt="Documents">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #2600ff;">Documents</h3>
+                                <p class="service-description">Professional document printing for reports, manuals, brochures, and more.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
 
-            <!-- Banners & Signage -->
-            <a href="pages/banners.html" class="service-card">
-                <div class="service-image">
-                    <img src="newimages\rollupbanner.jpeg" alt="Banners">
-                    <div class="service-image-overlay"></div>
+                        <a href="pages/custom-printing.html" class="service-card">
+                            <div class="service-image">
+                                <img src="images\customprinting.png" alt="Custom Printing">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #001aff;">Custom Printing</h3>
+                                <p class="service-description">Bespoke printing solutions tailored to your unique requirements and specifications.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
+
+                        <a href="pages/banners.html" class="service-card">
+                            <div class="service-image">
+                                <img src="newimages\rollupbanner.jpeg" alt="Banners">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #4400ff;">Banners & Signage</h3>
+                                <p class="service-description">Custom banners and signage solutions to showcase your brand message prominently.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
+
+                        <a href="pages/election-materials.html" class="service-card">
+                            <div class="service-image">
+                                <img src="newimages\staffID.jpeg" alt="Election Materials">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #2f00ff;">Election Materials</h3>
+                                <p class="service-description">Custom election materials to support your campaign efforts.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #4400ff;">Banners & Signage</h3>
-                    <p class="service-description">Custom banners and signage solutions to showcase your brand message prominently.</p>
-                    <button class="service-btn">Explore</button>
+            </div>
+
+            <!-- ===================== ENGRAVING ===================== -->
+            <div class="category-section" data-category="engraving">
+                <button class="category-header" type="button" aria-expanded="false">
+                    <span>Engraving</span>
+                    <span class="category-toggle-icon">+</span>
+                </button>
+                <div class="category-content">
+                    <div class="services-grid">
+                        <a href="pages/engraving.html" class="service-card">
+                            <div class="service-image">
+                                <img src="newimages\laserwood.jpeg" alt="Engraving">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #2600ff;">Engraving</h3>
+                                <p class="service-description">Precision engraving services for a variety of materials and applications.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </a>
-            <!-- Launch Signs -->
-            <a href="pages/launchsigns.html" class="service-card">
-                <div class="service-image">
-                    <img src="newimages/comisioningsign.jpeg" alt="Banners">
-                    <div class="service-image-overlay"></div>
+            </div>
+
+            <!-- ===================== BRANDING ===================== -->
+            <div class="category-section" data-category="branding">
+                <button class="category-header" type="button" aria-expanded="false">
+                    <span>Branding</span>
+                    <span class="category-toggle-icon">+</span>
+                </button>
+                <div class="category-content">
+                    <div class="services-grid">
+                        <a href="pages/business-cards.html" class="service-card">
+                            <div class="service-image">
+                                <img src="images\Businesscards.gif" alt="Business Cards">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #2f00ff;">Business Cards</h3>
+                                <p class="service-description">Premium business cards that leave a lasting impression on your clients and contacts.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #2600ff;">Launch Signs</h3>
-                    <p class="service-description">Custom launch sign solutions to showcase your projects prominently.</p>
-                    <button class="service-btn">Explore</button>
+            </div>
+
+            <!-- ===================== CNC CUTTING ===================== -->
+            <div class="category-section" data-category="cnc-cutting">
+                <button class="category-header" type="button" aria-expanded="false">
+                    <span>CNC Cutting</span>
+                    <span class="category-toggle-icon">+</span>
+                </button>
+                <div class="category-content">
+                    <div class="services-grid">
+                        <a href="pages/cnc-cutting.html" class="service-card">
+                            <div class="service-image">
+                                <img src="newimages\laserwood.jpeg" alt="CNC Cutting">
+                                <div class="service-image-overlay"></div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-name" style="color: #2600ff;">CNC Cutting</h3>
+                                <p class="service-description">Precision CNC cutting for acrylic, wood, and metal panels tailored to your project specs.</p>
+                                <button class="service-btn">Explore</button>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </a>
-            <!-- Engraving -->
-            <a href="pages/engraving.html" class="service-card">
-                <div class="service-image">
-                    <img src="newimages\laserwood.jpeg" alt="Engraving">
-                    <div class="service-image-overlay"></div>
-                </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #2600ff;">Engraving</h3>
-                    <p class="service-description">Precision engraving services for a variety of materials and applications.</p>
-                    <button class="service-btn">Explore</button>
-                </div>
-            </a>
-            <!-- Election Materials -->
-            <a href="pages/election-materials.html" class="service-card">
-                <div class="service-image">
-                    <img src="newimages\staffID.jpeg" alt="Election Materials">
-                    <div class="service-image-overlay"></div>
-                </div>
-                <div class="service-content">
-                    <h3 class="service-name" style="color: #2f00ff;">Election Materials</h3>
-                    <p class="service-description">Custom election materials to support your campaign efforts.</p>
-                    <button class="service-btn">Explore</button>
-                </div>
-            </a>
+            </div>
+
         </div>
     </section>
 
@@ -593,6 +653,31 @@
                 dropdownMenu.classList.remove('active');
             }
         });
+    </script>
+
+    <script>
+        // Service category accordion: only one category open at a time.
+        // "3D Signs" is open by default; opening another category closes the rest.
+        (function () {
+            var categorySections = document.querySelectorAll('.category-section');
+
+            categorySections.forEach(function (section) {
+                var header = section.querySelector('.category-header');
+                header.addEventListener('click', function () {
+                    var isActive = section.classList.contains('active');
+
+                    categorySections.forEach(function (s) {
+                        s.classList.remove('active');
+                        s.querySelector('.category-header').setAttribute('aria-expanded', 'false');
+                    });
+
+                    if (!isActive) {
+                        section.classList.add('active');
+                        header.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+        })();
     </script>
 </body>
 </html>

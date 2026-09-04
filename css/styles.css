@@ -63,15 +63,23 @@ header {
 .logo {
   display: flex;
   max-height: 58px;
-  width:auto;
+  width: auto;
   align-items: center;
   font-size: 1.8rem;
   font-weight: bold;
-  border-left: 20px;
-  padding-left: 70px;
+  padding: 0;
+  margin: 0;
   color: var(--secondary-color);
   text-decoration: none;
   transition: all 0.3s ease;
+}
+
+.logo img {
+  max-height: 58px;
+  width: auto;
+  display: block;
+  padding: 0;
+  margin: 0;
 }
 
 .logo:hover {
@@ -419,7 +427,7 @@ nav a:hover::after {
 
 .section-title {
   text-align: center;
-  font-size: 2.4rem;
+  font-size: 1.92rem; /* reduced 20% from 2.4rem */
   font-weight: bold;
   margin-bottom: 0.75rem;
   color: var(--secondary-color);
@@ -429,14 +437,14 @@ nav a:hover::after {
   text-align: center;
   color: var(--text-light);
   margin-bottom: 1.5rem;
-  font-size: 1.05rem;
+  font-size: 0.84rem; /* reduced 20% from 1.05rem */
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.6rem; /* tightened from 1.5rem so cards sit close together */
+  margin-bottom: 1rem;
 }
 
 .service-card {
@@ -500,7 +508,7 @@ nav a:hover::after {
 }
 
 .service-name {
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* reduced 20% from 1.5rem */
   font-weight: bold;
   color: var(--secondary-color);
   margin-bottom: 0.5rem;
@@ -508,7 +516,7 @@ nav a:hover::after {
 
 .service-description {
   color: var(--text-light);
-  font-size: 0.95rem;
+  font-size: 0.76rem; /* reduced 20% from 0.95rem */
   margin-bottom: 1rem;
   flex-grow: 1;
 }
@@ -533,20 +541,88 @@ nav a:hover::after {
 }
 
 /* ============================================
+   SERVICE CATEGORY ACCORDION
+   ============================================ */
+
+.category-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.category-section {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.category-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 1.25rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.category-header:hover {
+  filter: brightness(1.05);
+}
+
+.category-header .category-count {
+  font-size: 0.7rem;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-right: auto;
+  margin-left: 0.75rem;
+}
+
+.category-toggle-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.category-section.active .category-toggle-icon {
+  transform: rotate(45deg);
+}
+
+.category-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  padding: 0 0.1rem;
+}
+
+.category-section.active .category-content {
+  max-height: 4000px;
+  padding-top: 0.75rem;
+}
+
+/* ============================================
    PRODUCT CARDS GRID
    ============================================ */
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem; /* tightened for closer spacing */
+  margin: 1.5rem 0;
 }
 
 .product-card {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   border-radius: 16px;
-  padding: 2rem;
+  padding: 1.4rem;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -591,7 +667,7 @@ nav a:hover::after {
 
 .product-card h3 {
   color: #026c72;
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* reduced 20% from 1.5rem */
   margin-bottom: 1rem;
   font-weight: 700;
 }
@@ -599,7 +675,7 @@ nav a:hover::after {
 .product-card p {
   color: var(--text-light);
   line-height: 1.8;
-  font-size: 0.95rem;
+  font-size: 0.76rem; /* reduced 20% from 0.95rem */
 }
 
 /* ============================================
