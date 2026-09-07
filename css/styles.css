@@ -13,6 +13,7 @@
 :root {
   --primary-color: #7CDCD4;
   --secondary-color: #5844b4;
+  --brand-blue: #0415dc; /* solid blue matching the logo, replacing the cyan/purple gradient */
   --third-color: #fcfffff8;
   --dark-bg: #495669;
   --light-bg: #f2f5f8;
@@ -155,42 +156,48 @@ nav a:hover::after {
   position: absolute;
   top: 100%;
   left: 0;
-  display: none;
+  display: flex;
   flex-direction: column;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: var(--shadow-lg);
-  min-width: 220px;
-  margin-top: 0.5rem;
+  min-width: 235px;
+  /* no margin-top — a gap here would break :hover as the cursor
+     crosses it. Padding-top keeps the visual offset without a gap. */
+  margin-top: 0;
+  padding-top: 0.5rem;
   z-index: 1000;
   border: 1px solid var(--border-color);
   overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  pointer-events: none;
 }
 
-.dropdown-menu.active {
-  display: flex;
-}
-
+.dropdown-menu.active,
 .nav-dropdown:hover .dropdown-menu {
-  display: inline-flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .dropdown-menu a {
-  padding: 0.75rem 1.2rem;
+  padding: 0.7rem 1.25rem;
   color: var(--text-dark);
   text-decoration: none;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid var(--border-color);
   font-weight: 500;
-}
-
-.dropdown-menu a:last-child {
-  border-bottom: none;
+  font-size: 0.95rem;
+  border-left: 3px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, padding-left 0.2s ease;
 }
 
 .dropdown-menu a:hover {
   background-color: var(--light-bg);
-  color: var(--primary-color);
+  color: var(--secondary-color);
+  border-left-color: var(--secondary-color);
   padding-left: 1.5rem;
 }
 
@@ -258,7 +265,7 @@ nav a:hover::after {
   position: relative;
   overflow: hidden;
   border-radius: 0;
-  background: linear-gradient(35deg, var(--primary-color), var(--secondary-color));
+  background: var(--brand-blue);
   height: 100%;
   width: 100%;
   display: flex;
@@ -344,7 +351,7 @@ nav a:hover::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: var(--brand-blue);
   color: white;
   font-size: 3rem;
   font-weight: bold;
@@ -469,7 +476,7 @@ nav a:hover::after {
 .service-image {
   width: 100%;
   height: 220px;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: var(--brand-blue);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -522,7 +529,7 @@ nav a:hover::after {
 }
 
 .service-btn {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--brand-blue);
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -565,7 +572,7 @@ nav a:hover::after {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--brand-blue);
   color: #ffffff;
   border: none;
   padding: 0.85rem 1.25rem;
@@ -669,7 +676,7 @@ nav a:hover::after {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: var(--brand-blue);
   transform: translateX(-100%);
   transition: transform 0.4s ease;
 }
@@ -714,7 +721,7 @@ nav a:hover::after {
    ============================================ */
 
 .cta-section {
-  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  background: var(--brand-blue);
   color: white;
   padding: 2.5rem 2rem;
   text-align: center;
@@ -837,7 +844,7 @@ nav a:hover::after {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--brand-blue);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -908,7 +915,7 @@ footer {
 }
 
 .service-hero {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--brand-blue);
   color: white;
   padding: 2.5rem;
   border-radius: 12px;
@@ -1002,7 +1009,7 @@ footer {
 }
 
 .quote-btn {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--brand-blue);
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -1076,13 +1083,18 @@ footer {
   .dropdown-menu {
     position: static;
     display: none;
-    margin-top: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    margin-top: 0.4rem;
+    padding-top: 0;
     box-shadow: none;
     border: 1px solid var(--border-color);
     background-color: var(--light-bg);
   }
 
-  .nav-dropdown:hover .dropdown-menu {
+  .dropdown-menu.active {
     display: flex;
   }
 
