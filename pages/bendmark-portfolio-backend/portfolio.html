@@ -1,628 +1,778 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BendMark — Signage & Printing Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TFTBG3Y1QD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TFTBG3Y1QD');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BendMark Portfolio - 15+ years of 3D signs, road signs, LED displays, exhibitions and large-format printing delivered for businesses across Kenya.">
+    <meta name="keywords" content="BendMark portfolio, signage projects, printing case studies, Nairobi signage company">
+    <meta name="robots" content="index, follow">
+    <title>Portfolio - Our Work | BendMark</title>
+    <!-- This file lives two folders below the site root (pages/bendmark-portfolio-backend/),
+         so every relative link uses ../../ for root-level assets and ../ for its
+         sibling pages in /pages/. -->
+    <link rel="stylesheet" href="../../css/styles.css">
 
-    :root {
-      --bg: #e5ebfd;
-      --surface: #14161b;
-      --border: rgba(255,255,255,0.07);
-      --gold: #FACC15;
-      --cyan: #22D3EE;
-      --text: #01040c;
-      --muted: #6b7280;
-    }
+    <style>
+        /* ============================================
+           PORTFOLIO PAGE — extends the shared styles.css
+           design tokens (--brand-blue, --primary-color,
+           --secondary-color, --shadow, --border-color, etc.)
+           with the pieces that page doesn't already cover:
+           the stats bar, filter chips, masonry grid, cards
+           and the project detail modal.
+           ============================================ */
 
-    html { font-size: 16px; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+        .portfolio-wrap {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
 
-    /* ── AMBIENT GLOWS ── */
-    .ambient {
-      position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
-    }
-    .ambient-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(140px);
-    }
-    .blob-1 { width: 600px; height: 600px; top: -20%; left: -10%; background: rgba(250,204,21,0.04); }
-    .blob-2 { width: 500px; height: 500px; bottom: -10%; right: -5%; background: rgba(34,211,238,0.04); }
+        /* ---------- Stats bar ---------- */
+        .portfolio-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: -1.5rem 0 2.5rem;
+        }
 
-    /* ── HEADER ── */
-    header {
-      position: relative; z-index: 10;
-      padding: 2rem 2.5rem;
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    }
-    .logo-mark {
-      display: flex; align-items: center; gap: 0.85rem;
-    }
-    .logo-badge {
-      width: 42px; height: 42px;
-      background: var(--gold);
-      color: #000;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem;
-      letter-spacing: 0.03em;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 4px;
-      flex-shrink: 0;
-    }
-    .brand-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.85rem;
-      letter-spacing: 0.08em;
-      line-height: 1;
-      color: #fff;
-    }
-    .brand-name span { color: var(--gold); }
-    .brand-sub {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      margin-top: 0.2rem;
-    }
-    .header-stats {
-      display: flex; gap: 2rem; flex-wrap: wrap;
-    }
-    .hstat {
-      text-align: right;
-    }
-    .hstat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      letter-spacing: 0.06em;
-      color: #fff;
-      line-height: 1;
-    }
-    .hstat-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.55rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-    }
+        .stat-box {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-bottom: 3px solid var(--primary-color);
+        }
 
-    /* ── SECTION LABEL ── */
-    .section-label {
-      position: relative; z-index: 10;
-      padding: 2.5rem 2.5rem 1.5rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-    .section-eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .section-eyebrow strong {
-      color: var(--gold);
-    }
+        .stat-num {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--brand-blue);
+            line-height: 1.1;
+        }
 
-    /* ── MASONRY GRID ── */
-    .masonry-wrap {
-      position: relative; z-index: 10;
-      padding: 0 2rem 4rem;
-      columns: 4 260px;
-      column-gap: 14px;
-    }
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-top: 0.35rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
 
-    /* ── CARD ── */
-    .card {
-      break-inside: avoid;
-      margin-bottom: 14px;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      display: block;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.16);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
-    }
+        /* ---------- Filter chips ---------- */
+        .portfolio-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
 
-    /* Varied heights via aspect-ratio classes */
-    .card .media { overflow: hidden; position: relative; }
-    .card.ar-tall  .media { aspect-ratio: 3/4; }
-    .card.ar-wide  .media { aspect-ratio: 16/9; }
-    .card.ar-sq    .media { aspect-ratio: 1/1; }
-    .card.ar-port  .media { aspect-ratio: 2/3; }
-    .card.ar-land  .media { aspect-ratio: 4/3; }
-    .card.ar-ultra .media { aspect-ratio: 21/9; }
+        .filter-chip {
+            border: 2px solid var(--border-color);
+            background: #ffffff;
+            color: var(--text-dark);
+            padding: 0.55rem 1.1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
 
-    .card .media img,
-    .card .media video {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.55s ease, filter 0.55s ease;
-    }
-    .card:hover .media img,
-    .card:hover .media video {
-      transform: scale(1.06);
-    }
+        .filter-chip:hover {
+            border-color: var(--secondary-color);
+        }
 
-    /* Glow overlay on hover */
-    .card .glow-overlay {
-      position: absolute; inset: 0;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-      border-radius: 8px 8px 0 0;
-    }
-    .card:hover .glow-overlay { opacity: 1; }
+        .filter-chip.active {
+            background: var(--brand-blue);
+            border-color: var(--brand-blue);
+            color: #ffffff;
+        }
 
-    /* Category pill */
-    .cat-pill {
-      position: absolute; top: 10px; left: 10px; z-index: 5;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.55rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 3px 9px;
-      border-radius: 999px;
-      font-weight: 600;
-      
-    }
-    .cat-3d    { background: rgba(249,115,22,0.85); color: #fff; }
-    .cat-lfp   { background: rgba(16,185,129,0.85); color: #fff; }
-    .cat-led   { background: rgba(236,72,153,0.85); color: #fff; }
-    .cat-exh   { background: rgba(34,211,238,0.85); color: #000; }
+        /* ---------- Masonry-style project grid ---------- */
+        .portfolio-grid {
+            columns: 4 260px;
+            column-gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
 
-    /* Card info strip */
-    .card-info {
-      padding: 0.75rem 0.9rem 0.85rem;
-    }
-    .card-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.07em;
-      color: #fff;
-      line-height: 1.1;
-      margin-bottom: 0.3rem;
-    }
-    .card-location {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: flex; align-items: center; gap: 5px;
-    }
-    .card-location svg {
-      flex-shrink: 0;
-      opacity: 0.6;
-    }
+        @media (max-width: 900px) {
+            .portfolio-grid { columns: 2 220px; }
+        }
+        @media (max-width: 480px) {
+            .portfolio-grid { columns: 1; }
+        }
 
-    /* ── MODAL ── */
-    .modal-bg {
-      display: none;
-      position: fixed; inset: 0; z-index: 100;
-      background: rgba(0,0,0,0.88);
-            align-items: center; justify-content: center;
-      padding: 1.5rem;
-    }
-    .modal-bg.open { display: flex; }
-    .modal-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      max-width: 900px; width: 100%;
-      overflow: hidden;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.7);
-      animation: modalIn 0.28s ease;
-      max-height: 92vh;
-      overflow-y: auto;
-    }
-    @keyframes modalIn {
-      from { opacity: 0; transform: scale(0.95) translateY(12px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-    .modal-top {
-      background: #0c0d10;
-      padding: 0.9rem 1.3rem;
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .modal-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: #000;
-      padding: 3px 10px;
-      border-radius: 3px;
-      font-weight: 700;
-    }
-    .modal-close {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .modal-close:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
-    .modal-body { display: grid; grid-template-columns: 1fr 1fr; }
-    @media (max-width: 640px) { .modal-body { grid-template-columns: 1fr; } }
-    .modal-media {
-      background: #080909;
-      display: flex; align-items: center; justify-content: center;
-      min-height: 300px; max-height: 480px;
-      overflow: hidden;
-    }
-    .modal-media img, .modal-media video {
-      width: 100%; height: 100%; object-fit: contain; display: block;
-    }
-    .modal-info { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.1rem; }
-    .modal-cat {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 2px 9px; border-radius: 999px; display: inline-block; font-weight: 700;
-    }
-    .modal-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.7rem; letter-spacing: 0.07em; color: #fff; line-height: 1.05;
-    }
-    .modal-meta {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem;
-      background: rgba(0,0,0,0.3);
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      padding: 0.9rem 1rem;
-    }
-    .meta-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 2px;
-    }
-    .meta-val {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem; font-weight: 600; color: #fff; text-transform: uppercase;
-    }
-    .modal-dims {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem; color: var(--cyan); letter-spacing: 0.1em;
-    }
-    .modal-materials { display: flex; flex-wrap: wrap; gap: 5px; }
-    .mat-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      color: var(--gold);
-      padding: 3px 8px; border-radius: 3px;
-    }
-    .modal-features { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-    .modal-features li {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.72rem; color: #9ca3af;
-      padding-left: 1rem; position: relative;
-    }
-    .modal-features li::before {
-      content: '•'; color: var(--gold); position: absolute; left: 0;
-    }
+        .portfolio-card {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+            background: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    /* ── FOOTER ── */
-    footer {
-      position: relative; z-index: 10;
-      padding: 1.2rem 2.5rem;
-      border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;
-    }
-    .footer-left {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
-    }
-    .footer-right {
-      display: flex; align-items: center; gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
-    }
-    .pulse-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: #10b981;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.85)} }
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
 
-    @media (max-width: 700px) {
-      .masonry-wrap { columns: 2 160px; padding: 0 1rem 3rem; }
-      header { padding: 1.5rem 1.2rem; }
-      .header-stats { display: none; }
-    }
+        .portfolio-card .media {
+            position: relative;
+            overflow: hidden;
+            background: var(--light-bg);
+        }
 
-    /* ── EMPTY / LOADING STATES ── */
-    .no-media-card {
-      width: 100%; height: 100%;
-      min-height: 140px;
-      display: flex; align-items: center; justify-content: center;
-      background: #15171c;
-      color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .no-media-modal {
-      color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 2rem;
-    }
-    .grid-loading {
-      grid-column: 1 / -1;
-      column-span: all;
-      text-align: center;
-      color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 3rem 1rem;
-    }
-    .modal-desc {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
-      line-height: 1.5;
-      color: #9ca3af;
-    }
-  </style>
+        .portfolio-card .media img,
+        .portfolio-card .media video {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover .media img,
+        .portfolio-card:hover .media video {
+            transform: scale(1.05);
+        }
+
+        .portfolio-card .no-media {
+            min-height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .cat-pill {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--brand-blue);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+        }
+
+        .portfolio-card-info {
+            padding: 0.9rem 1rem 1.1rem;
+        }
+
+        .portfolio-card-title {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .portfolio-card-location {
+            font-size: 0.78rem;
+            color: var(--text-light);
+        }
+
+        /* ---------- Empty / loading state ---------- */
+        .portfolio-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            color: var(--text-light);
+        }
+
+        .portfolio-empty h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .portfolio-empty .quote-btn {
+            margin-top: 1.25rem;
+        }
+
+        /* ---------- Trust / capability tags ---------- */
+        .trust-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+
+        .trust-tag {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            padding: 0.5rem 1.1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* ---------- Testimonials (template — swap in real quotes) ---------- */
+        .testimonial-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .testimonial-stars {
+            color: #f5b301;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.6rem;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 0.9rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.78rem;
+            color: var(--text-light);
+        }
+
+        /* ---------- Modal ---------- */
+        .pf-modal-bg {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 10, 30, 0.75);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .pf-modal-bg.open { display: flex; }
+
+        .pf-modal-box {
+            background: #ffffff;
+            border-radius: 14px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pf-modal-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.3rem;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+        }
+
+        .pf-modal-tag {
+            background: var(--brand-blue);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+        }
+
+        .pf-modal-close {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .pf-modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 640px) {
+            .pf-modal-body { grid-template-columns: 1fr; }
+        }
+
+        .pf-modal-media {
+            background: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 260px;
+        }
+
+        .pf-modal-media img,
+        .pf-modal-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .pf-modal-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .pf-modal-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+        }
+
+        .pf-modal-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 0.9rem 1rem;
+        }
+
+        .pf-meta-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+        }
+
+        .pf-meta-val {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        .pf-modal-materials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .pf-mat-tag {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            color: var(--secondary-color);
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .pf-modal-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .pf-modal-features li {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .pf-modal-features li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .grid-loading {
+            text-align: center;
+            color: var(--text-light);
+            padding: 2.5rem 1rem;
+        }
+    </style>
 </head>
+
 <body>
-
-  <!-- Ambient glows -->
-  <div class="ambient">
-    <div class="ambient-blob blob-1"></div>
-    <div class="ambient-blob blob-2"></div>
-  </div>
-
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <a href="../index.html" class="logo">
-                 <img src="LOGO.jpeg" alt="BendMark Logo" style="max-height: 58px; width: auto;">
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <a href="../../index.html" class="logo">
+                <img src="../LOGO.jpeg" alt="BendMark Logo" class="logo" style="max-height: 58px; width: auto; padding-left: 70px;">
             </a>
-    </div>
-    <div class="header-stats">
-      <div class="hstat">
-        <div class="hstat-num" id="stat-count">—</div>
-        <div class="hstat-label">Projects Showcased</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-num">30K+</div>
-        <div class="hstat-label">Sqm Installed</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-num">1,840+</div>
-        <div class="hstat-label">LED Lights</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-num">6</div>
-        <div class="hstat-label">Cities</div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Section label -->
-  <div class="section-label">
-    <span class="section-eyebrow">Portfolio &mdash; <strong>15 Masterworks</strong></span>
-  </div>
-
-  <!-- Masonry grid (rendered by JS) -->
-  <div class="masonry-wrap" id="grid"></div>
-
-  <!-- Modal -->
-  <div class="modal-bg" id="modal" onclick="handleModalBgClick(event)">
-    <div class="modal-box" id="modal-box">
-      <div class="modal-top">
-        <span class="modal-tag" id="m-tag">INSPECTION CONSOLE</span>
-        <button class="modal-close" onclick="closeModal()">Close ✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-media" id="m-media"></div>
-        <div class="modal-info">
-          <div>
-            <span class="modal-cat" id="m-cat"></span>
-          </div>
-          <div class="modal-title" id="m-title"></div>
-          <p class="modal-desc" id="m-desc"></p>
-          <div class="modal-meta">
-            <div>
-              <div class="meta-label">Client</div>
-              <div class="meta-val" id="m-client"></div>
-            </div>
-            <div>
-              <div class="meta-label">Year</div>
-              <div class="meta-val" id="m-year"></div>
-            </div>
-            <div style="grid-column:1/-1">
-              <div class="meta-label">Location</div>
-              <div class="meta-val" id="m-loc"></div>
-            </div>
-            <div style="grid-column:1/-1">
-              <div class="meta-label">Dimensions</div>
-              <div class="modal-dims" id="m-dims"></div>
-            </div>
-          </div>
-          <div>
-            <div class="meta-label" style="margin-bottom:6px">Materials</div>
-            <div class="modal-materials" id="m-mats"></div>
-          </div>
-          <div>
-            <div class="meta-label" style="margin-bottom:6px">Features</div>
-            <ul class="modal-features" id="m-feats"></ul>
-          </div>
+            <button class="nav-toggle">☰</button>
+            <nav>
+                <a href="../../index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="../../index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="../3d-signs.html">3D Signs</a>
+                        <a href="../road-signs.html">Road Signs</a>
+                        <a href="../construction-signs.html">Construction Signs</a>
+                        <a href="../business-cards.html">Business Cards</a>
+                        <a href="../documents.html">Documents</a>
+                        <a href="../fliers.html">Fliers</a>
+                        <a href="../posters.html">Posters</a>
+                        <a href="../banners.html">Banners & Signage</a>
+                        <a href="../custom-printing.html">Custom Printing</a>
+                    </div>
+                </div>
+                <a href="portfolio.html" style="color: var(--brand-blue); font-weight: 700;">Portfolio</a>
+                <a href="../../index.html#location">Location</a>
+                <a href="../../index.html#contact">Contact</a>
+            </nav>
         </div>
-      </div>
-    </div>
-  </div>
+    </header>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-left">BendMark Design and Suppliers &mdash; Nairobi, Kenya</div>
-    <div class="footer-right">
-      <div class="pulse-dot"></div>
-      <span>Commissions Open</span>
-    </div>
-  </footer>
+    <!-- PORTFOLIO HERO -->
+    <section class="service-detail" style="max-width: 1600px;">
+        <a href="../../index.html" class="back-link">← Back to Home</a>
 
-  <script>
-    const catClass = {
-      '3D Signage':'cat-3d',
-      'Large Format Printing':'cat-lfp',
-      'LED & Neon Signs':'cat-led',
-      'Exhibition & Displays':'cat-exh',
-      'Engraving':'cat-3d',
-      'Branding':'cat-lfp',
-      'CNC Cutting':'cat-exh'
-    };
-    const catBg = {
-      '3D Signage':'rgba(249,115,22,0.85)',
-      'Large Format Printing':'rgba(16,185,129,0.85)',
-      'LED & Neon Signs':'rgba(236,72,153,0.85)',
-      'Exhibition & Displays':'rgba(34,211,238,0.85)',
-      'Engraving':'rgba(249,115,22,0.85)',
-      'Branding':'rgba(16,185,129,0.85)',
-      'CNC Cutting':'rgba(34,211,238,0.85)'
-    };
-    const catFg = {
-      '3D Signage':'#fff',
-      'Large Format Printing':'#fff',
-      'LED & Neon Signs':'#fff',
-      'Exhibition & Displays':'#000',
-      'Engraving':'#fff',
-      'Branding':'#fff',
-      'CNC Cutting':'#000'
-    };
+        <div class="service-hero">
+            <h1>Our Portfolio</h1>
+            <p>15+ years designing, printing and installing signage for businesses across Kenya — from single storefront signs to multi-site branding rollouts. What follows is a working sample of that record; ask us and we'll walk you through the rest.</p>
+        </div>
 
-    let PROJECTS = [];
-    const grid = document.getElementById('grid');
+        <button class="quote-btn" onclick="window.location.href='tel:+254702444491'">Call or Text to Discuss Your Project</button>
 
-    function mediaMarkup(p, forModal) {
-      const glowStyle = forModal ? ` style="filter:drop-shadow(0 0 22px ${p.glow || '#7CDCD4'})"` : '';
-      if (!p.image_url) {
-        return forModal
-          ? `<div class="no-media-modal">No photo uploaded yet</div>`
-          : `<div class="no-media-card">No photo yet</div>`;
-      }
-      return p.media_type === 'video'
-        ? `<video autoplay loop muted playsinline src="${p.image_url}"${glowStyle}></video>`
-        : `<img src="${p.image_url}" alt="${p.title}" loading="lazy"${glowStyle}>`;
-    }
+        <div class="portfolio-wrap" style="padding: 0;">
 
-    async function loadProjects() {
-      grid.innerHTML = `<div class="grid-loading">Loading projects…</div>`;
-      try {
-        const res = await fetch('/api/projects');
-        if (!res.ok) throw new Error('Request failed');
-        PROJECTS = await res.json();
-      } catch (err) {
-        grid.innerHTML = `<div class="grid-loading">Couldn't load the portfolio right now. Please refresh.</div>`;
-        return;
-      }
-
-      grid.innerHTML = '';
-      PROJECTS.forEach(p => {
-        const card = document.createElement('div');
-        card.className = `card ${p.aspect_ratio || 'ar-sq'}`;
-        card.setAttribute('data-id', p.id);
-        card.innerHTML = `
-          <div class="media">
-            ${mediaMarkup(p, false)}
-            <div class="glow-overlay" style="background:radial-gradient(ellipse at center, ${p.glow || '#7CDCD4'}22 0%, transparent 75%)"></div>
-            <span class="cat-pill ${catClass[p.category] || 'cat-3d'}">${p.category}</span>
-          </div>
-          <div class="card-info">
-            <div class="card-title">${p.title}</div>
-            <div class="card-location">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              ${p.location || 'Location not set'}
+            <!-- STATS BAR -->
+            <!-- Placeholder figures — swap in your real numbers before publishing. -->
+            <div class="portfolio-stats">
+                <div class="stat-box">
+                    <div class="stat-num" id="stat-count">—</div>
+                    <div class="stat-label">Projects Below</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">500+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">15+</div>
+                    <div class="stat-label">Years in Business</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">6</div>
+                    <div class="stat-label">Cities Served</div>
+                </div>
             </div>
-          </div>
-        `;
-        card.addEventListener('click', () => openModal(p.id));
-        grid.appendChild(card);
-      });
 
-      document.getElementById('stat-count').textContent = `${PROJECTS.length}+`;
-    }
+            <h2 class="section-title" style="color: #00413d; text-align:left;">Recent Work</h2>
+            <p class="section-subtitle" style="color: #050386; text-align:left; margin-bottom: 1.25rem;">Filter by category to see examples of each service in the field.</p>
 
-    // Modal
-    function openModal(id) {
-      const p = PROJECTS.find(x => x.id === id);
-      if (!p) return;
-      document.getElementById('m-tag').textContent = `PROJ-${String(p.id).padStart(2,'0')} — INSPECT`;
-      document.getElementById('m-title').textContent = p.title;
-      const cat = document.getElementById('m-cat');
-      cat.textContent = p.category;
-      cat.style.background = catBg[p.category] || catBg['3D Signage'];
-      cat.style.color = catFg[p.category] || '#fff';
-      document.getElementById('m-client').textContent = p.client_name || '—';
-      document.getElementById('m-year').textContent = p.year || '—';
-      document.getElementById('m-loc').textContent = p.location || 'Not set';
-      document.getElementById('m-dims').textContent = p.dimensions || '—';
+            <!-- CATEGORY FILTERS -->
+            <div class="portfolio-filters" id="filters">
+                <button class="filter-chip active" data-filter="all">All Work</button>
+            </div>
 
-      document.getElementById('m-desc').textContent = p.description || 'No description yet.';
-      document.getElementById('m-media').innerHTML = mediaMarkup(p, true);
+            <!-- PROJECT GRID (populated from /api/projects) -->
+            <div class="portfolio-grid" id="grid"></div>
 
-      const mats = document.getElementById('m-mats');
-      mats.innerHTML = (p.materials || []).map(m => `<span class="mat-tag">${m}</span>`).join('') || '<span class="mat-tag">—</span>';
+            <!-- TRUST / CAPABILITY TAGS -->
+            <div class="detail-box" style="margin-bottom: 2rem;">
+                <h3 style="text-align:center; margin-bottom: 1rem;">Trusted Across Industries</h3>
+                <div class="trust-tags">
+                    <span class="trust-tag">Construction & Real Estate</span>
+                    <span class="trust-tag">Retail & Hospitality</span>
+                    <span class="trust-tag">Corporate Offices</span>
+                    <span class="trust-tag">Events & Exhibitions</span>
+                    <span class="trust-tag">NGOs & Government</span>
+                    <span class="trust-tag">Political Campaigns</span>
+                    <span class="trust-tag">Education</span>
+                </div>
+            </div>
 
-      const feats = document.getElementById('m-feats');
-      feats.innerHTML = (p.features || []).map(f => `<li>${f}</li>`).join('') || '<li>—</li>';
+            <!-- TESTIMONIALS TEMPLATE — replace bracketed text with real client quotes -->
+            <h2 class="section-title" style="color: #00413d;">What Our Clients Say</h2>
+            <p class="section-subtitle" style="color: #050386; margin-bottom: 1.5rem;">Sample layout below — swap in real client quotes when ready.</p>
+            <div class="service-details-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-bottom: 2rem;">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"[Add a short quote from a real client about the quality, speed, or professionalism of the work.]"</p>
+                    <div class="testimonial-author">[Client Name]</div>
+                    <div class="testimonial-role">[Company / Role]</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"[Add a second client testimonial here.]"</p>
+                    <div class="testimonial-author">[Client Name]</div>
+                    <div class="testimonial-role">[Company / Role]</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"[Add a third client testimonial here.]"</p>
+                    <div class="testimonial-author">[Client Name]</div>
+                    <div class="testimonial-role">[Company / Role]</div>
+                </div>
+            </div>
 
-      document.getElementById('modal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
+            <!-- CTA -->
+            <div class="cta-section">
+                <h2>Ready to Add Your Project to This List?</h2>
+                <p style="margin-bottom: 1.5rem;">Tell us what you need and we'll get you a quote — most projects start production within days.</p>
+                <button class="quote-btn" onclick="window.location.href='tel:+254702444491'">Call or Text to get your Quote</button>
+            </div>
 
-    function closeModal() {
-      document.getElementById('modal').classList.remove('open');
-      document.body.style.overflow = '';
-    }
+        </div>
+    </section>
 
-    function handleModalBgClick(e) {
-      if (e.target === document.getElementById('modal')) closeModal();
-    }
+    <!-- PROJECT DETAIL MODAL -->
+    <div class="pf-modal-bg" id="modal" onclick="handleModalBgClick(event)">
+        <div class="pf-modal-box" id="modal-box">
+            <div class="pf-modal-top">
+                <span class="pf-modal-tag" id="m-tag">PROJECT</span>
+                <button class="pf-modal-close" onclick="closeModal()">Close ✕</button>
+            </div>
+            <div class="pf-modal-body">
+                <div class="pf-modal-media" id="m-media"></div>
+                <div class="pf-modal-info">
+                    <span class="pf-modal-tag" id="m-cat" style="width: fit-content;"></span>
+                    <div class="pf-modal-title" id="m-title"></div>
+                    <p id="m-desc" style="color: var(--text-light); line-height: 1.6;"></p>
+                    <div class="pf-modal-meta">
+                        <div>
+                            <div class="pf-meta-label">Client</div>
+                            <div class="pf-meta-val" id="m-client"></div>
+                        </div>
+                        <div>
+                            <div class="pf-meta-label">Year</div>
+                            <div class="pf-meta-val" id="m-year"></div>
+                        </div>
+                        <div style="grid-column: 1 / -1;">
+                            <div class="pf-meta-label">Location</div>
+                            <div class="pf-meta-val" id="m-loc"></div>
+                        </div>
+                        <div style="grid-column: 1 / -1;">
+                            <div class="pf-meta-label">Dimensions</div>
+                            <div class="pf-meta-val" id="m-dims"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="pf-meta-label" style="margin-bottom: 6px;">Materials</div>
+                        <div class="pf-modal-materials" id="m-mats"></div>
+                    </div>
+                    <div>
+                        <div class="pf-meta-label" style="margin-bottom: 6px;">Features</div>
+                        <ul class="pf-modal-features" id="m-feats"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About BendMark</h3>
+                <p>BendMark is a leading printing services company providing high-quality solutions for all your printing needs.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="../../index.html">Home</a><br>
+                <a href="../../index.html#services">Services</a><br>
+                <a href="../../index.html#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="../3d-signs.html">3D Signs</a><br>
+                <a href="../road-signs.html">Road Signs</a><br>
+                <a href="../construction-signs.html">Construction Signs</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Phone: (+254) 702-444491<br>Email: info@bendmark.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 BendMark Printing Services. All rights reserved.</p>
+        </div>
+    </footer>
 
-    loadProjects();
-  </script>
+    <!-- WHATSAPP CHAT WIDGET -->
+    <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="whatsapp-widget">
+        <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
+        <div class="whatsapp-button">💬</div>
+    </a>
+
+    <script>
+        // Services dropdown toggle on click (same behavior as the rest of the site)
+        const navDropdown = document.querySelector('.nav-dropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        const servicesLink = document.querySelector('.nav-dropdown > a');
+
+        servicesLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            dropdownMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.dropdown-menu a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                dropdownMenu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!navDropdown.contains(e.target)) {
+                dropdownMenu.classList.remove('active');
+            }
+        });
+
+        const navToggle = document.querySelector('.nav-toggle');
+        const navEl = document.querySelector('nav');
+        if (navToggle) {
+            navToggle.addEventListener('click', function () {
+                navEl.classList.toggle('active');
+            });
+        }
+    </script>
+
+    <script>
+        // ---------------------------------------------------------
+        // Portfolio grid: fetches real projects from /api/projects
+        // (managed via the admin dashboard) and renders them with
+        // filtering + a detail modal.
+        // ---------------------------------------------------------
+        let PROJECTS = [];
+        let ACTIVE_FILTER = 'all';
+        const grid = document.getElementById('grid');
+        const filtersEl = document.getElementById('filters');
+
+        function mediaMarkup(p, forModal) {
+            const wrapClass = forModal ? '' : '';
+            if (!p.image_url) {
+                return `<div class="no-media">Photo coming soon</div>`;
+            }
+            return p.media_type === 'video'
+                ? `<video autoplay loop muted playsinline src="${p.image_url}"></video>`
+                : `<img src="${p.image_url}" alt="${p.title}" loading="lazy">`;
+        }
+
+        function renderFilters() {
+            const categories = Array.from(new Set(PROJECTS.map(p => p.category).filter(Boolean)));
+            filtersEl.innerHTML = `<button class="filter-chip ${ACTIVE_FILTER === 'all' ? 'active' : ''}" data-filter="all">All Work</button>` +
+                categories.map(c => `<button class="filter-chip ${ACTIVE_FILTER === c ? 'active' : ''}" data-filter="${c}">${c}</button>`).join('');
+
+            filtersEl.querySelectorAll('.filter-chip').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    ACTIVE_FILTER = btn.getAttribute('data-filter');
+                    renderFilters();
+                    renderGrid();
+                });
+            });
+        }
+
+        function renderGrid() {
+            const visible = ACTIVE_FILTER === 'all' ? PROJECTS : PROJECTS.filter(p => p.category === ACTIVE_FILTER);
+
+            if (visible.length === 0) {
+                grid.innerHTML = `
+                    <div class="portfolio-empty">
+                        <h3>${PROJECTS.length === 0 ? 'Photos From Our Past Projects Are Being Added' : 'No projects in this category yet'}</h3>
+                        <p>We've completed 500+ signage and printing projects over 15+ years — this gallery is a growing, working sample of that work. Browse our full range of services below, or get in touch and we'll share examples relevant to your project directly.</p>
+                        <button class="quote-btn" onclick="window.location.href='tel:+254702444491'">Call or Text Us</button>
+                    </div>`;
+                return;
+            }
+
+            grid.innerHTML = '';
+            visible.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'portfolio-card';
+                card.innerHTML = `
+                    <div class="media">
+                        ${p.image_url ? mediaMarkup(p, false) : '<div class="no-media">Photo coming soon</div>'}
+                        ${p.category ? `<span class="cat-pill">${p.category}</span>` : ''}
+                    </div>
+                    <div class="portfolio-card-info">
+                        <div class="portfolio-card-title">${p.title || 'Untitled Project'}</div>
+                        <div class="portfolio-card-location">${p.location || 'Location not set'}</div>
+                    </div>
+                `;
+                card.addEventListener('click', () => openModal(p.id));
+                grid.appendChild(card);
+            });
+        }
+
+        async function loadProjects() {
+            grid.innerHTML = `<div class="grid-loading">Loading projects…</div>`;
+            try {
+                const res = await fetch('/api/projects');
+                if (!res.ok) throw new Error('Request failed');
+                PROJECTS = await res.json();
+            } catch (err) {
+                PROJECTS = [];
+            }
+
+            document.getElementById('stat-count').textContent = PROJECTS.length ? `${PROJECTS.length}+` : '—';
+            renderFilters();
+            renderGrid();
+        }
+
+        function openModal(id) {
+            const p = PROJECTS.find(x => x.id === id);
+            if (!p) return;
+            document.getElementById('m-tag').textContent = p.category || 'PROJECT';
+            document.getElementById('m-cat').textContent = p.category || '';
+            document.getElementById('m-title').textContent = p.title || 'Untitled Project';
+            document.getElementById('m-client').textContent = p.client_name || '—';
+            document.getElementById('m-year').textContent = p.year || '—';
+            document.getElementById('m-loc').textContent = p.location || 'Not set';
+            document.getElementById('m-dims').textContent = p.dimensions || '—';
+            document.getElementById('m-desc').textContent = p.description || 'No description yet.';
+            document.getElementById('m-media').innerHTML = mediaMarkup(p, true);
+
+            const mats = document.getElementById('m-mats');
+            mats.innerHTML = (p.materials || []).map(m => `<span class="pf-mat-tag">${m}</span>`).join('') || '<span class="pf-mat-tag">—</span>';
+
+            const feats = document.getElementById('m-feats');
+            feats.innerHTML = (p.features || []).map(f => `<li>${f}</li>`).join('') || '<li>—</li>';
+
+            document.getElementById('modal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function handleModalBgClick(e) {
+            if (e.target === document.getElementById('modal')) closeModal();
+        }
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+        loadProjects();
+    </script>
 </body>
 </html>
