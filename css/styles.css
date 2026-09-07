@@ -52,7 +52,7 @@ header {
 }
 
 .header-container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -208,7 +208,7 @@ nav a:hover::after {
    ============================================ */
 
 .hero {
-  max-width: 1300px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 1.5rem;
 }
@@ -420,7 +420,7 @@ nav a:hover::after {
    ============================================ */
 
 .services {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 2.5rem auto;
   padding: 1.5rem;
 }
@@ -546,66 +546,97 @@ nav a:hover::after {
 
 .category-accordion {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.6rem;
 }
 
+/* Flatten each section so its header and content become direct flex
+   items of the accordion — this is what lets all the headers line up
+   in one row while the content panels drop to their own full-width row. */
 .category-section {
-  border-radius: 10px;
-  overflow: hidden;
+  display: contents;
 }
 
 .category-header {
-  width: 100%;
+  order: 0;
+  flex: 1 1 auto;
+  min-width: 150px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
+  justify-content: center;
+  gap: 0.5rem;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: #ffffff;
   border: none;
   padding: 0.85rem 1.25rem;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   cursor: pointer;
   border-radius: 10px;
-  transition: all 0.3s ease;
-  text-align: left;
+  transition: all 0.25s ease;
+  text-align: center;
+  opacity: 0.75;
+  transform: scale(0.98);
 }
 
 .category-header:hover {
   filter: brightness(1.05);
+  opacity: 0.9;
+}
+
+.category-section.active .category-header {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 4px 12px rgba(4, 21, 220, 0.3);
 }
 
 .category-header .category-count {
   font-size: 0.7rem;
   font-weight: 500;
   opacity: 0.85;
-  margin-right: auto;
-  margin-left: 0.75rem;
 }
 
 .category-toggle-icon {
-  font-size: 1.2rem;
-  line-height: 1;
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-}
-
-.category-section.active .category-toggle-icon {
-  transform: rotate(45deg);
+  display: none;
 }
 
 .category-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease, padding 0.3s ease;
+  order: 1;
+  flex-basis: 100%;
+  width: 100%;
+  display: none;
   padding: 0 0.1rem;
 }
 
 .category-section.active .category-content {
-  max-height: 4000px;
-  padding-top: 0.75rem;
+  display: block;
+  padding-top: 1.5rem;
+  animation: category-fade-in 0.35s ease;
+}
+
+@keyframes category-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* On small screens the tab row becomes a horizontally-scrollable strip
+   instead of wrapping, so it stays a single tidy row on mobile. */
+@media (max-width: 640px) {
+  .category-accordion {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.4rem;
+    scrollbar-width: thin;
+  }
+
+  .category-header {
+    flex: 0 0 auto;
+    min-width: auto;
+    white-space: nowrap;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.1rem;
+  }
 }
 
 /* ============================================
@@ -727,7 +758,7 @@ nav a:hover::after {
    ============================================ */
 
 .location-section {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 2.5rem auto;
   padding: 1.5rem;
   display: grid;
@@ -790,7 +821,7 @@ nav a:hover::after {
 }
 
 .social-container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -832,7 +863,7 @@ footer {
 }
 
 .footer-content {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
