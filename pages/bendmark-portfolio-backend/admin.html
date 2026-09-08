@@ -9,9 +9,9 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #0c0d10; --surface: #14161b; --border: rgba(255,255,255,0.08);
-    --gold: #FACC15; --cyan: #22D3EE; --text: #e8e9ec; --muted: #6b7280;
-    --danger: #ef4444;
+    --bg: #f2f5f8; --surface: #ffffff; --border: #e0e0e0;
+    --gold: #0415dc; --gold-text: #ffffff; --cyan: #7CDCD4; --text: #333333; --muted: #666666;
+    --danger: #ef4444; --input-bg: #f7f9fb;
   }
   body {
     background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif;
@@ -20,27 +20,28 @@
   header {
     padding: 1.5rem 2rem; border-bottom: 1px solid var(--border);
     display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    background: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.04);
   }
   h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.06em; }
   h1 span { color: var(--gold); }
   #logout-btn {
-    background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--text);
+    background: #ffffff; border: 1px solid var(--border); color: var(--text);
     padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem;
   }
-  #logout-btn:hover { border-color: var(--gold); }
+  #logout-btn:hover { border-color: var(--gold); color: var(--gold); }
 
   /* Login screen */
   #login-screen {
     max-width: 360px; margin: 12vh auto; padding: 2rem; background: var(--surface);
-    border: 1px solid var(--border); border-radius: 10px;
+    border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
-  #login-screen h2 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; margin-bottom: 1.25rem; font-size: 1.3rem; }
+  #login-screen h2 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; margin-bottom: 1.25rem; font-size: 1.3rem; color: var(--text); }
   #login-screen input {
     width: 100%; padding: 0.7rem 0.9rem; margin-bottom: 0.9rem;
-    background: #0c0d10; border: 1px solid var(--border); border-radius: 6px; color: var(--text);
+    background: var(--input-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text);
   }
   #login-screen button {
-    width: 100%; padding: 0.75rem; background: var(--gold); color: #000; font-weight: 700;
+    width: 100%; padding: 0.75rem; background: var(--gold); color: var(--gold-text); font-weight: 700;
     border: none; border-radius: 6px; cursor: pointer;
   }
   #login-error { color: var(--danger); font-size: 0.8rem; margin-top: 0.6rem; min-height: 1.1em; }
@@ -51,25 +52,25 @@
   /* Form */
   #project-form {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-    padding: 1.5rem; margin-bottom: 2rem;
+    padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
-  #project-form h2 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; margin-bottom: 1rem; font-size: 1.2rem; }
+  #project-form h2 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; margin-bottom: 1rem; font-size: 1.2rem; color: var(--text); }
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
   .form-grid .full { grid-column: 1 / -1; }
   @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
   label { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.3rem; }
   input, select, textarea {
-    width: 100%; padding: 0.6rem 0.8rem; background: #0c0d10; border: 1px solid var(--border);
+    width: 100%; padding: 0.6rem 0.8rem; background: var(--input-bg); border: 1px solid var(--border);
     border-radius: 6px; color: var(--text); font-family: inherit; font-size: 0.85rem;
   }
   textarea { resize: vertical; min-height: 60px; }
   .form-actions { display: flex; gap: 0.75rem; margin-top: 1.25rem; align-items: center; }
   .btn-primary {
-    background: var(--gold); color: #000; font-weight: 700; border: none;
+    background: var(--gold); color: var(--gold-text); font-weight: 700; border: none;
     padding: 0.7rem 1.4rem; border-radius: 6px; cursor: pointer;
   }
   .btn-secondary {
-    background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border);
+    background: #ffffff; color: var(--text); border: 1px solid var(--border);
     padding: 0.7rem 1.4rem; border-radius: 6px; cursor: pointer;
   }
   #form-status { font-size: 0.8rem; color: var(--muted); }
@@ -85,14 +86,15 @@
   .row {
     display: grid; grid-template-columns: 56px 1fr auto; gap: 1rem; align-items: center;
     background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem 0.9rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   }
   .row img, .row .no-media { width: 56px; height: 56px; object-fit: cover; border-radius: 6px; }
-  .row .no-media { background: #1a1d23; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: var(--muted); text-align: center; }
-  .row .info .title { font-weight: 700; font-size: 0.95rem; }
+  .row .no-media { background: var(--input-bg); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: var(--muted); text-align: center; }
+  .row .info .title { font-weight: 700; font-size: 0.95rem; color: var(--text); }
   .row .info .meta { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
   .row .actions { display: flex; gap: 0.5rem; }
   .row .actions button {
-    background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--text);
+    background: #ffffff; border: 1px solid var(--border); color: var(--text);
     padding: 0.4rem 0.8rem; border-radius: 5px; cursor: pointer; font-size: 0.75rem;
   }
   .row .actions .delete-btn:hover { border-color: var(--danger); color: var(--danger); }
