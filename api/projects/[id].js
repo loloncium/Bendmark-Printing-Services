@@ -24,7 +24,7 @@ module.exports = async function handler(req, res) {
       sort_order,
     } = req.body || {};
 
-    const { rows } = await sql`
+    const rows = await sql`
       UPDATE projects SET
         title        = COALESCE(${title}, title),
         category     = COALESCE(${category}, category),
