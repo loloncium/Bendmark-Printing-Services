@@ -45,7 +45,7 @@ body {
    ============================================ */
 
 header {
-  background-color: #001a70;
+  background-color: #ffffff;
   box-shadow: var(--shadow);
   position: sticky;
   top: 0;
@@ -631,19 +631,29 @@ nav a:hover::after {
    instead of wrapping, so it stays a single tidy row on mobile. */
 @media (max-width: 640px) {
   .category-accordion {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 0.4rem;
-    scrollbar-width: thin;
+    flex-wrap: wrap; /* Allow wrapping */
+    overflow-x: visible; /* Remove horizontal scroll from parent */
+  }
+
+  .category-section {
+    display: block; /* Undo 'display: contents' so sections stack properly */
+    width: 100%;
+    margin-bottom: 0.5rem; /* Add space between each category */
   }
 
   .category-header {
-    flex: 0 0 auto;
-    min-width: auto;
-    white-space: nowrap;
-    font-size: 0.95rem;
-    padding: 0.75rem 1.1rem;
+    width: 100%; /* Make headers full-width buttons */
+    display: flex;
+    justify-content: space-between; /* Space out the text and the + icon */
+    align-items: center;
+    opacity: 1; /* Make all headers fully visible */
+    transform: scale(1);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .category-content {
+    padding-top: 0; /* Remove top padding since the section has margin */
   }
 }
 
