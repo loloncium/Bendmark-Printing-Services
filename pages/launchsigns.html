@@ -1,667 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFTBG3Y1QD"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TFTBG3Y1QD');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Professional Launch Signs by BendMark - Custom signage, banners, and branded materials for product launches, grand openings, and business events.">
-    <meta name="keywords" content="launch signs, grand opening signs, product launch banners, event signage, opening banners, launch printing">
+    <meta name="keywords" content="launch signs, grand opening signs, product launch banners, event signage">
     <meta name="robots" content="index, follow">
     <title>Launch Signs - Event & Opening Signage | BendMark</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.462.0/umd/lucide.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5130587355236315" crossorigin="anonymous"></script>
     <style>
-        /* ── ROOT VARIABLES (mirrors BendMark palette) ── */
-        :root {
-            --purple:   #8286af;
-            --teal:     #7CDCD4;
-            --dark-teal:#026c72;
-            --white:    #ffffff;
-            --light-bg: #f5f9f9;
-            --card-bg:  #ffffff;
-            --text:     #333333;
-            --text-light:#666666;
-            --border:   #e0e0e0;
-            --shadow:   0 2px 12px rgba(0,0,0,0.08);
-        }
-
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--white);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        /* ── HEADER ── */
-        header {
-            background: var(--white);
-            border-bottom: 2px solid var(--teal);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-        .logo .bend { color: var(--purple); }
-        .logo .mark { color: var(--teal); }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-        nav a:hover { color: var(--dark-teal); }
-
-        .nav-dropdown { position: relative; }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            min-width: 200px;
-            box-shadow: var(--shadow);
-            z-index: 200;
-            padding: 0.5rem 0;
-        }
-        .dropdown-menu.active { display: block; }
-        .dropdown-menu a {
-            display: block;
-            padding: 0.55rem 1.2rem;
-            font-size: 0.9rem;
-            color: var(--text);
-        }
-        .dropdown-menu a:hover { background: var(--light-bg); color: var(--dark-teal); }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text);
-        }
-
-        /* ── SERVICE DETAIL SECTION ── */
-        .service-detail {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 2rem 4rem;
-        }
-
-        .back-link {
-            display: inline-block;
-            color: var(--dark-teal);
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-        .back-link:hover { color: var(--purple); }
-
-        /* ── HERO ── */
-        .service-hero {
-            text-align: center;
-            padding: 2.5rem 1rem;
-            background: linear-gradient(135deg, var(--light-bg) 0%, #e8f7f7 100%);
-            border-radius: 12px;
-            margin-bottom: 2rem;
-        }
-        .service-hero h1 {
-            font-size: 2.8rem;
-            color: var(--dark-teal);
-            margin-bottom: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-        .service-hero p {
-            font-size: 1.15rem;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* ── QUOTE BUTTON ── */
-        .quote-btn {
-            display: block;
-            margin: 1.5rem auto;
-            padding: 1rem 2.5rem;
-            background: var(--dark-teal);
-            color: var(--white);
-            border: none;
-            border-radius: 50px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            cursor: pointer;
-            letter-spacing: 0.5px;
-            transition: background 0.2s, transform 0.15s;
-            text-decoration: none;
-            max-width: 340px;
-        }
-        .quote-btn:hover {
-            background: var(--purple);
-            transform: translateY(-2px);
-        }
-
-        /* ── PRODUCT SHOWCASE ── */
-        .product-showcase {
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        .product-image {
-            width: 100%;
-            max-width: 420px;
-            border-radius: 10px;
-            object-fit: cover;
-            box-shadow: var(--shadow);
-            background: linear-gradient(135deg, var(--teal) 0%, var(--dark-teal) 100%);
-            min-height: 260px;
-        }
-        /* Placeholder when no image */
-        .product-image-placeholder {
-            width: 100%;
-            max-width: 420px;
-            min-height: 260px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--teal) 0%, var(--dark-teal) 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            box-shadow: var(--shadow);
-            gap: 1rem;
-        }
-        .product-image-placeholder .big-icon { font-size: 4rem; }
-
-        .product-description { flex: 1; min-width: 260px; }
-        .product-title {
-            font-size: 2rem;
-            color: var(--dark-teal);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-        }
-        .product-text {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        /* ── DETAILS GRID ── */
-        .service-details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .detail-box {
-            background: var(--light-bg);
-            border-left: 4px solid var(--teal);
-            border-radius: 8px;
-            padding: 1.5rem;
-        }
-        .detail-box h3 {
-            color: var(--dark-teal);
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        .detail-box ul {
-            list-style: none;
-            padding: 0;
-        }
-        .detail-box ul li {
-            padding: 0.4rem 0;
-            padding-left: 1.2rem;
-            position: relative;
-            font-size: 0.95rem;
-            color: var(--text);
-        }
-        .detail-box ul li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--teal);
-            font-weight: 700;
-        }
-        .detail-box p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-        }
-
-        /* ── SECTION HEADING ── */
-        .section-heading {
-            color: var(--dark-teal);
-            margin: 2rem 0;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 800;
-        }
-
-        /* ── PRODUCTS GRID ── */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .product-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.5rem;
-            transition: box-shadow 0.2s, transform 0.2s;
-            border-top: 3px solid var(--teal);
-        }
-        .product-card:hover {
-            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-            transform: translateY(-3px);
-        }
-        .product-card-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-        }
-        .product-card h3 {
-            color: var(--dark-teal);
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-        }
-        .product-card p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* ── URGENCY BANNER ── */
-        .urgency-banner {
-            background: linear-gradient(135deg, var(--dark-teal), var(--purple));
-            color: var(--white);
-            border-radius: 10px;
-            padding: 1.5rem 2rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        .urgency-banner h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-        .urgency-banner p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            background: #1a1a2e;
-            color: #ccc;
-            padding: 3rem 2rem 1.5rem;
-            margin-top: 4rem;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        .footer-section h3 {
-            color: var(--teal);
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-        .footer-section p, .footer-section a {
-            font-size: 0.9rem;
-            color: #aaa;
-            text-decoration: none;
-            line-height: 1.8;
-        }
-        .footer-section a:hover { color: var(--teal); }
-        .footer-bottom {
-            text-align: center;
-            border-top: 1px solid #333;
-            padding-top: 1.2rem;
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        /* ── WHATSAPP WIDGET ── */
-        .whatsapp-widget {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 999;
-            text-decoration: none;
-        }
-        .whatsapp-button {
-            width: 56px;
-            height: 56px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            box-shadow: 0 4px 14px rgba(37,211,102,0.4);
-            transition: transform 0.2s;
-        }
-        .whatsapp-button:hover { transform: scale(1.1); }
-        .whatsapp-tooltip {
-            background: #333;
-            color: #fff;
-            font-size: 0.78rem;
-            padding: 0.35rem 0.7rem;
-            border-radius: 6px;
-            white-space: nowrap;
-            margin-bottom: 0.4rem;
-            text-align: center;
-            display: none;
-        }
-        .whatsapp-widget:hover .whatsapp-tooltip { display: block; }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 768px) {
-            .service-hero h1 { font-size: 2rem; }
-            .service-details-grid { grid-template-columns: 1fr; }
-            .product-showcase { flex-direction: column; }
-            .product-image-placeholder { max-width: 100%; }
-            nav { display: none; }
-            nav.open { display: flex; flex-direction: column; width: 100%; }
-            .nav-toggle { display: block; }
-        }
+      /* SAME STYLE BLOCK — paste from 3d-signs.html verbatim */
+      :root{ --lg-radius:14px; --lg-border:#e3e7ec; --lg-muted:#6b7280; } .lg-icon{ width:1em; height:1em; stroke-width:2; vertical-align:-0.15em; }
+      .lg-utility-bar{ background: var(--brand-blue); color:#fff; font-family:'Montserrat',sans-serif; font-size:0.82rem; } .lg-utility-inner{ max-width:1280px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:0.45rem 1.5rem; gap:1rem; flex-wrap:wrap; } .lg-utility-left{ display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; } .lg-utility-left a{ color:#fff; text-decoration:none; display:flex; align-items:center; gap:0.4rem; opacity:0.95; } .lg-utility-left a:hover{ opacity:1; text-decoration:underline; } .lg-utility-right{ display:flex; align-items:center; gap:0.4rem; color:#fff; font-weight:600; } .lg-utility-right .lg-icon{ color:#FFC857; }
+      .lg-search{ flex:1; display:flex; align-items:center; gap:0.6rem; background: var(--light-bg); border:1px solid var(--lg-border); border-radius:999px; padding:0.55rem 1.1rem; max-width:460px; } .lg-search input{ border:none; background:transparent; outline:none; width:100%; font-family:'Montserrat',sans-serif; font-size:0.92rem; color: var(--text-dark); } .lg-search .lg-icon{ color: var(--lg-muted); flex-shrink:0; }
+      .lg-header-cta{ display:flex; align-items:center; gap:0.5rem; background: var(--brand-blue); color:#fff; text-decoration:none; padding:0.65rem 1.2rem; border-radius:999px; font-weight:600; font-family:'Montserrat',sans-serif; font-size:0.9rem; white-space:nowrap; } .lg-header-cta:hover{ transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+      .lg-btn-primary{ display:inline-flex; align-items:center; gap:0.5rem; background: var(--brand-blue); color:#fff; text-decoration:none; font-weight:700; font-family:'Montserrat',sans-serif; padding:0.85rem 1.6rem; border-radius:999px; box-shadow: var(--shadow-lg); border:none; cursor:pointer; font-size:0.95rem; } .lg-btn-primary:hover{ transform: translateY(-2px); }
+      .lg-btn-secondary{ display:inline-flex; align-items:center; gap:0.5rem; background:#fff; color: var(--text-dark); text-decoration:none; font-weight:700; font-family:'Montserrat',sans-serif; padding:0.85rem 1.6rem; border-radius:999px; border:1px solid var(--lg-border); cursor:pointer; font-size:0.95rem; } .lg-btn-secondary:hover{ border-color: var(--brand-blue); }
+      .lg-breadcrumb-bar{ background:#fff; border-bottom:1px solid var(--lg-border); } .lg-breadcrumb{ max-width:1280px; margin:0 auto; padding:0.85rem 1.5rem; display:flex; align-items:center; gap:0.5rem; font-family:'Montserrat',sans-serif; font-size:0.82rem; color: var(--lg-muted); flex-wrap:wrap; } .lg-breadcrumb a{ color: var(--lg-muted); text-decoration:none; } .lg-breadcrumb a:hover{ color: var(--brand-blue); } .lg-breadcrumb .lg-icon{ width:14px; height:14px; }
+      .lg-product-page{ max-width:1280px; margin:0 auto; padding:2rem 1.5rem 3rem; } .lg-product-hero{ display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-bottom:3rem; }
+      .lg-gallery{ position:sticky; top:90px; align-self:start; } .lg-gallery-main{ aspect-ratio:1/1; border-radius: var(--lg-radius); overflow:hidden; background: var(--light-bg); border:1px solid var(--lg-border); margin-bottom:0.85rem; position:relative; } .lg-gallery-main img{ width:100%; height:100%; object-fit:cover; display:block; } .lg-gallery-main .lg-gallery-fallback{ display:none; position:absolute; inset:0; align-items:center; justify-content:center; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%); } .lg-gallery-main.lg-no-img .lg-gallery-fallback{ display:flex; } .lg-gallery-fallback .lg-icon{ width:120px; height:120px; color: var(--brand-blue); opacity:0.5; } .lg-gallery-main .lg-gallery-badge{ position:absolute; top:1rem; left:1rem; background:#fff; color: var(--brand-blue); padding:0.35rem 0.8rem; border-radius:6px; font-family:'Montserrat',sans-serif; font-size:0.72rem; font-weight:700; text-transform:uppercase; box-shadow: var(--shadow); }
+      .lg-gallery-thumbs{ display:grid; grid-template-columns: repeat(4,1fr); gap:0.6rem; } .lg-gallery-thumb{ aspect-ratio:1/1; border-radius:10px; overflow:hidden; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%); border:2px solid transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; } .lg-gallery-thumb .lg-icon{ width:26px; height:26px; color: var(--brand-blue); opacity:0.7; } .lg-gallery-thumb.active, .lg-gallery-thumb:hover{ border-color: var(--brand-blue); }
+      .lg-product-info{ display:flex; flex-direction:column; } .lg-product-category-tag{ display:inline-flex; align-items:center; gap:0.4rem; font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:700; text-transform:uppercase; color: var(--brand-blue); background: rgba(4,21,220,0.08); padding:0.3rem 0.75rem; border-radius:6px; margin-bottom:1rem; width:fit-content; }
+      .lg-product-info h1{ font-family:'Playfair Display',serif; font-size: clamp(1.8rem,3vw,2.5rem); color: var(--text-dark); font-weight:700; line-height:1.2; margin-bottom:0.75rem; } .lg-product-rating{ display:flex; align-items:center; gap:0.5rem; font-family:'Montserrat',sans-serif; font-size:0.85rem; color: var(--lg-muted); margin-bottom:1.25rem; } .lg-product-rating .lg-stars{ display:flex; gap:0.1rem; color:#FFC857; } .lg-product-rating .lg-stars .lg-icon{ width:16px; height:16px; fill:currentColor; }
+      .lg-product-short{ font-family:'Montserrat',sans-serif; font-size:1rem; color: var(--text-light); line-height:1.7; margin-bottom:1.5rem; } .lg-product-features{ display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.5rem; } .lg-feature-pill{ display:flex; align-items:center; gap:0.4rem; background:#fff; border:1px solid var(--lg-border); padding:0.45rem 0.85rem; border-radius:999px; font-family:'Montserrat',sans-serif; font-size:0.82rem; color: var(--text-dark); } .lg-feature-pill .lg-icon{ color: var(--brand-blue); width:14px; height:14px; }
+      .lg-quote-box{ background: var(--light-bg); border:1px solid var(--lg-border); border-radius: var(--lg-radius); padding:1.25rem 1.4rem; margin-bottom:1.25rem; } .lg-quote-box .lg-quote-label{ font-family:'Montserrat',sans-serif; font-size:0.78rem; color: var(--lg-muted); text-transform:uppercase; letter-spacing:0.05em; font-weight:600; margin-bottom:0.3rem; } .lg-quote-box .lg-quote-value{ font-family:'Playfair Display',serif; font-size:1.5rem; color: var(--text-dark); font-weight:700; margin-bottom:0.5rem; } .lg-quote-box .lg-quote-note{ font-family:'Montserrat',sans-serif; font-size:0.85rem; color: var(--lg-muted); line-height:1.5; }
+      .lg-product-actions{ display:flex; gap:0.75rem; flex-wrap:wrap; margin-bottom:1.5rem; } .lg-product-actions .lg-btn-primary, .lg-product-actions .lg-btn-secondary{ flex:1; justify-content:center; min-width:160px; }
+      .lg-quick-info{ display:flex; flex-direction:column; gap:0.75rem; padding-top:1.25rem; border-top:1px solid var(--lg-border); } .lg-quick-info-item{ display:flex; align-items:center; gap:0.75rem; font-family:'Montserrat',sans-serif; font-size:0.88rem; color: var(--text-dark); } .lg-quick-info-item .lg-icon-wrap{ width:36px; height:36px; border-radius:50%; background: rgba(4,21,220,0.08); display:flex; align-items:center; justify-content:center; flex-shrink:0; } .lg-quick-info-item .lg-icon-wrap .lg-icon{ color: var(--brand-blue); width:18px; height:18px; } .lg-quick-info-item strong{ font-weight:700; color: var(--text-dark); display:block; } .lg-quick-info-item span{ color: var(--lg-muted); font-size:0.82rem; }
+      .lg-tabs{ margin-bottom:3rem; } .lg-tab-nav{ display:flex; gap:0.25rem; border-bottom:1px solid var(--lg-border); margin-bottom:1.75rem; flex-wrap:wrap; } .lg-tab-btn{ font-family:'Montserrat',sans-serif; font-size:0.92rem; font-weight:600; color: var(--lg-muted); background:transparent; border:none; padding:0.85rem 1.3rem; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; display:flex; align-items:center; gap:0.45rem; } .lg-tab-btn:hover{ color: var(--text-dark); } .lg-tab-btn.active{ color: var(--brand-blue); border-bottom-color: var(--brand-blue); }
+      .lg-tab-panel{ display:none; animation: fadeIn 0.35s ease; } .lg-tab-panel.active{ display:block; } @keyframes fadeIn { from { opacity:0; transform: translateY(6px);} to { opacity:1; transform:translateY(0);} }
+      .lg-tab-panel h2{ font-family:'Playfair Display',serif; font-size:1.5rem; color: var(--text-dark); margin-bottom:1rem; } .lg-tab-panel p{ font-family:'Montserrat',sans-serif; color: var(--text-light); line-height:1.75; margin-bottom:1rem; font-size:0.95rem; } .lg-tab-panel ul{ list-style:none; padding:0; } .lg-tab-panel ul li{ font-family:'Montserrat',sans-serif; font-size:0.92rem; color: var(--text-light); padding:0.6rem 0 0.6rem 1.75rem; position:relative; border-bottom:1px solid var(--lg-border); } .lg-tab-panel ul li:last-child{ border-bottom:none; } .lg-tab-panel ul li::before{ content:''; position:absolute; left:0; top:1.05rem; width:16px; height:16px; border-radius:50%; background: rgba(4,21,220,0.1); } .lg-tab-panel ul li::after{ content:''; position:absolute; left:5px; top:1.25rem; width:6px; height:6px; border-radius:50%; background: var(--brand-blue); } .lg-tab-panel ul li strong{ color: var(--text-dark); }
+      .lg-urgency-banner{ max-width:1280px; margin:0 auto 2rem; padding:1.5rem 2rem; border-radius:14px; background: linear-gradient(135deg, var(--brand-blue), var(--secondary-color)); color:#fff; text-align:center; } .lg-urgency-banner h3{ font-family:'Montserrat',sans-serif; font-size:1.15rem; font-weight:800; margin-bottom:0.4rem; } .lg-urgency-banner p{ font-family:'Montserrat',sans-serif; font-size:0.9rem; opacity:0.92; margin:0; }
+      .lg-section-heading{ text-align:center; margin-bottom:2rem; } .lg-section-heading h2{ font-family:'Playfair Display',serif; font-size: clamp(1.5rem,2.6vw,2rem); color: var(--text-dark); margin-bottom:0.5rem; } .lg-section-heading p{ font-family:'Montserrat',sans-serif; color: var(--lg-muted); font-size:0.95rem; }
+      .lg-product-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:1.25rem; } .lg-product-card{ background:#fff; border:1px solid var(--lg-border); border-radius: var(--lg-radius); overflow:hidden; display:flex; flex-direction:column; transition: transform 0.15s ease, box-shadow 0.15s ease; } .lg-product-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow-lg); } .lg-product-media{ position:relative; aspect-ratio:4/3; overflow:hidden; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%); display:flex; align-items:center; justify-content:center; } .lg-product-media .lg-icon-big{ width:56px; height:56px; color: var(--brand-blue); opacity:0.7; } .lg-product-body{ padding:0.95rem 1rem 1.1rem; display:flex; flex-direction:column; gap:0.35rem; flex:1; } .lg-product-cat{ font-family:'Montserrat',sans-serif; font-size:0.72rem; color: var(--lg-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.03em; } .lg-product-body h3{ font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:700; color: var(--text-dark); margin:0; } .lg-product-body p{ font-family:'Montserrat',sans-serif; font-size:0.82rem; color: var(--lg-muted); line-height:1.45; margin:0; flex:1; }
+      .lg-cta-banner{ max-width:1280px; margin:0 auto 3rem; padding:0 1.5rem; } .lg-cta-banner-inner{ background: var(--brand-blue); border-radius:20px; padding:2.4rem 2.5rem; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; color:#fff; } .lg-cta-banner h2{ font-family:'Playfair Display',serif; font-size:1.6rem; margin:0 0 0.4rem; } .lg-cta-banner p{ font-family:'Montserrat',sans-serif; opacity:0.9; margin:0; max-width:46ch; } .lg-cta-banner-icon{ width:58px; height:58px; border-radius:50%; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0; } .lg-cta-banner-icon .lg-icon{ width:28px; height:28px; } .lg-cta-actions{ display:flex; gap:0.75rem; flex-wrap:wrap; } .lg-cta-actions .lg-btn-primary{ background:#fff; color: var(--brand-blue); } .lg-cta-actions .lg-btn-secondary{ background:transparent; color:#fff; border-color: rgba(255,255,255,0.5); } .lg-cta-actions .lg-btn-secondary:hover{ border-color:#fff; }
+      .lg-footer{ background:#12172b; color:#c9cede; padding:3rem 1.5rem 1.5rem; } .lg-footer-inner{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:2rem; } .lg-footer-brand{ display:flex; align-items:center; gap:0.65rem; margin-bottom:0.9rem; } .lg-footer-brand img{ width:38px; height:38px; border-radius:8px; object-fit:cover; } .lg-footer-brand span{ font-family:'Playfair Display',serif; font-size:1.15rem; color:#fff; font-weight:700; } .lg-footer h4{ font-family:'Montserrat',sans-serif; color:#fff; font-size:0.92rem; margin-bottom:0.9rem; } .lg-footer p, .lg-footer a{ font-family:'Montserrat',sans-serif; font-size:0.86rem; color:#9aa0b4; text-decoration:none; line-height:1.9; } .lg-footer a:hover{ color:#fff; } .lg-footer-list{ list-style:none; padding:0; margin:0; } .lg-footer-contact li{ display:flex; align-items:flex-start; gap:0.6rem; margin-bottom:0.75rem; font-family:'Montserrat',sans-serif; font-size:0.86rem; color:#9aa0b4; } .lg-footer-contact .lg-icon{ color: var(--primary-color); flex-shrink:0; margin-top:0.15rem; } .lg-footer-social{ display:flex; gap:0.6rem; margin-top:1rem; } .lg-footer-social a{ width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:#fff; } .lg-footer-social a:hover{ background: var(--brand-blue); } .lg-footer-bottom{ max-width:1280px; margin:2.2rem auto 0; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.6rem; font-family:'Montserrat',sans-serif; font-size:0.78rem; color:#7c8299; }
+      .whatsapp-button svg{ width:26px; height:26px; } .lg-icon-flex{ display:inline-flex; align-items:center; justify-content:center; }
+      @media (max-width:1024px){ .lg-product-hero{ grid-template-columns:1fr; gap:2rem; } .lg-gallery{ position:static; } .lg-product-grid{ grid-template-columns: repeat(2,1fr); } .lg-footer-inner{ grid-template-columns:1fr 1fr; } }
+      @media (max-width:640px){ .lg-utility-left{ display:none; } .lg-search{ display:none; } .lg-product-grid{ grid-template-columns:1fr 1fr; } .lg-cta-banner-inner{ flex-direction:column; text-align:center; } .lg-footer-inner{ grid-template-columns:1fr; } }
     </style>
 </head>
-
 <body>
 
-    <!-- HEADER & NAVIGATION -->
+    <div class="lg-utility-bar"><div class="lg-utility-inner">
+      <div class="lg-utility-left"><a href="tel:+254702444491"><i data-lucide="phone" class="lg-icon"></i> (+254) 702-444491</a><a href="../index.html#location"><i data-lucide="map-pin" class="lg-icon"></i> 15 Kweria Road, Nairobi</a><a href="mailto:info@bendmark.com"><i data-lucide="mail" class="lg-icon"></i> info@bendmark.com</a></div>
+      <div class="lg-utility-right"><i data-lucide="clock" class="lg-icon"></i> Mon–Fri 9am–9pm · Sat 10am–4pm</div>
+    </div></div>
+
     <header>
         <div class="header-container">
-            <a href="../index.html" class="logo">
-                 <img src="LOGO.jpeg" alt="BendMark Logo" class="logo" style="max-height: 58px; width: auto; padding-left: 70px;">
-            </a>
-            <button class="nav-toggle" id="navToggle">☰</button>
-            <nav id="mainNav">
+            <a href="../index.html" class="logo"><img src="../newimages/LOGO.jpeg" alt="BendMark Logo"></a>
+            <button class="nav-toggle"><i data-lucide="menu" class="lg-icon" style="width:1.4em;height:1.4em;"></i></button>
+            <nav>
                 <a href="../index.html">Home</a>
-                <div class="nav-dropdown">
-                    <a href="../index.html#services" id="servicesLink">Services</a>
-                    <div class="dropdown-menu" id="dropdownMenu">
-                        <a href="3d-signs.html">3D Signs</a>
-                        <a href="road-signs.html">Road Signs</a>
-                        <a href="construction-signs.html">Construction Signs</a>
-                        <a href="business-cards.html">Business Cards</a>
-                        <a href="documents.html">Documents</a>
-                        <a href="fliers.html">Fliers</a>
-                        <a href="posters.html">Posters</a>
-                        <a href="banners.html">Banners & Signage</a>
-                        <a href="election-materials.html">Election Materials</a>
-                        <a href="launchsigns.html">Launch Signs</a>
-                        <a href="custom-printing.html">Custom Printing</a>
+                <div class="nav-dropdown"><a href="../index.html#services">Services <i data-lucide="chevron-down" class="lg-icon" style="width:0.8em;height:0.8em;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="3d-signs.html">3D Signs</a><a href="road-signs.html">Road Signs</a>
+                        <a href="construction-signs.html">Construction Signs</a><a href="business-cards.html">Business Cards</a>
+                        <a href="documents.html">Documents</a><a href="fliers.html">Fliers</a>
+                        <a href="posters.html">Posters</a><a href="banners.html">Banners & Signage</a>
+                        <a href="election-materials.html">Election Materials</a><a href="launchsigns.html">Launch Signs</a>
+                        <a href="engraving.html">Engraving</a><a href="custom-printing.html">Custom Printing</a>
                     </div>
                 </div>
-                <a href="../index.html#location">Location</a>
-                <a href="../index.html#contact">Contact</a>
+                <a href="../index.html#location">Location</a><a href="../index.html#contact">Contact</a>
             </nav>
+            <div style="display:flex;align-items:center;gap:0.75rem;"><a href="tel:+254702444491" class="lg-header-cta"><i data-lucide="phone-call" class="lg-icon"></i> Call Now</a></div>
         </div>
     </header>
 
-    <!-- SERVICE DETAIL SECTION -->
-    <section class="service-detail">
-        <a href="../index.html#services" class="back-link">← Back to Services</a>
+    <div class="lg-breadcrumb-bar"><div class="lg-breadcrumb"><a href="../index.html">Home</a><i data-lucide="chevron-right" class="lg-icon"></i><a href="../index.html#services">Services</a><i data-lucide="chevron-right" class="lg-icon"></i><span style="color:var(--text-dark);font-weight:600;">Launch Signs</span></div></div>
 
-        <div class="service-hero">
-            <h1>Launch Signs</h1>
-            <p>Make your grand opening, product launch, or business event impossible to miss — bold, professional signage and branded materials that build buzz and drive footfall from day one.</p>
+    <section class="lg-product-page">
+      <div class="lg-product-hero">
+        <div class="lg-gallery">
+          <div class="lg-gallery-main">
+            <img src="../newimages/comisioningsign.jpeg" alt="Launch Signs" onerror="this.style.display='none'; this.parentElement.classList.add('lg-no-img');">
+            <div class="lg-gallery-fallback"><i data-lucide="rocket"></i></div>
+            <span class="lg-gallery-badge">New</span>
+          </div>
+          <div class="lg-gallery-thumbs">
+            <div class="lg-gallery-thumb active"><i data-lucide="rocket"></i></div>
+            <div class="lg-gallery-thumb"><i data-lucide="party-popper"></i></div>
+            <div class="lg-gallery-thumb"><i data-lucide="flag"></i></div>
+            <div class="lg-gallery-thumb"><i data-lucide="megaphone"></i></div>
+          </div>
         </div>
 
-        <button class="quote-btn" onclick="window.location.href='tel:+254702444491'">Call or Text to get your Quote</button>
+        <div class="lg-product-info">
+          <span class="lg-product-category-tag"><i data-lucide="rocket" class="lg-icon"></i> Launch Signs</span>
+          <h1>Launch Signs</h1>
+          <div class="lg-product-rating"><div class="lg-stars"><i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i></div><span>5.0 · Opening-ready</span></div>
+          <p class="lg-product-short">Make your grand opening, product launch, or business event impossible to miss — bold, professional signage and branded materials that build buzz and drive footfall from day one.</p>
 
-        <!-- PRODUCT SHOWCASE -->
-        <div class="product-showcase">
-            <div class="product-image-placeholder">
-                <span class="big-icon"><img src="newimages/comisioningsign.jpeg" alt="Launch Signs"></span>
-                <span>LAUNCH SIGNS</span>
-            </div>
-            <div class="product-description">
-                <h1 class="product-title">GRAND OPENING SIGNAGE</h1>
-                <p class="product-text">First impressions define your brand. Whether you're opening a new shop, launching a product, or unveiling a service, BendMark delivers striking signage and printed materials that create real excitement — on the street, online, and in the room.</p>
-                <p class="product-text">We combine bold design, premium materials, and fast turnaround so your launch looks polished and professional from the moment doors open. From teaser banners weeks before to branded merchandise on the day, we handle every visual touchpoint.</p>
-            </div>
+          <div class="lg-product-features">
+            <span class="lg-feature-pill"><i data-lucide="zap" class="lg-icon"></i> Rush orders</span>
+            <span class="lg-feature-pill"><i data-lucide="package" class="lg-icon"></i> Bundle pricing</span>
+            <span class="lg-feature-pill"><i data-lucide="palette" class="lg-icon"></i> Full colour</span>
+            <span class="lg-feature-pill"><i data-lucide="cloud-rain" class="lg-icon"></i> Weatherproof</span>
+          </div>
+
+          <div class="lg-quote-box">
+            <div class="lg-quote-label">Pricing</div>
+            <div class="lg-quote-value">Custom Quote</div>
+            <div class="lg-quote-note">Bundle discounts on full launch packages. Contact us with your opening date and requirements.</div>
+          </div>
+
+          <div class="lg-product-actions">
+            <a href="tel:+254702444491" class="lg-btn-primary"><i data-lucide="phone-call" class="lg-icon"></i> Call for Quote</a>
+            <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%20Launch%20Signs" target="_blank" rel="noopener" class="lg-btn-secondary"><i data-lucide="message-circle" class="lg-icon"></i> WhatsApp</a>
+          </div>
+
+          <div class="lg-quick-info">
+            <div class="lg-quick-info-item"><div class="lg-icon-wrap"><i data-lucide="clock-4" class="lg-icon"></i></div><div><strong>Turnaround</strong><span>3–5 business days standard</span></div></div>
+            <div class="lg-quick-info-item"><div class="lg-icon-wrap"><i data-lucide="zap" class="lg-icon"></i></div><div><strong>Rush Orders</strong><span>24–48 hours available</span></div></div>
+            <div class="lg-quick-info-item"><div class="lg-icon-wrap"><i data-lucide="layers" class="lg-icon"></i></div><div><strong>Materials</strong><span>Vinyl · Corrugated · Aluminium · Fabric</span></div></div>
+            <div class="lg-quick-info-item"><div class="lg-icon-wrap"><i data-lucide="badge-check" class="lg-icon"></i></div><div><strong>Bundle</strong><span>Complete launch packages available</span></div></div>
+          </div>
         </div>
+      </div>
 
-        <!-- URGENCY BANNER -->
-        <div class="urgency-banner">
-            <h3>🚀 Launch Date Locked In? Let's Get Your Signage Ready.</h3>
-            <p>Rush production available. Bundle discounts on full launch packages. Contact us today so everything is in place before opening day.</p>
+      <div class="lg-urgency-banner">
+        <h3>🚀 Launch Date Locked In? Let's Get Your Signage Ready.</h3>
+        <p>Rush production available. Bundle discounts on full launch packages. Contact us today so everything is in place before opening day.</p>
+      </div>
+
+      <div class="lg-tabs">
+        <div class="lg-tab-nav">
+          <button class="lg-tab-btn active" data-tab="description"><i data-lucide="file-text" class="lg-icon"></i> Description</button>
+          <button class="lg-tab-btn" data-tab="features"><i data-lucide="sparkles" class="lg-icon"></i> Features</button>
+          <button class="lg-tab-btn" data-tab="timeline"><i data-lucide="calendar-clock" class="lg-icon"></i> Timeline</button>
+          <button class="lg-tab-btn" data-tab="process"><i data-lucide="workflow" class="lg-icon"></i> Design Process</button>
         </div>
-
-        <!-- FEATURES & TIMELINE GRID -->
-        <div class="service-details-grid">
-            <div class="detail-box">
-                <h3>Features & Benefits</h3>
-                <ul>
-                    <li>Eye-catching designs tailored to your brand identity</li>
-                    <li>Full-colour printing on premium, durable substrates</li>
-                    <li>Indoor and outdoor weather-resistant materials</li>
-                    <li>Bundle pricing for complete launch packages</li>
-                    <li>Fast rush-order turnaround available</li>
-                    <li>Consistent branding across all materials</li>
-                    <li>Design support from concept to final print</li>
-                </ul>
-            </div>
-            <div class="detail-box">
-                <h3>Production Timeline</h3>
-                <ul>
-                    <li><strong>Design Phase:</strong> 1–2 business days</li>
-                    <li><strong>Approval:</strong> Same day review</li>
-                    <li><strong>Standard Production:</strong> 3–5 business days</li>
-                    <li><strong>Rush Orders:</strong> 24–48 hours (fees apply)</li>
-                    <li><strong>Delivery / Collection:</strong> Same or next day</li>
-                    <li><strong>Full Launch Bundles:</strong> Timeline quoted on scope</li>
-                </ul>
-            </div>
+        <div class="lg-tab-panel active" data-panel="description">
+          <h2>About our Launch Signs</h2>
+          <p>First impressions define your brand. Whether you're opening a new shop, launching a product, or unveiling a service, BendMark delivers striking signage and printed materials that create real excitement — on the street, online, and in the room.</p>
+          <p>We combine bold design, premium materials, and fast turnaround so your launch looks polished and professional from the moment doors open. From teaser banners weeks before to branded merchandise on the day, we handle every visual touchpoint.</p>
         </div>
-
-        <h2 class="section-heading">Our Launch Sign Products</h2>
-
-        <div class="products-grid">
-
-            <!-- Grand Opening Banners -->
-            <div class="product-card">
-                <div class="product-card-icon">🎉</div>
-                <h3>Grand Opening Banners</h3>
-                <p>Large-format vinyl banners announcing your opening in bold style. Reinforced hems, grommets, and vibrant full-bleed printing — perfect for storefronts, fences, and venue entrances to stop foot traffic in its tracks.</p>
-            </div>
-
-            <!-- Teaser & Countdown Signs -->
-            <div class="product-card">
-                <div class="product-card-icon">⏳</div>
-                <h3>Teaser & Countdown Signs</h3>
-                <p>Build anticipation before launch day with "Coming Soon" and countdown signage displayed in windows, on hoardings, or around your site. Create buzz in the neighbourhood weeks before you open.</p>
-            </div>
-
-            <!-- Outdoor A-Frame & Pavement Signs -->
-            <div class="product-card">
-                <div class="product-card-icon">🪧</div>
-                <h3>A-Frame & Pavement Signs</h3>
-                <p>Double-sided A-frame boards placed on the pavement to pull foot traffic through your door. Durable, reusable frames with interchangeable printed panels — ideal for launch-day promotions and ongoing offers.</p>
-            </div>
-
-            <!-- Pull-Up / Roll-Up Banners -->
-            <div class="product-card">
-                <div class="product-card-icon">🎯</div>
-                <h3>Pull-Up / Roll-Up Banners</h3>
-                <p>Portable retractable banners for launch events, trade stands, press days, and showrooms. Crisp, professional presentation with an easy carry bag — set up in seconds, looks impressive all day.</p>
-            </div>
-
-            <!-- Window Graphics & Decals -->
-            <div class="product-card">
-                <div class="product-card-icon">🪟</div>
-                <h3>Window Graphics & Decals</h3>
-                <p>Transform shopfront glass into a high-impact display. Custom-cut vinyl graphics, frosted film, and full-window wraps that announce your brand, showcase your offer, and attract attention from the street.</p>
-            </div>
-
-            <!-- Branded Merchandise & Giveaways -->
-            <div class="product-card">
-                <div class="product-card-icon">🎁</div>
-                <h3>Branded Launch Merchandise</h3>
-                <p>Pens, tote bags, branded T-shirts, caps, and notepads carrying your logo. Hand them out on launch day to turn attendees into walking brand ambassadors long after the event wraps up.</p>
-            </div>
-
-            <!-- Fliers & Leaflets -->
-            <div class="product-card">
-                <div class="product-card-icon">📄</div>
-                <h3>Launch Fliers & Leaflets</h3>
-                <p>A5 and A4 single or double-sided fliers for distribution in the surrounding area, at partner businesses, and during the event itself. High-gloss or matte finish on quality paper stock that feels premium.</p>
-            </div>
-
-            <!-- Event Backdrop Banners -->
-            <div class="product-card">
-                <div class="product-card-icon">🖼️</div>
-                <h3>Event Backdrop Banners</h3>
-                <p>Step-and-repeat or branded photo-wall backdrops for launch events, press days, and VIP receptions. Full-colour printing on tension fabric or vinyl — a polished backdrop for every photo and video.</p>
-            </div>
-
-            <!-- Vehicle & Motorcade Branding -->
-            <div class="product-card">
-                <div class="product-card-icon">🚐</div>
-                <h3>Vehicle & Delivery Branding</h3>
-                <p>Full or partial vehicle wraps, magnetic door signs, and window decals for your launch fleet or delivery vehicles. Turn every journey to and from your venue into a moving advertisement on launch day.</p>
-            </div>
-
-            <!-- Directional & Wayfinding Signs -->
-            <div class="product-card">
-                <div class="product-card-icon">🗺️</div>
-                <h3>Directional & Wayfinding Signs</h3>
-                <p>Guide customers to your door with custom arrow signs, sandwich boards, and roadside directional displays. Essential for launches in malls, business parks, or events in large venues where footfall needs directing.</p>
-            </div>
-
-            <!-- Stickers & Branded Packaging -->
-            <div class="product-card">
-                <div class="product-card-icon">⭐</div>
-                <h3>Stickers & Branded Packaging</h3>
-                <p>Die-cut stickers, product labels, and branded packaging tape in your launch colours. Waterproof vinyl ensures longevity — perfect for packaging, bags, merchandise, and first-impression takeaway items.</p>
-            </div>
-
-            <!-- Complete Launch Package -->
-            <div class="product-card">
-                <div class="product-card-icon">🏆</div>
-                <h3>Complete Launch Package</h3>
-                <p>One bundled solution covering banners, fliers, pull-ups, window graphics, branded merchandise, and signage. Consistent branding, single point of contact, and package pricing — everything managed from design to delivery day.</p>
-            </div>
-
+        <div class="lg-tab-panel" data-panel="features">
+          <h2>Features &amp; Benefits</h2>
+          <ul>
+            <li>Eye-catching designs tailored to your brand identity</li>
+            <li>Full-colour printing on premium, durable substrates</li>
+            <li>Indoor and outdoor weather-resistant materials</li>
+            <li>Bundle pricing for complete launch packages</li>
+            <li>Fast rush-order turnaround available</li>
+            <li>Consistent branding across all materials</li>
+            <li>Design support from concept to final print</li>
+          </ul>
         </div>
-
-        <!-- DESIGN PROCESS -->
-        <div class="detail-box" style="margin-top: 2rem;">
-            <h3>Our Launch Signage Design Process</h3>
-            <p>We move fast without cutting corners. Here's how we get your launch materials ready before opening day:</p>
-            <ul style="margin-top: 1rem;">
-                <li><strong>Brief & Consultation:</strong> Share your brand, launch date, and the look you're going for</li>
-                <li><strong>Concept Design:</strong> Our designers produce initial mockups within 24 hours</li>
-                <li><strong>Revisions:</strong> Quick turnaround on any changes — usually same day</li>
-                <li><strong>Final Approval:</strong> You sign off before we go to print</li>
-                <li><strong>Production:</strong> High-quality print run with QC checks throughout</li>
-                <li><strong>Collection / Delivery:</strong> Pick up or have materials delivered to your venue before launch day</li>
-            </ul>
+        <div class="lg-tab-panel" data-panel="timeline">
+          <h2>Production Timeline</h2>
+          <ul>
+            <li><strong>Design Phase:</strong> 1–2 business days</li>
+            <li><strong>Approval:</strong> Same day review</li>
+            <li><strong>Standard Production:</strong> 3–5 business days</li>
+            <li><strong>Rush Orders:</strong> 24–48 hours (fees apply)</li>
+            <li><strong>Delivery / Collection:</strong> Same or next day</li>
+            <li><strong>Full Launch Bundles:</strong> Timeline quoted on scope</li>
+          </ul>
         </div>
+        <div class="lg-tab-panel" data-panel="process">
+          <h2>Our Launch Signage Design Process</h2>
+          <p>We move fast without cutting corners. Here's how we get your launch materials ready before opening day:</p>
+          <ul>
+            <li><strong>Brief &amp; Consultation:</strong> Share your brand, launch date, and the look you're going for</li>
+            <li><strong>Concept Design:</strong> Our designers produce initial mockups within 24 hours</li>
+            <li><strong>Revisions:</strong> Quick turnaround on any changes — usually same day</li>
+            <li><strong>Final Approval:</strong> You sign off before we go to print</li>
+            <li><strong>Production:</strong> High-quality print run with QC checks throughout</li>
+            <li><strong>Collection / Delivery:</strong> Pick up or have materials delivered to your venue before launch day</li>
+          </ul>
+        </div>
+      </div>
 
-        <button class="quote-btn" onclick="window.location.href='tel:+254702444491'" style="margin-top: 2.5rem;">Call or Text to get your Quote</button>
+      <div class="lg-section-heading"><h2>Our Launch Sign Products</h2><p>Every visual touchpoint for your grand opening</p></div>
+
+      <div class="lg-product-grid">
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="party-popper" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Opening</span><h3>Grand Opening Banners</h3><p>Large-format vinyl banners announcing your opening in bold style.</p></div></div>
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="hourglass" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Teaser</span><h3>Teaser &amp; Countdown Signs</h3><p>Build anticipation before launch day with countdown and "Coming Soon" signage.</p></div></div>
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="signpost" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Pavement</span><h3>A-Frame &amp; Pavement Signs</h3><p>Double-sided A-frame boards placed on the pavement to pull foot traffic through your door.</p></div></div>
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="panel-top" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Portable</span><h3>Pull-Up / Roll-Up Banners</h3><p>Portable retractable banners for launch events, trade stands, and press days.</p></div></div>
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="square" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Window</span><h3>Window Graphics &amp; Decals</h3><p>Transform shopfront glass into a high-impact display.</p></div></div>
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="gift" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Merch</span><h3>Branded Launch Merchandise</h3><p>Pens, tote bags, branded T-shirts, caps, and notepads carrying your logo.</p></div></div>
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="file-image" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Fliers</span><h3>Launch Fliers &amp; Leaflets</h3><p>A5 and A4 fliers for distribution in the surrounding area and during the event.</p></div></div>
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="image" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Backdrop</span><h3>Event Backdrop Banners</h3><p>Step-and-repeat or branded photo-wall backdrops for launch events.</p></div></div>
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="car" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Fleet</span><h3>Vehicle &amp; Delivery Branding</h3><p>Full or partial vehicle wraps and magnetic door signs for your launch fleet.</p></div></div>
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="compass" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Wayfinding</span><h3>Directional &amp; Wayfinding Signs</h3><p>Guide customers to your door with arrow signs, sandwich boards, and roadside displays.</p></div></div>
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="star" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Stickers</span><h3>Stickers &amp; Branded Packaging</h3><p>Die-cut stickers, product labels, and branded packaging tape.</p></div></div>
+        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="trophy" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Bundle</span><h3>Complete Launch Package</h3><p>One bundled solution covering banners, fliers, pull-ups, window graphics, and signage.</p></div></div>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>About BendMark</h3>
-                <p>BendMark is a leading printing services company providing high-quality solutions for all your printing needs.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="../index.html">Home</a><br>
-                <a href="../index.html#services">Services</a><br>
-                <a href="../index.html#contact">Contact</a>
-            </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <a href="3d-signs.html">3D Signs</a><br>
-                <a href="road-signs.html">Road Signs</a><br>
-                <a href="election-materials.html">Election Materials</a><br>
-                <a href="launchsigns.html">Launch Signs</a>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Phone: +254 702 444 491<br>Email: info@bendmark.com</p>
-            </div>
+    <section class="lg-cta-banner"><div class="lg-cta-banner-inner">
+      <div style="display:flex; align-items:center; gap:1.25rem;"><div class="lg-cta-banner-icon"><i data-lucide="message-square-text" class="lg-icon"></i></div><div><h2>Launching soon?</h2><p>Rush production and bundle discounts available. Let's make it unmissable.</p></div></div>
+      <div class="lg-cta-actions"><a href="tel:+254702444491" class="lg-btn-primary"><i data-lucide="phone" class="lg-icon"></i> Call or Text</a><a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%20Launch%20Signs" target="_blank" rel="noopener" class="lg-btn-secondary"><i data-lucide="message-circle" class="lg-icon"></i> WhatsApp</a></div>
+    </div></section>
+
+    <footer class="lg-footer">
+      <div class="lg-footer-inner">
+        <div><div class="lg-footer-brand"><img src="../newimages/LOGO.jpeg" alt="BendMark"><span>BendMark</span></div><p>Nairobi's specialist for 3D signs, road &amp; construction signage, printing, engraving, and custom branding.</p>
+          <div class="lg-footer-social"><a href="https://facebook.com/bendmark"><i data-lucide="facebook" class="lg-icon"></i></a><a href="https://x.com/muirurilawrenc1"><i data-lucide="twitter" class="lg-icon"></i></a><a href="https://instagram.com/bendmark"><i data-lucide="instagram" class="lg-icon"></i></a><a href="https://linkedin.com/company/bendmark"><i data-lucide="linkedin" class="lg-icon"></i></a></div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 BendMark Printing Services. All rights reserved.</p>
-        </div>
+        <div><h4>Quick Links</h4><ul class="lg-footer-list"><li><a href="../index.html">Home</a></li><li><a href="../index.html#services">Services</a></li><li><a href="../index.html#location">Location</a></li><li><a href="../index.html#contact">Contact</a></li></ul></div>
+        <div><h4>Services</h4><ul class="lg-footer-list"><li><a href="launchsigns.html">Launch Signs</a></li><li><a href="election-materials.html">Election Materials</a></li><li><a href="3d-signs.html">3D Signs</a></li><li><a href="banners.html">Banners &amp; Signage</a></li></ul></div>
+        <div><h4>Contact</h4><ul class="lg-footer-list lg-footer-contact"><li><i data-lucide="map-pin" class="lg-icon"></i> 15 Kweria Road, Nairobi</li><li><i data-lucide="phone" class="lg-icon"></i> (+254) 702-444491</li><li><i data-lucide="mail" class="lg-icon"></i> info@bendmark.com</li></ul></div>
+      </div>
+      <div class="lg-footer-bottom"><p>&copy; 2026 BendMark Printing Services. All rights reserved.</p><div style="display:flex;gap:1.25rem;"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div></div>
     </footer>
 
-    <!-- WHATSAPP CHAT WIDGET -->
-    <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%20Launch%20Signs%20and%20Grand%20Opening%20Signage" target="_blank" rel="noopener noreferrer" class="whatsapp-widget">
-        <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
-        <div class="whatsapp-button">💬</div>
-    </a>
+    <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%20Launch%20Signs" target="_blank" rel="noopener noreferrer" class="whatsapp-widget"><div class="whatsapp-tooltip">Chat with us on WhatsApp</div><div class="whatsapp-button"><i data-lucide="message-circle" style="width:26px;height:26px;color:#fff;"></i></div></a>
 
     <script>
-        // Mobile nav toggle
-        document.getElementById('navToggle').addEventListener('click', function () {
-            document.getElementById('mainNav').classList.toggle('open');
-        });
-
-        // Services dropdown toggle
-        document.getElementById('servicesLink').addEventListener('click', function (e) {
-            e.preventDefault();
-            document.getElementById('dropdownMenu').classList.toggle('active');
-        });
-        document.querySelectorAll('.dropdown-menu a').forEach(function (link) {
-            link.addEventListener('click', function () {
-                document.getElementById('dropdownMenu').classList.remove('active');
-            });
-        });
-        document.addEventListener('click', function (e) {
-            if (!e.target.closest('.nav-dropdown')) {
-                document.getElementById('dropdownMenu').classList.remove('active');
-            }
-        });
+        lucide.createIcons();
+        document.querySelector('.nav-toggle').addEventListener('click', function(){ document.querySelector('nav').classList.toggle('active'); });
+        var navDropdown = document.querySelector('.nav-dropdown'); var dropdownMenu = document.querySelector('.dropdown-menu');
+        document.querySelector('.nav-dropdown > a').addEventListener('click', function(e){ e.preventDefault(); dropdownMenu.classList.toggle('active'); });
+        document.querySelectorAll('.dropdown-menu a').forEach(function(l){ l.addEventListener('click', function(){ dropdownMenu.classList.remove('active'); }); });
+        document.addEventListener('click', function(e){ if (!navDropdown.contains(e.target)) dropdownMenu.classList.remove('active'); });
+        document.querySelectorAll('.lg-tab-btn').forEach(function(btn){ btn.addEventListener('click', function(){ var t = btn.getAttribute('data-tab'); document.querySelectorAll('.lg-tab-btn').forEach(function(b){ b.classList.remove('active'); }); document.querySelectorAll('.lg-tab-panel').forEach(function(p){ p.classList.remove('active'); }); btn.classList.add('active'); document.querySelector('.lg-tab-panel[data-panel="'+t+'"]').classList.add('active'); });});
+        document.querySelectorAll('.lg-gallery-thumb').forEach(function(t){ t.addEventListener('click', function(){ document.querySelectorAll('.lg-gallery-thumb').forEach(function(x){ x.classList.remove('active'); }); t.classList.add('active'); });});
     </script>
 </body>
 </html>
