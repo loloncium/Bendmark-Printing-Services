@@ -16,7 +16,13 @@
     <title>Fliers - Custom Flier Printing & Design | BendMark</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide: primary CDN, with a backup CDN if the first one fails -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.462.0/umd/lucide.min.js"></script>
+    <script>
+      if (!window.lucide) {
+        document.write('<scr' + 'ipt src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"><\/scr' + 'ipt>');
+      }
+    </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5130587355236315" crossorigin="anonymous"></script>
     <style>
       :root{ --lg-radius:14px; --lg-border:#e3e7ec; --lg-muted:#6b7280; }
