@@ -526,32 +526,69 @@
     </a>
 
     <script>
-        lucide.createIcons();
-        document.querySelector('.nav-toggle').addEventListener('click', function(){
-          document.querySelector('nav').classList.toggle('active');
-        });
-        var navDropdown = document.querySelector('.nav-dropdown');
-        var dropdownMenu = document.querySelector('.dropdown-menu');
-        document.querySelector('.nav-dropdown > a').addEventListener('click', function(e){ e.preventDefault(); dropdownMenu.classList.toggle('active'); });
-        document.querySelectorAll('.dropdown-menu a').forEach(function(l){ l.addEventListener('click', function(){ dropdownMenu.classList.remove('active'); }); });
-        document.addEventListener('click', function(e){ if (!navDropdown.contains(e.target)) dropdownMenu.classList.remove('active'); });
+  /* 1. Lucide icons — guarded so a slow/failed CDN never breaks tabs, nav, etc. */
+  function initLucide(){
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    } else {
+      setTimeout(initLucide, 200);
+    }
+  }
 
-        document.querySelectorAll('.lg-tab-btn').forEach(function(btn){
-          btn.addEventListener('click', function(){
-            var target = btn.getAttribute('data-tab');
-            document.querySelectorAll('.lg-tab-btn').forEach(function(b){ b.classList.remove('active'); });
-            document.querySelectorAll('.lg-tab-panel').forEach(function(p){ p.classList.remove('active'); });
-            btn.classList.add('active');
-            document.querySelector('.lg-tab-panel[data-panel="'+target+'"]').classList.add('active');
-          });
-        });
+  /* 2. Nav toggle (mobile) */
+  var navToggle = document.querySelector('.nav-toggle');
+  var mainNav   = document.querySelector('nav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', function(){
+      mainNav.classList.toggle('active');
+    });
+  }
 
-        document.querySelectorAll('.lg-gallery-thumb').forEach(function(t){
-          t.addEventListener('click', function(){
-            document.querySelectorAll('.lg-gallery-thumb').forEach(function(x){ x.classList.remove('active'); });
-            t.classList.add('active');
-          });
-        });
-    </script>
+  /* 3. Services dropdown */
+  var navDropdown  = document.querySelector('.nav-dropdown');
+  var dropdownMenu = document.querySelector('.dropdown-menu');
+  var servicesLink = document.querySelector('.nav-dropdown > a');
+  if (servicesLink && dropdownMenu) {
+    servicesLink.addEventListener('click', function(e){
+      e.preventDefault();
+      dropdownMenu.classList.toggle('active');
+    });
+    document.querySelectorAll('.dropdown-menu a').forEach(function(l){
+      l.addEventListener('click', function(){ dropdownMenu.classList.remove('active'); });
+    });
+    document.addEventListener('click', function(e){
+      if (navDropdown && !navDropdown.contains(e.target)) {
+        dropdownMenu.classList.remove('active');
+      }
+    });
+  }
+
+  /* 4. Tabs — Description / Features / Timeline / Process */
+  var tabButtons = document.querySelectorAll('.lg-tab-btn');
+  var tabPanels  = document.querySelectorAll('.lg-tab-panel');
+  tabButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var target = btn.getAttribute('data-tab');
+      tabButtons.forEach(function(b){ b.classList.remove('active'); });
+      tabPanels.forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      var panel = document.querySelector('.lg-tab-panel[data-panel="' + target + '"]');
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  /* 5. Gallery thumbnail switching */
+  document.querySelectorAll('.lg-gallery-thumb').forEach(function(t){
+    t.addEventListener('click', function(){
+      document.querySelectorAll('.lg-gallery-thumb').forEach(function(x){
+        x.classList.remove('active');
+      });
+      t.classList.add('active');
+    });
+  });
+
+  /* 6. Kick off icons last */
+  initLucide();
+</script>
 </body>
 </html>

@@ -254,6 +254,37 @@
         font-family:'Montserrat',sans-serif; font-size: clamp(1.6rem,2.6vw,2.2rem);
         color: var(--text-dark); margin-bottom:0.5rem;
       }
+      /* Make tiles clickable links */
+      a.lg-service-tile{
+        display:block;
+        text-decoration:none;
+        color:inherit;
+        cursor:pointer;
+      }
+      a.lg-service-tile:hover,
+      a.lg-service-tile:focus-visible{
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--brand-blue);
+        outline:none;
+      }
+      a.lg-service-tile:hover .lg-icon-wrap,
+      a.lg-service-tile:focus-visible .lg-icon-wrap{
+        background: rgba(4,21,220,0.16);
+      }
+      a.lg-service-tile:hover .lg-icon-wrap svg,
+      a.lg-service-tile:focus-visible .lg-icon-wrap svg{
+        transform: scale(1.08);
+      }
+
+      /* Inline SVG icons inside the circles */
+      .lg-service-tile .lg-icon-wrap svg{
+        width:26px; height:26px;
+        color: var(--brand-blue);
+        stroke: currentColor;
+        fill: none;
+        transition: transform 0.15s ease;
+      }
       .lg-section-heading p{ font-family:'Montserrat',sans-serif; color: var(--lg-muted); }
       .lg-services-grid{ display:grid; grid-template-columns: repeat(5, 1fr); gap:1.1rem; }
       .lg-service-tile{
@@ -747,6 +778,7 @@
     </section>
 
     <!-- SERVICES ICON GRID (Luna-style "Our Services") -->
+        <!-- SERVICES ICON GRID (Luna-style "Our Services") -->
     <section class="lg-services-section">
       <div class="lg-services-inner">
         <div class="lg-section-heading">
@@ -754,31 +786,70 @@
           <p>Full in-house production, from design to finished install</p>
         </div>
         <div class="lg-services-grid">
-          <div class="lg-service-tile">
-            <div class="lg-icon-wrap"><i data-lucide="pen-tool" class="lg-icon"></i></div>
+
+          <a href="#services" class="lg-service-tile" aria-label="In-House Design — view our services">
+            <div class="lg-icon-wrap" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 19 7-7 3 3-7 7-3-3z"/>
+                <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                <path d="m2 2 7.586 7.586"/>
+                <circle cx="11" cy="11" r="2"/>
+              </svg>
+            </div>
             <h3>In-House Design</h3>
             <p>Concepts and artwork prepared by our own design team.</p>
-          </div>
-          <div class="lg-service-tile">
-            <div class="lg-icon-wrap"><i data-lucide="printer" class="lg-icon"></i></div>
+          </a>
+
+          <a href="#services" class="lg-service-tile" aria-label="Full Production — view our services">
+            <div class="lg-icon-wrap" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"/>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                <rect x="6" y="14" width="12" height="8"/>
+              </svg>
+            </div>
             <h3>Full Production</h3>
             <p>Printing, cutting, and engraving under one roof.</p>
-          </div>
-          <div class="lg-service-tile">
-            <div class="lg-icon-wrap"><i data-lucide="lightbulb" class="lg-icon"></i></div>
+          </a>
+
+          <a href="pages/3d-signs.html" class="lg-service-tile" aria-label="Illuminated Signs — view 3D Signs">
+            <div class="lg-icon-wrap" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
+                <path d="M9 18h6"/>
+                <path d="M10 22h4"/>
+              </svg>
+            </div>
             <h3>Illuminated Signs</h3>
-            <p>Lit and non-lit 3D signage for shopfronts & offices.</p>
-          </div>
-          <div class="lg-service-tile">
-            <div class="lg-icon-wrap"><i data-lucide="hammer" class="lg-icon"></i></div>
+            <p>Lit and non-lit 3D signage for shopfronts &amp; offices.</p>
+          </a>
+
+          <a href="#contact" class="lg-service-tile" aria-label="On-Site Install — contact us">
+            <div class="lg-icon-wrap" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/>
+                <path d="m18 15 4-4"/>
+                <path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/>
+              </svg>
+            </div>
             <h3>On-Site Install</h3>
             <p>Delivery and mounting handled by our own crew.</p>
-          </div>
-          <div class="lg-service-tile">
-            <div class="lg-icon-wrap"><i data-lucide="handshake" class="lg-icon"></i></div>
+          </a>
+
+          <a href="#contact" class="lg-service-tile" aria-label="Personal Service — contact us">
+            <div class="lg-icon-wrap" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m11 17 2 2a1 1 0 1 0 3-3"/>
+                <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/>
+                <path d="m21 3 1 11h-2"/>
+                <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/>
+                <path d="M3 4h8"/>
+              </svg>
+            </div>
             <h3>Personal Service</h3>
             <p>Direct contact with the team, from quote to delivery.</p>
-          </div>
+          </a>
+
         </div>
       </div>
     </section>
