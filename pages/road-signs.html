@@ -19,9 +19,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.462.0/umd/lucide.min.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5130587355236315" crossorigin="anonymous"></script>
     <style>
-      /* SAME STYLE BLOCK AS 3d-signs.html — copy verbatim */
       :root{ --lg-radius:14px; --lg-border:#e3e7ec; --lg-muted:#6b7280; }
       .lg-icon{ width:1em; height:1em; stroke-width:2; vertical-align:-0.15em; }
+
       .lg-utility-bar{ background: var(--brand-blue); color:#fff; font-family:'Montserrat',sans-serif; font-size:0.82rem; }
       .lg-utility-inner{ max-width:1280px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:0.45rem 1.5rem; gap:1rem; flex-wrap:wrap; }
       .lg-utility-left{ display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
@@ -29,22 +29,27 @@
       .lg-utility-left a:hover{ opacity:1; text-decoration:underline; }
       .lg-utility-right{ display:flex; align-items:center; gap:0.4rem; color:#fff; font-weight:600; }
       .lg-utility-right .lg-icon{ color:#FFC857; }
+
       .lg-search{ flex:1; display:flex; align-items:center; gap:0.6rem; background: var(--light-bg); border:1px solid var(--lg-border); border-radius:999px; padding:0.55rem 1.1rem; max-width:460px; }
       .lg-search input{ border:none; background:transparent; outline:none; width:100%; font-family:'Montserrat',sans-serif; font-size:0.92rem; color: var(--text-dark); }
       .lg-search .lg-icon{ color: var(--lg-muted); flex-shrink:0; }
       .lg-header-cta{ display:flex; align-items:center; gap:0.5rem; background: var(--brand-blue); color:#fff; text-decoration:none; padding:0.65rem 1.2rem; border-radius:999px; font-weight:600; font-family:'Montserrat',sans-serif; font-size:0.9rem; white-space:nowrap; transition: transform 0.15s ease, box-shadow 0.15s ease; }
       .lg-header-cta:hover{ transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
       .lg-btn-primary{ display:inline-flex; align-items:center; gap:0.5rem; background: var(--brand-blue); color:#fff; text-decoration:none; font-weight:700; font-family:'Montserrat',sans-serif; padding:0.85rem 1.6rem; border-radius:999px; box-shadow: var(--shadow-lg); transition: transform 0.15s ease; border:none; cursor:pointer; font-size:0.95rem; }
       .lg-btn-primary:hover{ transform: translateY(-2px); }
       .lg-btn-secondary{ display:inline-flex; align-items:center; gap:0.5rem; background:#fff; color: var(--text-dark); text-decoration:none; font-weight:700; font-family:'Montserrat',sans-serif; padding:0.85rem 1.6rem; border-radius:999px; border:1px solid var(--lg-border); transition: border-color 0.15s ease; cursor:pointer; font-size:0.95rem; }
       .lg-btn-secondary:hover{ border-color: var(--brand-blue); }
+
       .lg-breadcrumb-bar{ background:#fff; border-bottom:1px solid var(--lg-border); }
       .lg-breadcrumb{ max-width:1280px; margin:0 auto; padding:0.85rem 1.5rem; display:flex; align-items:center; gap:0.5rem; font-family:'Montserrat',sans-serif; font-size:0.82rem; color: var(--lg-muted); flex-wrap:wrap; }
       .lg-breadcrumb a{ color: var(--lg-muted); text-decoration:none; }
       .lg-breadcrumb a:hover{ color: var(--brand-blue); }
       .lg-breadcrumb .lg-icon{ width:14px; height:14px; }
+
       .lg-product-page{ max-width:1280px; margin:0 auto; padding:2rem 1.5rem 3rem; }
       .lg-product-hero{ display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-bottom:3rem; }
+
       .lg-gallery{ position:sticky; top:90px; align-self:start; }
       .lg-gallery-main{ aspect-ratio:1/1; border-radius: var(--lg-radius); overflow:hidden; background: var(--light-bg); border:1px solid var(--lg-border); margin-bottom:0.85rem; position:relative; }
       .lg-gallery-main img{ width:100%; height:100%; object-fit:cover; display:block; }
@@ -56,6 +61,7 @@
       .lg-gallery-thumb{ aspect-ratio:1/1; border-radius:10px; overflow:hidden; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%); border:2px solid transparent; cursor:pointer; transition: border-color 0.15s ease; display:flex; align-items:center; justify-content:center; }
       .lg-gallery-thumb .lg-icon{ width:26px; height:26px; color: var(--brand-blue); opacity:0.7; }
       .lg-gallery-thumb.active, .lg-gallery-thumb:hover{ border-color: var(--brand-blue); }
+
       .lg-product-info{ display:flex; flex-direction:column; }
       .lg-product-category-tag{ display:inline-flex; align-items:center; gap:0.4rem; font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color: var(--brand-blue); background: rgba(4,21,220,0.08); padding:0.3rem 0.75rem; border-radius:6px; margin-bottom:1rem; width:fit-content; }
       .lg-product-info h1{ font-family:'Playfair Display',serif; font-size: clamp(1.8rem,3vw,2.5rem); color: var(--text-dark); font-weight:700; line-height:1.2; margin-bottom:0.75rem; }
@@ -78,6 +84,7 @@
       .lg-quick-info-item .lg-icon-wrap .lg-icon{ color: var(--brand-blue); width:18px; height:18px; }
       .lg-quick-info-item strong{ font-weight:700; color: var(--text-dark); display:block; }
       .lg-quick-info-item span{ color: var(--lg-muted); font-size:0.82rem; }
+
       .lg-tabs{ margin-bottom:3rem; }
       .lg-tab-nav{ display:flex; gap:0.25rem; border-bottom:1px solid var(--lg-border); margin-bottom:1.75rem; flex-wrap:wrap; }
       .lg-tab-btn{ font-family:'Montserrat',sans-serif; font-size:0.92rem; font-weight:600; color: var(--lg-muted); background:transparent; border:none; padding:0.85rem 1.3rem; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; transition: all 0.15s ease; display:flex; align-items:center; gap:0.45rem; }
@@ -94,19 +101,23 @@
       .lg-tab-panel ul li::before{ content:''; position:absolute; left:0; top:1.05rem; width:16px; height:16px; border-radius:50%; background: rgba(4,21,220,0.1); }
       .lg-tab-panel ul li::after{ content:''; position:absolute; left:5px; top:1.25rem; width:6px; height:6px; border-radius:50%; background: var(--brand-blue); }
       .lg-tab-panel ul li strong{ color: var(--text-dark); }
+
       .lg-section-heading{ text-align:center; margin-bottom:2rem; }
       .lg-section-heading h2{ font-family:'Playfair Display',serif; font-size: clamp(1.5rem,2.6vw,2rem); color: var(--text-dark); margin-bottom:0.5rem; }
       .lg-section-heading p{ font-family:'Montserrat',sans-serif; color: var(--lg-muted); font-size:0.95rem; }
       .lg-product-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:1.25rem; }
-      .lg-product-card{ background:#fff; border:1px solid var(--lg-border); border-radius: var(--lg-radius); overflow:hidden; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+      .lg-product-card{ background:#fff; border:1px solid var(--lg-border); border-radius: var(--lg-radius); overflow:hidden; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition: transform 0.15s ease, box-shadow 0.15s ease; position:relative; }
       .lg-product-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow-lg); }
       .lg-product-media{ position:relative; aspect-ratio:4/3; overflow:hidden; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%); display:flex; align-items:center; justify-content:center; }
       .lg-product-media .lg-icon-big{ width:56px; height:56px; color: var(--brand-blue); opacity:0.7; }
-      .lg-product-badge{ position:absolute; top:0.65rem; left:0.65rem; font-family:'Montserrat',sans-serif; font-size:0.68rem; font-weight:700; text-transform:uppercase; background:#fff; color: var(--brand-blue); padding:0.25rem 0.6rem; border-radius:6px; box-shadow: var(--shadow); }
+      .lg-product-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+      .lg-product-badge{ position:absolute; top:0.65rem; left:0.65rem; font-family:'Montserrat',sans-serif; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; background:#fff; color: var(--brand-blue); padding:0.25rem 0.6rem; border-radius:6px; box-shadow: var(--shadow); }
+      .lg-product-fav{ position:absolute; top:0.6rem; right:0.6rem; width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.92); display:flex; align-items:center; justify-content:center; color: var(--text-dark); }
       .lg-product-body{ padding:0.95rem 1rem 1.1rem; display:flex; flex-direction:column; gap:0.35rem; flex:1; }
       .lg-product-cat{ font-family:'Montserrat',sans-serif; font-size:0.72rem; color: var(--lg-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.03em; }
       .lg-product-body h3{ font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:700; color: var(--text-dark); margin:0; }
       .lg-product-body p{ font-family:'Montserrat',sans-serif; font-size:0.82rem; color: var(--lg-muted); line-height:1.45; margin:0; flex:1; }
+
       .lg-process{ background: var(--light-bg); padding:3rem 1.5rem; margin:3rem 0; }
       .lg-process-inner{ max-width:1280px; margin:0 auto; }
       .lg-process-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:1.25rem; }
@@ -115,6 +126,7 @@
       .lg-process-num{ position:absolute; top:-14px; left:1.4rem; width:36px; height:36px; border-radius:50%; background: var(--brand-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.95rem; }
       .lg-process-step h4{ font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:700; color: var(--text-dark); margin:0.25rem 0 0.5rem; }
       .lg-process-step p{ font-family:'Montserrat',sans-serif; font-size:0.85rem; color: var(--lg-muted); line-height:1.55; margin:0; }
+
       .lg-cta-banner{ max-width:1280px; margin:0 auto 3rem; padding:0 1.5rem; }
       .lg-cta-banner-inner{ background: var(--brand-blue); border-radius:20px; padding:2.4rem 2.5rem; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; color:#fff; }
       .lg-cta-banner h2{ font-family:'Playfair Display',serif; font-size:1.6rem; margin:0 0 0.4rem; }
@@ -125,6 +137,7 @@
       .lg-cta-actions .lg-btn-primary{ background:#fff; color: var(--brand-blue); }
       .lg-cta-actions .lg-btn-secondary{ background:transparent; color:#fff; border-color: rgba(255,255,255,0.5); }
       .lg-cta-actions .lg-btn-secondary:hover{ border-color:#fff; }
+
       .lg-footer{ background:#12172b; color:#c9cede; padding:3rem 1.5rem 1.5rem; }
       .lg-footer-inner{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:2rem; }
       .lg-footer-brand{ display:flex; align-items:center; gap:0.65rem; margin-bottom:0.9rem; }
@@ -140,8 +153,10 @@
       .lg-footer-social a{ width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:#fff; }
       .lg-footer-social a:hover{ background: var(--brand-blue); }
       .lg-footer-bottom{ max-width:1280px; margin:2.2rem auto 0; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.6rem; font-family:'Montserrat',sans-serif; font-size:0.78rem; color:#7c8299; }
+
       .whatsapp-button svg{ width:26px; height:26px; }
       .lg-icon-flex{ display:inline-flex; align-items:center; justify-content:center; }
+
       @media (max-width:1024px){
         .lg-product-hero{ grid-template-columns:1fr; gap:2rem; }
         .lg-gallery{ position:static; }
@@ -168,25 +183,31 @@
           <a href="../index.html#location"><i data-lucide="map-pin" class="lg-icon"></i> 15 Kweria Road, Nairobi</a>
           <a href="mailto:info@bendmark.com"><i data-lucide="mail" class="lg-icon"></i> info@bendmark.com</a>
         </div>
-        <div class="lg-utility-right"><i data-lucide="clock" class="lg-icon"></i> Mon–Fri 9am–9pm · Sat 10am–4pm</div>
+        <div class="lg-utility-right"><i data-lucide="clock" class="lg-icon"></i> Mon&ndash;Fri 9am&ndash;9pm &middot; Sat 10am&ndash;4pm</div>
       </div>
     </div>
 
     <header>
         <div class="header-container">
             <a href="../index.html" class="logo"><img src="../newimages/LOGO.jpeg" alt="BendMark Logo"></a>
-            <button class="nav-toggle"><i data-lucide="menu" class="lg-icon" style="width:1.4em;height:1.4em;"></i></button>
+            <button class="nav-toggle" aria-label="Toggle navigation"><i data-lucide="menu" class="lg-icon" style="width:1.4em;height:1.4em;"></i></button>
             <nav>
                 <a href="../index.html">Home</a>
                 <div class="nav-dropdown">
                     <a href="../index.html#services">Services <i data-lucide="chevron-down" class="lg-icon" style="width:0.8em;height:0.8em;"></i></a>
                     <div class="dropdown-menu">
-                        <a href="3d-signs.html">3D Signs</a><a href="road-signs.html">Road Signs</a>
-                        <a href="construction-signs.html">Construction Signs</a><a href="business-cards.html">Business Cards</a>
-                        <a href="documents.html">Documents</a><a href="fliers.html">Fliers</a>
-                        <a href="posters.html">Posters</a><a href="banners.html">Banners & Signage</a>
-                        <a href="election-materials.html">Election Materials</a><a href="launchsigns.html">Launch Signs</a>
-                        <a href="engraving.html">Engraving</a><a href="custom-printing.html">Custom Printing</a>
+                        <a href="3d-signs.html">3D Signs</a>
+                        <a href="road-signs.html">Road Signs</a>
+                        <a href="construction-signs.html">Construction Signs</a>
+                        <a href="business-cards.html">Business Cards</a>
+                        <a href="documents.html">Documents</a>
+                        <a href="fliers.html">Fliers</a>
+                        <a href="posters.html">Posters</a>
+                        <a href="banners.html">Banners & Signage</a>
+                        <a href="election-materials.html">Election Materials</a>
+                        <a href="launchsigns.html">Launch Signs</a>
+                        <a href="engraving.html">Engraving</a>
+                        <a href="custom-printing.html">Custom Printing</a>
                     </div>
                 </div>
                 <a href="../index.html#location">Location</a>
@@ -200,23 +221,26 @@
 
     <div class="lg-breadcrumb-bar">
       <div class="lg-breadcrumb">
-        <a href="../index.html">Home</a><i data-lucide="chevron-right" class="lg-icon"></i>
-        <a href="../index.html#services">Services</a><i data-lucide="chevron-right" class="lg-icon"></i>
+        <a href="../index.html">Home</a>
+        <i data-lucide="chevron-right" class="lg-icon"></i>
+        <a href="../index.html#services">Services</a>
+        <i data-lucide="chevron-right" class="lg-icon"></i>
         <span style="color:var(--text-dark);font-weight:600;">Road Signs</span>
       </div>
     </div>
 
     <section class="lg-product-page">
+
       <div class="lg-product-hero">
         <div class="lg-gallery">
-          <div class="lg-gallery-main">
+          <div class="lg-gallery-main " id="galleryMain">
             <img src="../images/Roadsign.png" alt="Road Signs" onerror="this.style.display='none'; this.parentElement.classList.add('lg-no-img');">
             <div class="lg-gallery-fallback"><i data-lucide="signpost"></i></div>
-            <span class="lg-gallery-badge">DOT Compliant</span>
+            <span class="lg-gallery-badge">Compliant</span>
           </div>
           <div class="lg-gallery-thumbs">
             <div class="lg-gallery-thumb active"><i data-lucide="signpost"></i></div>
-            <div class="lg-gallery-thumb"><i data-lucide="alert-triangle"></i></div>
+            <div class="lg-gallery-thumb"><i data-lucide="gavel"></i></div>
             <div class="lg-gallery-thumb"><i data-lucide="traffic-cone"></i></div>
             <div class="lg-gallery-thumb"><i data-lucide="route"></i></div>
           </div>
@@ -226,22 +250,26 @@
           <span class="lg-product-category-tag"><i data-lucide="signpost" class="lg-icon"></i> Road Signs</span>
           <h1>Road Signs</h1>
           <div class="lg-product-rating">
-            <div class="lg-stars"><i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i></div>
-            <span>4.9 · Municipal-approved</span>
+            <div class="lg-stars">
+              <i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i>
+              <i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i>
+              <i data-lucide="star" class="lg-icon"></i>
+            </div>
+            <span>4.9 &middot; 120+ businesses served</span>
           </div>
-          <p class="lg-product-short">Durable and fully compliant road safety signs designed to meet all regulatory standards and municipal requirements. Built for visibility, durability, and legal compliance — in any weather.</p>
+          <p class="lg-product-short">Durable and fully compliant road safety signs designed to meet all regulatory standards and municipal requirements &mdash; built for visibility, durability, and legal compliance.</p>
 
           <div class="lg-product-features">
-            <span class="lg-feature-pill"><i data-lucide="shield-check" class="lg-icon"></i> DOT & MUTCD</span>
-            <span class="lg-feature-pill"><i data-lucide="sun" class="lg-icon"></i> Reflective</span>
-            <span class="lg-feature-pill"><i data-lucide="cloud-rain" class="lg-icon"></i> UV & weatherproof</span>
-            <span class="lg-feature-pill"><i data-lucide="ruler" class="lg-icon"></i> Custom sizes</span>
+            <span class="lg-feature-pill"><i data-lucide="shield-check" class="lg-icon"></i> DOT/MUTCD compliant</span>
+            <span class="lg-feature-pill"><i data-lucide="sun" class="lg-icon"></i> Reflective materials</span>
+            <span class="lg-feature-pill"><i data-lucide="cloud-rain" class="lg-icon"></i> Weather-resistant</span>
+            <span class="lg-feature-pill"><i data-lucide="ruler" class="lg-icon"></i> Custom sizing</span>
           </div>
 
           <div class="lg-quote-box">
             <div class="lg-quote-label">Pricing</div>
             <div class="lg-quote-value">Custom Quote</div>
-            <div class="lg-quote-note">Pricing depends on size, reflectivity class, and quantity. Bulk order discounts available for councils and contractors.</div>
+            <div class="lg-quote-note">Every road sign is priced to your exact size, reflectivity class, and mounting. Call or WhatsApp us for a free, no-obligation quote &mdash; we respond within the hour.</div>
           </div>
 
           <div class="lg-product-actions">
@@ -250,10 +278,22 @@
           </div>
 
           <div class="lg-quick-info">
-            <div class="lg-quick-info-item"><div class="lg-icon-wrap"><i data-lucide="clock-4" class="lg-icon"></i></div><div><strong>Turnaround</strong><span>1–2 weeks average</span></div></div>
-            <div class="lg-quick-info-item"><div class="lg-icon-wrap"><i data-lucide="layers" class="lg-icon"></i></div><div><strong>Materials</strong><span>Reflective aluminium · 3M sheeting</span></div></div>
-            <div class="lg-quick-info-item"><div class="lg-icon-wrap"><i data-lucide="file-check" class="lg-icon"></i></div><div><strong>Compliance</strong><span>Full regulatory documentation</span></div></div>
-            <div class="lg-quick-info-item"><div class="lg-icon-wrap"><i data-lucide="hammer" class="lg-icon"></i></div><div><strong>Installation</strong><span>Posts, bases & on-site install</span></div></div>
+            <div class="lg-quick-info-item">
+              <div class="lg-icon-wrap"><i data-lucide="clock-4" class="lg-icon"></i></div>
+              <div><strong>Turnaround</strong><span>1&ndash;2 weeks average</span></div>
+            </div>
+            <div class="lg-quick-info-item">
+              <div class="lg-icon-wrap"><i data-lucide="layers" class="lg-icon"></i></div>
+              <div><strong>Materials</strong><span>Reflective sheeting &middot; Aluminium</span></div>
+            </div>
+            <div class="lg-quick-info-item">
+              <div class="lg-icon-wrap"><i data-lucide="hammer" class="lg-icon"></i></div>
+              <div><strong>Installation</strong><span>Professional installation available</span></div>
+            </div>
+            <div class="lg-quick-info-item">
+              <div class="lg-icon-wrap"><i data-lucide="badge-check" class="lg-icon"></i></div>
+              <div><strong>Warranty</strong><span>MUTCD/DOT compliant builds</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -261,15 +301,17 @@
       <div class="lg-tabs">
         <div class="lg-tab-nav">
           <button class="lg-tab-btn active" data-tab="description"><i data-lucide="file-text" class="lg-icon"></i> Description</button>
-          <button class="lg-tab-btn" data-tab="features"><i data-lucide="sparkles" class="lg-icon"></i> Features</button>
-          <button class="lg-tab-btn" data-tab="timeline"><i data-lucide="calendar-clock" class="lg-icon"></i> Timeline</button>
-          <button class="lg-tab-btn" data-tab="compliance"><i data-lucide="badge-check" class="lg-icon"></i> Compliance</button>
+          <button class="lg-tab-btn" data-tab="features"><i data-lucide="sparkles" class="lg-icon"></i> Features &amp; Benefits</button>
+          <button class="lg-tab-btn" data-tab="timeline"><i data-lucide="calendar-clock" class="lg-icon"></i> Production Timeline</button>
+          <button class="lg-tab-btn" data-tab="process"><i data-lucide="workflow" class="lg-icon"></i> Design Process</button>
         </div>
+
         <div class="lg-tab-panel active" data-panel="description">
           <h2>About our Road Signs</h2>
           <p>Durable and fully compliant road safety signs designed to meet all regulatory standards and municipal requirements. Our road signs are built for visibility, durability, and legal compliance.</p>
           <p>From warning signs to directional markers, we produce signs that keep traffic safe and informed. High-visibility materials, reflective elements, and weather-resistant construction ensure years of reliable service in any conditions.</p>
         </div>
+
         <div class="lg-tab-panel" data-panel="features">
           <h2>Features &amp; Benefits</h2>
           <ul>
@@ -282,38 +324,87 @@
             <li>Regulatory documentation included</li>
           </ul>
         </div>
+
         <div class="lg-tab-panel" data-panel="timeline">
           <h2>Production Timeline</h2>
           <ul>
-            <li><strong>Design &amp; Approval:</strong> 2–3 business days</li>
-            <li><strong>Production:</strong> 3–7 business days</li>
-            <li><strong>Quality Testing:</strong> 1–2 business days</li>
-            <li><strong>Installation:</strong> 1–2 business days</li>
-            <li><strong>Total Average Time:</strong> 1–2 weeks</li>
+            <li><strong>Design &amp; Approval:</strong> 2&ndash;3 business days</li>
+            <li><strong>Production:</strong> 3&ndash;7 business days</li>
+            <li><strong>Quality Testing:</strong> 1&ndash;2 business days</li>
+            <li><strong>Installation:</strong> 1&ndash;2 business days</li>
+            <li><strong>Total Average Time:</strong> 1&ndash;2 weeks</li>
           </ul>
         </div>
-        <div class="lg-tab-panel" data-panel="compliance">
-          <h2>Compliance &amp; Standards</h2>
+
+        <div class="lg-tab-panel" data-panel="process">
+          <h2>Our Design Process</h2>
+          <p>Compliance can't be an afterthought &mdash; it's built into every step:</p>
           <ul>
-            <li><strong>MUTCD Compliant:</strong> Manual on Uniform Traffic Control Devices</li>
-            <li><strong>DOT Approved:</strong> Department of Transportation standards</li>
-            <li><strong>ANSI Standards:</strong> American National Standards Institute</li>
-            <li><strong>Reflectivity Testing:</strong> Full compliance verification</li>
-            <li><strong>Documentation:</strong> All certification paperwork provided</li>
+            <li><strong>Consultation:</strong> Confirm sign class and reflectivity requirements</li>
+            <li><strong>Concept Design:</strong> Layout to MUTCD/DOT specification</li>
+            <li><strong>Refinement:</strong> Wording and symbols finalised</li>
+            <li><strong>Final Approval:</strong> Sign-off before production</li>
+            <li><strong>Quality Control:</strong> Reflectivity and compliance testing</li>
+            <li><strong>Delivery &amp; Installation:</strong> Professional mounting on-site</li>
           </ul>
         </div>
       </div>
 
       <div class="lg-section-heading">
         <h2>Our Road Sign Products</h2>
-        <p>Full range of compliant signage classes</p>
+        <p>Choose from our full range of regulatory and safety signage</p>
       </div>
 
       <div class="lg-product-grid">
-        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="scale" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Class A</span><h3>Regulatory Signs</h3><p>Official signs that enforce traffic laws — speed limits, parking restrictions, and directional mandates.</p></div></div>
-        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="alert-triangle" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Class B</span><h3>Warning Signs</h3><p>High-visibility signs alerting drivers to hazards, curves, pedestrian zones, and construction.</p></div></div>
-        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="traffic-cone" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Class C</span><h3>Traffic Control Signals</h3><p>Signal signage and light control for intersections and busy roadways. Built for year-round reliability.</p></div></div>
-        <div class="lg-product-card"><div class="lg-product-media"><i data-lucide="route" class="lg-icon-big"></i></div><div class="lg-product-body"><span class="lg-product-cat">Class D</span><h3>Carriageway &amp; Kerb Markings</h3><p>Reflective road markings for lane designation, parking zones, and pedestrian safety areas.</p></div></div>
+        <div class="lg-product-card">
+          <div class="lg-product-media"><i data-lucide="gavel" class="lg-icon-big"></i></div>
+          <div class="lg-product-body">
+            <span class="lg-product-cat">Class A</span>
+            <h3>Regulatory Signs</h3>
+            <p>Official regulatory signs that enforce traffic laws such as speed limits and parking restrictions.</p>
+          </div>
+        </div>
+        <div class="lg-product-card">
+          <div class="lg-product-media"><i data-lucide="triangle-alert" class="lg-icon-big"></i></div>
+          <div class="lg-product-body">
+            <span class="lg-product-cat">Class B</span>
+            <h3>Warning Signs</h3>
+            <p>Prominent warning signs alerting drivers to hazardous conditions and upcoming road changes.</p>
+          </div>
+        </div>
+        <div class="lg-product-card">
+          <div class="lg-product-media"><i data-lucide="traffic-cone" class="lg-icon-big"></i></div>
+          <div class="lg-product-body">
+            <span class="lg-product-cat">Class C</span>
+            <h3>Traffic Control Signals</h3>
+            <p>Professional traffic control signals and light control signage for intersections.</p>
+          </div>
+        </div>
+        <div class="lg-product-card">
+          <div class="lg-product-media"><i data-lucide="route" class="lg-icon-big"></i></div>
+          <div class="lg-product-body">
+            <span class="lg-product-cat">Class D</span>
+            <h3>Carriageway &amp; Kerb Markings</h3>
+            <p>Durable road markings and curb lines that guide traffic and delineate lanes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lg-process">
+      <div class="lg-process-inner">
+        <div class="lg-section-heading">
+          <h2>How We Work</h2>
+          <p>From your first call to final delivery &mdash; a simple, transparent process</p>
+        </div>
+        <div class="lg-process-grid">
+          <div class="lg-process-step"><span class="lg-process-num">1</span><h4>Consultation</h4><p>Confirm sign class and reflectivity requirements</p></div>
+          <div class="lg-process-step"><span class="lg-process-num">2</span><h4>Concept Design</h4><p>Layout to MUTCD/DOT specification</p></div>
+          <div class="lg-process-step"><span class="lg-process-num">3</span><h4>Refinement</h4><p>Wording and symbols finalised</p></div>
+          <div class="lg-process-step"><span class="lg-process-num">4</span><h4>Final Approval</h4><p>Sign-off before production begins</p></div>
+          <div class="lg-process-step"><span class="lg-process-num">5</span><h4>Quality Control</h4><p>Reflectivity and compliance testing</p></div>
+          <div class="lg-process-step"><span class="lg-process-num">6</span><h4>Delivery &amp; Install</h4><p>Professional mounting on-site</p></div>
+        </div>
       </div>
     </section>
 
@@ -321,7 +412,10 @@
       <div class="lg-cta-banner-inner">
         <div style="display:flex; align-items:center; gap:1.25rem;">
           <div class="lg-cta-banner-icon"><i data-lucide="message-square-text" class="lg-icon"></i></div>
-          <div><h2>Need compliant road signage?</h2><p>Talk to us about your project — free quote, fast turnaround.</p></div>
+          <div>
+            <h2>Ready to get started?</h2>
+            <p>Call or text us today for a free quote on your road signage.</p>
+          </div>
         </div>
         <div class="lg-cta-actions">
           <a href="tel:+254702444491" class="lg-btn-primary"><i data-lucide="phone" class="lg-icon"></i> Call or Text</a>
@@ -333,22 +427,47 @@
     <footer class="lg-footer">
       <div class="lg-footer-inner">
         <div>
-          <div class="lg-footer-brand"><img src="../newimages/LOGO.jpeg" alt="BendMark"><span>BendMark</span></div>
-          <p>Nairobi's specialist for 3D signs, road &amp; construction signage, printing, engraving, and custom branding.</p>
+          <div class="lg-footer-brand"><img src="../newimages/LOGO.jpeg" alt="BendMark Logo"><span>BendMark</span></div>
+          <p>Nairobi's specialist for 3D signs, road &amp; construction signage, printing, engraving, and custom branding &mdash; designed and produced in-house.</p>
           <div class="lg-footer-social">
-            <a href="https://facebook.com/bendmark"><i data-lucide="facebook" class="lg-icon"></i></a>
-            <a href="https://x.com/muirurilawrenc1"><i data-lucide="twitter" class="lg-icon"></i></a>
-            <a href="https://instagram.com/bendmark"><i data-lucide="instagram" class="lg-icon"></i></a>
-            <a href="https://linkedin.com/company/bendmark"><i data-lucide="linkedin" class="lg-icon"></i></a>
+            <a href="https://facebook.com/bendmark" title="Facebook"><i data-lucide="facebook" class="lg-icon"></i></a>
+            <a href="https://x.com/muirurilawrenc1" title="Twitter / X"><i data-lucide="twitter" class="lg-icon"></i></a>
+            <a href="https://instagram.com/bendmark" title="Instagram"><i data-lucide="instagram" class="lg-icon"></i></a>
+            <a href="https://linkedin.com/company/bendmark" title="LinkedIn"><i data-lucide="linkedin" class="lg-icon"></i></a>
           </div>
         </div>
-        <div><h4>Quick Links</h4><ul class="lg-footer-list"><li><a href="../index.html">Home</a></li><li><a href="../index.html#services">Services</a></li><li><a href="../index.html#location">Location</a></li><li><a href="../index.html#contact">Contact</a></li></ul></div>
-        <div><h4>Services</h4><ul class="lg-footer-list"><li><a href="road-signs.html">Road Signs</a></li><li><a href="construction-signs.html">Construction Signs</a></li><li><a href="3d-signs.html">3D Signs</a></li><li><a href="banners.html">Banners &amp; Signage</a></li></ul></div>
-        <div><h4>Contact</h4><ul class="lg-footer-list lg-footer-contact"><li><i data-lucide="map-pin" class="lg-icon"></i> 15 Kweria Road, Nairobi</li><li><i data-lucide="phone" class="lg-icon"></i> (+254) 702-444491</li><li><i data-lucide="mail" class="lg-icon"></i> info@bendmark.com</li></ul></div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="lg-footer-list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="../index.html#location">Location</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul class="lg-footer-list">
+            <li><a href="3d-signs.html">3D Signs</a></li>
+            <li><a href="road-signs.html">Road Signs</a></li>
+            <li><a href="construction-signs.html">Construction Signs</a></li>
+            <li><a href="banners.html">Banners &amp; Signage</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="lg-footer-list lg-footer-contact">
+            <li><i data-lucide="map-pin" class="lg-icon"></i> 15 Kweria Road, Nairobi</li>
+            <li><i data-lucide="phone" class="lg-icon"></i> (+254) 702-444491</li>
+            <li><i data-lucide="mail" class="lg-icon"></i> info@bendmark.com</li>
+          </ul>
+        </div>
       </div>
       <div class="lg-footer-bottom">
         <p>&copy; 2026 BendMark Printing Services. All rights reserved.</p>
-        <div style="display:flex;gap:1.25rem;"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+        <div style="display:flex;gap:1.25rem;">
+          <a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a>
+        </div>
       </div>
     </footer>
 
@@ -359,19 +478,31 @@
 
     <script>
         lucide.createIcons();
-        document.querySelector('.nav-toggle').addEventListener('click', function(){ document.querySelector('nav').classList.toggle('active'); });
-        var navDropdown = document.querySelector('.nav-dropdown'); var dropdownMenu = document.querySelector('.dropdown-menu');
+        document.querySelector('.nav-toggle').addEventListener('click', function(){
+          document.querySelector('nav').classList.toggle('active');
+        });
+        var navDropdown = document.querySelector('.nav-dropdown');
+        var dropdownMenu = document.querySelector('.dropdown-menu');
         document.querySelector('.nav-dropdown > a').addEventListener('click', function(e){ e.preventDefault(); dropdownMenu.classList.toggle('active'); });
         document.querySelectorAll('.dropdown-menu a').forEach(function(l){ l.addEventListener('click', function(){ dropdownMenu.classList.remove('active'); }); });
         document.addEventListener('click', function(e){ if (!navDropdown.contains(e.target)) dropdownMenu.classList.remove('active'); });
-        document.querySelectorAll('.lg-tab-btn').forEach(function(btn){ btn.addEventListener('click', function(){
-            var t = btn.getAttribute('data-tab');
+
+        document.querySelectorAll('.lg-tab-btn').forEach(function(btn){
+          btn.addEventListener('click', function(){
+            var target = btn.getAttribute('data-tab');
             document.querySelectorAll('.lg-tab-btn').forEach(function(b){ b.classList.remove('active'); });
             document.querySelectorAll('.lg-tab-panel').forEach(function(p){ p.classList.remove('active'); });
             btn.classList.add('active');
-            document.querySelector('.lg-tab-panel[data-panel="'+t+'"]').classList.add('active');
-        });});
-        document.querySelectorAll('.lg-gallery-thumb').forEach(function(t){ t.addEventListener('click', function(){ document.querySelectorAll('.lg-gallery-thumb').forEach(function(x){ x.classList.remove('active'); }); t.classList.add('active'); });});
+            document.querySelector('.lg-tab-panel[data-panel="'+target+'"]').classList.add('active');
+          });
+        });
+
+        document.querySelectorAll('.lg-gallery-thumb').forEach(function(t){
+          t.addEventListener('click', function(){
+            document.querySelectorAll('.lg-gallery-thumb').forEach(function(x){ x.classList.remove('active'); });
+            t.classList.add('active');
+          });
+        });
     </script>
 </body>
 </html>
