@@ -66,6 +66,7 @@
       .lg-gallery-thumbs{ display:grid; grid-template-columns: repeat(4,1fr); gap:0.6rem; }
       .lg-gallery-thumb{ aspect-ratio:1/1; border-radius:10px; overflow:hidden; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%); border:2px solid transparent; cursor:pointer; transition: border-color 0.15s ease; display:flex; align-items:center; justify-content:center; }
       .lg-gallery-thumb .lg-icon{ width:26px; height:26px; color: var(--brand-blue); opacity:0.7; }
+      .lg-gallery-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
       .lg-gallery-thumb.active, .lg-gallery-thumb:hover{ border-color: var(--brand-blue); }
 
       .lg-product-info{ display:flex; flex-direction:column; }
@@ -246,10 +247,10 @@
             <span class="lg-gallery-badge">Bespoke</span>
           </div>
           <div class="lg-gallery-thumbs">
-            <div class="lg-gallery-thumb active"><i data-lucide="wand-2"></i></div>
-            <div class="lg-gallery-thumb"><i data-lucide="layers"></i></div>
-            <div class="lg-gallery-thumb"><i data-lucide="palette"></i></div>
-            <div class="lg-gallery-thumb"><i data-lucide="settings-2"></i></div>
+            <div class="lg-gallery-thumb active" data-full="../images/thumb1.jpeg"><img src="../images/customprinting.jpg" alt="Thumbnail 1" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=wand-2></i>'; if(window.lucide) lucide.createIcons();"></div>
+            <div class="lg-gallery-thumb" data-full="../images/thumb2.jpeg"><img src="../images/customprinting1.jpeg" alt="Thumbnail 2" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=layers></i>'; if(window.lucide) lucide.createIcons();"></div>
+            <div class="lg-gallery-thumb" data-full="../images/thumb3.jpeg"><img src="../images/customprinting.png" alt="Thumbnail 3" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=palette></i>'; if(window.lucide) lucide.createIcons();"></div>
+            <div class="lg-gallery-thumb" data-full="../images/thumb4.jpeg"><img src="../images/customprinting1.jpeg" alt="Thumbnail 4" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=settings-2></i>'; if(window.lucide) lucide.createIcons();"></div>
           </div>
         </div>
 
@@ -566,6 +567,21 @@
         x.classList.remove('active');
       });
       t.classList.add('active');
+
+      var fullSrc = t.getAttribute('data-full');
+      if (!fullSrc) return;
+      var main = document.getElementById('galleryMain');
+      if (!main) return;
+      var mainImg = main.querySelector('img');
+      if (!mainImg) {
+        mainImg = document.createElement('img');
+        mainImg.alt = 'Product image';
+        main.insertBefore(mainImg, main.firstChild);
+      }
+      main.classList.remove('lg-no-img');
+      mainImg.style.display = 'block';
+      mainImg.src = fullSrc;
+      mainImg.onerror = function(){ this.style.display='none'; main.classList.add('lg-no-img'); };
     });
   });
 
