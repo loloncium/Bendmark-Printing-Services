@@ -58,7 +58,7 @@
 
       .lg-gallery{ position:sticky; top:90px; align-self:start; }
       .lg-gallery-main{ aspect-ratio:1/1; border-radius: var(--lg-radius); overflow:hidden; background: var(--light-bg); border:1px solid var(--lg-border); margin-bottom:0.85rem; position:relative; }
-      .lg-gallery-main img{ width:100%; height:100%; object-fit:cover; display:block; }
+      .lg-gallery-main img{ width:100%; height:100%; object-fit:contain; display:block; }
       .lg-gallery-main .lg-gallery-fallback{ display:none; position:absolute; inset:0; align-items:center; justify-content:center; background: linear-gradient(135deg, #f0f4ff 0%, #e8f7f7 100%); }
       .lg-gallery-main.lg-no-img .lg-gallery-fallback{ display:flex; }
       .lg-gallery-fallback .lg-icon{ width:120px; height:120px; color: var(--brand-blue); opacity:0.5; }
@@ -66,7 +66,7 @@
       .lg-gallery-thumbs{ display:grid; grid-template-columns: repeat(4,1fr); gap:0.6rem; }
       .lg-gallery-thumb{ aspect-ratio:1/1; border-radius:10px; overflow:hidden; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%); border:2px solid transparent; cursor:pointer; transition: border-color 0.15s ease; display:flex; align-items:center; justify-content:center; }
       .lg-gallery-thumb .lg-icon{ width:26px; height:26px; color: var(--brand-blue); opacity:0.7; }
-      .lg-gallery-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+      .lg-gallery-thumb img{ width:100%; height:100%; object-fit:contain; display:block; }
       .lg-gallery-thumb.active, .lg-gallery-thumb:hover{ border-color: var(--brand-blue); }
 
       .lg-product-info{ display:flex; flex-direction:column; }
@@ -117,7 +117,7 @@
       .lg-product-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow-lg); }
       .lg-product-media{ position:relative; aspect-ratio:4/3; overflow:hidden; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%); display:flex; align-items:center; justify-content:center; }
       .lg-product-media .lg-icon-big{ width:56px; height:56px; color: var(--brand-blue); opacity:0.7; }
-      .lg-product-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+      .lg-product-media img{ width:100%; height:100%; object-fit:contain; display:block; }
       .lg-product-badge{ position:absolute; top:0.65rem; left:0.65rem; font-family:'Montserrat',sans-serif; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; background:#fff; color: var(--brand-blue); padding:0.25rem 0.6rem; border-radius:6px; box-shadow: var(--shadow); }
       .lg-product-fav{ position:absolute; top:0.6rem; right:0.6rem; width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.92); display:flex; align-items:center; justify-content:center; color: var(--text-dark); }
       .lg-product-body{ padding:0.95rem 1rem 1.1rem; display:flex; flex-direction:column; gap:0.35rem; flex:1; }
@@ -365,7 +365,7 @@
 
       <div class="lg-product-grid">
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="drama" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/event-posters.jpeg" alt="Event Posters" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=drama class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Events</span>
             <h3>Event Posters</h3>
@@ -373,7 +373,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="megaphone" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/advertising-amp-marketing-posters.jpeg" alt="Advertising &amp; Marketing Posters" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=megaphone class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Retail</span>
             <h3>Advertising &amp; Marketing Posters</h3>
@@ -381,7 +381,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="graduation-cap" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/educational-posters.jpeg" alt="Educational Posters" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=graduation-cap class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Education</span>
             <h3>Educational Posters</h3>
@@ -389,7 +389,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="vote" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/political-campaign-posters.jpeg" alt="Political Campaign Posters" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=vote class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Political</span>
             <h3>Political Campaign Posters</h3>
@@ -397,7 +397,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="home" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/real-estate-posters.jpeg" alt="Real Estate Posters" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=home class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Property</span>
             <h3>Real Estate Posters</h3>
@@ -405,7 +405,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="utensils" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/menu-posters-amp-price-lists.jpeg" alt="Menu Posters &amp; Price Lists" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=utensils class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Hospitality</span>
             <h3>Menu Posters &amp; Price Lists</h3>
@@ -413,7 +413,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="zap" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/motivational-amp-office-posters.jpeg" alt="Motivational &amp; Office Posters" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=zap class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Office</span>
             <h3>Motivational &amp; Office Posters</h3>
@@ -421,7 +421,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="image" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/photo-posters-amp-art-prints.jpeg" alt="Photo Posters &amp; Art Prints" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=image class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Art</span>
             <h3>Photo Posters &amp; Art Prints</h3>
@@ -429,7 +429,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="clapperboard" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/movie-amp-entertainment-posters.jpeg" alt="Movie &amp; Entertainment Posters" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=clapperboard class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Entertainment</span>
             <h3>Movie &amp; Entertainment Posters</h3>
@@ -437,7 +437,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="alert-circle" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/awareness-campaign-posters.jpeg" alt="Awareness Campaign Posters" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=alert-circle class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Public</span>
             <h3>Awareness Campaign Posters</h3>
@@ -445,7 +445,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="trophy" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/sports-amp-fitness-posters.jpeg" alt="Sports &amp; Fitness Posters" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=trophy class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Sports</span>
             <h3>Sports &amp; Fitness Posters</h3>
@@ -453,7 +453,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="palette" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/custom-art-amp-design-posters.jpeg" alt="Custom Art &amp; Design Posters" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=palette class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Bespoke</span>
             <h3>Custom Art &amp; Design Posters</h3>

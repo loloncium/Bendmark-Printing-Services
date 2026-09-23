@@ -58,7 +58,7 @@
 
       .lg-gallery{ position:sticky; top:90px; align-self:start; }
       .lg-gallery-main{ aspect-ratio:1/1; border-radius: var(--lg-radius); overflow:hidden; background: var(--light-bg); border:1px solid var(--lg-border); margin-bottom:0.85rem; position:relative; }
-      .lg-gallery-main img{ width:100%; height:100%; object-fit:cover; display:block; }
+      .lg-gallery-main img{ width:100%; height:100%; object-fit:contain; display:block; }
       .lg-gallery-main .lg-gallery-fallback{ display:none; position:absolute; inset:0; align-items:center; justify-content:center; background: linear-gradient(135deg, #f0f4ff 0%, #e8f7f7 100%); }
       .lg-gallery-main.lg-no-img .lg-gallery-fallback{ display:flex; }
       .lg-gallery-fallback .lg-icon{ width:120px; height:120px; color: var(--brand-blue); opacity:0.5; }
@@ -66,7 +66,7 @@
       .lg-gallery-thumbs{ display:grid; grid-template-columns: repeat(4,1fr); gap:0.6rem; }
       .lg-gallery-thumb{ aspect-ratio:1/1; border-radius:10px; overflow:hidden; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%); border:2px solid transparent; cursor:pointer; transition: border-color 0.15s ease; display:flex; align-items:center; justify-content:center; }
       .lg-gallery-thumb .lg-icon{ width:26px; height:26px; color: var(--brand-blue); opacity:0.7; }
-      .lg-gallery-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+      .lg-gallery-thumb img{ width:100%; height:100%; object-fit:contain; display:block; }
       .lg-gallery-thumb.active, .lg-gallery-thumb:hover{ border-color: var(--brand-blue); }
 
       .lg-product-info{ display:flex; flex-direction:column; }
@@ -117,7 +117,7 @@
       .lg-product-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow-lg); }
       .lg-product-media{ position:relative; aspect-ratio:4/3; overflow:hidden; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%); display:flex; align-items:center; justify-content:center; }
       .lg-product-media .lg-icon-big{ width:56px; height:56px; color: var(--brand-blue); opacity:0.7; }
-      .lg-product-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+      .lg-product-media img{ width:100%; height:100%; object-fit:contain; display:block; }
       .lg-product-badge{ position:absolute; top:0.65rem; left:0.65rem; font-family:'Montserrat',sans-serif; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; background:#fff; color: var(--brand-blue); padding:0.25rem 0.6rem; border-radius:6px; box-shadow: var(--shadow); }
       .lg-product-fav{ position:absolute; top:0.6rem; right:0.6rem; width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.92); display:flex; align-items:center; justify-content:center; color: var(--text-dark); }
       .lg-product-body{ padding:0.95rem 1rem 1.1rem; display:flex; flex-direction:column; gap:0.35rem; flex:1; }
@@ -365,7 +365,7 @@
 
       <div class="lg-product-grid">
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="flag" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/vinyl-banner-printing.jpeg" alt="Vinyl Banner Printing" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=flag class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Outdoor</span>
             <h3>Vinyl Banner Printing</h3>
@@ -373,7 +373,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="scroll" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/roll-up-banner-printing.jpeg" alt="Roll-Up Banner Printing" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=scroll class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Portable</span>
             <h3>Roll-Up Banner Printing</h3>
@@ -381,7 +381,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="monitor" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/tabletop-desk-rollup.jpeg" alt="Tabletop Desk Rollup" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=monitor class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Desktop</span>
             <h3>Tabletop Desk Rollup</h3>
@@ -389,7 +389,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="presentation" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/media-wall-banner-printing.jpeg" alt="Media Wall Banner Printing" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=presentation class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Events</span>
             <h3>Media Wall Banner Printing</h3>
@@ -397,7 +397,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="camera" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/adjustable-backdrop-banners.jpeg" alt="Adjustable Backdrop Banners" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=camera class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Photography</span>
             <h3>Adjustable Backdrop Banners</h3>
@@ -405,7 +405,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="wind" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/telescopic-feather-flag-banners.jpeg" alt="Telescopic Feather Flag Banners" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=wind class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Outdoor</span>
             <h3>Telescopic Feather Flag Banners</h3>
@@ -413,7 +413,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="door-open" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/door-frame-banner-printing.jpeg" alt="Door Frame Banner Printing" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=door-open class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Storefront</span>
             <h3>Door Frame Banner Printing</h3>
@@ -421,7 +421,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="circle" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/popup-bean-shape-banners.jpeg" alt="Popup Bean-Shape Banners" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=circle class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Inflatable</span>
             <h3>Popup Bean-Shape Banners</h3>
@@ -429,7 +429,7 @@
           </div>
         </div>
         <div class="lg-product-card">
-          <div class="lg-product-media"><i data-lucide="waves" class="lg-icon-big"></i></div>
+          <div class="lg-product-media"><img src="../images/s-banner-printing-snake-banner.jpeg" alt="S-Banner Printing (Snake Banner)" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=waves class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Modular</span>
             <h3>S-Banner Printing (Snake Banner)</h3>
