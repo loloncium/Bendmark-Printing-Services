@@ -213,7 +213,7 @@
                         <a href="banners.html">Roll-Up Banners</a>
                         <a href="election-materials.html">Election Materials</a>
                         <a href="launchsigns.html">Brass Plaque</a>
-                        <a href="engraving.html">Wooden Gift Box</a>
+                        <a href="engraving.html">Engraving</a>
                         <a href="cnc-cutting.html">CNC Cutting</a>
                         <a href="custom-printing.html">Custom Printing</a>
                     </div>
@@ -601,7 +601,7 @@
     });
   });
 
-  /* 5. Gallery thumbnail switching */
+   // Gallery thumbnail switching
   document.querySelectorAll('.lg-gallery-thumb').forEach(function(t){
     t.addEventListener('click', function(){
       document.querySelectorAll('.lg-gallery-thumb').forEach(function(x){
@@ -612,11 +612,10 @@
       var fullSrc = t.getAttribute('data-full');
       if (!fullSrc) return;
       var main = document.getElementById('galleryMain');
-      if (!main) return;
       var mainImg = main.querySelector('img');
       if (!mainImg) {
         mainImg = document.createElement('img');
-        mainImg.alt = 'Product image';
+        mainImg.alt = '3D Signs';
         main.insertBefore(mainImg, main.firstChild);
       }
       main.classList.remove('lg-no-img');

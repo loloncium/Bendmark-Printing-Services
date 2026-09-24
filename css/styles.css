@@ -1513,3 +1513,46 @@ footer {
 .filter-neon-magenta {
   filter: drop-shadow(0 0 15px rgba(217, 70, 239, 0.6)) saturate(1.15) contrast(1.1);
 }
+/* ============================================
+   2026 GLOBAL LAYOUT UPDATES
+   ============================================ */
+
+/* Push the main navigation to the far right of the header */
+.header-container nav {
+  margin-left: auto !important;
+}
+
+/* Call Now button — floating fixed just below the sticky header,
+   visible on every page and every scroll position */
+.lg-header-cta {
+  position: fixed !important;
+  top: 130px !important;
+  right: 1.5rem !important;
+  z-index: 998 !important;
+  box-shadow: 0 6px 20px rgba(4, 21, 220, 0.28) !important;
+}
+
+/* Mobile refinements: smaller logo + reposition floating CTA */
+@media (max-width: 768px) {
+  .nav-toggle { margin-left: auto !important; }
+  .header-container { padding: 0.6rem 1rem !important; }
+  .logo img      { max-height: 44px !important; }
+  .logo          { max-height: 44px !important; }
+  .lg-header-cta {
+    top: 116px !important;
+    right: 1rem !important;
+    padding: 0.55rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img { max-height: 36px !important; }
+  .logo     { max-height: 36px !important; }
+  .lg-header-cta {
+    top: 108px !important;
+    right: 0.75rem !important;
+    padding: 0.5rem 0.85rem !important;
+    font-size: 0.8rem !important;
+  }
+}
