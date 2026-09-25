@@ -124,6 +124,65 @@
       .lg-product-cat{ font-family:'Montserrat',sans-serif; font-size:0.72rem; color: var(--lg-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.03em; }
       .lg-product-body h3{ font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:700; color: var(--text-dark); margin:0; }
       .lg-product-body p{ font-family:'Montserrat',sans-serif; font-size:0.82rem; color: var(--lg-muted); line-height:1.45; margin:0; flex:1; }
+      .lg-product-card{ cursor: zoom-in; }
+
+      /* ============================================
+         PRODUCT QUICK-VIEW MODAL
+         Click a product card to have it rise up and zoom
+         into an enlarged, readable view.
+         ============================================ */
+      .lg-product-modal-overlay{
+        position: fixed; inset: 0; z-index: 1000;
+        background: rgba(15,23,42,0.6);
+        backdrop-filter: blur(3px);
+        display: flex; align-items: center; justify-content: center;
+        padding: 2rem 1.25rem;
+        opacity: 0; visibility: hidden;
+        transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+      }
+      .lg-product-modal-overlay.active{
+        opacity: 1; visibility: visible;
+        transition: opacity 0.25s ease, visibility 0s linear 0s;
+      }
+      .lg-product-modal{
+        background:#fff; border-radius: 16px; overflow: hidden;
+        max-width: 760px; width: 100%; max-height: 88vh;
+        display: grid; grid-template-columns: 1.1fr 1fr;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+        transform: scale(0.85) translateY(16px);
+        opacity: 0;
+        transition: transform 0.3s cubic-bezier(.2,.9,.3,1.2), opacity 0.25s ease;
+      }
+      .lg-product-modal-overlay.active .lg-product-modal{
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+      .lg-product-modal-media{
+        position: relative; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%);
+        display:flex; align-items:center; justify-content:center;
+        min-height: 260px; overflow: hidden;
+      }
+      .lg-product-modal-media img{ width:100%; height:100%; object-fit: cover; display:block; }
+      .lg-product-modal-media .lg-icon-big{ width:64px; height:64px; color: var(--brand-blue); opacity:0.7; }
+      .lg-product-modal-body{ padding: 1.75rem 1.75rem 1.5rem; display:flex; flex-direction:column; gap:0.6rem; overflow-y:auto; }
+      .lg-product-modal-cat{ font-family:'Montserrat',sans-serif; font-size:0.75rem; color: var(--brand-blue); font-weight:700; text-transform:uppercase; letter-spacing:0.04em; }
+      .lg-product-modal-body h3{ font-family:'Montserrat',sans-serif; font-size:1.4rem; font-weight:700; color: var(--text-dark); margin:0; }
+      .lg-product-modal-body p{ font-family:'Montserrat',sans-serif; font-size:0.95rem; color: var(--lg-muted); line-height:1.6; margin:0; }
+      .lg-product-modal-close{
+        position: absolute; top: 0.75rem; right: 0.75rem; z-index: 2;
+        width: 36px; height: 36px; border-radius:50%;
+        background: rgba(255,255,255,0.92); border: none; cursor: pointer;
+        display:flex; align-items:center; justify-content:center;
+        color: var(--text-dark); box-shadow: var(--shadow);
+        transition: transform 0.15s ease;
+      }
+      .lg-product-modal-close:hover{ transform: scale(1.08); }
+      .lg-product-modal-close .lg-icon{ width:18px; height:18px; }
+
+      @media (max-width: 640px){
+        .lg-product-modal{ grid-template-columns: 1fr; max-height: 92vh; }
+        .lg-product-modal-media{ min-height: 200px; }
+      }
 
       .lg-process{ background: var(--light-bg); padding:3rem 1.5rem; margin:3rem 0; }
       .lg-process-inner{ max-width:1280px; margin:0 auto; }
@@ -642,10 +701,91 @@
     });
   });
 
+  // Product card quick-view modal — click a card to have it rise/zoom
+  // into an enlarged, readable view of the image and description.
+  (function(){
+    var overlay = document.getElementById('lgProductModalOverlay');
+    if (!overlay) return;
+    var modalImgWrap = overlay.querySelector('.lg-product-modal-media');
+    var modalCat = overlay.querySelector('.lg-product-modal-cat');
+    var modalTitle = overlay.querySelector('.lg-product-modal-body h3');
+    var modalDesc = overlay.querySelector('.lg-product-modal-body p');
+    var closeBtn = overlay.querySelector('.lg-product-modal-close');
+    var lastFocused = null;
+
+    function openModal(card){
+      var img = card.querySelector('.lg-product-media img');
+      var cat = card.querySelector('.lg-product-cat');
+      var title = card.querySelector('h3');
+      var desc = card.querySelector('p');
+
+      modalImgWrap.innerHTML = '';
+      if (img && img.style.display !== 'none' && img.getAttribute('src')) {
+        var bigImg = document.createElement('img');
+        bigImg.src = img.getAttribute('src');
+        bigImg.alt = img.getAttribute('alt') || '';
+        modalImgWrap.appendChild(bigImg);
+      } else {
+        var fallback = card.querySelector('.lg-product-media .lg-icon-big, .lg-product-media i');
+        var iconName = fallback ? fallback.getAttribute('data-lucide') : 'image';
+        modalImgWrap.innerHTML = '<i data-lucide="' + (iconName || 'image') + '" class="lg-icon-big"></i>';
+        if (window.lucide) lucide.createIcons();
+      }
+
+      modalCat.textContent = cat ? cat.textContent : '';
+      modalTitle.textContent = title ? title.textContent : '';
+      modalDesc.textContent = desc ? desc.textContent : '';
+
+      lastFocused = document.activeElement;
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeModal(){
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.querySelectorAll('.lg-product-card').forEach(function(card){
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', 'View details');
+      card.addEventListener('click', function(){ openModal(card); });
+      card.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card); }
+      });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e){
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+    });
+  })();
+
   /* ─────────────────────────────────────────────────────────────
      3. Kick off icons last
      ───────────────────────────────────────────────────────────── */
   initLucide();
 </script>
+
+<!-- Product quick-view modal (click a product card above to open) -->
+<div class="lg-product-modal-overlay" id="lgProductModalOverlay">
+  <div class="lg-product-modal" role="dialog" aria-modal="true" aria-label="Product details">
+    <button type="button" class="lg-product-modal-close" aria-label="Close">
+      <i data-lucide="x" class="lg-icon"></i>
+    </button>
+    <div class="lg-product-modal-media"></div>
+    <div class="lg-product-modal-body">
+      <span class="lg-product-modal-cat"></span>
+      <h3></h3>
+      <p></p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
