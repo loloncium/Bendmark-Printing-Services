@@ -196,7 +196,7 @@
 
     <header>
         <div class="header-container">
-            <a href="../index.html" class="logo"><img src="../newimages/LOGO.png" alt="BendMark Logo"></a>
+            <a href="../index.html" class="logo"><img src="../newimages/LOGO.jpeg" alt="BendMark Logo"></a>
             <button class="nav-toggle" aria-label="Toggle navigation"><i data-lucide="menu" class="lg-icon" style="width:1.4em;height:1.4em;"></i></button>
             <nav>
                 <a href="../index.html">Home</a>
@@ -212,7 +212,7 @@
                         <a href="posters.html">Posters</a>
                         <a href="banners.html">Banners & Signage</a>
                         <a href="election-materials.html">Election Materials</a>
-                        <a href="launchsigns.html">Launch Signs</a>
+                        <a href="launchsigns.html">Brass Plaques</a>
                         <a href="engraving.html">Engraving</a>
                         <a href="cnc-cutting.html">CNC Cutting</a>
                         <a href="custom-printing.html">Custom Printing</a>
@@ -226,6 +226,8 @@
             </div>
         </div>
     </header>
+    <a href="tel:+254702444491" class="lg-floating-call" aria-label="Call BendMark now"><i data-lucide="phone-call" class="lg-icon"></i><span>Call Now</span></a>
+
 
     <div class="lg-breadcrumb-bar">
       <div class="lg-breadcrumb">
@@ -467,7 +469,7 @@
     <footer class="lg-footer">
       <div class="lg-footer-inner">
         <div>
-          <div class="lg-footer-brand"><img src="../newimages/LOGO.png" alt="BendMark Logo"><span>BendMark</span></div>
+          <div class="lg-footer-brand"><img src="../newimages/LOGO.jpeg" alt="BendMark Logo"><span>BendMark</span></div>
           <p>Nairobi's specialist for 3D signs, road &amp; construction signage, printing, engraving, and custom branding &mdash; designed and produced in-house.</p>
           <div class="lg-footer-social">
             <a href="https://facebook.com/bendmark" title="Facebook"><i data-lucide="facebook" class="lg-icon"></i></a>
@@ -568,7 +570,7 @@
     });
   });
 
-   // Gallery thumbnail switching
+  /* 5. Gallery thumbnail switching */
   document.querySelectorAll('.lg-gallery-thumb').forEach(function(t){
     t.addEventListener('click', function(){
       document.querySelectorAll('.lg-gallery-thumb').forEach(function(x){
@@ -579,10 +581,11 @@
       var fullSrc = t.getAttribute('data-full');
       if (!fullSrc) return;
       var main = document.getElementById('galleryMain');
+      if (!main) return;
       var mainImg = main.querySelector('img');
       if (!mainImg) {
         mainImg = document.createElement('img');
-        mainImg.alt = '3D Signs';
+        mainImg.alt = 'Product image';
         main.insertBefore(mainImg, main.firstChild);
       }
       main.classList.remove('lg-no-img');

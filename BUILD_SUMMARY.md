@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+be.c<<<<<<< HEAD
 # BendMark Website - Complete Build Summary
 
 ## ✅ WHAT HAS BEEN CREATED

@@ -10,10 +10,10 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Brass Plaque by BendMark - Bold signage and printed materials for grand openings, product launches, and events.">
-    <meta name="keywords" content="Brass Plaque, grand opening signage, product launch printing, opening banners">
+    <meta name="description" content="Brass Plaques by BendMark - Bold signage and printed materials for grand openings, product launches, and events.">
+    <meta name="keywords" content="Brass Plaques, grand opening signage, product launch printing, opening banners">
     <meta name="robots" content="index, follow">
-    <title>Brass Plaque - Grand Opening & Launch Signage | BendMark</title>
+    <title>Brass Plaques - Grand Opening & Launch Signage | BendMark</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Lucide: primary CDN, with a backup CDN if the first one fails -->
@@ -196,7 +196,7 @@
 
     <header>
         <div class="header-container">
-            <a href="../index.html" class="logo"><img src="../newimages/LOGO.png" alt="BendMark Logo"></a>
+            <a href="../index.html" class="logo"><img src="../newimages/LOGO.jpeg" alt="BendMark Logo"></a>
             <button class="nav-toggle" aria-label="Toggle navigation"><i data-lucide="menu" class="lg-icon" style="width:1.4em;height:1.4em;"></i></button>
             <nav>
                 <a href="../index.html">Home</a>
@@ -212,7 +212,7 @@
                         <a href="posters.html">Posters</a>
                         <a href="banners.html">Roll-Up Banners</a>
                         <a href="election-materials.html">Election Materials</a>
-                        <a href="launchsigns.html">Brass Plaque</a>
+                        <a href="launchsigns.html">Brass Plaques</a>
                         <a href="engraving.html">Engraving</a>
                         <a href="cnc-cutting.html">CNC Cutting</a>
                         <a href="custom-printing.html">Custom Printing</a>
@@ -226,6 +226,8 @@
             </div>
         </div>
     </header>
+    <a href="tel:+254702444491" class="lg-floating-call" aria-label="Call BendMark now"><i data-lucide="phone-call" class="lg-icon"></i><span>Call Now</span></a>
+
 
     <div class="lg-breadcrumb-bar">
       <div class="lg-breadcrumb">
@@ -233,7 +235,7 @@
         <i data-lucide="chevron-right" class="lg-icon"></i>
         <a href="../index.html#services">Services</a>
         <i data-lucide="chevron-right" class="lg-icon"></i>
-        <span style="color:var(--text-dark);font-weight:600;">Brass Plaque</span>
+        <span style="color:var(--text-dark);font-weight:600;">Brass Plaques</span>
       </div>
     </div>
 
@@ -242,7 +244,7 @@
       <div class="lg-product-hero">
         <div class="lg-gallery">
           <div class="lg-gallery-main " id="galleryMain">
-            <img src="../images/aluminiumengraving3.jpeg" alt="Brass Plaque" onerror="this.style.display='none'; this.parentElement.classList.add('lg-no-img');">
+            <img src="../images/aluminiumengraving3.jpeg" alt="Brass Plaques" onerror="this.style.display='none'; this.parentElement.classList.add('lg-no-img');">
             <div class="lg-gallery-fallback"><i data-lucide="rocket"></i></div>
             <span class="lg-gallery-badge">New</span>
           </div>
@@ -255,8 +257,8 @@
         </div>
 
         <div class="lg-product-info">
-          <span class="lg-product-category-tag"><i data-lucide="rocket" class="lg-icon"></i> Brass Plaque</span>
-          <h1>Brass Plaque</h1>
+          <span class="lg-product-category-tag"><i data-lucide="rocket" class="lg-icon"></i> Brass Plaques</span>
+          <h1>Brass Plaques</h1>
           <div class="lg-product-rating">
             <div class="lg-stars">
               <i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i>
@@ -315,7 +317,7 @@
         </div>
 
         <div class="lg-tab-panel active" data-panel="description">
-          <h2>About our Brass Plaque</h2>
+          <h2>About our Brass Plaques</h2>
           <p>First impressions define your brand. Whether you're opening a new shop, launching a product, or unveiling a service, BendMark delivers striking signage and printed materials that create real excitement &mdash; on the street, online, and in the room.</p>
           <p>We combine bold design, premium materials, and fast turnaround so your launch looks polished and professional from the moment doors open. From teaser banners weeks before to branded merchandise on the day, we handle every visual touchpoint.</p>
         </div>
@@ -500,7 +502,7 @@
     <footer class="lg-footer">
       <div class="lg-footer-inner">
         <div>
-          <div class="lg-footer-brand"><img src="../newimages/LOGO.png" alt="BendMark Logo"><span>BendMark</span></div>
+          <div class="lg-footer-brand"><img src="../newimages/LOGO.jpeg" alt="BendMark Logo"><span>BendMark</span></div>
           <p>Nairobi's specialist for 3D signs, road &amp; construction signage, printing, engraving, and custom branding &mdash; designed and produced in-house.</p>
           <div class="lg-footer-social">
             <a href="https://facebook.com/bendmark" title="Facebook"><i data-lucide="facebook" class="lg-icon"></i></a>
@@ -601,7 +603,7 @@
     });
   });
 
-   // Gallery thumbnail switching
+  /* 5. Gallery thumbnail switching */
   document.querySelectorAll('.lg-gallery-thumb').forEach(function(t){
     t.addEventListener('click', function(){
       document.querySelectorAll('.lg-gallery-thumb').forEach(function(x){
@@ -612,10 +614,11 @@
       var fullSrc = t.getAttribute('data-full');
       if (!fullSrc) return;
       var main = document.getElementById('galleryMain');
+      if (!main) return;
       var mainImg = main.querySelector('img');
       if (!mainImg) {
         mainImg = document.createElement('img');
-        mainImg.alt = '3D Signs';
+        mainImg.alt = 'Product image';
         main.insertBefore(mainImg, main.firstChild);
       }
       main.classList.remove('lg-no-img');
