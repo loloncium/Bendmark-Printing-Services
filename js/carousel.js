@@ -95,7 +95,7 @@ class Carousel {
     clearInterval(this.slideInterval);
     this.slideInterval = setInterval(() => {
       this.showSlide(this.currentSlide + 1);
-    }, 3500);
+    }, 1500);
   }
 
   stopAutoSlide() {
