@@ -10,10 +10,10 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Custom Printing Solutions by BendMark - Bespoke printing tailored to your unique specifications.">
-    <meta name="keywords" content="custom printing, bespoke printing, custom design, printing solutions">
+    <meta name="description" content="Professional 2D Signs by BendMark - Flat signage including acrylic signs, vinyl lettering, ACP signboards, nameplates and window graphics with custom design and fast turnaround.">
+    <meta name="keywords" content="2D signs, flat signs, acrylic signs, vinyl lettering, ACP signboards, nameplates, window graphics, business signage Nairobi">
     <meta name="robots" content="index, follow">
-    <title>Custom Printing - Bespoke Printing Solutions | BendMark</title>
+    <title>2D Signs - Professional Flat Signage | BendMark</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Lucide: primary CDN, with a backup CDN if the first one fails -->
@@ -124,6 +124,65 @@
       .lg-product-cat{ font-family:'Montserrat',sans-serif; font-size:0.72rem; color: var(--lg-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.03em; }
       .lg-product-body h3{ font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:700; color: var(--text-dark); margin:0; }
       .lg-product-body p{ font-family:'Montserrat',sans-serif; font-size:0.82rem; color: var(--lg-muted); line-height:1.45; margin:0; flex:1; }
+      .lg-product-card{ cursor: zoom-in; }
+
+      /* ============================================
+         PRODUCT QUICK-VIEW MODAL
+         Click a product card to have it rise up and zoom
+         into an enlarged, readable view.
+         ============================================ */
+      .lg-product-modal-overlay{
+        position: fixed; inset: 0; z-index: 1000;
+        background: rgba(15,23,42,0.6);
+        backdrop-filter: blur(3px);
+        display: flex; align-items: center; justify-content: center;
+        padding: 2rem 1.25rem;
+        opacity: 0; visibility: hidden;
+        transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+      }
+      .lg-product-modal-overlay.active{
+        opacity: 1; visibility: visible;
+        transition: opacity 0.25s ease, visibility 0s linear 0s;
+      }
+      .lg-product-modal{
+        background:#fff; border-radius: 16px; overflow: hidden;
+        max-width: 760px; width: 100%; max-height: 88vh;
+        display: grid; grid-template-columns: 1.1fr 1fr;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+        transform: scale(0.85) translateY(16px);
+        opacity: 0;
+        transition: transform 0.3s cubic-bezier(.2,.9,.3,1.2), opacity 0.25s ease;
+      }
+      .lg-product-modal-overlay.active .lg-product-modal{
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+      .lg-product-modal-media{
+        position: relative; background: linear-gradient(135deg,#f0f4ff 0%,#e8f7f7 100%);
+        display:flex; align-items:center; justify-content:center;
+        min-height: 260px; overflow: hidden;
+      }
+      .lg-product-modal-media img{ width:100%; height:100%; object-fit: cover; display:block; }
+      .lg-product-modal-media .lg-icon-big{ width:64px; height:64px; color: var(--brand-blue); opacity:0.7; }
+      .lg-product-modal-body{ padding: 1.75rem 1.75rem 1.5rem; display:flex; flex-direction:column; gap:0.6rem; overflow-y:auto; }
+      .lg-product-modal-cat{ font-family:'Montserrat',sans-serif; font-size:0.75rem; color: var(--brand-blue); font-weight:700; text-transform:uppercase; letter-spacing:0.04em; }
+      .lg-product-modal-body h3{ font-family:'Montserrat',sans-serif; font-size:1.4rem; font-weight:700; color: var(--text-dark); margin:0; }
+      .lg-product-modal-body p{ font-family:'Montserrat',sans-serif; font-size:0.95rem; color: var(--lg-muted); line-height:1.6; margin:0; }
+      .lg-product-modal-close{
+        position: absolute; top: 0.75rem; right: 0.75rem; z-index: 2;
+        width: 36px; height: 36px; border-radius:50%;
+        background: rgba(255,255,255,0.92); border: none; cursor: pointer;
+        display:flex; align-items:center; justify-content:center;
+        color: var(--text-dark); box-shadow: var(--shadow);
+        transition: transform 0.15s ease;
+      }
+      .lg-product-modal-close:hover{ transform: scale(1.08); }
+      .lg-product-modal-close .lg-icon{ width:18px; height:18px; }
+
+      @media (max-width: 640px){
+        .lg-product-modal{ grid-template-columns: 1fr; max-height: 92vh; }
+        .lg-product-modal-media{ min-height: 200px; }
+      }
 
       .lg-process{ background: var(--light-bg); padding:3rem 1.5rem; margin:3rem 0; }
       .lg-process-inner{ max-width:1280px; margin:0 auto; }
@@ -190,7 +249,7 @@
           <a href="../index.html#location"><i data-lucide="map-pin" class="lg-icon"></i> 15 Kweria Road, Nairobi</a>
           <a href="mailto:bendmarkdesignandsuppliersltd@gmail.com"><i data-lucide="mail" class="lg-icon"></i> bendmarkdesignandsuppliersltd@gmail.com</a>
         </div>
-        <div class="lg-utility-right"><i data-lucide="clock" class="lg-icon"></i> Mon&ndash;Fri 9am&ndash;9pm &middot; Sat 10am&ndash;4pm</div>
+        <div class="lg-utility-right"><i data-lucide="clock" class="lg-icon"></i> Mon–Fri 9am–9pm · Sat 10am–4pm</div>
       </div>
     </div>
 
@@ -213,7 +272,7 @@
                         <a href="posters.html">Posters</a>
                         <a href="banners.html">Banners & Signage</a>
                         <a href="election-materials.html">Election Materials</a>
-                        <a href="launchsigns.html">Launch Plaques</a>
+                        <a href="launchsigns.html">Launch Signs</a>
                         <a href="engraving.html">Engraving</a>
                         <a href="cnc-cutting.html">CNC Cutting</a>
                         <a href="custom-printing.html">Custom Printing</a>
@@ -227,99 +286,93 @@
             </div>
         </div>
     </header>
-    
 
-
+    <!-- Breadcrumb -->
     <div class="lg-breadcrumb-bar">
       <div class="lg-breadcrumb">
         <a href="../index.html">Home</a>
         <i data-lucide="chevron-right" class="lg-icon"></i>
         <a href="../index.html#services">Services</a>
         <i data-lucide="chevron-right" class="lg-icon"></i>
-        <span style="color:var(--text-dark);font-weight:600;">Custom Printing</span>
+        <span style="color:var(--text-dark);font-weight:600;">2D Signs</span>
       </div>
     </div>
 
     <section class="lg-product-page">
 
+      <!-- PRODUCT HERO: Gallery + Info -->
       <div class="lg-product-hero">
         <div class="lg-gallery">
-          <div class="lg-gallery-main " id="galleryMain">
-            <img src="../images/customprinting/1.jpeg " alt="Custom Printing" onerror="this.style.display='none'; this.parentElement.classList.add('lg-no-img');">
-            <div class="lg-gallery-fallback"><i data-lucide="wand-2"></i></div>
-            <span class="lg-gallery-badge">Bespoke</span>
+          <div class="lg-gallery-main" id="galleryMain">
+            <img src="../images/2d/2d-main.jpeg" alt="2D Signs" onerror="this.style.display='none'; this.parentElement.classList.add('lg-no-img');">
+            <div class="lg-gallery-fallback"><i data-lucide="square"></i></div>
+            <span class="lg-gallery-badge">Popular</span>
           </div>
           <div class="lg-gallery-thumbs">
-            <div class="lg-gallery-thumb active" data-full="../images/customprinting/3dmugsprinting.png "><img src="../images/customprinting/3dmugsprinting.png" alt="Thumbnail 1" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=wand-2></i>'; if(window.lucide) lucide.createIcons();"></div>
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/fabric.jpg"><img src="../images/customprinting/fabric.jpg" alt="Thumbnail 2" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=layers></i>'; if(window.lucide) lucide.createIcons();"></div>
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/plastic.jpg"><img src="../images/customprinting/plastic.jpg" alt="Thumbnail 3" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=palette></i>'; if(window.lucide) lucide.createIcons();"></div>
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/Vinyl.webp"><img src="../images/customprinting/Vinyl.webp" alt="Thumbnail 4" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=settings-2></i>'; if(window.lucide) lucide.createIcons();"></div>
-
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/3dmugsprinting.png"><img src="../images/customprinting/3dmugsprinting.png" alt="Thumbnail 1" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=file-text></i>'; if(window.lucide) lucide.createIcons();"></div>
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/Accrylicsafetysign.jpeg"><img src="../images/customprinting/Accrylicsafetysign.jpeg" alt="Thumbnail 2" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=book-open></i>'; if(window.lucide) lucide.createIcons();"></div>
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/aluminiumengraving3.jpeg"><img src="../images/customprinting/aluminiumengraving3.jpeg" alt="Thumbnail 3" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=bar-chart-3></i>'; if(window.lucide) lucide.createIcons();"></div>
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/document6.jpeg"><img src="../images/customprinting/document6.jpeg" alt="Thumbnail 4" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=building-2></i>'; if(window.lucide) lucide.createIcons();"></div>
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/fabric.jpg"><img src="../images/customprinting/fabric.jpg" alt="Thumbnail 1" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=file-text></i>'; if(window.lucide) lucide.createIcons();"></div>
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/plastic.jpg"><img src="../images/customprinting/plastic.jpg" alt="Thumbnail 2" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=book-open></i>'; if(window.lucide) lucide.createIcons();"></div>
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/1.jpeg"><img src="../images/customprinting/1.jpeg" alt="Thumbnail 3" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=bar-chart-3></i>'; if(window.lucide) lucide.createIcons();"></div>
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/wooden.jpeg"><img src="../images/customprinting/wooden.jpeg" alt="Thumbnail 4" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=building-2></i>'; if(window.lucide) lucide.createIcons();"></div>
-            <div class="lg-gallery-thumb" data-full="../images/customprinting/Vinyl.webp"><img src="../images/customprinting/Vinyl.webp" alt="Thumbnail 1" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=file-text></i>'; if(window.lucide) lucide.createIcons();"></div>
-           
+            <div class="lg-gallery-thumb active" data-full="../images/2d/acrylic-sign.jpeg"><img src="../images/2d/acrylic-sign.jpeg" alt="2D Sign thumbnail 1" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=square></i>'; if(window.lucide) lucide.createIcons();"></div>
+            <div class="lg-gallery-thumb" data-full="../images/2d/vinyl-lettering.jpeg"><img src="../images/2d/vinyl-lettering.jpeg" alt="2D Sign thumbnail 2" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=type></i>'; if(window.lucide) lucide.createIcons();"></div>
+            <div class="lg-gallery-thumb" data-full="../images/2d/acp-signboard.jpeg"><img src="../images/2d/acp-signboard.jpeg" alt="2D Sign thumbnail 3" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=panel-top></i>'; if(window.lucide) lucide.createIcons();"></div>
+            <div class="lg-gallery-thumb" data-full="../images/2d/nameplate.jpeg"><img src="../images/2d/nameplate.jpeg" alt="2D Sign thumbnail 4" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=door-open></i>'; if(window.lucide) lucide.createIcons();"></div>
+            <div class="lg-gallery-thumb" data-full="../images/2d/window-graphics.jpeg"><img src="../images/2d/window-graphics.jpeg" alt="2D Sign thumbnail 5" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=layout-grid></i>'; if(window.lucide) lucide.createIcons();"></div>
+            <div class="lg-gallery-thumb" data-full="../images/2d/flatcut-letters.jpeg"><img src="../images/2d/flatcut-letters.jpeg" alt="2D Sign thumbnail 6" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=case-sensitive></i>'; if(window.lucide) lucide.createIcons();"></div>
+            <div class="lg-gallery-thumb" data-full="../images/2d/wayfinding.jpeg"><img src="../images/2d/wayfinding.jpeg" alt="2D Sign thumbnail 7" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=signpost></i>'; if(window.lucide) lucide.createIcons();"></div>
+            <div class="lg-gallery-thumb" data-full="../images/2d/storefront.jpeg"><img src="../images/2d/storefront.jpeg" alt="2D Sign thumbnail 8" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=store></i>'; if(window.lucide) lucide.createIcons();"></div>
           </div>
         </div>
 
         <div class="lg-product-info">
-          <span class="lg-product-category-tag"><i data-lucide="wand-2" class="lg-icon"></i> Custom Printing</span>
-          <h1>Custom Printing</h1>
+          <span class="lg-product-category-tag"><i data-lucide="square" class="lg-icon"></i> 2D Signs</span>
+          <h1>2D Signs</h1>
           <div class="lg-product-rating">
             <div class="lg-stars">
               <i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i>
               <i data-lucide="star" class="lg-icon"></i><i data-lucide="star" class="lg-icon"></i>
               <i data-lucide="star" class="lg-icon"></i>
             </div>
-            <span>4.9 &middot; 120+ businesses served</span>
+            <span>4.9 · 120+ businesses served</span>
           </div>
-          <p class="lg-product-short">Bespoke printing solutions tailored to your unique requirements and specifications &mdash; we work with you to design and produce exactly what you envision, from concept to final delivery.</p>
+          <p class="lg-product-short">Clean, professional flat signage that delivers your message clearly and affordably. Our 2D signs are versatile, quick to produce and built to last — perfect for offices, shopfronts, institutions and outdoor branding.</p>
 
           <div class="lg-product-features">
-            <span class="lg-feature-pill"><i data-lucide="wand-2" class="lg-icon"></i> Unlimited customisation</span>
-            <span class="lg-feature-pill"><i data-lucide="layers" class="lg-icon"></i> Any material</span>
-            <span class="lg-feature-pill"><i data-lucide="users" class="lg-icon"></i> Expert consultation</span>
-            <span class="lg-feature-pill"><i data-lucide="sparkles" class="lg-icon"></i> Special finishes</span>
+            <span class="lg-feature-pill"><i data-lucide="eye" class="lg-icon"></i> Sharp, clear graphics</span>
+            <span class="lg-feature-pill"><i data-lucide="shield-check" class="lg-icon"></i> Weather-resistant</span>
+            <span class="lg-feature-pill"><i data-lucide="ruler" class="lg-icon"></i> Custom sizing</span>
+            <span class="lg-feature-pill"><i data-lucide="wallet" class="lg-icon"></i> Budget-friendly</span>
           </div>
 
           <div class="lg-quote-box">
             <div class="lg-quote-label">Pricing</div>
             <div class="lg-quote-value">Custom Quote</div>
-            <div class="lg-quote-note">Every custom job is priced to your exact material, finish, and quantity. Call or WhatsApp us for a free, no-obligation quote &mdash; we respond within the hour.</div>
+            <div class="lg-quote-note">Every 2D sign is priced to your exact size, material, and finish. Call or WhatsApp us for a free, no-obligation quote — we respond within the hour.</div>
           </div>
 
           <div class="lg-product-actions">
             <a href="tel:+254702444491" class="lg-btn-primary"><i data-lucide="phone-call" class="lg-icon"></i> Call for Quote</a>
-            <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%20Custom%20Printing%20services" target="_blank" rel="noopener" class="lg-btn-secondary"><i data-lucide="message-circle" class="lg-icon"></i> WhatsApp</a>
+            <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%202D%20Signs" target="_blank" rel="noopener" class="lg-btn-secondary"><i data-lucide="message-circle" class="lg-icon"></i> WhatsApp</a>
           </div>
 
           <div class="lg-quick-info">
             <div class="lg-quick-info-item">
               <div class="lg-icon-wrap"><i data-lucide="clock-4" class="lg-icon"></i></div>
-              <div><strong>Turnaround</strong><span>2&ndash;4 weeks average (scope-dependent)</span></div>
+              <div><strong>Turnaround</strong><span>3–7 days average (rush available)</span></div>
             </div>
             <div class="lg-quick-info-item">
               <div class="lg-icon-wrap"><i data-lucide="layers" class="lg-icon"></i></div>
-              <div><strong>Materials</strong><span>Paper &middot; Fabric &middot; Plastic &middot; Metal &middot; Wood</span></div>
+              <div><strong>Materials</strong><span>Acrylic · ACP/Dibond · PVC · Vinyl</span></div>
             </div>
             <div class="lg-quick-info-item">
-              <div class="lg-icon-wrap"><i data-lucide="users" class="lg-icon"></i></div>
-              <div><strong>Support</strong><span>Dedicated project manager</span></div>
+              <div class="lg-icon-wrap"><i data-lucide="hammer" class="lg-icon"></i></div>
+              <div><strong>Installation</strong><span>Professional on-site installation available</span></div>
             </div>
             <div class="lg-quick-info-item">
               <div class="lg-icon-wrap"><i data-lucide="badge-check" class="lg-icon"></i></div>
-              <div><strong>Warranty</strong><span>Workmanship guarantee</span></div>
+              <div><strong>Warranty</strong><span>Workmanship guarantee on all builds</span></div>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- TABS -->
       <div class="lg-tabs">
         <div class="lg-tab-nav">
           <button class="lg-tab-btn active" data-tab="description"><i data-lucide="file-text" class="lg-icon"></i> Description</button>
@@ -329,159 +382,170 @@
         </div>
 
         <div class="lg-tab-panel active" data-panel="description">
-          <h2>About our Custom Printing</h2>
-          <p>Bespoke printing solutions tailored to your unique requirements and specifications. We work with you to design and produce exactly what you envision, from concept to final delivery.</p>
-          <p>With unlimited customisation options, premium materials, and expert craftsmanship, we bring your ideas to life. Whether you need promotional materials, specialty packaging, or unique branded items, our team delivers exceptional results.</p>
+          <h2>About our 2D Signs</h2>
+          <p>Clean, professional flat signage that communicates your message clearly and affordably. Our 2D signs are versatile and fast to produce, making them a smart choice for offices, shopfronts, institutions, and outdoor branding.</p>
+          <p>From acrylic and ACP signboards to vinyl lettering and window graphics, we use premium materials and sharp, full-colour printing or precision cutting. Built to withstand the weather while keeping your branding crisp for years to come.</p>
         </div>
 
         <div class="lg-tab-panel" data-panel="features">
           <h2>Features &amp; Benefits</h2>
           <ul>
-            <li>Unlimited customisation options</li>
-            <li>Expert design consultation</li>
-            <li>Any size, shape, or format</li>
-            <li>Multiple printing techniques</li>
-            <li>Premium materials selection</li>
-            <li>Special finishes available</li>
-            <li>Dedicated project manager</li>
+            <li>Sharp, clear and professional finish</li>
+            <li>Durable, weather-resistant materials</li>
+            <li>Custom sizing, colours and finishes</li>
+            <li>Fast turnaround compared to dimensional signage</li>
+            <li>Budget-friendly for any project size</li>
+            <li>Professional installation support</li>
+            <li>Excellent for offices, storefronts &amp; institutions</li>
           </ul>
         </div>
 
         <div class="lg-tab-panel" data-panel="timeline">
           <h2>Production Timeline</h2>
           <ul>
-            <li><strong>Consultation:</strong> 1&ndash;2 business days</li>
-            <li><strong>Design Concept:</strong> 3&ndash;5 business days</li>
-            <li><strong>Refinement:</strong> 2&ndash;3 business days</li>
-            <li><strong>Production:</strong> 5&ndash;15 business days</li>
-            <li><strong>Total Average Time:</strong> 2&ndash;4 weeks</li>
+            <li><strong>Design Phase:</strong> 1–2 business days</li>
+            <li><strong>Production:</strong> 2–5 business days</li>
+            <li><strong>Installation:</strong> 1 business day</li>
+            <li><strong>Rush Orders:</strong> Available (additional fees apply)</li>
+            <li><strong>Total Average Time:</strong> 3–7 days</li>
           </ul>
         </div>
 
         <div class="lg-tab-panel" data-panel="process">
           <h2>Our Design Process</h2>
-          <p>Bespoke work needs a bespoke process &mdash; here's how a custom project runs with us:</p>
+          <p>Our expert design team will work with you to create the perfect 2D sign:</p>
           <ul>
-            <li><strong>Consultation:</strong> Discuss vision, materials, and budget</li>
-            <li><strong>Concept Design:</strong> Initial mockups and material samples</li>
-            <li><strong>Refinement:</strong> Revisions until every detail is right</li>
-            <li><strong>Final Approval:</strong> Sign-off before production</li>
-            <li><strong>Quality Control:</strong> Rigorous testing and inspection</li>
-            <li><strong>Delivery &amp; Installation:</strong> Professional handover at your location</li>
+            <li><strong>Consultation:</strong> Discuss your message, size and placement</li>
+            <li><strong>Artwork Design:</strong> Layouts, colours and typography drafted for you</li>
+            <li><strong>Proof Approval:</strong> Review and sign off before production</li>
+            <li><strong>Production:</strong> Precision printing and cutting in-house</li>
+            <li><strong>Quality Control:</strong> Careful inspection of every piece</li>
+            <li><strong>Delivery &amp; Installation:</strong> Professional setup at your location</li>
           </ul>
         </div>
       </div>
 
+      <!-- PRODUCT RANGE -->
       <div class="lg-section-heading">
-        <h2>What We Can Print On</h2>
-        <p>Any surface, any format &mdash; tailored to your project</p>
+        <h2>Our 2D Sign Products</h2>
+        <p>Choose from our full range of flat signage solutions</p>
       </div>
 
       <div class="lg-product-grid">
-        <div class="lg-product-card">
-          <div class="lg-product-media"><img src="../images/cnc/cardstockprinting.webp" alt="Paper &amp; Cardstock" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=file-text class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
+        <div class="lg-product-card" data-cat="3d signs">
+          <div class="lg-product-media"><img src="../images/2d/acrylic-sign.jpeg" alt="Flat Acrylic Signs" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=square class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
-            <span class="lg-product-cat">Paper</span>
-            <h3>Paper &amp; Cardstock</h3>
-            <p>Any weight, finish, or quality &mdash; from lightweight flyers to heavyweight premium cardstock.</p>
+            <span class="lg-product-cat">Acrylic</span>
+            <h3>Flat Acrylic Signs</h3>
+            <p>Crisp, glossy flat acrylic signs with printed or cut graphics. A clean, modern look for reception areas, offices and shopfronts.</p>
           </div>
         </div>
-        <div class="lg-product-card">
-          <div class="lg-product-media"><img src="../images/customprinting/fabric.jpg" alt="Fabric" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=shirt class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
-          <div class="lg-product-body">
-            <span class="lg-product-cat">Textile</span>
-            <h3>Fabric</h3>
-            <p>Cotton, canvas, silk, and specialty textiles for apparel, banners, and soft branding.</p>
-          </div>
-        </div>
-        <div class="lg-product-card">
-          <div class="lg-product-media"><img src="../images/customprinting/plastic.jpg" alt="Plastics" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=layers class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
-          <div class="lg-product-body">
-            <span class="lg-product-cat">Plastics</span>
-            <h3>Plastics</h3>
-            <p>Acrylic, PVC, and polycarbonate for signage, displays, and durable applications.</p>
-          </div>
-        </div>
-        <div class="lg-product-card">
-          <div class="lg-product-media"><img src="../images/launch/merchadise.webp" alt="Branded Launch Merchandise" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=gift class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
-          <div class="lg-product-body">
-            <span class="lg-product-cat">Merchandise</span>
-            <h3>Branded Launch Merchandise</h3>
-            <p>Pens, tote bags, T-shirts, caps, and notepads to turn attendees into walking brand ambassadors.</p>
-          </div>
-        </div>
-        <div class="lg-product-card">
-          <div class="lg-product-media"><img src="../images/metalengraving.jpeg" alt="Metal" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=hammer class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
-          <div class="lg-product-body">
-            <span class="lg-product-cat">Metal</span>
-            <h3>Metal</h3>
-            <p>Aluminium, steel, and copper for nameplates, industrial tags, and premium finishes.</p>
-          </div>
-        </div>
-        <div class="lg-product-card">
-          <div class="lg-product-media"><img src="../images/wooden.jpeg" alt="Wood" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=trees class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
-          <div class="lg-product-body">
-            <span class="lg-product-cat">Wood</span>
-            <h3>Wood</h3>
-            <p>Custom wood signage and plaques with a natural, premium finish.</p>
-          </div>
-        </div>
-        <div class="lg-product-card">
-          <div class="lg-product-media"><img src="../images/customprinting/Vinyl.webp" alt="Vinyl" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=sticker class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
+        <div class="lg-product-card" data-cat="3d signs">
+          <div class="lg-product-media"><img src="../images/2d/vinyl-lettering.jpeg" alt="Vinyl Cut Lettering" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=type class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
             <span class="lg-product-cat">Vinyl</span>
-            <h3>Vinyl</h3>
-            <p>Self-adhesive and ground-applied vinyl for stickers, wraps, and floor graphics.</p>
+            <h3>Vinyl Cut Lettering</h3>
+            <p>Precision-cut self-adhesive vinyl letters and logos for walls, doors, vehicles and glass. Available in a wide range of colours and finishes.</p>
           </div>
         </div>
-        <div class="lg-product-card">
-          <div class="lg-product-media"><img src="../images/customprinting/3dmugsprinting.png" alt="3D Objects" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=gift class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
+        <div class="lg-product-card" data-cat="3d signs">
+          <div class="lg-product-media"><img src="../images/2d/acp-signboard.jpeg" alt="ACP &amp; Dibond Signboards" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=panel-top class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
-            <span class="lg-product-cat">Promotions</span>
-            <h3>Promotional Materials</h3>
-            <p>Mugs, pens, hats, and promotional items branded with your logo and colours.</p>
+            <span class="lg-product-cat">Panel</span>
+            <h3>ACP &amp; Dibond Signboards</h3>
+            <p>Rigid, weather-proof aluminium composite signboards with full-colour printing. Ideal for building fascias and outdoor branding.</p>
           </div>
         </div>
-        <div class="lg-product-card">
-          <div class="lg-product-media"><img src="../images/vehiclebranding.png" alt="Vehicle Branding" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=car class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
+        <div class="lg-product-card" data-cat="3d signs">
+          <div class="lg-product-media"><img src="../images/2d/nameplate.jpeg" alt="Nameplates &amp; Door Signs" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=door-open class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
           <div class="lg-product-body">
-            <span class="lg-product-cat">Fleet</span>
-            <h3>Vehicle Branding</h3>
-            <p>Vehicle wraps and dimensional lettering that transform your fleet into mobile billboards. Built for speed and weather.</p>
+            <span class="lg-product-cat">Office</span>
+            <h3>Nameplates &amp; Door Signs</h3>
+            <p>Professional desk nameplates, door plates and directory signs for offices, clinics and institutions. Custom sizes and finishes.</p>
+          </div>
+        </div>
+        <div class="lg-product-card" data-cat="3d signs">
+          <div class="lg-product-media"><img src="../images/2d/window-graphics.jpeg" alt="Window &amp; Glass Graphics" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=layout-grid class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
+          <div class="lg-product-body">
+            <span class="lg-product-cat">Glass</span>
+            <h3>Window &amp; Glass Graphics</h3>
+            <p>Frosted, perforated and printed window films that brand your glass while keeping light flowing and privacy in place.</p>
+          </div>
+        </div>
+        <div class="lg-product-card" data-cat="3d signs">
+          <div class="lg-product-media"><img src="../images/2d/flatcut-letters.jpeg" alt="Flat-Cut Letters &amp; Logos" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=case-sensitive class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
+          <div class="lg-product-body">
+            <span class="lg-product-cat">Cut Letters</span>
+            <h3>Flat-Cut Letters &amp; Logos</h3>
+            <p>Clean flat-cut PVC and acrylic letters and logos in any font and colour, mounted flush to your wall or board.</p>
+          </div>
+        </div>
+        <div class="lg-product-card" data-cat="3d signs">
+          <div class="lg-product-media"><img src="../images/2d/wayfinding.jpeg" alt="Wayfinding &amp; Directional" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=signpost class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
+          <div class="lg-product-body">
+            <span class="lg-product-cat">Wayfinding</span>
+            <h3>Wayfinding &amp; Directional</h3>
+            <p>Clear flat directional signs for offices, hospitals, estates and shopping centres that help visitors find their way.</p>
+          </div>
+        </div>
+        <div class="lg-product-card" data-cat="3d signs">
+          <div class="lg-product-media"><img src="../images/2d/storefront.jpeg" alt="Storefront Fascia Boards" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=store class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
+          <div class="lg-product-body">
+            <span class="lg-product-cat">Storefront</span>
+            <h3>Storefront Fascia Boards</h3>
+            <p>Full-width flat fascia signboards that give retail and commercial storefronts a bold, professional first impression.</p>
+          </div>
+        </div>
+        <div class="lg-product-card" data-cat="3d signs">
+          <div class="lg-product-media"><img src="../images/2d/safety.jpeg" alt="Safety &amp; Notice Signs" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=shield-alert class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
+          <div class="lg-product-body">
+            <span class="lg-product-cat">Safety</span>
+            <h3>Safety &amp; Notice Signs</h3>
+            <p>Compliant flat safety, warning and notice signs in durable materials. High-contrast designs that get critical messages across.</p>
+          </div>
+        </div>
+        <div class="lg-product-card" data-cat="3d signs">
+          <div class="lg-product-media"><img src="../images/2d/promotional.jpeg" alt="Promotional Boards &amp; A-Frames" onerror="this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=megaphone class=lg-icon-big></i>'; if(window.lucide) lucide.createIcons();"></div>
+          <div class="lg-product-body">
+            <span class="lg-product-cat">Promotional</span>
+            <h3>Promotional Boards &amp; A-Frames</h3>
+            <p>Foam board, PVC and A-frame promotional signs for sales, events and shopfront campaigns. Lightweight and easy to move.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PROCESS -->
     <section class="lg-process">
       <div class="lg-process-inner">
         <div class="lg-section-heading">
           <h2>How We Work</h2>
-          <p>From your first call to final delivery &mdash; a simple, transparent process</p>
+          <p>From your first call to the final install — a simple, transparent process</p>
         </div>
         <div class="lg-process-grid">
-          <div class="lg-process-step"><span class="lg-process-num">1</span><h4>Consultation</h4><p>Discuss vision, materials, and budget</p></div>
-          <div class="lg-process-step"><span class="lg-process-num">2</span><h4>Concept Design</h4><p>Initial mockups and material samples</p></div>
-          <div class="lg-process-step"><span class="lg-process-num">3</span><h4>Refinement</h4><p>Revisions until every detail is right</p></div>
-          <div class="lg-process-step"><span class="lg-process-num">4</span><h4>Final Approval</h4><p>Sign-off before production begins</p></div>
-          <div class="lg-process-step"><span class="lg-process-num">5</span><h4>Quality Control</h4><p>Rigorous testing and inspection</p></div>
-          <div class="lg-process-step"><span class="lg-process-num">6</span><h4>Delivery &amp; Install</h4><p>Professional handover at your location</p></div>
+          <div class="lg-process-step"><span class="lg-process-num">1</span><h4>Consultation</h4><p>Discuss your message, sizes, materials, and placement.</p></div>
+          <div class="lg-process-step"><span class="lg-process-num">2</span><h4>Artwork Design</h4><p>Our designers prepare layouts and mockups for your approval.</p></div>
+          <div class="lg-process-step"><span class="lg-process-num">3</span><h4>Proof Approval</h4><p>You sign off on the final artwork before we begin. No surprises.</p></div>
+          <div class="lg-process-step"><span class="lg-process-num">4</span><h4>Production</h4><p>Precision printing and cutting done in-house on quality materials.</p></div>
+          <div class="lg-process-step"><span class="lg-process-num">5</span><h4>Quality Control</h4><p>Careful inspection of every sign before it leaves our workshop.</p></div>
+          <div class="lg-process-step"><span class="lg-process-num">6</span><h4>Delivery &amp; Install</h4><p>Professional setup at your location by our own crew.</p></div>
         </div>
       </div>
     </section>
 
+    <!-- CTA -->
     <section class="lg-cta-banner">
       <div class="lg-cta-banner-inner">
         <div style="display:flex; align-items:center; gap:1.25rem;">
           <div class="lg-cta-banner-icon"><i data-lucide="message-square-text" class="lg-icon"></i></div>
           <div>
             <h2>Ready to get started?</h2>
-            <p>Call or text us today for a free quote on your custom printing project.</p>
+            <p>Call or text us today for a free quote on your 2D sign project.</p>
           </div>
         </div>
         <div class="lg-cta-actions">
           <a href="tel:+254702444491" class="lg-btn-primary"><i data-lucide="phone" class="lg-icon"></i> Call or Text</a>
-          <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%20Custom%20Printing%20services" target="_blank" rel="noopener" class="lg-btn-secondary"><i data-lucide="message-circle" class="lg-icon"></i> WhatsApp</a>
+          <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%202D%20Signs" target="_blank" rel="noopener" class="lg-btn-secondary"><i data-lucide="message-circle" class="lg-icon"></i> WhatsApp</a>
         </div>
       </div>
     </section>
@@ -490,7 +554,7 @@
       <div class="lg-footer-inner">
         <div>
           <div class="lg-footer-brand"><img src="../newimages/LOGO.png" alt="BendMark Logo"><span>BendMark</span></div>
-          <p>Nairobi's specialist for 3D signs, road &amp; construction signage, printing, engraving, and custom branding &mdash; designed and produced in-house.</p>
+          <p>Nairobi's specialist for 2D &amp; 3D signs, road &amp; construction signage, printing, engraving, and custom branding — designed and produced in-house.</p>
           <div class="lg-footer-social">
             <a href="https://facebook.com/bendmark" title="Facebook"><i data-lucide="facebook" class="lg-icon"></i></a>
             <a href="https://x.com/muirurilawrenc1" title="Twitter / X"><i data-lucide="twitter" class="lg-icon"></i></a>
@@ -511,6 +575,7 @@
           <h4>Services</h4>
           <ul class="lg-footer-list">
             <li><a href="3d-signs.html">3D Signs</a></li>
+            <li><a href="2d-signs.html">2D Signs</a></li>
             <li><a href="road-signs.html">Road Signs</a></li>
             <li><a href="construction-signs.html">Construction Signs</a></li>
             <li><a href="banners.html">Banners &amp; Signage</a></li>
@@ -533,22 +598,31 @@
       </div>
     </footer>
 
-    <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%20Custom%20Printing%20services" target="_blank" rel="noopener noreferrer" class="whatsapp-widget">
+    <a href="https://wa.me/254702444491?text=Hello%20BendMark%2C%20I%20would%20like%20to%20inquire%20about%20your%202D%20Signs" target="_blank" rel="noopener noreferrer" class="whatsapp-widget">
         <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
         <div class="whatsapp-button"><i data-lucide="message-circle" style="width:26px;height:26px;color:#fff;"></i></div>
     </a>
 
     <script>
-  /* 1. Lucide icons — guarded so a slow/failed CDN never breaks tabs, nav, etc. */
+  /* ─────────────────────────────────────────────────────────────
+     1. Lucide icons — guarded so a slow/failed CDN never breaks
+        the rest of this script (tabs, nav, gallery, etc.)
+     ───────────────────────────────────────────────────────────── */
   function initLucide(){
     if (window.lucide && typeof window.lucide.createIcons === 'function') {
       window.lucide.createIcons();
     } else {
+      // CDN not ready yet — retry shortly
       setTimeout(initLucide, 200);
     }
   }
 
-  /* 2. Nav toggle (mobile) */
+  /* ─────────────────────────────────────────────────────────────
+     2. All interactive behaviour — attached BEFORE icon init so
+        tabs and nav work even if Lucide never loads.
+     ───────────────────────────────────────────────────────────── */
+
+  // Nav toggle (mobile)
   var navToggle = document.querySelector('.nav-toggle');
   var mainNav   = document.querySelector('nav');
   if (navToggle && mainNav) {
@@ -557,8 +631,8 @@
     });
   }
 
-  /* 3. Services dropdown */
-  var navDropdown  = document.querySelector('.nav-dropdown');
+  // Services dropdown
+  var navDropdown = document.querySelector('.nav-dropdown');
   var dropdownMenu = document.querySelector('.dropdown-menu');
   var servicesLink = document.querySelector('.nav-dropdown > a');
   if (servicesLink && dropdownMenu) {
@@ -576,21 +650,24 @@
     });
   }
 
-  /* 4. Tabs — Description / Features / Timeline / Process */
+  // TABS — Description / Features / Timeline / Process
   var tabButtons = document.querySelectorAll('.lg-tab-btn');
   var tabPanels  = document.querySelectorAll('.lg-tab-panel');
+
   tabButtons.forEach(function(btn){
     btn.addEventListener('click', function(){
       var target = btn.getAttribute('data-tab');
+
       tabButtons.forEach(function(b){ b.classList.remove('active'); });
       tabPanels.forEach(function(p){ p.classList.remove('active'); });
+
       btn.classList.add('active');
       var panel = document.querySelector('.lg-tab-panel[data-panel="' + target + '"]');
       if (panel) panel.classList.add('active');
     });
   });
 
-  /* 5. Gallery thumbnail switching */
+  // Gallery thumbnail switching
   document.querySelectorAll('.lg-gallery-thumb').forEach(function(t){
     t.addEventListener('click', function(){
       document.querySelectorAll('.lg-gallery-thumb').forEach(function(x){
@@ -601,11 +678,10 @@
       var fullSrc = t.getAttribute('data-full');
       if (!fullSrc) return;
       var main = document.getElementById('galleryMain');
-      if (!main) return;
       var mainImg = main.querySelector('img');
       if (!mainImg) {
         mainImg = document.createElement('img');
-        mainImg.alt = 'Product image';
+        mainImg.alt = '2D Signs';
         main.insertBefore(mainImg, main.firstChild);
       }
       main.classList.remove('lg-no-img');
@@ -615,8 +691,91 @@
     });
   });
 
-  /* 6. Kick off icons last */
+  // Product card quick-view modal — click a card to have it rise/zoom
+  // into an enlarged, readable view of the image and description.
+  (function(){
+    var overlay = document.getElementById('lgProductModalOverlay');
+    if (!overlay) return;
+    var modalImgWrap = overlay.querySelector('.lg-product-modal-media');
+    var modalCat = overlay.querySelector('.lg-product-modal-cat');
+    var modalTitle = overlay.querySelector('.lg-product-modal-body h3');
+    var modalDesc = overlay.querySelector('.lg-product-modal-body p');
+    var closeBtn = overlay.querySelector('.lg-product-modal-close');
+    var lastFocused = null;
+
+    function openModal(card){
+      var img = card.querySelector('.lg-product-media img');
+      var cat = card.querySelector('.lg-product-cat');
+      var title = card.querySelector('h3');
+      var desc = card.querySelector('p');
+
+      modalImgWrap.innerHTML = '';
+      if (img && img.style.display !== 'none' && img.getAttribute('src')) {
+        var bigImg = document.createElement('img');
+        bigImg.src = img.getAttribute('src');
+        bigImg.alt = img.getAttribute('alt') || '';
+        modalImgWrap.appendChild(bigImg);
+      } else {
+        var fallback = card.querySelector('.lg-product-media .lg-icon-big, .lg-product-media i');
+        var iconName = fallback ? fallback.getAttribute('data-lucide') : 'image';
+        modalImgWrap.innerHTML = '<i data-lucide="' + (iconName || 'image') + '" class="lg-icon-big"></i>';
+        if (window.lucide) lucide.createIcons();
+      }
+
+      modalCat.textContent = cat ? cat.textContent : '';
+      modalTitle.textContent = title ? title.textContent : '';
+      modalDesc.textContent = desc ? desc.textContent : '';
+
+      lastFocused = document.activeElement;
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeModal(){
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.querySelectorAll('.lg-product-card').forEach(function(card){
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', 'View details');
+      card.addEventListener('click', function(){ openModal(card); });
+      card.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card); }
+      });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e){
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+    });
+  })();
+
+  /* ─────────────────────────────────────────────────────────────
+     3. Kick off icons last
+     ───────────────────────────────────────────────────────────── */
   initLucide();
 </script>
+
+<!-- Product quick-view modal (click a product card above to open) -->
+<div class="lg-product-modal-overlay" id="lgProductModalOverlay">
+  <div class="lg-product-modal" role="dialog" aria-modal="true" aria-label="Product details">
+    <button type="button" class="lg-product-modal-close" aria-label="Close">
+      <i data-lucide="x" class="lg-icon"></i>
+    </button>
+    <div class="lg-product-modal-media"></div>
+    <div class="lg-product-modal-body">
+      <span class="lg-product-modal-cat"></span>
+      <h3></h3>
+      <p></p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
