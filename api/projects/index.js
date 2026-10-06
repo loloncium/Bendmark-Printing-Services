@@ -1,3 +1,15 @@
+module.exports = async function handler(req, res) {
+    // 1. Paste the CORS headers here to unlock permissions for your portfolio grid
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Origin', 'https://bendmark.co.ke');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+    res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+
+    // 2. Clear out browser pre-flight checks safely
+    if (req.method === 'OPTIONS') {
+        res.status(200).end();
+        return;
+    }
 const { sql } = require('../../lib/db');
 const { requireAuth } = require('../../lib/requireAuth');
 
@@ -48,4 +60,5 @@ module.exports = async function handler(req, res) {
 
   res.setHeader('Allow', ['GET', 'POST']);
   res.status(405).end();
+}
 };
